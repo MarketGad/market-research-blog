@@ -6,7 +6,7 @@ class App extends React.Component {
     this.state = { apiresponse: "" }
   }
   callAPI() {
-    fetch("http://localhost:5000/test")
+    fetch("http://localhost:5000/")
       .then(res => res.text())
       .then(res => this.setState({ apiresponse: res }))
   }

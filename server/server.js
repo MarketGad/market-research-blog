@@ -1,20 +1,19 @@
 var createError = require('http-errors');
 var express = require('express');
-var path = require('path');
 var mongoose = require("mongoose");
 var cookieParser = require('cookie-parser');
 var cors = require('cors');
 
 //Database setup
-var url = process.env.DATABASEURL || "mongodb://localhost/BlogPage";
-mongoose.connect(url, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-});
+// var url = process.env.DATABASEURL || "mongodb://localhost/BlogPage";
+// mongoose.connect(url, {
+//   useUnifiedTopology: true,
+//   useNewUrlParser: true,
+// });
 
-mongoose.connection.on("connected", () => {
-  console.log("Connected to MongoDB");
-});
+// mongoose.connection.on("connected", () => {
+//   console.log("Connected to MongoDB");
+// });
 
 mongoose.connection.on("error", (error) => {
   console.log("Error: " + error);
@@ -26,15 +25,10 @@ var testroute = require('./routes/test');
 
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-
-// app.use(logger('dev'));
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/test', testroute);
@@ -55,4 +49,7 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+const port = 5000;
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
