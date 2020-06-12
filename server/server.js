@@ -1,29 +1,26 @@
-var createError = require('http-errors');
-var express = require('express');
-var mongoose = require("mongoose");
-var cookieParser = require('cookie-parser');
-var cors = require('cors');
+const createError = require('http-errors');
+const express = require('express');
+const mongoose = require("mongoose");
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const config = require('./config');
 
-//Database setup
-// var url = process.env.DATABASEURL || "mongodb://localhost/BlogPage";
-// mongoose.connect(url, {
-//   useUnifiedTopology: true,
-//   useNewUrlParser: true,
-// });
-
-// mongoose.connection.on("connected", () => {
-//   console.log("Connected to MongoDB");
-// });
-
-mongoose.connection.on("error", (error) => {
-  console.log("Error: " + error);
+const mongodburl = config.MONGODB_URL;
+mongoose.connect(mongodburl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true
+})
+.then(console.log(`Connected to MongoDB`))
+.catch(error => {
+  console.log(error);
 });
 
 
-var indexRouter = require('./routes/index');
-var testroute = require('./routes/test');
+const indexRouter = require('./routes/index');
+const testroute = require('./routes/test');
 
-var app = express();
+const app = express();
 
 app.use(express.json());
 app.use(cors());
