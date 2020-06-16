@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap');
+body {
+    margin: 0;
+    font-family: Montserrat;
+    background-image: url('back.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: 70% 70%;
+    display: flex;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tagline {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 1.4em;
+    font-family: Montserrat;
+    font-weight: 3000;
+    padding: 20px;
+}
+
+.joinus {
+    text-align: center;
+    color: white;
+}
+
+.subscribe {
+    margin-left: 50px;
+    text-align: center;
+    color: white;
+    margin-right: 20px;
+}
+
+.join {
+    text-align: center;
+    margin-top: 22%;
+}
+
+img {
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    margin-left: 50px;
+}
+
+.tag p {
+    margin: 0;
+    color: white;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        font-size: 0.5em;
+    }
+    .tagline {
+        margin-top: 0;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        background-position: 55% 50%;
+        overflow-y: scroll;
+    }
+    .tagline {
+        margin-top: 0;
+        font-size: 0.5em;
+    }
+    .tag p {
+        font-size: 1rem;
+    }
+    .join {
+        margin-top: 60%;
+    }
+    .logo {
+        margin: 0;
+        padding: 0;
+        ;
+    }
+    .subscribe {
+        margin: 15px;
+    }
+}
