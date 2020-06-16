@@ -1,4 +1,6 @@
 import React from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
+import EditorScreen from './screens/EditorScreen';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,10 +17,13 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="App">
-        <h1>Frontend</h1>
-        <p>{this.state.apiresponse}</p>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <h1>Hello World from App.js</h1>
+          <Route path="/editor" component={ EditorScreen } />
+          <p>{this.state.apiresponse}</p>
+        </div>
+      </BrowserRouter>
     );
   }
 }
