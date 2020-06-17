@@ -18,23 +18,26 @@ body {
     text-align: center;
     font-size: 1.4em;
     font-family: Montserrat;
-    font-weight: 3000;
     padding: 20px;
 }
 
 .joinus {
     text-align: center;
-    color: white;
+    color: black;
+    border-radius: 0.7rem;
 }
 
 .subscribe {
     margin-left: 50px;
     text-align: center;
-    color: white;
+    color: whitesmoke;
     margin-right: 20px;
+    border-radius: 0.7rem;
 }
 
 .join {
+    margin-left: 50px;
+    padding-top: 8rem;
     text-align: center;
     margin-top: 22%;
 }
@@ -85,4 +88,11 @@ img {
     .subscribe {
         margin: 15px;
     }
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
