@@ -1,8 +1,12 @@
-import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import Navbar from './components/Navbar';
+import About from './components/About';
+import Home from './components/Home';
+import Post from './components/Post';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import EditorScreen from './screens/EditorScreen';
 
-class App extends React.Component {
+class App extends Component {
   // constructor(props) {
   //   super(props);
   //   this.state = { apiresponse: "" }
@@ -19,8 +23,14 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <h1>Hello World from App.js</h1>
-          <Route path="/editor" component={EditorScreen} />
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/about' component={About} />
+            <Route path='/:post_id' component={Post} />
+            <Route path="/editor" component={EditorScreen} />
+          </Switch>
+
           {/* <p>{this.state.apiresponse}</p> */}
         </div>
       </BrowserRouter>
