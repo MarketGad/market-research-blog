@@ -53,7 +53,6 @@ class Navbar extends Component {
                 <List>
                     {['Start-ups', 'Industry', 'Technology', 'Social Entrepreneurship', 'Venture Hacks'].map((text, index) => (
                         <ListItem button key={text}>
-                            {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
@@ -62,7 +61,6 @@ class Navbar extends Component {
                 <List>
                     {['Subscribe', 'Search', 'Write'].map((text, index) => (
                         <ListItem button key={text}>
-                            {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
@@ -84,12 +82,11 @@ class Navbar extends Component {
                         </IconButton>
                         <Link className="brand-logo" exact to="/">Market gad</Link>
                         <ul className="right hide-on-med-and-down">
-                            <li><NavLink to="/about">Start-ups</NavLink></li>
-                            <li><NavLink to='/about'>Industry</NavLink></li>
-                            <li><NavLink to='/about'>Technology</NavLink></li>
-                            <li><NavLink to='/about'>Social Entrepreneurship</NavLink></li>
-                            <li style={{ paddingRight: "10em" }}><NavLink to='/about'>Venture Hacks</NavLink></li>
-                            <li><NavLink to='/about'></NavLink></li>
+                            <li><NavLink to="/startup">Start-ups</NavLink></li>
+                            <li><NavLink to='/industry'>Industry</NavLink></li>
+                            <li><NavLink to='/tech'>Technology</NavLink></li>
+                            <li><NavLink to='/social'>Social Entrepreneurship</NavLink></li>
+                            <li style={{ paddingRight: "10em" }}><NavLink to='/venture'>Venture Hacks</NavLink></li>
                             <li><NavLink to='/about'>Search</NavLink></li>
                             <li><NavLink to='/about'>Subscribe</NavLink></li>
                             <li><NavLink to='/about'>Write</NavLink></li>
