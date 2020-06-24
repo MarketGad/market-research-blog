@@ -9,7 +9,8 @@ import Venture from './components/VentureHack';
 import Startup from './components/Startup';
 import Industry from './components/Industry';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
-import EditorScreen from './screens/EditorScreen';
+import EditorScreen from './components/EditorScreen/EditorScreen';
+import './components/EditorScreen/EditorScreen.css';
 
 class App extends Component {
   // constructor(props) {
@@ -30,7 +31,8 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route exact activeClassBane="active" path='/' component={Home} />
+            <Route path='/editor' component={EditorScreen} />
             <Route path='/about' component={About} />
             <Route path='/startup' component={Startup} />
             <Route path='/tech' component={Tech} />
@@ -38,9 +40,7 @@ class App extends Component {
             <Route path='/industry' component={Industry} />
             <Route path='/social' component={Social} />
             <Route path='/:post_id' component={Post} />
-            <Route path="/editor" component={EditorScreen} />
           </Switch>
-
           {/* <p>{this.state.apiresponse}</p> */}
         </div>
       </BrowserRouter>

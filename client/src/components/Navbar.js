@@ -89,7 +89,7 @@ class Navbar extends Component {
                             <li style={{ paddingRight: "10em" }}><NavLink to='/venture'>Venture Hacks</NavLink></li>
                             <li><NavLink to='/about'>Search</NavLink></li>
                             <li><NavLink to='/about'>Subscribe</NavLink></li>
-                            <li><NavLink to='/about'>Write</NavLink></li>
+                            <li><NavLink to='/editor'>Write</NavLink></li>
                         </ul>
                     </div>
                 </nav>

@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap');
+body {
+    margin: 0;
+    font-family: Montserrat;
+    background-image: url('back.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: 70% 70%;
+    display: flex;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tagline {
+    margin-top: 2%;
+    text-align: center;
+    font-size: 1.4em;
+    font-family: Montserrat;
+    padding: 20px;
+}
+
+.subscribe {
+    text-align: center;
+    color: whitesmoke;
+    border-radius: 0.7rem;
+}
+
+.join {
+    margin-left: 50px;
+    padding-top: 17rem;
+    text-align: center;
+    margin-top: 12%;
+}
+
+img {
+    text-align: center;
+    width: 100px;
+    height: 100px;
+}
+
+.tag p {
+    margin: 0;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.coming {
+    margin: 20px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid rgba(240, 228, 228, 0.644);
+    border-radius: 10px;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    /* border: 1px solid #888; */
+    /* width: 80%; */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        font-size: 0.5em;
+    }
+    .tagline {
+        margin-top: 0;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        background-position: 55% 50%;
+        overflow-y: scroll;
+    }
+    .tagline {
+        margin-top: 0;
+        font-size: 0.5em;
+    }
+    .tag p {
+        font-size: 1rem;
+    }
+    .join {
+        margin-top: 60%;
+    }
+    .logo {
+        margin: 0;
+        padding: 0;
+    }
+    .subscribe {
+        margin: 15px;
+    }
+}
