@@ -11,20 +11,10 @@ import Industry from './components/Industry';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import EditorScreen from './components/EditorScreen/EditorScreen';
 import './components/EditorScreen/EditorScreen.css';
+import Form from './components/Form';
+import AllImages from './components/AllImages';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { apiresponse: "" }
-  // }
-  // callAPI() {
-  //   fetch("http://localhost:5000/")
-  //     .then(res => res.text())
-  //     .then(res => this.setState({ apiresponse: res }))
-  // }
-  // componentWillMount() {
-  //   this.callAPI();
-  // }
   render() {
     return (
       <BrowserRouter>
@@ -32,6 +22,8 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact activeClassBane="active" path='/' component={Home} />
+            <Route path='/form' component={Form} />
+            <Route path='/images' component={AllImages} />
             <Route path='/editor' component={EditorScreen} />
             <Route path='/about' component={About} />
             <Route path='/startup' component={Startup} />
@@ -41,7 +33,6 @@ class App extends Component {
             <Route path='/social' component={Social} />
             <Route path='/:post_id' component={Post} />
           </Switch>
-          {/* <p>{this.state.apiresponse}</p> */}
         </div>
       </BrowserRouter>
     );
