@@ -13,6 +13,7 @@ import EditorScreen from './components/EditorScreen/EditorScreen';
 import './components/EditorScreen/EditorScreen.css';
 import Form from './components/Form';
 import AllImages from './components/AllImages';
+import ArticlePage from './components/Readonly/readonlyEditor';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
           <Switch>
             <Route exact activeClassBane="active" path='/' component={Home} />
             <Route path='/form' component={Form} />
+            <Route path='/articlepage' component={ArticlePage} />
             <Route path='/images' component={AllImages} />
             <Route path='/editor' component={EditorScreen} />
             <Route path='/about' component={About} />
