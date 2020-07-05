@@ -18,7 +18,7 @@ const Navbar = () => {
                             <li><a href="/venture" onclick="toggleModal();">Venture Hacks</a></li>
                             <li className="break"><a href="/tech" onclick="toggleModal();">Technology</a></li>
                             <li><a href="/" onclick="toggleModal();"><i className="material-icons">create</i></a></li>
-                            <li><a href="/" onclick="toggleModal();"><i className="material-icons">account_circle</i></a></li>
+                            <li style={{ marginRight: "15px" }}><a href="/" onclick="toggleModal();"><i className="material-icons">account_circle</i></a></li>
                         </ul>
                         <ul>
                             <a href="#" className="search" id="search-icon"><i className="material-icons">search</i></a>
