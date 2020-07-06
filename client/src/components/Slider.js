@@ -10,7 +10,7 @@ const Slider = () => {
                         <div className="caption center-align">
                             <h1>Do you have an idea ?</h1>
                             <h4 style={{ color: "pink" }} className="light text-lighten-3">Get Market research + Investor pitch</h4>
-                            <a className="readmore" href="/">Read more <br /> <i class="material-icons">expand_more</i></a>
+                            <a className="readmore" href="/about">Read more <br /> <i class="material-icons">expand_more</i></a>
                         </div>
                     </li>
                     <li>
@@ -18,7 +18,7 @@ const Slider = () => {
                         <div className="caption center-align white-text">
                             <h1>Do you have an idea ?</h1>
                             <h4 className="light text-lighten-3">Get market research + investor pitch</h4>
-                            <a className="readmore" href="/">Read more <br /> <i class="material-icons">expand_more</i></a>
+                            <a className="readmore" href="/about">Read more <br /> <i class="material-icons">expand_more</i></a>
                         </div>
                     </li>
                 </ul>

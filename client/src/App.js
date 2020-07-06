@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
-import About from './components/About';
 import Home from './components/Home';
 import Post from './components/Post';
 import Social from './components/SocialEntrep';
@@ -14,6 +13,9 @@ import './components/EditorScreen/EditorScreen.css';
 import Form from './components/Form';
 import AllImages from './components/AllImages';
 import ArticlePage from './components/Readonly/readonlyEditor';
+import AboutUs from './components/Aboutus';
+import Dashboard from './components/dashboard';
+import submitidea from './components/submitidea';
 
 class App extends Component {
   render() {
@@ -25,9 +27,11 @@ class App extends Component {
             <Route exact activeClassBane="active" path='/' component={Home} />
             <Route path='/form' component={Form} />
             <Route path='/articlepage' component={ArticlePage} />
+            <Route path='/submitidea' component={submitidea} />
+            <Route path='/dashboard' component={Dashboard} />
+            <Route path="/about" component={AboutUs} />
             <Route path='/images' component={AllImages} />
             <Route path='/editor' component={EditorScreen} />
-            <Route path='/about' component={About} />
             <Route path='/startup' component={Startup} />
             <Route path='/tech' component={Tech} />
             <Route path='/venture' component={Venture} />
