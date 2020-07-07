@@ -12,11 +12,12 @@ const Navbar = () => {
                         <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <ul id="nav-mobile" id="comp-menu" className="hide-on-med-and-down">
                             <li><a className="logo" href="/" onclick="toggleModal();"><img style={{ position: "relative" }} src={logo} alt="" /></a></li>
-                            <li><a href="/startup" onclick="toggleModal();">Start-ups</a></li>
                             <li><a href="/venture" onclick="toggleModal();">Industry</a></li>
-                            <li><a href="/social" onclick="toggleModal();">Social Entrepreneurship</a></li>
+                            <li><a href="/startup" onclick="toggleModal();">Start-ups</a></li>
+                            {/* <li><a href="/social" onclick="toggleModal();">Social Entrepreneurship</a></li> */}
                             <li><a href="/venture" onclick="toggleModal();">Venture Hacks</a></li>
-                            <li className="break"><a href="/tech" onclick="toggleModal();">Technology</a></li>
+                            <li className="break"><a href="/about" onclick="toggleModal();">About us</a></li>
+                            {/* <li className="break"><a href="/tech" onclick="toggleModal();">Technology</a></li> */}
                             <li><a href="/" onclick="toggleModal();"><i className="material-icons">create</i></a></li>
                             <li style={{ marginRight: "15px" }}><a href="/" onclick="toggleModal();"><i className="material-icons">account_circle</i></a></li>
                         </ul>

@@ -9,7 +9,7 @@
 }
 
 nav ul a {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 
 nav ul li:nth-child(n + 2):hover {
@@ -30,7 +30,8 @@ nav {
 }
 
 .nav-wrapper {
-  margin: 0 19%;
+  width: auto;
+  margin: 0 25%;
 }
 
 .break {
@@ -66,14 +67,16 @@ nav {
 
 /* ----------------------------------slider------------------------ */
 
-.readmore:hover {
-  color: rgb(175, 128, 57);
+.caption {
+  padding: 5px;
 }
 
-.readmore {
-  color: grey;
-  font-size: 18px;
-  text-decoration: none;
+.caption2 {
+  padding: 5px;
+}
+
+.slider .indicators .indicator-item.active {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 /*------------------------- New Post------------- */
@@ -82,7 +85,9 @@ nav {
   color: white;
   width: 100%;
   text-align: center;
-  padding: 15px;
+  padding: 5px 15px;
+  margin: 30px 0;
+  background-color: black;
 }
 
 .tag1 {
@@ -99,11 +104,7 @@ nav {
   font-size: 2.8rem;
   letter-spacing: .04rem;
   padding: 1em;
-  background-color: black;
-  border-radius: 10px;
-  -moz-box-shadow: 2px 2px 8px 2px #888;
-  -webkit-box-shadow: 2px 2px 8px 2px #888;
-  box-shadow: 2px 2px 8px 2px #888;
+  /* background-color: black; */
 }
 
 /* .newPost .btn {
@@ -129,10 +130,30 @@ nav {
   margin: 0;
 }
 
+/* ---------------review-------------- */
+
+.reviewhead {
+  position: absolute;
+  text-align: center;
+  width: 40%;
+  margin: 0.5rem 30%;
+  font-size: 3em;
+}
+
+.offeringhead {
+  text-align: center;
+  font-size: 3rem;
+  padding: 15px;
+}
+
+.card-panel {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
 /*-------------------------------------------------- subscribe------------------- */
 
 .subscribe {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.9);
   padding: 10px;
   color: white;
 }
@@ -163,15 +184,26 @@ nav {
   margin: 0;
 }
 
-/* ----------Footer------------- */
-
-.footer-one {
-  background: #000000;
+.subscribe-area {
+  margin: auto 5.25rem !important;
+  padding: 20px;
 }
+
+/*--------------------- Featured------------ */
+
+.card {
+  height: 400px;
+}
+
+.card-image {
+  height: 310px;
+}
+
+/* ----------Footer------------- */
 
 .footer-two {
   background: #080808;
-  padding: 3px 30px;
+  padding: 5px 30px;
   font-size: medium;
 }
 
@@ -183,20 +215,10 @@ nav {
   color: white;
 }
 
-.fb {
-  margin: 0 5px;
-  width: 20px;
-  height: 20px;
-}
-
-.li {
-  margin: 0 5px;
-  width: 20px;
-  height: 20px;
-}
-
-.twi {
-  margin: 0 5px;
+.social {
+  position: relative;
+  margin: auto 5px;
+  top: 4px;
   width: 20px;
   height: 20px;
 }

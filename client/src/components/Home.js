@@ -5,6 +5,9 @@ import Slider from './Slider';
 import Subscribe from './Subscribe';
 import Newpost from './Newpost';
 import Footer from './Footer';
+import Review from './Review';
+import Offerings from './Offerings';
+import FeaturedResearch from './FeaturedResearch';
 
 class Home extends Component {
     state = {
@@ -55,9 +58,12 @@ class Home extends Component {
                     </div>
                 </div>
                 <Newpost />
-                <div className="container">
+                <Review />
+                <Offerings />
+                {/* <div className="container">
                     {postList}
-                </div>
+                </div> */}
+                <FeaturedResearch />
                 <Subscribe />
                 <Footer />
             </div>

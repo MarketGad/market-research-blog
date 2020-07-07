@@ -29,7 +29,11 @@ $(document).ready(function () {
         $('.latest-content').css("display", "block");
         $('.editorpick-content').css("display", "none");
     })
-
+    $('.myreviews').carousel({
+        numVisible: 5,
+        shift: 55,
+        padding: 10,
+    });
 });
 // JavaScript for label effects only
 $(window).load(function () {
