@@ -1,4 +1,6 @@
 import React from "react";
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
 
 const Subscribe = () => {
     return (
@@ -17,7 +19,16 @@ const Subscribe = () => {
                         <h5 style={{ padding: "10px", fontWeight: "500" }} className="center">Subscribe Us </h5>
                         <div className="row subscribe-area">
                             <div className="col s9">
-                                <input id="email" className="input-text" type="email" placeholder="Enter your email" />
+                                <Grid item xs={12}>
+                                    <TextField
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                        id="email"
+                                        label="Email Address"
+                                        name="email"
+                                    />
+                                </Grid>
                             </div>
                             <div className="col s3">
                                 <div style={{ marginLeft: "2%" }}>

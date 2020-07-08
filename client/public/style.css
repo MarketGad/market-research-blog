@@ -1,3 +1,12 @@
+input {
+  border-bottom: none!important;
+}
+
+input:focus {
+  border-bottom: none!important;
+  box-shadow: none!important;
+}
+
 /* ------------------Navbar -------------------------*/
 
 .logo {
@@ -30,8 +39,8 @@ nav {
 }
 
 .nav-wrapper {
-  width: auto;
-  margin: 0 25%;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .break {
@@ -173,15 +182,18 @@ nav {
   background-color: grey;
 }
 
-#email {
-  border: 1.5px solid rgb(248, 248, 245);
-  border-radius: 5px;
-  padding-left: 6px;
+.PrivateNotchedOutline-root-1 {
+  background-color: white;
+}
+
+.Mui-focused {
+  color: rgba(155, 146, 22, 0.76) !important;
 }
 
 .input-text {
   color: white;
   margin: 0;
+  background-color: honeydew;
 }
 
 .subscribe-area {
@@ -305,6 +317,41 @@ nav {
 
 .latest-content {
   display: none;
+}
+
+/* -------------about dialog----------- */
+
+.MuiDialogActions-root {
+  justify-content: center!important;
+}
+
+.MuiPaper-root {
+  background-color: black!important;
+  color: white!important;
+}
+
+.MuiPaper-rounded {
+  border-radius: 8px!important;
+}
+
+.MuiTypography-h6 {
+  font-size: 1.5rem!important;
+}
+
+/* --------------dashboard--------------- */
+
+.dash-content {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.dash-col {
+  padding: 10px !important;
+}
+
+.dash-left {
+  border-right: 1px solid grey;
+  padding-right: 10px;
 }
 
 /* ----------------------------------------------------- */
