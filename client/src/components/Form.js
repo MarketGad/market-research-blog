@@ -46,7 +46,7 @@ const sectors = [
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        marginTop: theme.spacing(8),
+        marginTop: theme.spacing(2),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -77,7 +77,7 @@ export default function SignUp() {
             <CssBaseline />
             <div className={classes.paper}>
                 <Typography component="h1" variant="h5">
-                    Form
+                    Submit your idea
         </Typography>
                 <form className={classes.form} noValidate>
                     <Grid container spacing={2}>

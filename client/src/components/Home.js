@@ -51,11 +51,9 @@ class Home extends Component {
         return (
             <div>
                 <Slider />
-                <div className="tagline container">
-                    <h1 className="center" style={{ fontSize: "70px", fontWeight: "500" }} > Lorem ipum dolor amet adsicing.</h1>
-                    <div className="container">
-                        <p className="center" style={{ fontSize: "20px" }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui repudiandae voluptates aliquid, quos consectetur.</p>
-                    </div>
+                <div className="tagline center">
+                    <h4 className="seo-tag1">Each one of us will have a billion-dollar idea at some point</h4>
+                    <h4 className="seo-tag2">The difference is: Will you do something about it?</h4>
                 </div>
                 <Newpost />
                 <Review />

@@ -7,17 +7,15 @@ const Slider = () => {
                 <ul className="slides">
                     <li>
                         <img src="https://images.unsplash.com/photo-1574162071085-9b5beb6fdb47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt=" two" />
-                        <div className="caption center-align white-text">
-                            <h1>Do you have an idea ?</h1>
-                            <h4 className="caption2 blue-text text-lighten-4">Get market research + investor pitch</h4>
+                        <div className="caption center-align">
+                            <h1 className="caption1">Get free market research and consulting <br /> for your startup idea</h1>
                             <a href="/about" style={{ background: "#2b2321c9" }} className="btn waves-effect wave-light">Join us</a>
                         </div>
                     </li>
                     <li>
-                        <img src="https://images.unsplash.com/photo-1592707463561-fb388ffc7c66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt=" one" />
+                        <img src="https://images.unsplash.com/photo-1574162071085-9b5beb6fdb47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt=" one" />
                         <div className="caption center-align">
-                            <h1>Do you have an idea ?</h1>
-                            <h4 className="caption2 blue-text text-lighten-3">Get Market research + Investor pitch</h4>
+                            <h1 className="caption1">We support startups <br /> Get our market research for free</h1>
                             <a href="/about" style={{ background: "#2b2321c9" }} className="btn waves-effect wave-light">Join us</a>
                         </div>
                     </li>

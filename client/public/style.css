@@ -1,10 +1,10 @@
 input {
-  border-bottom: none!important;
+  border-bottom: none !important;
 }
 
 input:focus {
-  border-bottom: none!important;
-  box-shadow: none!important;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
 
 /* ------------------Navbar -------------------------*/
@@ -37,11 +37,15 @@ li a img {
 nav {
   background-color: black;
 }
+.nav-center {
+  padding-right: 24%;
+  padding-left: 24%;
+}
 
-.nav-wrapper {
+/* .nav-wrapper {
   width: fit-content;
   margin: 0 auto;
-}
+} */
 
 .break {
   margin-right: 40px;
@@ -51,7 +55,7 @@ nav {
   background-color: black;
 }
 
-.sidenav li>a {
+.sidenav li > a {
   color: white;
 }
 
@@ -79,15 +83,27 @@ nav {
 .caption {
   padding: 5px;
 }
-
-.caption2 {
-  padding: 5px;
+.caption1 {
+  font-size: 3.7em;
+  padding: 10px;
 }
-
 .slider .indicators .indicator-item.active {
   background-color: rgba(0, 0, 0, 0.6);
 }
-
+/* ----------seo---------- */
+.tagline {
+  padding: 20px;
+}
+.seo-tag1 {
+  font-weight: 500;
+  font-size: 3.3rem;
+  padding: 5px;
+}
+.seo-tag2 {
+  font-weight: 450;
+  font-size: 2.3rem;
+  padding: 5px;
+}
 /*------------------------- New Post------------- */
 
 .newPost {
@@ -99,21 +115,11 @@ nav {
   background-color: black;
 }
 
-.tag1 {
-  margin-left: 5.5% !important;
-  margin-right: 2.75% !important;
-}
-
-.tag2 {
-  margin-right: 5.5% !important;
-  margin-left: 2.75% !important;
-}
-
 .tagline1 {
-  font-size: 2.8rem;
-  letter-spacing: .04rem;
-  padding: 1em;
-  /* background-color: black; */
+  font-size: 2.6rem;
+  letter-spacing: 0.05rem;
+  font-weight: 450;
+  padding: 1.2em;
 }
 
 /* .newPost .btn {
@@ -183,18 +189,18 @@ nav {
 }
 
 .PrivateNotchedOutline-root-1 {
-  background-color: white;
+  background-color: aliceblue;
 }
 
 .Mui-focused {
   color: rgba(155, 146, 22, 0.76) !important;
 }
 
-.input-text {
-  color: white;
+/* .input-text {
+  color: black !important;
   margin: 0;
-  background-color: honeydew;
-}
+  background-color: black !important;
+} */
 
 .subscribe-area {
   margin: auto 5.25rem !important;
@@ -322,20 +328,20 @@ nav {
 /* -------------about dialog----------- */
 
 .MuiDialogActions-root {
-  justify-content: center!important;
+  justify-content: center !important;
 }
 
 .MuiPaper-root {
-  background-color: black!important;
-  color: white!important;
+  background-color: black !important;
+  color: white !important;
 }
 
 .MuiPaper-rounded {
-  border-radius: 8px!important;
+  border-radius: 8px !important;
 }
 
 .MuiTypography-h6 {
-  font-size: 1.5rem!important;
+  font-size: 1.5rem !important;
 }
 
 /* --------------dashboard--------------- */
@@ -348,10 +354,13 @@ nav {
 .dash-col {
   padding: 10px !important;
 }
-
-.dash-left {
-  border-right: 1px solid grey;
-  padding-right: 10px;
+.dash {
+  border-radius: 10px;
+  -moz-box-shadow: 2px 2px 5px 1px #888;
+  -webkit-box-shadow: 2px 2px 5px 1px #888;
+  box-shadow: 2px 2px 5px 1px #888;
+  height: 250px;
+  margin: 20px;
 }
 
 /* ----------------------------------------------------- */

@@ -29,7 +29,7 @@ const Navbar = () => {
         axios({
             method: "POST",
             url: "http://localhost:5000/api/googlelogin",
-            data: {tokenId: response.tokenId}
+            data: { tokenId: response.tokenId }
         }).then((response) => {
             console.log("Google login success ", response);
         });
@@ -41,55 +41,18 @@ const Navbar = () => {
 
     return (
         <div>
-
             <div className="navbar-fixed">
-                <nav>
+                <nav className="nav-center" role="navigation">
                     <div className="nav-wrapper">
                         <a href="/" data-target="mobile-demo" className="brand-logo sidenav-trigger">MarketGad</a>
                         <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-                        <ul id="nav-mobile" id="comp-menu" className="hide-on-med-and-down">
+                        <ul id="nav-mobile" id="comp-menu" style={{ backgroundColor: "black" }} className="hide-on-med-and-down">
                             <li><a className="logo" href="/"><img style={{ position: "relative" }} src={logo} alt="" /></a></li>
-                            <li><a href="/venture">Industry</a></li>
+                            <li><a href="/industry">Industry</a></li>
                             <li><a href="/startup">Start-ups</a></li>
                             <li><a href="/venture">Venture Hacks</a></li>
                             <li className="break"><a href="/about">About us</a></li>
-                            {/* <li><a href="#a"><i className="material-icons">create</i></a></li> */}
-                            <li>
-                            <div className="center">
-                                <Button variant="contained" color="primary" onClick={handleClickOpen}>
-                                    Login Here
-                                    </Button>
-                            </div>
-                            <div>
-                                <Dialog
-                                    open={open}
-                                    TransitionComponent={Transition}
-                                    keepMounted
-                                    onClose={handleClose}
-                                    aria-labelledby="alert-dialog-slide-title"
-                                    aria-describedby="alert-dialog-slide-description"
-                                >
-                                    <div className="center" style={{ padding: "15px", fontSize: "20px" }}>
-                                        <DialogTitle id="alert-dialog-slide-title">Login to Get the 1-month Free Subscription</DialogTitle>
-                                    </div>
-                                    <div className="center" style={{ padding: "15px" }}>
-                                        <DialogActions>
-                                            <Button onClick={handleClose} variant="contained" color="primary" href="/dashboard">
-                                                LinkedIn Login
-                                            </Button>
-                                            <Button onClick={handleClose} variant="contained" color="primary" href="/">
-                                                <GoogleLogin
-                                                    clientId="798827553844-i0rjoguupm9jucbohldlp16kthi5boif.apps.googleusercontent.com"
-                                                    onSuccess={responseSuccessGoogle}
-                                                    onFailure={responseErrorGoogle}
-                                                    cookiePolicy={'single_host_origin'}
-                                                />
-                                            </Button>
-                                        </DialogActions>
-                                    </div>
-                                </Dialog>
-                            </div>
-                            </li>
+                            <li ><a href="#a" onClick={handleClickOpen}>Login</a></li>
                             <li style={{ marginRight: "15px" }}><a href="/" ><i className="material-icons">account_circle</i></a></li>
                         </ul>
                         <ul>
@@ -129,6 +92,35 @@ const Navbar = () => {
                 <li><a href="/" >Subscribe</a></li>
                 <li><a href="#a">Write</a></li>
             </ul>
+            <div>
+                <Dialog
+                    open={open}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-slide-title"
+                    aria-describedby="alert-dialog-slide-description"
+                >
+                    <div className="center" style={{ padding: "10px", fontSize: "20px" }}>
+                        <DialogTitle id="alert-dialog-slide-title">Login to Get the 1-month Free Subscription</DialogTitle>
+                    </div>
+                    <div className="center" style={{ padding: "10px" }}>
+                        <DialogActions>
+                            {/* <Button onClick={handleClose} variant="contained" color="primary" href="/dashboard">
+                                LinkedIn Login
+                                            </Button> */}
+                            <Button onClick={handleClose} href="/">
+                                <GoogleLogin
+                                    clientId="798827553844-i0rjoguupm9jucbohldlp16kthi5boif.apps.googleusercontent.com"
+                                    onSuccess={responseSuccessGoogle}
+                                    onFailure={responseErrorGoogle}
+                                    cookiePolicy={'single_host_origin'}
+                                />
+                            </Button>
+                        </DialogActions>
+                    </div>
+                </Dialog>
+            </div>
         </div>
     );
 };

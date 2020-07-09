@@ -11,7 +11,6 @@ const userSchema = new mongoose.Schema({
         trim: true,
         required: true,
         lowercase: true,
-        unique: true
     },
     picture: {
         type: String,
@@ -40,6 +39,6 @@ const userSchema = new mongoose.Schema({
         trim: true,
         lowercase: true
     }
-}, {timestamps: true });
+}, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);
