@@ -16,6 +16,9 @@ import ArticlePage from './components/Readonly/readonlyEditor';
 import AboutUs from './components/Aboutus';
 import Dashboard from './components/dashboard';
 import submitidea from './components/submitidea';
+import whatwedo from './components/Whatwedo';
+import venturehack from './components/VentureHack';
+import industry from './components/Industry';
 
 class App extends Component {
   render() {
@@ -27,6 +30,9 @@ class App extends Component {
             <Route exact activeClassBane="active" path='/' component={Home} />
             <Route path='/form' component={Form} />
             <Route path='/articlepage' component={ArticlePage} />
+            <Route path='/whatwedo' component={whatwedo} />
+            <Route path='/venturehack' component={venturehack} />
+            <Route path='/industry' component={industry} />
             <Route path='/submitidea' component={submitidea} />
             <Route path='/dashboard' component={Dashboard} />
             <Route path="/about" component={AboutUs} />

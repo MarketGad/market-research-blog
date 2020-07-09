@@ -8,6 +8,8 @@ import logo from './Favicon.jpg';
 import Slide from '@material-ui/core/Slide';
 import GoogleLogin from 'react-google-login';
 import axios from 'axios';
+import venturehack from './VentureHack';
+import industry from './Industry';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -50,7 +52,7 @@ const Navbar = () => {
                             <li><a className="logo" href="/"><img style={{ position: "relative" }} src={logo} alt="" /></a></li>
                             <li><a href="/industry">Industry</a></li>
                             <li><a href="/startup">Start-ups</a></li>
-                            <li><a href="/venture">Venture Hacks</a></li>
+                            <li><a href="/venturehack">Venture Hacks</a></li>
                             <li className="break"><a href="/about">About us</a></li>
                             <li ><a href="#a" onClick={handleClickOpen}>Login</a></li>
                             <li style={{ marginRight: "15px" }}><a href="/" ><i className="material-icons">account_circle</i></a></li>
