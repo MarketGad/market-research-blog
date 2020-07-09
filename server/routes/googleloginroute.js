@@ -23,10 +23,10 @@ router.post('/googlelogin', async (req, res) => {
                 } else {
                     if (user) {
                         const token = jwt.sign({_id: user.id}, config.JWT_SIGNIN_KEY, {expiresIn: '7d'});
-                        const {_id, name, email, picture, idea } = user;
+                        const {_id, name, email, picture, ideagiven, idea, friend1, friend2, friend3 } = user;
                         res.json({
                             token,
-                            user: {_id, name, email, picture, idea }
+                            user: {_id, name, email, picture, ideagiven, idea, friend1, friend2, friend3}
                         })
                     } else {
                         let newUser = new User({
@@ -41,10 +41,10 @@ router.post('/googlelogin', async (req, res) => {
                                 })
                             }
                             const token = jwt.sign({_id: data.id}, config.JWT_SIGNIN_KEY, {expiresIn: '7d'});
-                            const {_id, name, email, picture, idea } = newUser;
+                            const {_id, name, email, picture, ideagiven, idea, friend1, friend2, friend3} = newUser;
                             res.json({
                                 token,
-                                user: {_id, name, email, picture, idea }
+                                user: {_id, name, email, picture, ideagiven, idea, friend1, friend2, friend3}
                             })
                         });
 

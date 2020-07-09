@@ -17,10 +17,28 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    idea: {
+    ideagiven: {
         type: Boolean,
         default: false,
         required: true
+    },
+    idea: {
+        type: String,
+    },
+    friend1: {
+        type: String,
+        trim: true,
+        lowercase: true
+    },
+    friend2: {
+        type: String,
+        trim: true,
+        lowercase: true
+    },
+    friend3: {
+        type: String,
+        trim: true,
+        lowercase: true
     }
 }, {timestamps: true });
 
