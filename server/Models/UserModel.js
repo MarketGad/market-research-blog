@@ -23,21 +23,29 @@ const userSchema = new mongoose.Schema({
     },
     idea: {
         type: String,
+        required: false,
+        default: " "
     },
     friend1: {
         type: String,
         trim: true,
-        lowercase: true
+        lowercase: true,
+        required: false,
+        default: " "
     },
     friend2: {
         type: String,
         trim: true,
-        lowercase: true
+        lowercase: true,
+        required: false,
+        default: " "
     },
     friend3: {
         type: String,
         trim: true,
-        lowercase: true
+        lowercase: true,
+        required: false,
+        default: " "
     }
 }, { timestamps: true });
 
