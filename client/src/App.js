@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Post from './components/Post';
-import Social from './components/SocialEntrep';
-import Tech from './components/Technology';
-import Venture from './components/VentureHack';
 import Startup from './components/Startup';
+import Venturehack from './components/VentureHack';
 import Industry from './components/Industry';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import EditorScreen from './components/EditorScreen/EditorScreen';
@@ -16,9 +14,8 @@ import ArticlePage from './components/Readonly/readonlyEditor';
 import AboutUs from './components/Aboutus';
 import Dashboard from './components/dashboard';
 import submitidea from './components/submitidea';
-import whatwedo from './components/Whatwedo';
-import venturehack from './components/VentureHack';
-import industry from './components/Industry';
+import Whatwedo from './components/Whatwedo';
+import Privacy from './components/Privacy'
 
 class App extends Component {
   render() {
@@ -30,19 +27,17 @@ class App extends Component {
             <Route exact activeClassBane="active" path='/' component={Home} />
             <Route path='/form' component={Form} />
             <Route path='/articlepage' component={ArticlePage} />
-            <Route path='/whatwedo' component={whatwedo} />
-            <Route path='/venturehack' component={venturehack} />
-            <Route path='/industry' component={industry} />
+            <Route path='/whatwedo' component={Whatwedo} />
+            <Route path='/industry' component={Industry} />
             <Route path='/submitidea' component={submitidea} />
             <Route path='/dashboard' component={Dashboard} />
             <Route path="/about" component={AboutUs} />
+            <Route path="/privacy" component={Privacy} />
             <Route path='/images' component={AllImages} />
             <Route path='/editor' component={EditorScreen} />
             <Route path='/startup' component={Startup} />
-            <Route path='/tech' component={Tech} />
-            <Route path='/venture' component={Venture} />
+            <Route path='/venturehack' component={Venturehack} />
             <Route path='/industry' component={Industry} />
-            <Route path='/social' component={Social} />
             <Route path='/:post_id' component={Post} />
           </Switch>
         </div>

@@ -1,6 +1,9 @@
 $(document).ready(function () {
     $('.slider').slider({ full_width: true });
     $('.sidenav').sidenav();
+    $(".join-btn").hover(function () {
+        $(this).toggleClass("pulse");
+    });
     $('#search-icon').click(function (e) {
         $('#search-icon').hide();
         $('#comp-menu').hide();
@@ -17,6 +20,7 @@ $(document).ready(function () {
         $('#search-icon').fadeIn();
         $('#comp-menu').fadeIn();
     })
+
     $(".editorpick-button").click(function (e) {
         $('.editorpick-button').addClass("editorpickactive");
         $('.latest-button').removeClass("editorpickactive");
@@ -35,19 +39,3 @@ $(document).ready(function () {
         padding: 10,
     });
 });
-// JavaScript for label effects only
-$(window).load(function () {
-    $(".col-3 input").val("");
-
-    $(".input-effect input").focusout(function () {
-        if ($(this).val() != "") {
-            $(this).addClass("has-content");
-        } else {
-            $(this).removeClass("has-content");
-        }
-    })
-});
-function toggleModal() {
-    var instance = M.Modal.getInstance($('#modal3'));
-    instance.open();
-}

@@ -8,7 +8,7 @@ const Subscribe = () => {
             <form className="signup-form">
                 <div className="row">
                     <div className="col s12 l6 container">
-                        <h5 style={{ padding: "10px", fontWeight: "500" }} className="center">Contact Us </h5>
+                        <h5 style={{ padding: "10px", fontWeight: "500", color: "white" }} className="center">Contact Us </h5>
                         <div className="center">
                             <p className="grey-text">ABC 432, Chandigarh, India</p>
                             <p className="grey-text">helpdesk@marketgad.com</p>
@@ -16,7 +16,7 @@ const Subscribe = () => {
                         </div>
                     </div>
                     <div className="col s12 l6 container">
-                        <h5 style={{ padding: "10px", fontWeight: "500" }} className="center">Subscribe Us </h5>
+                        <h5 style={{ padding: "10px", fontWeight: "500", color: "white" }} className="center">Subscribe Us </h5>
                         <div className="row subscribe-area">
                             <div className="col s9">
                                 <Grid item xs={12}>

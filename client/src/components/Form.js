@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(3),
     },
     submit: {
-        margin: theme.spacing(3, 0, 2),
+        margin: theme.spacing(8, 0, 2),
     },
 }));
 
@@ -84,7 +84,7 @@ export default function SignUp() {
     };
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="sm">
             <CssBaseline />
             <div className={classes.paper}>
                 <Typography component="h1" variant="h5">
@@ -92,7 +92,7 @@ export default function SignUp() {
         </Typography>
                 <form className={classes.form} noValidate onSubmit={submitHandler}>
                     <Grid container spacing={2}>
-                    <Grid item xs={12}>
+                        <Grid item xs={12}>
                             <TextField
                                 id="outlined-select-sector"
                                 fullWidth
@@ -156,15 +156,15 @@ export default function SignUp() {
                                 label="Non disclosure agreement"
                             />
                         </Grid>
+                        <Typography component="h1" variant="h5">
+                            Refer Your Friends
+                            </Typography>
                         <div className="center" style={{ margin: "auto" }}>
-                            <h5>
-                                Refer your friends
-                            </h5>
                             <Grid item xs={12}>
                                 <TextField
                                     id="email"
                                     type="email"
-                                    label="Email Address"
+                                    label="Email Address 1"
                                     name="f1email"
                                     value={f1email}
                                     onChange={(e) => setF1email(e.target.value)}
@@ -174,7 +174,7 @@ export default function SignUp() {
                                 <TextField
                                     id="email"
                                     type="email"
-                                    label="Email Address"
+                                    label="Email Address 2"
                                     name="f2email"
                                     value={f2email}
                                     onChange={(e) => setF2email(e.target.value)}
@@ -191,18 +191,11 @@ export default function SignUp() {
                         className={classes.submit}
 
                     >
-                        Sign Up
+                        Submit idea
                     </Button>
-                    <Grid container justify="flex-end">
-                        <Grid item>
-                            <Link href="#" variant="body2">
-                                Already have an account? Sign in
-              </Link>
-                        </Grid>
-                    </Grid>
                 </form>
             </div>
-            <Box mt={5}>
+            <Box m={4}>
                 <Copyright />
             </Box>
         </Container>

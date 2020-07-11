@@ -9,7 +9,7 @@ const Newpost = () => {
                 </div>
                 <div className="col s12 m6 l6 center tag2">
                     <div className="tagline1">
-                        Apple, Amazon, Disney & Google All started from a single garage.
+                        Apple, Amazon, Disney & Google all started from a single garage.
                     </div>
                 </div>
             </div>

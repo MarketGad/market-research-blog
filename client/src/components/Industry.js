@@ -1,9 +1,10 @@
 import React from "react";
-const industry = () => {
+
+const Industry = () => {
     return (
         <div>
-            <div className="startup-head">
-                <h4 className="center">Industries</h4>
+            <div className="container">
+                <h4 className="center">Industry</h4>
             </div>
             <div className="row">
                 <div className="col s3 side-bar">
@@ -178,4 +179,4 @@ const industry = () => {
     )
 }
 
-export default industry;
+export default Industry;

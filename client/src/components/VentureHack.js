@@ -1,8 +1,9 @@
 import React from "react";
-const venturehack = () => {
+
+const VentureHack = () => {
     return (
         <div>
-            <div className="startup-head">
+            <div className="container">
                 <h4 className="center">Venture Hacks</h4>
             </div>
             <div className="row">
@@ -178,4 +179,4 @@ const venturehack = () => {
     )
 }
 
-export default venturehack;
+export default VentureHack
