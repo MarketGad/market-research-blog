@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
     const classes = useStyles();
     const [sector, setSector] = React.useState(null);
+    const [email, setEmail] = React.useState('');
     const [topic, setTopic] = React.useState('');
     const [briefIdea, setBriefIdea] = React.useState('');
     const [phone, setPhone] = React.useState('');
@@ -69,17 +70,19 @@ export default function SignUp() {
     const submitHandler = (event) => {
         event.preventDefault();
         axios({
-            method: "POST",
-            url: "http://localhost:5000/api/googlelogin",
-            data: { sector, topic, briefIdea, phone, f1email, f2email }
+            method: "PUT",
+            url: "http://localhost:5000/api/ideasubmit",
+            data: {sector, topic, briefIdea, phone, f1email, f2email, email }
         }).then((response) => {
             console.log(response);
         }).catch((response) => {
             console.log(response);
         })
 
+        // make all the field null
+
         console.log({
-            sector, topic, briefIdea, phone, f1email, f2email
+            sector, topic, briefIdea, phone, f1email, f2email, email
         })
     };
 
@@ -93,6 +96,18 @@ export default function SignUp() {
                 <form className={classes.form} noValidate onSubmit={submitHandler}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Use your logged in email"
+                                name="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </Grid>
+                    <Grid item xs={12}>
                             <TextField
                                 id="outlined-select-sector"
                                 fullWidth
@@ -158,10 +173,18 @@ export default function SignUp() {
                         </Grid>
                         <Typography component="h1" variant="h5">
                             Refer Your Friends
-                            </Typography>
+                        </Typography>
+                        <Grid container justify="flex-begin">
+                        <Grid item>
+                                <Link href="#" variant="body2">
+                                    Click Here to view our privacy policy
+                                </Link>
+                            </Grid>
+                        </Grid>
                         <div className="center" style={{ margin: "auto" }}>
                             <Grid item xs={12}>
                                 <TextField
+                                    required
                                     id="email"
                                     type="email"
                                     label="Email Address 1"
@@ -191,7 +214,7 @@ export default function SignUp() {
                         className={classes.submit}
 
                     >
-                        Submit idea
+                        Scale Up!
                     </Button>
                 </form>
             </div>

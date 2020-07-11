@@ -7,6 +7,7 @@ const cors = require('cors');
 const config = require('./config');
 const app = express();
 const googleloginroute = require('./routes/googleloginroute');
+const ideaSubmitroute = require('./routes/ideasubmitroute');
 
 const mongodburl = config.MONGODB_URL;
 mongoose.connect(mongodburl, {
@@ -27,6 +28,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/api", googleloginroute);
+app.use("/api", ideaSubmitroute);
 
 
 

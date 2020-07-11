@@ -8,7 +8,6 @@ import logo from './Favicon.jpg';
 import Slide from '@material-ui/core/Slide';
 import GoogleLogin from 'react-google-login';
 
-
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -53,12 +52,12 @@ const Navbar = () => {
                             <li><a href="/startup">Start-ups</a></li>
                             <li><a href="/venturehack">Venture Hacks</a></li>
                             <li className="break"><a href="/about">About us</a></li>
-                            <li ><a href="#a" onClick={handleClickOpen}>Login</a></li>
+                            <li ><a onClick={handleClickOpen}>Login</a></li>
                             <li style={{ marginRight: "15px" }}><a href="/dashboard" ><i className="material-icons">account_circle</i></a></li>
                         </ul>
-                        <ul>
+                        {/* <ul>
                             <a href="#a" className="search" id="search-icon"><i className="material-icons">search</i></a>
-                        </ul>
+                        </ul> */}
                         <div>
                             <form>
                                 <div className="input-field" style={{ display: "none" }} id="search-div">
@@ -68,6 +67,7 @@ const Navbar = () => {
                                 </div>
                             </form>
                         </div>
+
                     </div>
                 </nav>
             </div>
@@ -112,6 +112,7 @@ const Navbar = () => {
                                     onSuccess={responseSuccessGoogle}
                                     onFailure={responseErrorGoogle}
                                     cookiePolicy={'single_host_origin'}
+                                    redirectUri={'http://localhost/dashboard'}
                                 />
                             </Button>
                         </DialogActions>
