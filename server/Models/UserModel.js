@@ -16,6 +16,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    phone: {
+        type: Number,
+        default: " ",
+        required: false,
+    },
     ideagiven: {
         type: Boolean,
         default: false,
@@ -46,6 +51,11 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         required: false,
         default: " "
+    },
+    sector: {
+        type: String,
+        default: " ",
+        required: false
     }
 }, { timestamps: true });
 

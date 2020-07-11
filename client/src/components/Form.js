@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import MenuItem from '@material-ui/core/MenuItem';
+import axios from 'axios';
 
 
 function Copyright() {
@@ -27,20 +28,12 @@ function Copyright() {
 }
 const sectors = [
     {
-        value: 'a',
-        label: 'a',
+        value: 'individualIdeator',
+        label: 'Individual ideator',
     },
     {
-        value: 'b',
-        label: 'b',
-    },
-    {
-        value: 'c',
-        label: 'c',
-    },
-    {
-        value: 'd',
-        label: 'd',
+        value: 'registeredStartup',
+        label: 'Registered Startup',
     },
 ];
 
@@ -66,10 +59,28 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
     const classes = useStyles();
-    const [sector, setSector] = React.useState('a');
+    const [sector, setSector] = React.useState(null);
+    const [topic, setTopic] = React.useState('');
+    const [briefIdea, setBriefIdea] = React.useState('');
+    const [phone, setPhone] = React.useState('');
+    const [f1email, setF1email] = React.useState('');
+    const [f2email, setF2email] = React.useState('');
 
-    const handleChange = (event) => {
-        setSector(event.target.value);
+    const submitHandler = (event) => {
+        event.preventDefault();
+        axios({
+            method: "POST",
+            url: "http://localhost:5000/api/googlelogin",
+            data: { sector, topic, briefIdea, phone, f1email, f2email }
+        }).then((response) => {
+            console.log(response);
+        }).catch((response) => {
+            console.log(response);
+        })
+
+        console.log({
+            sector, topic, briefIdea, phone, f1email, f2email
+        })
     };
 
     return (
@@ -79,27 +90,38 @@ export default function SignUp() {
                 <Typography component="h1" variant="h5">
                     Submit your idea
         </Typography>
-                <form className={classes.form} noValidate>
+                <form className={classes.form} noValidate onSubmit={submitHandler}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6} className={classes.text}>
+                    <Grid item xs={12}>
                             <TextField
-                                autoComplete="fname"
-                                name="firstName"
-                                variant="outlined"
-                                required
+                                id="outlined-select-sector"
                                 fullWidth
-                                id="firstName"
-                                label="First Name"
-                            />
+                                select
+                                required
+                                label="Idea Stage"
+                                value={sector}
+                                helperText="Choose the stage of your idea"
+                                variant="outlined"
+                                onChange={(e) => setSector(e.target.value)}
+                            >
+                                {sectors.map((option) => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12}>
                             <TextField
                                 variant="outlined"
                                 required
                                 fullWidth
-                                id="lastName"
-                                label="Last Name"
-                                name="lastName"
+                                id="topic"
+                                label="Give your idea in one line"
+                                name="topic"
+                                value={topic}
+                                onChange={(e) => setTopic(e.target.value)}
+
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -107,9 +129,11 @@ export default function SignUp() {
                                 variant="outlined"
                                 required
                                 fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
+                                id="standard-basic"
+                                label="Brief us about your idea"
+                                name="briefIdea"
+                                value={briefIdea}
+                                onChange={(e) => setBriefIdea(e.target.value)}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -120,35 +144,12 @@ export default function SignUp() {
                                 id="phone"
                                 label="Phone No."
                                 name="phone"
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
                             />
                         </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="standard-basic"
-                                label="Brief about your idea"
-                                name="brief-idea"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                id="outlined-select-sector"
-                                select
-                                label="Sector"
-                                value={sector}
-                                onChange={handleChange}
-                                helperText="Choose your sector"
-                                variant="outlined"
-                            >
-                                {sectors.map((option) => (
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                        </Grid>
+
+
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={<Checkbox value="allowExtraEmails" color="primary" />}
@@ -164,7 +165,9 @@ export default function SignUp() {
                                     id="email"
                                     type="email"
                                     label="Email Address"
-                                    name="email"
+                                    name="f1email"
+                                    value={f1email}
+                                    onChange={(e) => setF1email(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -172,15 +175,9 @@ export default function SignUp() {
                                     id="email"
                                     type="email"
                                     label="Email Address"
-                                    name="email"
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    id="email"
-                                    type="email"
-                                    label="Email Address"
-                                    name="email"
+                                    name="f2email"
+                                    value={f2email}
+                                    onChange={(e) => setF2email(e.target.value)}
                                 />
                             </Grid>
                         </div>
@@ -192,9 +189,10 @@ export default function SignUp() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+
                     >
                         Sign Up
-          </Button>
+                    </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link href="#" variant="body2">

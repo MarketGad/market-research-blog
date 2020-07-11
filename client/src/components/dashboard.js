@@ -7,6 +7,9 @@ class Dashboard extends Component {
                 <div className="head-text">
                     <h3 className="center">Welcome Ajitesh!</h3>
                 </div>
+                <div className="center">
+                    Gear up the process by discussing your idea with our experts and get ready for a massive lauch...
+                </div>
                 <div className="row">
                     <div className="col s12 l7 dash dash-col">
                         <div className="dash-content">

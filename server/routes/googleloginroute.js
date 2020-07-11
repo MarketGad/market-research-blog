@@ -4,7 +4,6 @@ const { OAuth2Client } = require('google-auth-library');
 const User = require('../Models/UserModel');
 const jwt = require('jsonwebtoken');
 const config = require('../config');
-const mongoose = require('mongoose');
 
 const client = new OAuth2Client("798827553844-i0rjoguupm9jucbohldlp16kthi5boif.apps.googleusercontent.com");
 
@@ -27,10 +26,10 @@ router.post('/googlelogin', async (req, res, next) => {
                         if (user) {
                             console.log("3");
                             const token = jwt.sign({ _id: user._id }, config.JWT_SIGNIN_KEY, { expiresIn: '7d' });
-                            const { _id, name, email, picture, ideagiven, idea, friend1, friend2, friend3 } = user;
+                            const { _id, name, email, picture, phone, ideagiven, idea, friend1, friend2, friend3, sector } = user;
                             res.json({
                                 token,
-                                user: { _id, name, email, picture, ideagiven, idea, friend1, friend2, friend3 }
+                                user: { _id, name, email, picture, phone, ideagiven, idea, friend1, friend2, friend3, sector }
                             })
                         } else {
                             console.log("4");
@@ -48,10 +47,10 @@ router.post('/googlelogin', async (req, res, next) => {
                             //     })
                             // }
                             const token = jwt.sign({ email: saveduser.email }, config.JWT_SIGNIN_KEY, { expiresIn: '7d' });
-                            const { _id, name, email, picture, ideagiven, idea, friend1, friend2, friend3 } = saveduser;
+                            const { _id, name, email, picture, phone, ideagiven, idea, friend1, friend2, friend3, sector } = saveduser;
                             res.json({
                                 token,
-                                user: { _id, name, email, picture, ideagiven, idea, friend1, friend2, friend3 }
+                                user: { _id, name, email, picture, phone, ideagiven, idea, friend1, friend2, friend3, sector }
                             })
 
                         }
