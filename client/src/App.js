@@ -24,7 +24,7 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Switch>
-            <Route exact activeClassBane="active" path='/' component={Home} />
+            <Route exact path='/' component={Home} />
             <Route path='/form' component={Form} />
             <Route path='/whatwedo' component={Whatwedo} />
             <Route path='/industry' component={Industry} />
