@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser');
@@ -9,7 +10,7 @@ const app = express();
 const googleloginroute = require('./routes/googleloginroute');
 const ideaSubmitroute = require('./routes/ideasubmitroute');
 const subscriberoute = require('./routes/subscriberoute');
-const path = require('path');
+
 
 const mongodburl = config.MONGODB_URL;
 mongoose.connect(mongodburl, {
@@ -33,6 +34,9 @@ app.use("/api", googleloginroute);
 app.use("/api", ideaSubmitroute);
 app.use("/api", subscriberoute);
 app.use(express.static(path.join(__dirname, '../client/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(`${__dirname}/../../client/build/index.html`));
+});
 
 
 
