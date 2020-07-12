@@ -33,7 +33,7 @@ app.use(cookieParser());
 app.use("/api", googleloginroute);
 app.use("/api", ideaSubmitroute);
 app.use("/api", subscriberoute);
-app.use('/', express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 
 
@@ -55,9 +55,6 @@ app.use(function (err, req, res, next) {
 });
 
 const port = 5000;
-app.get('*', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/../../client/build/index.html`));
-});
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
