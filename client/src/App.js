@@ -6,11 +6,7 @@ import Startup from './components/Startup';
 import Venturehack from './components/VentureHack';
 import Industry from './components/Industry';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
-import EditorScreen from './components/EditorScreen/EditorScreen';
-import './components/EditorScreen/EditorScreen.css';
 import Form from './components/Form';
-import AllImages from './components/AllImages';
-import ArticlePage from './components/Readonly/readonlyEditor';
 import AboutUs from './components/Aboutus';
 import Dashboard from './components/dashboard';
 import submitidea from './components/submitidea';
@@ -26,15 +22,12 @@ class App extends Component {
           <Switch>
             <Route exact activeClassBane="active" path='/' component={Home} />
             <Route path='/form' component={Form} />
-            <Route path='/articlepage' component={ArticlePage} />
             <Route path='/whatwedo' component={Whatwedo} />
             <Route path='/industry' component={Industry} />
             <Route path='/submitidea' component={submitidea} />
             <Route path='/dashboard' component={Dashboard} />
             <Route path="/about" component={AboutUs} />
             <Route path="/privacy" component={Privacy} />
-            <Route path='/images' component={AllImages} />
-            <Route path='/editor' component={EditorScreen} />
             <Route path='/startup' component={Startup} />
             <Route path='/venturehack' component={Venturehack} />
             <Route path='/industry' component={Industry} />
