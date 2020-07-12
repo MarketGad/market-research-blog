@@ -43,7 +43,7 @@ const Navbar = () => {
             <div className="navbar-fixed">
                 <nav className="nav-center" role="navigation">
                     <div className="nav-wrapper">
-                        <a href="/" className="brand-logo logo sidenav-trigger"><img height="55px" width="60px" style={{ position: "relative" }} src={logo} alt="logo" /></a>
+                        <a href="/" className="brand-logo logo sidenav-trigger"><img height="55px" width="60px" style={{ position: "relative" }} src={logo} alt="logo-mob" /></a>
                         <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <a href="#a" className="login-mob right sidenav-trigger" onClick={handleClickOpen}><i className="material-icons">person_add_alt_1</i></a>
                         <ul id="nav-mobile" id="comp-menu" style={{ backgroundColor: "black" }} className="hide-on-med-and-down">
@@ -112,7 +112,7 @@ const Navbar = () => {
                                     onSuccess={responseSuccessGoogle}
                                     onFailure={responseErrorGoogle}
                                     cookiePolicy={'single_host_origin'}
-                                    redirectUri={'http://localhost/dashboard'}
+                                    redirectUri={'/dashboard'}
                                 />
                             </Button>
                         </DialogActions>

@@ -72,7 +72,7 @@ export default function SignUp() {
         axios({
             method: "PUT",
             url: "http://localhost:5000/api/ideasubmit",
-            data: {sector, topic, briefIdea, phone, f1email, f2email, email }
+            data: { sector, topic, briefIdea, phone, f1email, f2email, email }
         }).then((response) => {
             console.log(response);
         }).catch((response) => {
@@ -107,7 +107,7 @@ export default function SignUp() {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </Grid>
-                    <Grid item xs={12}>
+                        <Grid item xs={12}>
                             <TextField
                                 id="outlined-select-sector"
                                 fullWidth
@@ -175,8 +175,8 @@ export default function SignUp() {
                             Refer Your Friends
                         </Typography>
                         <Grid container justify="flex-begin">
-                        <Grid item>
-                                <Link href="#" variant="body2">
+                            <Grid item>
+                                <Link href="/privacy" variant="body2">
                                     Click Here to view our privacy policy
                                 </Link>
                             </Grid>
@@ -218,7 +218,7 @@ export default function SignUp() {
                     </Button>
                 </form>
             </div>
-            <Box m={4}>
+            <Box m={3}>
                 <Copyright />
             </Box>
         </Container>
