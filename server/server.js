@@ -8,6 +8,7 @@ const config = require('./config');
 const app = express();
 const googleloginroute = require('./routes/googleloginroute');
 const ideaSubmitroute = require('./routes/ideasubmitroute');
+const subscriberoute = require('./routes/subscriberoute');
 
 const mongodburl = config.MONGODB_URL;
 mongoose.connect(mongodburl, {
@@ -29,6 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/api", googleloginroute);
 app.use("/api", ideaSubmitroute);
+app.use("/api", subscriberoute);
 
 
 
