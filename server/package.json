@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "concurrently -n 'server,client' -c 'red,green' \"nodemon server.js\" \"npm run client\"",
     "client": "cd ../client && npm start",
     "dev": "concurrently -n 'server,client' -c 'red,green' \"nodemon server.js\" \"npm run client\""
   },
