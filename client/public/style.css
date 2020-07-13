@@ -335,7 +335,8 @@ nav {
   -webkit-box-shadow: 2px 2px 5px 1px #888;
   box-shadow: 2px 2px 5px 1px #888;
   height: 340px;
-  margin: 20px 4.1%;
+  margin-right: 4.1%;
+  margin-bottom: 2%;
 }
 
 /* --------------articles------------------ */
@@ -504,5 +505,6 @@ nav {
   }
   .dash {
     height: auto;
+    margin: 4%;
   }
 }
