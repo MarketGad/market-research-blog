@@ -323,21 +323,19 @@ nav {
 /* --------------dashboard--------------- */
 
 .dash-content {
+  padding: 20px;
   font-size: 1.2rem;
   font-weight: 300;
 }
 
-.dash-col {
-  padding: 10px !important;
-}
-
 .dash {
+  padding: 0!important;
   border-radius: 10px;
   -moz-box-shadow: 2px 2px 5px 1px #888;
   -webkit-box-shadow: 2px 2px 5px 1px #888;
   box-shadow: 2px 2px 5px 1px #888;
-  height: 250px;
-  margin: 20px;
+  height: 340px;
+  margin: 20px 4.1%;
 }
 
 /* --------------articles------------------ */
@@ -503,5 +501,8 @@ nav {
   }
   .side-bar {
     position: relative;
+  }
+  .dash {
+    height: auto;
   }
 }
