@@ -49,7 +49,7 @@ class Dashboard extends Component {
                             Customers falling in love with your product? Growth is a synonym for ‘startup’. Let’s raise funding and scale up.
 
                             <div className="dash-button center">
-                                <a href="/form" style={{ background: "#2b2321c9", marginTop: "6em" }} className="btn waves-effect wave-light">Let's Pitch </a>
+                                <a href="/form" style={{ background: "#bdaca8", marginTop: "6em", pointerEvents: "none"}} className="btn waves-effect wave-light">Let's Pitch </a>
                             </div>
                         </div>
 
@@ -64,7 +64,7 @@ class Dashboard extends Component {
                             accelerate your business
                             idea.
                             <div className="dash-button center">
-                                <a href="#e" style={{ background: "#2b2321c9", marginTop: "4em" }} className="btn waves-effect wave-light">Let's Execute</a>
+                                <a href="#e" style={{ background: "#bdaca8", marginTop: "4em", pointerEvents: "none" }} className="btn waves-effect wave-light">Let's Execute</a>
                             </div>
                         </div>
                     </div>
