@@ -34,7 +34,7 @@ const Subscribe = () => {
                     <div className="col s12 l6 container">
                         <h5 style={{ padding: "10px", fontWeight: "500", color: "white" }} className="center">Subscribe Us </h5>
                         <div className="row subscribe-area">
-                            <div className="col s9">
+                            <div className="col l9 s12">
                                 <Grid item xs={12}>
                                     <TextField
                                         variant="outlined"
@@ -48,7 +48,7 @@ const Subscribe = () => {
                                     />
                                 </Grid>
                             </div>
-                            <div className="col s3">
+                            <div className="col l3 s12">
                                 <div style={{ marginLeft: "2%" }}>
                                     <button className="signup-button btn waves-effect">Subscribe</button>
                                 </div>
