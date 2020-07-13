@@ -16,6 +16,8 @@ import I102 from './components/articles/102';
 import I103 from './components/articles/103';
 import I104 from './components/articles/104';
 import I105 from './components/articles/105';
+import industry1001 from './components/articles/industry/industry1001';
+import industry1002 from './components/articles/industry/industry1002';
 
 class App extends Component {
   render() {
@@ -25,20 +27,22 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/form' component={Form} />
-            <Route path='/whatwedo' component={Whatwedo} />
-            <Route path='/industry' component={Industry} />
-            <Route path='/submitidea' component={submitidea} />
-            <Route path='/dashboard' component={Dashboard} />
-            <Route path="/about" component={AboutUs} />
-            <Route path="/privacy" component={Privacy} />
-            <Route path='/startup' component={Startup} />
-            <Route path='/venturehack' component={Venturehack} />
-            <Route path='/i101' component={I101} />
-            <Route path='/i102' component={I102} />
-            <Route path='/i103' component={I103} />
-            <Route path='/i104' component={I104} />
-            <Route path='/i105' component={I105} />
+            <Route exact path='/i1001' component={industry1001} />
+            <Route exact path='/i1002' component={industry1002} />
+            <Route exact path='/form' component={Form} />
+            <Route exact path='/whatwedo' component={Whatwedo} />
+            <Route exact path='/industry' component={Industry} />
+            <Route exact path='/submitidea' component={submitidea} />
+            <Route exact path='/dashboard' component={Dashboard} />
+            <Route exact path="/about" component={AboutUs} />
+            <Route exact path="/privacy" component={Privacy} />
+            <Route exact path='/startup' component={Startup} />
+            <Route exact path='/venturehack' component={Venturehack} />
+            <Route exact path='/i101' component={I101} />
+            <Route exact path='/i102' component={I102} />
+            <Route exact path='/i103' component={I103} />
+            <Route exact path='/i104' component={I104} />
+            <Route exact path='/i105' component={I105} />
           </Switch>
         </div>
       </BrowserRouter>
