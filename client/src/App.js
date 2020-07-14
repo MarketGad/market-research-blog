@@ -18,6 +18,9 @@ import I104 from './components/articles/104';
 import I105 from './components/articles/105';
 import industry1001 from './components/articles/industry/industry1001';
 import industry1002 from './components/articles/industry/industry1002';
+import industry1003 from './components/articles/industry/industry1003';
+import industry1004 from './components/articles/industry/industry1004';
+import industry1005 from './components/articles/industry/industry1005';
 
 class App extends Component {
   render() {
@@ -29,6 +32,9 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/i1001' component={industry1001} />
             <Route exact path='/i1002' component={industry1002} />
+            <Route exact path='/i1003' component={industry1003} />
+            <Route exact path='/i1004' component={industry1004} />
+            <Route exact path='/i1005' component={industry1005} />
             <Route exact path='/form' component={Form} />
             <Route exact path='/whatwedo' component={Whatwedo} />
             <Route exact path='/industry' component={Industry} />
