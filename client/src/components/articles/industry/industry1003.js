@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../../Footer'
 
-const sample = () => {
+const i1003 = () => {
     return (
         <div>
             <div className="container">
@@ -120,4 +120,4 @@ and Data Driven Decision Making.</p>
     )
 }
 
-export default sample;
+export default i1003;

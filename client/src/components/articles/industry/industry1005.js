@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../../Footer'
 
-const sample = () => {
+const i1005 = () => {
     return (
         <div>
             <div className="container">
@@ -153,4 +153,4 @@ const sample = () => {
     )
 }
 
-export default sample;
+export default i1005;

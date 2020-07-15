@@ -1,15 +1,13 @@
 import React from 'react';
 import Footer from '../../Footer'
 
-const sample = () => {
+const i1004 = () => {
     return (
         <div>
             <div className="container">
                 <h3 className="article-head center">Scenario of Fintech Apps in India – A Comparative Study of Major Players</h3>
                 <div className="center article-content" style={{ textAlign: "right" }}>
-                    Auther <br />
-                    Sonam <br />
-                    IIM,Ahmedabad
+                    Author:Sonam <br />
                 </div>
                 <p className="article-subhead">Introduction</p>
                 <p className="article-content">In India over the last few decades, banking institutions, business practices, and financial markets have improved
@@ -268,4 +266,4 @@ the ladder and are thinking of stepping up to the right.
     )
 }
 
-export default sample;
+export default i1004;
