@@ -21,6 +21,10 @@ import industry1002 from './components/articles/industry/industry1002';
 import industry1003 from './components/articles/industry/industry1003';
 import industry1004 from './components/articles/industry/industry1004';
 import industry1005 from './components/articles/industry/industry1005';
+import startups1001 from './components/articles/startups/startups1001';
+import startups1002 from './components/articles/startups/startups1002';
+import venture1001 from './components/articles/VentureHacks/venture1001';
+import venture1002 from './components/articles/VentureHacks/venture1002';
 
 class App extends Component {
   render() {
@@ -35,6 +39,10 @@ class App extends Component {
             <Route exact path='/i1003' component={industry1003} />
             <Route exact path='/i1004' component={industry1004} />
             <Route exact path='/i1005' component={industry1005} />
+            <Route exact path='/s1001' component={startups1001} />
+            <Route exact path='/s1002' component={startups1002} />
+            <Route exact path='/v1001' component={venture1001} />
+            <Route exact path='/v1002' component={venture1002} />
             <Route exact path='/form' component={Form} />
             <Route exact path='/whatwedo' component={Whatwedo} />
             <Route exact path='/industry' component={Industry} />
