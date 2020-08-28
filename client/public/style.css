@@ -1,386 +1,549 @@
+/* ------------input---------------- */
+
 input {
-  border-bottom: none !important;
+	border-bottom: none !important;
+	padding-left: 14px !important;
+	margin: 0 !important;
 }
 
 input:focus {
-  border-bottom: none !important;
-  box-shadow: none !important;
+	border-bottom: none !important;
+	box-shadow: none !important;
 }
 
 input[type="text"] {
-  height: 1.2em !important;
-  padding: 14px !important;
+	width: 100%;
+	margin: 0;
+	height: 1.6rem !important;
+	padding: 14px !important;
 }
 
-label+.MuiInput-formControl {
-  margin-top: 0 !important;
+input[type="email"] {
+	padding-left: 14px !important;
+	padding-top: 0 !important;
+}
+
+input#email.MuiInputBase-input.MuiOutlinedInput-input {
+	margin: 0;
+	height: 3.5rem;
+}
+input#password.MuiInputBase-input.MuiOutlinedInput-input {
+	margin: 0;
+	height: 3.5rem;
+}
+
+label + .MuiInput-formControl {
+	margin-top: auto !important;
 }
 
 /* ------------------Navbar -------------------------*/
 
 .logo {
-  position: relative;
-  width: 50px;
-  height: 55px;
-  margin-right: 45px;
-  top: 5px;
+	position: relative;
+	width: 50px;
+	height: 55px;
+	margin-right: 50px;
+	top: 5px;
 }
 
 nav ul a {
-  font-size: 1.3rem;
-  padding: 0 20px;
+	font-size: 1.3em;
+	letter-spacing: 0.05em;
+	font-family: 'GlacialIndifferenceRegular';
+	font-weight: 600;
+	padding: 0 25px;
 }
 
 .nav-wrapper ul li:nth-child(n + 2):hover {
-  background: rgba(38, 39, 37, 0.6);
+	background: rgba(38, 39, 37, 0.6);
 }
 
 li a img {
-  height: 55px;
+	height: 55px;
 }
 
 .fnavbar {
-  background-color: black;
+	background-color: black;
 }
 
 nav {
-  background-color: black;
+	background-color: black;
 }
 
 .nav-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .break {
-  margin-right: 50px;
+	margin-right: 50px;
 }
 
 .input-field:focus {
-  background-color: black;
+	background-color: black;
 }
 
-.sidenav li>a {
-  color: white;
+.sidenav li > a {
+	color: white;
 }
 
 .sidenav {
-  background-color: black;
+	background-color: black;
 }
 
 #search-div {
-  height: fit-content;
-  width: 600px;
+	height: fit-content;
+	width: 600px;
 }
 
 .sidenav {
-  width: 55%;
+	width: 55%;
 }
 
 /* ----------------------------------slider------------------------ */
 
 .caption {
-  margin-top: 2rem;
-  padding: 5px;
+	margin-top: 2rem;
+	padding: 5px;
 }
 
 .slider .slides li .caption {
-  top: 7%;
-  color: rgb(240, 243, 246);
+	top: 7%;
+	color: rgb(240, 243, 246);
+}
+
+.join-btn {
+	margin-top: 68vh;
+	font-size: 1.4em;
+	font-family: 'GlacialIndifferenceBold';
+	border-radius: 4px;
+	border: 1.5px solid #fff;
+	font-weight: 500;
+	background-color: #0f0f0f;
+	color: #ffffff;
+}
+
+.join-btn:hover {
+	background-color: #080808;
 }
 
 .caption1 {
-  margin: 0;
-  font-size: 3.6em;
-  padding: 15px;
-  font-weight: 450;
+	margin: 0;
+	font-size: 3.6em;
+	padding: 15px;
+	font-weight: 450;
 }
 
 .caption2 {
-  display: none;
+	display: none;
 }
 
 .caption2 {
-  text-align: center;
-  margin: 0;
-  font-size: 2.8em;
-  padding: 10px;
-  font-weight: 450;
+	text-align: center;
+	margin: 0;
+	font-size: 2.8em;
+	padding: 10px;
+	font-weight: 450;
 }
 
 .slider .indicators .indicator-item.active {
-  background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* ----------seo---------- */
 
-.tagline {
-  padding: 20px;
+/* .tagline {
+	padding: 20px;
 }
 
 .seo-tag1 {
-  font-weight: 500;
-  font-size: 3.3rem;
-  padding: 5px;
+	font-weight: 500;
+	font-size: 3.3rem;
+	padding: 5px;
 }
 
 .seo-tag2 {
-  font-weight: 450;
-  font-size: 2.3rem;
-  padding: 5px;
-}
+	font-weight: 500;
+	font-size: 2.7rem;
+	padding: 5px;
+} */
 
-/*------------------------- New Post------------- */
+/*------------------------- tagline------------- */
 
-.newPost {
-  color: white;
-  width: 100%;
-  text-align: center;
-  padding: 5px 15px;
-  margin: 30px 0;
-  background-color: black;
+.tagline {
+	background-color: #0153a5;
+	color: white;
+	width: 100%;
+	text-align: center;
+	padding: 5px 15px;
+	margin: 30px 0;
 }
 
 .tagline1 {
-  font-size: 2.6rem;
-  letter-spacing: 0.05rem;
-  font-weight: 450;
-  padding: 1.2em;
+	font-family: 'GlacialIndifferenceBold';
+	font-size: 3.4em;
+	line-height: 1.7em;
+	letter-spacing: 0.05rem;
+	font-weight: 550;
 }
 
+.tagline2 {
+	font-family: 'GlacialIndifferenceMedium';
+	font-size: 2.45em;
+	line-height: 1.6em;
+	letter-spacing: 0.05rem;
+	font-weight: 450;
+}
+.join-now-seo-btn {
+	height: 16rem;
+	width: 16rem;
+	margin-bottom: -2.1rem;
+	margin-top: -4rem;
+}
 /*-------------------------------------------------------------------------------- */
 
 .material-icons {
-  font-size: 20px;
-  margin: 0;
+	font-size: 20px;
+	margin: 0;
 }
 
 /* ---------------review-------------- */
 
 .reviewhead {
-  position: absolute;
-  text-align: center;
-  width: 40%;
-  margin: 0.5rem 30%;
-  font-size: 3em;
+	position: absolute;
+	text-align: center;
+	width: 40%;
+	margin: 0.5rem 30%;
+	font-size: 3em;
 }
 
 .offeringhead {
-  text-align: center;
-  font-size: 3rem;
-  padding: 15px;
+	color: #0153a5;
+	font-family: 'GlacialIndifferenceBold';
+	padding: 20px;
+	font-size: 3.5em;
+	text-transform: uppercase;
 }
 
 .card-panel {
-  background-color: rgba(0, 0, 0, 0.85);
+	background-color: rgba(0, 0, 0, 0.85);
 }
 
 /*-------------------------------------------------- subscribe------------------- */
 
 .subscribe {
-  background-color: rgba(0, 0, 0, 0.9);
-  padding: 10px;
+	font-family: 'GlacialIndifferenceRegular';
+	letter-spacing: 0.07em;
+	background-color: rgba(0, 0, 0, 0.9);
+	padding: 10px;
 }
 
 .signup-button {
-  background-color: white;
-  color: black;
-  margin-top: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition-duration: 0.4s;
-  border-radius: 5px;
-  height: 3.3em;
+	background-color: white;
+	color: black;
+	margin-top: 0;
+	font-size: 1.1rem;
+	font-weight: 600;
+	transition-duration: 0.4s;
+	border-radius: 5px;
+	height: 3.4rem;
 }
 
 .signup-button:hover {
-  background-color: grey;
+	background-color: grey;
 }
 
 .MuiOutlinedInput-root {
-  background-color: aliceblue;
+	background-color: aliceblue;
 }
 
 .MuiInputLabel-shrink {
-  color: rgba(155, 146, 22, 0.76) !important;
+	color: rgba(155, 146, 22, 0.76) !important;
 }
 
 .subscribe-area {
-  margin: auto 5.25rem !important;
-  padding: 20px;
+	margin: auto 5.25rem !important;
+	padding: 20px;
+}
+
+.desktop-hide {
+	display: None;
 }
 
 /*--------------------- Featured------------ */
 
 .card-h {
-  height: 400px;
+	height: 380px;
+	margin: .5% 6%;
 }
 
-.card-img {
-  height: 310px;
+.featuredimg {
+	width: 100%;
+	height: 320px;
+	border-radius: 5px;
 }
 
+.featured-container {
+	margin: 1% 10%;
+}
+
+.featuredName {
+	text-transform: uppercase;
+	padding: 5px;
+	color: #0153a5;
+	font-size: 1.9em;
+	line-height: 1.2em;
+	font-family: 'GlacialIndifferenceBold';
+}
+
+.featuredDetails {
+	margin-top: 1.5em;
+	font-size: 1.5em;
+	padding: 5px;
+	font-family: 'GlacialIndifferenceBold';
+	color: #080808d9;
+}
+
+.featured-right {
+	margin-top: 1em;
+	padding-left: '25px';
+	height: 350px;
+}
+
+.featured-mobile {
+	display: none;
+}
+
+.featured-brief {
+	padding: 5px;
+	font-family: 'GlacialIndifferenceMedium';
+	font-size: 1.5em;
+}
+
+.detail-hover:hover {
+	border-bottom: #080808d9 2px solid;
+}
+/* ---about */
+.aboutus {
+	font-size: 1.5em;
+}
 /* ----------Footer------------- */
-
+#footer2 {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
 .footer-two {
-  background: #080808;
-  padding: 5px 30px;
-  font-size: medium;
+	background: #080808;
+	padding: 5px 30px;
+	font-size: medium;
+	text-align: center;
 }
 
 .copyright {
-  display: inline-block;
-  top: 4px;
-  position: relative;
-  text-align: center;
-  color: white;
+	display: inline-block;
+	top: 4px;
+	position: relative;
+	text-align: center;
+	color: white;
 }
 
 .social {
-  position: relative;
-  margin: auto 5px;
-  top: 4px;
-  width: 20px;
-  height: 20px;
+	position: relative;
+	margin: auto 10px;
+	top: 15px;
+	width: 35px;
+	height: 35px;
 }
 
 /* ------------startup page---------------------------- */
 
 .side-bar {
-  position: fixed;
-  z-index: 1;
-  width: 400px;
+	position: fixed;
+	z-index: 1;
+	width: 400px;
 }
 
 .post-image {
-  height: 350px;
-  width: 100%;
+	border-radius: 5px;
+	height: 47vh;
+	width: 100%;
+	text-align: center;
+}
+
+.post-container {
+	margin: 0 10%;
 }
 
 .post-content {
-  margin: auto;
+	margin: auto;
+}
+
+.post-brief {
+	font-size: 2.1vh;
+	font-family: 'GlacialIndifferenceMedium';
+}
+.read-more {
+	background-color: #080808d9;
+	margin-top: 2em;
+	font-family: 'GlacialIndifferenceBold';
+}
+.read-more:hover {
+	background-color: #c1c1c1;
+	color: #080808d9;
 }
 
 .tabContainer {
-  margin-top: 1rem;
-  width: 99%;
-  -moz-box-shadow: 2px 2px 5px 1px #888;
-  -webkit-box-shadow: 2px 2px 5px 1px #888;
-  box-shadow: 2px 2px 5px 1px #888;
+	margin-top: 1rem;
+	width: 99%;
+	-moz-box-shadow: 2px 2px 5px 1px #888;
+	-webkit-box-shadow: 2px 2px 5px 1px #888;
+	box-shadow: 2px 2px 5px 1px #888;
+}
+.landing-head {
+	font-family: 'GlacialIndifferenceBold';
+	font-size: 3em;
+	text-transform: uppercase;
+}
+
+.landing-post-head {
+	font-size: 2.3em;
+	font-family: 'GlacialIndifferenceBold';
 }
 
 .sidebar-button {
-  width: 50%;
-  float: left;
-  text-align: center;
-  padding: 10px;
-  font-size: 18px;
-  background-color: #000000;
-  color: white;
-  margin-top: 0;
+	width: 50%;
+	float: left;
+	text-align: center;
+	padding: 10px;
+	font-size: 18px;
+	background-color: #000000;
+	color: white;
+	margin-top: 0;
 }
 
 .sidebar-button:hover {
-  background-color: rgba(15, 15, 15, 0.87);
-  color: white;
+	background-color: rgba(15, 15, 15, 0.87);
+	color: white;
 }
 
 .tabPanel {
-  background-color: rgb(235, 238, 231);
-  color: black;
-  font-size: 18px;
-  padding: 5px;
+	background-color: rgb(235, 238, 231);
+	color: black;
+	font-size: 18px;
+	padding: 5px;
 }
 
 .latest-content {
-  display: none;
+	display: none;
 }
 
 .editorpickactive {
-  box-shadow: inset 0 -3px 0 white;
+	box-shadow: inset 0 -3px 0 white;
 }
 
 /* -------------about dialog----------- */
 
 .MuiDialogActions-root {
-  justify-content: center !important;
+	justify-content: center !important;
 }
 
 .MuiPaper-root {
-  background-color: black !important;
-  color: white !important;
+	background-color: black !important;
+	color: white !important;
 }
 
 .MuiPaper-rounded {
-  border-radius: 8px !important;
+	border-radius: 8px !important;
 }
 
 .MuiTypography-h6 {
-  font-size: 1.5rem !important;
+	font-size: 1.5rem !important;
 }
 
 /* --------------dashboard--------------- */
 
 .dash-content {
-  padding: 20px;
-  font-size: 1.2rem;
-  font-weight: 300;
+	padding: 20px;
+	font-size: 1.2rem;
+	font-weight: 300;
 }
 
 .dash {
-  padding: 0!important;
-  border-radius: 10px;
-  -moz-box-shadow: 2px 2px 5px 1px #888;
-  -webkit-box-shadow: 2px 2px 5px 1px #888;
-  box-shadow: 2px 2px 5px 1px #888;
-  height: 340px;
-  margin-right: 4.1%;
-  margin-bottom: 2%;
+	padding: 0 !important;
+	border-radius: 10px;
+	-moz-box-shadow: 2px 2px 5px 1px #888;
+	-webkit-box-shadow: 2px 2px 5px 1px #888;
+	box-shadow: 2px 2px 5px 1px #888;
+	height: 340px;
+	margin-right: 4.1%;
+	margin-bottom: 2%;
 }
 
 /* --------------articles------------------ */
 
 .article-head {
-  font-size: 3.2em;
-  font-weight: 450;
+	font-size: 3.2em;
+	font-weight: 450;
 }
 
 .article-subhead {
-  font-size: 2.3em;
-  font-weight: 450;
-  margin: 5px 0;
+	font-size: 2.3em;
+	font-weight: 450;
+	margin: 5px 0;
 }
 
 .article-content {
-  font-size: 1.3em;
-  letter-spacing: 0.02em;
+	font-size: 1.3em;
+	letter-spacing: 0.02em;
 }
 
 .img-container {
-  padding: 5px;
+	padding: 5px;
 }
 
 .article-img {
-  width: 85%;
+	width: 85%;
 }
 
 .article-img-desc {
-  font-size: 1.1em;
-  font-weight: 450;
+	font-size: 1.1em;
+	font-weight: 450;
+}
+
+.references ol a {
+	width: 100%;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+/* ------brief details */
+
+.brief-image {
+	height: 50vh;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.mobile-brief-details {
+	display: none;
 }
 
 /* privacy */
 
 .privacy-top {
-  font-weight: 450;
-  padding: 15px;
+	font-weight: 450;
+	padding: 15px;
 }
 
 .privacy-head {
-  font-size: 2em;
-  padding: 5px 0;
-  font-weight: 450;
+	font-size: 2em;
+	padding: 5px 0;
+	font-weight: 450;
 }
 
 /* ------------------mobile----------------------------------- 
@@ -388,123 +551,234 @@ nav {
 */
 
 @media only screen and (max-width: 992px) {
-  .nav-center {
-    display: inline;
-    justify-content: left;
-    align-items: left;
-  }
-  .nav-wrapper {
-    margin: 0 15px;
-  }
-  .login-mob {
-    display: block;
-  }
-  #search-icon {
-    display: none;
-  }
+	.nav-center {
+		display: inline;
+		justify-content: left;
+		align-items: left;
+	}
+	.nav-wrapper {
+		margin: 0 15px;
+	}
+	.login-mob {
+		display: block;
+	}
+	#search-icon {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 768px) {
-  .nav-center {
-    display: inline;
-    justify-content: left;
-    align-items: left;
-  }
-  .nav-wrapper {
-    margin: 0 15px;
-  }
-  .login-mob {
-    display: block;
-  }
-  #search-icon {
-    display: none;
-  }
+	.nav-center {
+		display: inline;
+		justify-content: left;
+		align-items: left;
+	}
+	.nav-wrapper {
+		margin: 0 15px;
+	}
+	.login-mob {
+		display: block;
+	}
+	#search-icon {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 500px) {
-  .nav-center {
-    display: inline;
-    justify-content: left;
-    align-items: left;
-  }
-  .logo {
-    top: 0;
-  }
-  .login-mob {
-    display: block;
-  }
-  .nav-wrapper {
-    margin: 0 10px;
-  }
-  .search {
-    text-align: end;
-  }
-  #search-icon {
-    display: none;
-  }
-  /* ----------------------------------slider------------------------ */
-  .slider .slides li .caption {
-    margin: 0;
-    left: 5%;
-    width: 90%;
-    top: 3rem;
-  }
-  /* -------seo----- */
-  .tagline {
-    padding: 0 6px;
-  }
-  .seo-tag1 {
-    font-size: 2.2rem;
-  }
-  .seo-tag2 {
-    font-size: 2.2rem;
-  }
-  /* ----new post */
-  .newPost {
-    padding: 5px;
-    margin: 10px 0;
-  }
-  .tagline1 {
-    font-size: 2.1rem;
-    letter-spacing: 0.01rem;
-    padding: 15px 5px;
-  }
-  /* ---review---- */
-  .reviewhead {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    margin: 0;
-    padding: 10px 15px;
-    font-size: 2.5em;
-  }
-  /* ----- */
-  .footer-text {
-    font-size: 0.6em;
-  }
-  .social {
-    width: 15px;
-    height: 20px;
-    margin: auto 3px;
-  }
-  .copyright {
-    top: 1px;
-    font-size: 0.6em;
-  }
-  .subscribe-area {
-    margin: 0!important;
-  }
-  .signup-button {
-    display: flex;
-    margin: 1rem auto;
-    align-items: center;
-    font-size: 1rem;
-  }
-  .side-bar {
-    position: relative;
-  }
-  .dash {
-    height: auto;
-    margin: 4%;
-  }
+	.nav-center {
+		display: inline;
+		justify-content: left;
+		align-items: left;
+	}
+	.brand-logo {
+		top: 0;
+		margin-left: 0 !important;
+	}
+	.login-mob {
+		display: block;
+	}
+	.nav-wrapper {
+		margin: 0 10px;
+	}
+	.search {
+		text-align: end;
+	}
+	#search-icon {
+		display: none;
+	}
+	.mobile {
+		display: block;
+	}
+	.mobile1 {
+		display: none;
+	}
+	/* ----------------------------------slider------------------------ */
+	.slider .slides li .caption {
+		margin: 0;
+		left: 5%;
+		width: 90%;
+		top: 3rem;
+	}
+	/* ---- */
+	.join-btn {
+		margin-top: 64vh;
+		font-size: 1.1em;
+	}
+	/* -------seo----- */
+	.tagline {
+		padding: 0 6px;
+	}
+	.seo-tag1 {
+		font-size: 2.2rem;
+	}
+	.seo-tag2 {
+		font-size: 2.2rem;
+	}
+	/* ----new post */
+	.newPost {
+		padding: 5px;
+		margin: 10px 0;
+	}
+	.tagline1 {
+		font-size: 2em;
+		letter-spacing: 0.015rem;
+		padding: 10px 5px;
+	}
+	.tagline2 {
+		font-size: 1.65em;
+		letter-spacing: 0.01em;
+		padding: 7px 5px;
+	}
+
+	.join-now-seo-btn {
+		margin-bottom: -2.1rem;
+		margin-top: -6.5rem;
+	}
+	/* ---review---- */
+	.reviewhead {
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		margin: 0;
+		padding: 10px 15px;
+		font-size: 2.5em;
+	}
+	.offeringhead {
+		font-size: 2.3em;
+	}
+	/* ----- */
+	.footer-text {
+		font-size: 0.6em;
+	}
+	.social {
+		width: 20px;
+		height: 20px;
+		margin: auto 4px;
+	}
+	.copyright {
+		top: 1px;
+		font-size: 0.6em;
+	}
+	.subscribe-area {
+		height: 20px;
+		margin: 0 !important;
+	}
+	.signup-button {
+		display: flex;
+		margin: 1rem auto;
+		align-items: center;
+		font-size: 1rem;
+	}
+	.side-bar {
+		position: relative;
+	}
+	.dash {
+		height: auto;
+		margin: 4%;
+	}
+	.post-container {
+		margin: auto;
+	}
+	.post-image {
+		height: 220px;
+		width: 100%;
+	}
+	.landing-post-head {
+		font-size: 1.6em;
+	}
+	.landing-head {
+		font-size: 2em;
+	}
+	.post-brief {
+		font-size: 1.05em;
+	}
+	/* ---articles */
+	.article-head {
+		font-size: 2.3em;
+		padding: 5px;
+	}
+	.article-subhead {
+		font-size: 1.8em;
+	}
+	.article-content {
+		font-size: 1.2em;
+		letter-spacing: 0.02em;
+	}
+	.article-img {
+		height: 250px;
+	}
+	.article-img-desc {
+		font-size: 1em;
+	}
+	/* -----featured------- */
+	.card-h {
+		height: fit-content;
+		margin: 2%;
+		margin-bottom: 13%;
+	}
+	.featuredimg {
+		width: 100%;
+		height: 210px;
+		padding-right: 0;
+	}
+	.featured-container {
+		margin: 0;
+	}
+	.featuredName {
+		padding: 5px;
+		font-size: 1.4em;
+		line-height: 1em;
+	}
+	.featuredDetails {
+		margin-top: 0;
+		font-size: 1.2em;
+	}
+	.featured-right {
+		margin-top: 0;
+		padding-left: 0;
+		height: fit-content;
+	}
+	.featured-brief {
+		font-size: 1.3em;
+		line-height: 1.4em;
+	}
+	.featured-mobile {
+		display: block;
+	}
+	.featured-desktop {
+		display: none;
+	}
+	/* -------------------\ */
+	.desktop-brief-details {
+		display: none;
+	}
+	.mobile-brief-details {
+		display: block;
+	}
+	.mobile-hide {
+		display: none;
+	}
+	.desktop-hide {
+		display: block;
+	}
 }

@@ -1,66 +1,83 @@
-import React, { Component } from 'react';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Startup from './components/Startup';
-import Venturehack from './components/VentureHack';
-import Industry from './components/Industry';
+import React, { useEffect } from 'react';
+import ReactGa from 'react-ga';
+import Navbar from './Components/Navbar';
+import Home from './Screens/Home';
+import Startup from './Screens/Startup';
+import Venturehack from './Screens/VentureHack';
+import Industry from './Screens/Industry';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
-import Form from './components/Form';
-import AboutUs from './components/Aboutus';
-import Dashboard from './components/dashboard';
-import submitidea from './components/submitidea';
-import Whatwedo from './components/Whatwedo';
-import Privacy from './components/Privacy';
-import I101 from './components/articles/101';
-import I102 from './components/articles/102';
-import I103 from './components/articles/103';
-import I104 from './components/articles/104';
-import I105 from './components/articles/105';
-import industry1001 from './components/articles/industry/industry1001';
-import industry1002 from './components/articles/industry/industry1002';
-import industry1003 from './components/articles/industry/industry1003';
-import industry1004 from './components/articles/industry/industry1004';
-import industry1005 from './components/articles/industry/industry1005';
-import startups1001 from './components/articles/startups/startups1001';
-import startups1002 from './components/articles/startups/startups1002';
-import venture1001 from './components/articles/VentureHacks/venture1001';
-import venture1002 from './components/articles/VentureHacks/venture1002';
+import Form from './Screens/Form';
+import AboutUs from './Screens/Aboutus';
+import Dashboard from './Screens/dashboard';
+import submitidea from './Components/submitidea';
+import Whatwedo from './Screens/Whatwedo';
+import Privacy from './Screens/Privacy';
+import SignUp from './Screens/signup';
+import SignIn from './Screens/signin';
+import I1001 from './Articles/industry/1001';
+import I1002 from './Articles/industry/1002';
+import I1003 from './Articles/industry/1003';
+import I1004 from './Articles/industry/1004';
+import I1005 from './Articles/industry/1005';
+import I1006 from './Articles/industry/1006';
+import I1007 from './Articles/industry/1007';
+import S2001 from './Articles/startups/s2001';
+import S2002 from './Articles/startups/s2002';
+import S2003 from './Articles/startups/s2003';
+import S2004 from './Articles/startups/s2004';
+import S2005 from './Articles/startups/s2005';
+import S2006 from './Articles/startups/s2006';
+import S2007 from './Articles/startups/s2007';
+import S2008 from './Articles/startups/s2008';
+import v3001 from './Articles/venturehacks/v3001';
+import v3002 from './Articles/venturehacks/v3002';
+import v3003 from './Articles/venturehacks/v3003';
+import v3004 from './Articles/venturehacks/v3004';
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <div className="App">
-          <Navbar />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/i1001' component={industry1001} />
-            <Route exact path='/i1002' component={industry1002} />
-            <Route exact path='/i1003' component={industry1003} />
-            <Route exact path='/i1004' component={industry1004} />
-            <Route exact path='/i1005' component={industry1005} />
-            <Route exact path='/s1001' component={startups1001} />
-            <Route exact path='/s1002' component={startups1002} />
-            <Route exact path='/v1001' component={venture1001} />
-            <Route exact path='/v1002' component={venture1002} />
-            <Route exact path='/form' component={Form} />
-            <Route exact path='/whatwedo' component={Whatwedo} />
-            <Route exact path='/industry' component={Industry} />
-            <Route exact path='/submitidea' component={submitidea} />
-            <Route exact path='/dashboard' component={Dashboard} />
-            <Route exact path="/about" component={AboutUs} />
-            <Route exact path="/privacy" component={Privacy} />
-            <Route exact path='/startup' component={Startup} />
-            <Route exact path='/venturehack' component={Venturehack} />
-            <Route exact path='/i101' component={I101} />
-            <Route exact path='/i102' component={I102} />
-            <Route exact path='/i103' component={I103} />
-            <Route exact path='/i104' component={I104} />
-            <Route exact path='/i105' component={I105} />
-          </Switch>
-        </div>
-      </BrowserRouter>
-    );
-  }
+function App () {
+	useEffect(() => {
+		ReactGa.initialize('UA-176059135-1');
+		ReactGa.pageview(window.location.pathname + window.location.search);
+	}, []);
+	return (
+		<BrowserRouter>
+			<div className='App'>
+				<Navbar />
+				<Switch>
+					<Route exact path='/' component={Home} />
+					<Route exact path='/form' component={Form} />
+					<Route exact path='/whatwedo' component={Whatwedo} />
+					<Route exact path='/industry' component={Industry} />
+					<Route exact path='/submitidea' component={submitidea} />
+					<Route exact path='/dashboard' component={Dashboard} />
+					<Route exact path='/about' component={AboutUs} />
+					<Route exact path='/privacy' component={Privacy} />
+					<Route exact path='/startup' component={Startup} />
+					<Route exact path='/venturehack' component={Venturehack} />
+					<Route exact path='/signup' component = {SignUp}/>
+					<Route exact path='/signin' component = {SignIn}/>
+					<Route exact path='/i1001' component={I1001} />
+					<Route exact path='/i1002' component={I1002} />
+					<Route exact path='/i1003' component={I1003} />
+					<Route exact path='/i1004' component={I1004} />
+					<Route exact path='/i1005' component={I1005} />
+					<Route exact path='/i1006' component={I1006} />
+					<Route exact path='/i1007' component={I1007} />
+					<Route exact path='/s2001' component={S2001} />
+					<Route exact path='/s2002' component={S2002} />
+					<Route exact path='/s2003' component={S2003} />
+					<Route exact path='/s2004' component={S2004} />
+					<Route exact path='/s2005' component={S2005} />
+					<Route exact path='/s2006' component={S2006} />
+					<Route exact path='/s2007' component={S2007} />
+					<Route exact path='/s2008' component={S2008} />
+					<Route exact path='/v3001' component={v3001} />
+					<Route exact path='/v3002' component={v3002} />
+					<Route exact path='/v3003' component={v3003} />
+					<Route exact path='/v3004' component={v3004} />
+				</Switch>
+			</div>
+		</BrowserRouter>
+	);
 }
 export default App;
