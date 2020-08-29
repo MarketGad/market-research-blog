@@ -6,7 +6,9 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import Chip from '@material-ui/core/Chip'
 import CssBaseline from '@material-ui/core/CssBaseline';
+import StarIcon from '@material-ui/icons/Star';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -19,21 +21,21 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
-		marginTop: theme.spacing(3),
+		marginTop: theme.spacing(1),
 		display: 'flex',
 		flexDirection: 'column',
-		alignItems: 'center'
+        alignItems: 'center',
 	},
 	avatar: {
 		color: '#080808d9',
 		backgroundColor: 'transparent'
 	},
 	form: {
-		width: '100%', // Fix IE 11 issue.
-		marginTop: theme.spacing(3)
+		width: '95%', // Fix IE 11 issue.
+		marginTop: theme.spacing(1)
 	},
 	submit: {
-		margin: theme.spacing(3, 0, 2)
+		margin: theme.spacing(1,0,1,0)
     },
     userdisp: {
         marginTop: theme.spacing(3),
@@ -118,15 +120,13 @@ const Products = () => {
                             <li class="collection-item avatar">
                             <img src={user.userImage} alt="" class="circle"/>
                             <a class="title" onClick={handleClickUser}><b>{user.userName}</b></a>
-                            <p><b>Skills: </b>{user.userSkills}<br/>
-                            <b>Email: </b>{user.userEmail}<br/>
+                            <p><br/><b>Skills: </b>{user.userSkills}<br/>
+                            <b>Experience: </b>{user.userExperience}<br/>
+                            <a href="#!" class="secondary-content"><Chip color="primary" label = {user.userGrade} icon={<StarIcon />}/></a>
                             </p>
-                            <a href="#!" class="secondary-content"><i class="material-icons">grade grade grade</i></a>
+                            <a class="waves-effect waves-light btn hire-btn1" style={{'marginTop':'2%'}}>Hire</a>
+                            <a class="waves-effect waves-light btn hire-btn1" style={{'float': 'right', 'marginTop':'2%'}} onClick={handleClickUser}>Connect</a>
                             </li>
-                            <div style={{'padding': '2%'}}>
-                            <a class="waves-effect waves-light btn hire-btn1">Hire</a>
-                            <a class="waves-effect waves-light btn hire-btn1" style={{'float': 'right'}} onClick={handleClickUser}>Connect</a>
-                            <div>
                                     <Dialog
                                         open={Useropen}
                                         TransitionComponent={Transition}
@@ -140,19 +140,28 @@ const Products = () => {
                                                 <CssBaseline />
                                                 <div className={classes.userdisp} style={{'paddingTop': '2%', 'paddingBottom':'2%'}}>
                                                     <img src={user.userImage} alt={user.userName} className="userimg"></img>
-                                                    <div className="article-subhead" style={{'color':'#0153a5'}}>{user.userName}</div>
+                                                    <div className="article-subhead" style={{'color':'#0153a5', 'fontFamily':'GlacialIndifferenceBold'}}>{user.userName}</div>
                                                     <div className="article-content"><b>Expertise Skills :</b><br/> {user.userSkills}</div><br/>
                                                     <div className="article-content"><b>Description :</b><br/> {user.userDesc}</div><br/>
                                                     <div className="article-content"><b>Location :</b><br/> {user.userLocation}</div><br/>
                                                     <div className="article-content"><b>Experiences :</b><br/> {user.userExperience}</div><br/>
-                                                    <div className="article-content"><b>Contact At :</b><br/> {user.userEmail}</div><br/>
-                                                    <a href="#!" class="secondary-content"><i class="material-icons">grade grade grade</i></a>
+                                                    <a href="#!" class="secondary-content"><Chip color="primary" label = {user.userGrade} icon={<StarIcon />}/></a>
+                                                    <Button
+                                                        onClick= {handleCloseUser}
+                                                        fullWidth
+                                                        variant='contained'
+                                                        color='primary'
+                                                        className={classes.submit}
+                                                        style={{'fontFamily':'GlacialIndifferenceBold'}}
+                                                    >
+                                                        Close
+                                                    </Button>
                                                 </div>
                                             </Container>
                                         </div>
                                     </Dialog>
-				            </div>
-                            </div>
+				            
+                            
                         </ul>
                     </div>
                         
@@ -170,9 +179,11 @@ const Products = () => {
                         </div>
                         <div className="col s12 l4">
                             <h4 className="center" style={{fontFamily:"GlacialIndifferenceBold"}}>List Of People</h4>
-                                <a class="waves-effect waves-light btn-small hire-btn1" style={{'backgroundColor':'#0153a5' , 'color':'white'}}>Skill Wise Filter</a>
-                                <a class="waves-effect waves-light btn-small hire-btn1" style={{'backgroundColor':'#0153a5' , 'color':'white', 'float': 'right'}} onClick={handleClickOpen}>Register</a>
-                                    {showPeople}
+                                <div>
+                                
+                                <a class="waves-effect waves-light btn-small hire-btn" style={{'backgroundColor':'#0153a5' , 'color':'white' , 'left': '57%'}} onClick={handleClickOpen}>Register</a><br/>
+                                </div>
+                                {showPeople}
                             </div>
                             <div>
                             <Dialog
@@ -190,7 +201,7 @@ const Products = () => {
 						<Avatar className={classes.avatar}>
 							<PersonAddIcon />
 						</Avatar>
-						<Typography component='h1' variant='h5'>
+						<Typography component='h1' variant='h5' style={{'fontFamily':'GlacialIndifferenceBold'}}>
 							Register Yourself
 						</Typography>
 						<form className={classes.form} noValidate>
@@ -290,9 +301,20 @@ const Products = () => {
 								fullWidth
 								variant='contained'
 								color='primary'
-								className={classes.submit}
+                                className={classes.submit}
+                                style={{'fontFamily':'GlacialIndifferenceBold'}}
 							>
 								Register
+							</Button>
+                            <Button
+								onClick= {handleClose}
+								fullWidth
+								variant='contained'
+								color='primary'
+                                className={classes.submit}
+                                style={{'fontFamily':'GlacialIndifferenceBold'}}
+							>
+								Cancel
 							</Button>
 						</form>
 					</div>
