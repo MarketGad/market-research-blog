@@ -550,22 +550,20 @@ nav {
 .hire-btn{
 	font-family: 'GlacialIndifferenceBold';
 	border-radius: 4px;
-	border: 1.5px solid #fff;
 	font-weight: 300;
 	background-color: #0f0f0f;
 	color: #ffffff;
-	width: 6.3em;
+	width: 10em;
 	padding: 0.1%;
 }
 .hire-btn1{
 	font-family: 'GlacialIndifferenceBold';
 	border-radius: 4px;
-	border: 1.5px solid #fff;
 	font-weight: 300;
 	background-color: #0f0f0f;
 	color: #ffffff;
-	width: 10em;
-	padding: 0%;
+	width: 7em;
+	padding-top: 0%;
 }
 .hire-btn1:hover{
 	background-color: #080808;
