@@ -14,6 +14,7 @@ import Whatwedo from './Screens/Whatwedo';
 import Privacy from './Screens/Privacy';
 import SignUp from './Screens/signup';
 import SignIn from './Screens/signin';
+import Products from './Screens/Products';
 import I1001 from './Articles/industry/1001';
 import I1002 from './Articles/industry/1002';
 import I1003 from './Articles/industry/1003';
@@ -56,6 +57,7 @@ function App () {
 					<Route exact path='/venturehack' component={Venturehack} />
 					<Route exact path='/signup' component = {SignUp}/>
 					<Route exact path='/signin' component = {SignIn}/>
+					<Route exact path='/products' component={Products}/>
 					<Route exact path='/i1001' component={I1001} />
 					<Route exact path='/i1002' component={I1002} />
 					<Route exact path='/i1003' component={I1003} />

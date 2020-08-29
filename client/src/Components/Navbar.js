@@ -102,6 +102,9 @@ const Navbar = () => {
 									<a href='/venturehack'>Venture Hacks</a>
 								</li>
 								<li>
+									<a href='/products'>Products</a>
+								</li>
+								<li>
 									<a href='/about'>About Us</a>
 								</li>
 								{/* {show()} */}
@@ -153,6 +156,9 @@ const Navbar = () => {
 					</li>
 					<li>
 						<a href='/venturehack'>Venture Hacks</a>
+					</li>
+					<li>
+						<a href='/products'>Products</a>
 					</li>
 					{/* {show()} */}
 					<li>
