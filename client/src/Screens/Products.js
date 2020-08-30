@@ -67,6 +67,24 @@ const Products = () => {
 		setUser(false);
     };
     
+    const showComment = () => {
+        var x = document.getElementById("comment-form");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+
+    const products = [
+        {
+            productName: 'Anonymous Product',
+            productImage: 'https://lorempixel.com/100/190/nature/6',
+            productDesc: 'This product is great',
+            productRating: '3'
+        },
+    ]
+
     const people = [
         {
             userName: 'Anonymous User',
@@ -109,6 +127,43 @@ const Products = () => {
             userGrade: '3'
         },
     ]
+
+    
+    const showProducts = products.length ? (
+        products.map((product) =>  {
+            return (
+                    <div>
+                        <ul class="collection">
+                            <li class="collection-item avatar">
+                            <img src={product.productImage} alt="" class="circle"/>
+                            <a class="title" onClick={handleClickUser}><b>{product.productName}</b></a>
+                            <p>{product.productDesc}<br/>
+                                <b>Rate:</b>{product.productRating}/5 <br/>
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons download-icon">file_download</i></a>
+                            <button className="waves-effect waves-light btn-small comment-btn1">
+                                <i class='material-icons' onClick={showComment}>comment</i>
+                            </button>    
+                            <form id="comment-form"  style={{'display':'none'}}>
+                                <input type="text" style={{'width':'60%'}} placeholder="Enter Comment"/>
+                                <button className="waves-effect waves-light btn-small pro-btn1" 
+                                style={{'float':'right' 
+                                        }} 
+                                    type="submit">Add Comment</button>
+                            </form>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                        
+            );
+        })
+    ) : (
+        <div className='center'> No Products to show: ( </div>
+    );
+
+
+
 
     const showPeople = people.length ? (
         people.map((user) =>  {
@@ -166,7 +221,10 @@ const Products = () => {
                 <div className="container">
                     <div className='row'>
                         <div className="col s12 l8">
-                           
+                        <h4 className="center" style={{fontFamily:"GlacialIndifferenceBold"}}>Hot Products</h4>
+                                <a class="waves-effect waves-light btn-small pro-btn1" style={{'backgroundColor':'#0153a5' , 'color':'white'}}>Deals</a>
+                                <a class="waves-effect waves-light btn-small pro-btn1" style={{'backgroundColor':'#0153a5' , 'color':'white', 'float': 'right'}} onClick={handleClickOpen}>List your Product</a>
+                                    {showProducts}
                         </div>
                         <div className="col s12 l4">
                             <h4 className="center" style={{fontFamily:"GlacialIndifferenceBold"}}>List Of People</h4>
