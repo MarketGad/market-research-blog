@@ -16,24 +16,27 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Chip from '@material-ui/core/Chip';
+import StarIcon from '@material-ui/icons/Star';
+
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
-		marginTop: theme.spacing(3),
+		marginTop: theme.spacing(1),
 		display: 'flex',
 		flexDirection: 'column',
-		alignItems: 'center'
+        alignItems: 'center',
 	},
 	avatar: {
 		color: '#080808d9',
 		backgroundColor: 'transparent'
 	},
 	form: {
-		width: '100%', // Fix IE 11 issue.
-		marginTop: theme.spacing(3)
+		width: '95%', // Fix IE 11 issue.
+		marginTop: theme.spacing(1)
 	},
 	submit: {
-		margin: theme.spacing(3, 0, 2)
+		margin: theme.spacing(1,0,1,0)
     },
     userdisp: {
         marginTop: theme.spacing(3),
@@ -171,45 +174,88 @@ const Products = () => {
                     <div>
                         <ul class="collection">
                             <li class="collection-item avatar">
-                            <img src={user.userImage} alt="" class="circle"/>
-                            <a class="title" onClick={handleClickUser}><b>{user.userName}</b></a>
-                            <p><b>Skills: </b>{user.userSkills}<br/>
-                            <b>Email: </b>{user.userEmail}<br/>
+                            <img src={product.productImage} alt="" class="circle"/>
+                            <a class="title" onClick={handleClickUser}><b>{product.productName}</b></a>
+                            <p>{product.productDesc}<br/>
+                                <b>Rate:</b>{product.productRating}/5 <br/>
                             </p>
-                            <a href="#!" class="secondary-content"><i class="material-icons">grade grade grade</i></a>
+                            <a href="#!" class="secondary-content"><i class="material-icons download-icon">file_download</i></a>
+                            <button className="waves-effect waves-light btn-small comment-btn1">
+                                <i class='material-icons' onClick={showComment}>comment</i>
+                            </button>    
+                            <form id="comment-form"  style={{'display':'none'}}>
+                                <input type="text" style={{'width':'60%'}} placeholder="Enter Comment"/>
+                                <button className="waves-effect waves-light btn-small pro-btn1" 
+                                style={{'float':'right' 
+                                        }} 
+                                    type="submit">Add Comment</button>
+                            </form>
                             </li>
-                            <div style={{'padding': '2%'}}>
-                            <a class="waves-effect waves-light btn hire-btn1">Hire</a>
-                            <a class="waves-effect waves-light btn hire-btn1" style={{'float': 'right'}} onClick={handleClickUser}>Connect</a>
-                            <div>
-                                    <Dialog
-                                        open={Useropen}
-                                        TransitionComponent={Transition}
-                                        keepMounted
-                                        onClose={handleCloseUser}
-                                        aria-labelledby='alert-dialog-slide-title'
-                                        aria-describedby='alert-dialog-slide-description'
-                                    >
-                                        <div>
-                                            <Container component='main' maxWidth='xs' style={{'backgroundColor':'white', 'color':'black'}}>
-                                                <CssBaseline />
-                                                <div className={classes.userdisp} style={{'paddingTop': '2%', 'paddingBottom':'2%'}}>
-                                                    <img src={user.userImage} alt={user.userName} className="userimg"></img>
-                                                    <div className="article-subhead" style={{'color':'#0153a5'}}>{user.userName}</div>
-                                                    <div className="article-content"><b>Expertise Skills :</b><br/> {user.userSkills}</div><br/>
-                                                    <div className="article-content"><b>Description :</b><br/> {user.userDesc}</div><br/>
-                                                    <div className="article-content"><b>Location :</b><br/> {user.userLocation}</div><br/>
-                                                    <div className="article-content"><b>Experiences :</b><br/> {user.userExperience}</div><br/>
-                                                    <div className="article-content"><b>Contact At :</b><br/> {user.userEmail}</div><br/>
-                                                    <a href="#!" class="secondary-content"><i class="material-icons">grade grade grade</i></a>
-                                                </div>
-                                            </Container>
-                                        </div>
-                                    </Dialog>
-				            </div>
-                            </div>
+                            
                         </ul>
                     </div>
+                        
+            );
+        })
+    ) : (
+        <div className='center'> No Products to show: ( </div>
+    );
+
+
+
+
+    const showPeople = people.length ? (
+        people.map((user) =>  {
+            return (
+                <div>
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                    <img src={user.userImage} alt="" class="circle"/>
+                    <a class="title" onClick={handleClickUser}><b>{user.userName}</b></a>
+                    <p><b>Skills: </b>{user.userSkills}<br/>
+                    <b>Experience: </b>{user.userExperience}<br/>
+                    <a href="#!" class="secondary-content" style={{'marginTop':'-2%'}}><Chip color="secondary" label = {user.userGrade} size = "small" icon={<StarIcon/>} /></a>
+                    </p>
+                    <a class="waves-effect waves-light btn hire-btn1" style={{'marginTop':'2%'}}>Hire</a>
+                    <a class="waves-effect waves-light btn hire-btn1" style={{'float': 'right', 'marginTop':'2%'}} onClick={handleClickUser}>Connect</a>
+                    </li>
+                            <Dialog
+                                open={Useropen}
+                                TransitionComponent={Transition}
+                                keepMounted
+                                onClose={handleCloseUser}
+                                aria-labelledby='alert-dialog-slide-title'
+                                aria-describedby='alert-dialog-slide-description'
+                            >
+                                <div>
+                                    <Container component='main' maxWidth='xs' style={{'backgroundColor':'white', 'color':'black'}}>
+                                        <CssBaseline />
+                                        <div className={classes.userdisp} style={{'paddingTop': '2%', 'paddingBottom':'2%'}}>
+                                            <img src={user.userImage} alt={user.userName} className="userimg"></img>
+                                            <div className="article-subhead" style={{'color':'#0153a5', 'fontFamily':'GlacialIndifferenceBold'}}>{user.userName}</div>
+                                            <div className="article-content"><b>Expertise Skills :</b><br/> {user.userSkills}</div><br/>
+                                            <div className="article-content"><b>Description :</b><br/> {user.userDesc}</div><br/>
+                                            <div className="article-content"><b>Location :</b><br/> {user.userLocation}</div><br/>
+                                            <div className="article-content"><b>Experiences :</b><br/> {user.userExperience}</div><br/>
+                                            <a href="#!" class="secondary-content"><Chip color="secondary" label = {user.userGrade} icon={<StarIcon />}/></a>
+                                            <Button
+                                                onClick= {handleCloseUser}
+                                                fullWidth
+                                                variant='contained'
+                                                color='primary'
+                                                className={classes.submit}
+                                                style={{'fontFamily':'GlacialIndifferenceBold'}}
+                                            >
+                                                Close
+                                            </Button>
+                                        </div>
+                                    </Container>
+                                </div>
+                            </Dialog>
+                    
+                    
+                </ul>
+            </div>
                         
             );
         })
@@ -351,6 +397,15 @@ const Products = () => {
 								className={classes.submit}
 							>
 								Register
+							</Button>
+                            <Button
+								onClick = {handleClose}
+								fullWidth
+								variant='contained'
+								color='primary'
+								className={classes.submit}
+							>
+								Close
 							</Button>
 						</form>
 					</div>
