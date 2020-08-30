@@ -171,6 +171,42 @@ const Products = () => {
     const showPeople = people.length ? (
         people.map((user) =>  {
             return (
+                    <div>
+                        <ul class="collection">
+                            <li class="collection-item avatar">
+                            <img src={product.productImage} alt="" class="circle"/>
+                            <a class="title" onClick={handleClickUser}><b>{product.productName}</b></a>
+                            <p>{product.productDesc}<br/>
+                                <b>Rate:</b>{product.productRating}/5 <br/>
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons download-icon">file_download</i></a>
+                            <button className="waves-effect waves-light btn-small comment-btn1">
+                                <i class='material-icons' onClick={showComment}>comment</i>
+                            </button>    
+                            <form id="comment-form"  style={{'display':'none'}}>
+                                <input type="text" style={{'width':'60%'}} placeholder="Enter Comment"/>
+                                <button className="waves-effect waves-light btn-small pro-btn1" 
+                                style={{'float':'right' 
+                                        }} 
+                                    type="submit">Add Comment</button>
+                            </form>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                        
+            );
+        })
+    ) : (
+        <div className='center'> No Products to show: ( </div>
+    );
+
+
+
+
+    const showPeople = people.length ? (
+        people.map((user) =>  {
+            return (
                 <div>
                 <ul class="collection">
                     <li class="collection-item avatar">
