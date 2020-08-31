@@ -101,42 +101,19 @@ const ListProduct = () => {
 											<PersonAddIcon />
 										</Avatar>
 										<Typography component='h1' variant='h5'>
-											Register Yourself
+											Add Your Product
 										</Typography>
 										<form className={classes.form} noValidate>
 											<Grid container spacing={2}>
-												<Grid item xs={12} sm={6}>
-													<TextField
-														autoComplete='fname'
-														name='firstName'
-														variant='outlined'
-														required
-														fullWidth
-														id='firstName'
-														label='First Name'
-														autoFocus
-													/>
-												</Grid>
-												<Grid item xs={12} sm={6}>
-													<TextField
-														variant='outlined'
-														required
-														fullWidth
-														id='lastName'
-														label='Last Name'
-														name='lastName'
-														autoComplete='lname'
-													/>
-												</Grid>
 												<Grid item xs={12} sm={12}>
 													<TextField
 														variant='outlined'
 														required
 														fullWidth
-														id='email'
-														label='Email'
-														name='email'
-														autoComplete='email'
+														id='name'
+														label='Name of your product'
+														name='name'
+														autoComplete='Product'
 													/>
 												</Grid>
 												<Grid item xs={12} sm={12} className='center'>
@@ -144,10 +121,10 @@ const ListProduct = () => {
 														variant='outlined'
 														required
 														fullWidth
-														id='skills'
-														label='Skills'
-														name='lastName'
-														autoComplete='skills'
+														id='image'
+														label='Image Link'
+														name='image'
+														autoComplete='image'
 													/>
 												</Grid>
 												<Grid item xs={12} sm={12} className='center'>
@@ -156,7 +133,7 @@ const ListProduct = () => {
 														required
 														fullWidth
 														id='desc'
-														label='Description'
+														label='Tell something about your product'
 														name='desc'
 														autoComplete='description'
 													/>
@@ -166,32 +143,10 @@ const ListProduct = () => {
 														variant='outlined'
 														required
 														fullWidth
-														id='experience'
-														label='Experience'
-														name='experience'
-														autoComplete='experience'
-													/>
-												</Grid>
-												<Grid item xs={12} sm={12} className='center'>
-													<TextField
-														variant='outlined'
-														required
-														fullWidth
-														id='location'
-														label='Location'
-														name='location'
-														autoComplete='location'
-													/>
-												</Grid>
-												<Grid item xs={12} sm={12} className='center'>
-													<TextField
-														variant='outlined'
-														required
-														fullWidth
-														id='profilepic'
-														label='Link Of Profile Picture'
-														name='profilepic'
-														autoComplete='profilepic'
+														id='download'
+														label='Link of your Product'
+														name='download'
+														autoComplete='Link'
 													/>
 												</Grid>
 											</Grid>
@@ -202,7 +157,7 @@ const ListProduct = () => {
 												color='primary'
 												className={classes.submit}
 											>
-												Register
+												Add your Product
 											</Button>
 											<Button
 												onClick={handleClose}

@@ -85,7 +85,8 @@ const Products = () => {
 			productName: 'Anonymous Product',
 			productImage: 'https://lorempixel.com/100/190/nature/6',
 			productDesc: 'This product is great',
-			productRating: '3'
+			productRating: '3',
+			productLink: 'https://www.marketgad.com/'
 		}
 	];
 
@@ -148,7 +149,7 @@ const Products = () => {
 								<b>Rate:</b>
 								{product.productRating}/5 <br />
 							</p>
-							<a href='#!' className='secondary-content'>
+							<a href={product.productLink} className='secondary-content'>
 								<i className='material-icons download-icon'>file_download</i>
 							</a>
 							<button className='waves-effect waves-light btn-small comment-btn1'>
