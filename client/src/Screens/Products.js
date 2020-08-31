@@ -12,6 +12,8 @@ import { makeStyles, withTheme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Chip from '@material-ui/core/Chip';
 import StarIcon from '@material-ui/icons/Star';
+import Register from '../Components/Register';
+import ListProduct from '../Components/ListProduct';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -35,6 +37,12 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(3),
 		display: 'flex',
 		flexDirection: 'column'
+	},
+	userimg: {
+		borderRadius: '10px',
+		height: '10rem',
+		width: '10rem',
+		marginLeft: '30%'
 	}
 }));
 
@@ -232,7 +240,7 @@ const Products = () => {
 								>
 									<CssBaseline />
 									<div className={classes.userdisp} style={{ paddingTop: '2%', paddingBottom: '2%' }}>
-										<img src={user.userImage} alt={user.userName} className='userimg' />
+										<img className={classes.userimg} src={user.userImage} alt={user.userName} />
 										<div
 											className='article-subhead'
 											style={{ color: '#0153a5', fontFamily: 'GlacialIndifferenceBold' }}
@@ -259,8 +267,24 @@ const Products = () => {
 											<br /> {user.userExperience}
 										</div>
 										<br />
-										<div>
-											<Chip color='secondary' label={user.userGrade} icon={<StarIcon />} />
+										<div
+											className='secondary-content'
+											style={{
+												marginTop: '-2%',
+												backgroundColor: '#ff9529',
+												padding: '0 5px',
+												borderRadius: '10px',
+												color: '#fff',
+												width:'10%'
+											}}
+										>
+											<span style={{ fontSize: '16px' }}>{user.userGrade}</span>
+											<span
+												style={{ position: 'relative', top: '2px', padding: '2px', fontSize: '16px' }}
+												className='material-icons'
+											>
+												grade
+											</span>
 										</div>
 										<Button
 											onClick={handleCloseUser}
@@ -291,176 +315,23 @@ const Products = () => {
 						<h4 className='center' style={{ fontFamily: 'GlacialIndifferenceBold' }}>
 							Hot Products
 						</h4>
-						<a
-							className='waves-effect waves-light btn-small pro-btn1'
-							style={{ backgroundColor: '#0153a5', color: 'white' }}
-						>
-							Deals
-						</a>
-						<a
-							className='waves-effect waves-light btn-small pro-btn1'
-							style={{ backgroundColor: '#0153a5', color: 'white', float: 'right' }}
-							onClick={handleClickOpen}
-						>
-							List your Product
-						</a>
+						<ListProduct/>
 						{showProducts}
 					</div>
 					<div className='col s12 l4'>
 						<h4 className='center' style={{ fontFamily: 'GlacialIndifferenceBold' }}>
 							List Of People
 						</h4>
-						<a
+						{/*<a
 							className='waves-effect waves-light btn-small hire-btn1'
 							style={{ backgroundColor: '#0153a5', color: 'white' }}
 						>
 							Skill Wise Filter
-						</a>
-						<a
-							className='waves-effect waves-light btn-small hire-btn1'
-							style={{ backgroundColor: '#0153a5', color: 'white', float: 'right' }}
-							onClick={handleClickOpen}
-						>
-							Register
-						</a>
+						</a>*/}
+						<Register/>
 						{showPeople}
 					</div>
-					<div>
-						<Dialog
-							open={open}
-							TransitionComponent={Transition}
-							keepMounted
-							onClose={handleClose}
-							aria-labelledby='alert-dialog-slide-title'
-							aria-describedby='alert-dialog-slide-description'
-						>
-							<div>
-								<Container component='main' maxWidth='xs'>
-									<CssBaseline />
-									<div className={classes.paper}>
-										<Avatar className={classes.avatar}>
-											<PersonAddIcon />
-										</Avatar>
-										<Typography component='h1' variant='h5'>
-											Register Yourself
-										</Typography>
-										<form className={classes.form} noValidate>
-											<Grid container spacing={2}>
-												<Grid item xs={12} sm={6}>
-													<TextField
-														autoComplete='fname'
-														name='firstName'
-														variant='outlined'
-														required
-														fullWidth
-														id='firstName'
-														label='First Name'
-														autoFocus
-													/>
-												</Grid>
-												<Grid item xs={12} sm={6}>
-													<TextField
-														variant='outlined'
-														required
-														fullWidth
-														id='lastName'
-														label='Last Name'
-														name='lastName'
-														autoComplete='lname'
-													/>
-												</Grid>
-												<Grid item xs={12} sm={12}>
-													<TextField
-														variant='outlined'
-														required
-														fullWidth
-														id='email'
-														label='Email'
-														name='email'
-														autoComplete='email'
-													/>
-												</Grid>
-												<Grid item xs={12} sm={12} className='center'>
-													<TextField
-														variant='outlined'
-														required
-														fullWidth
-														id='skills'
-														label='Skills'
-														name='lastName'
-														autoComplete='skills'
-													/>
-												</Grid>
-												<Grid item xs={12} sm={12} className='center'>
-													<TextField
-														variant='outlined'
-														required
-														fullWidth
-														id='desc'
-														label='Description'
-														name='desc'
-														autoComplete='description'
-													/>
-												</Grid>
-												<Grid item xs={12} sm={12} className='center'>
-													<TextField
-														variant='outlined'
-														required
-														fullWidth
-														id='experience'
-														label='Experience'
-														name='experience'
-														autoComplete='experience'
-													/>
-												</Grid>
-												<Grid item xs={12} sm={12} className='center'>
-													<TextField
-														variant='outlined'
-														required
-														fullWidth
-														id='location'
-														label='Location'
-														name='location'
-														autoComplete='location'
-													/>
-												</Grid>
-												<Grid item xs={12} sm={12} className='center'>
-													<TextField
-														variant='outlined'
-														required
-														fullWidth
-														id='profilepic'
-														label='Link Of Profile Picture'
-														name='profilepic'
-														autoComplete='profilepic'
-													/>
-												</Grid>
-											</Grid>
-											<Button
-												type='submit'
-												fullWidth
-												variant='contained'
-												color='primary'
-												className={classes.submit}
-											>
-												Register
-											</Button>
-											<Button
-												onClick={handleClose}
-												fullWidth
-												variant='contained'
-												color='primary'
-												className={classes.submit}
-											>
-												Close
-											</Button>
-										</form>
-									</div>
-								</Container>
-							</div>
-						</Dialog>
 					</div>
-				</div>
 			</div>
 		</div>
 	);
