@@ -48,7 +48,7 @@ const Transition = React.forwardRef(function Transition (props, ref) {
 	return <Slide direction='up' ref={ref} {...props} />;
 });
 
-const Register = () => {
+const ListProduct = () => {
     const classes = useStyles();
 	const [ open, setOpen ] = React.useState(false);
 	const [ Useropen, setUser ] = React.useState(false);
@@ -71,15 +71,19 @@ const Register = () => {
 
 	return (
 		<div>
-                        <div className='right-align'>
-			            <a
-							className='waves-effect waves-light btn-small hire-btn1'
+                        <a
+							className='waves-effect waves-light btn-small pro-btn1'
 							style={{ backgroundColor: '#0153a5', color: 'white' }}
+						>
+							Deals
+						</a>
+                        <a
+							className='waves-effect waves-light btn-small pro-btn1'
+							style={{ backgroundColor: '#0153a5', color: 'white', 'float':'right' }}
 							onClick={handleClickOpen}
 						>
-							Register
+							List your Product
 						</a>
-                        </div>
                         <div>
 						<Dialog
 							open={open}
@@ -219,4 +223,4 @@ const Register = () => {
 		
 	);
 };
-export default Register;
+export default ListProduct;
