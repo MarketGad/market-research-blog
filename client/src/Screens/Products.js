@@ -36,13 +36,14 @@ const useStyles = makeStyles((theme) => ({
 	userdisp: {
 		marginTop: theme.spacing(3),
 		display: 'flex',
-		flexDirection: 'column'
+		flexDirection: 'column',
+		justifyContent: 'center'
 	},
 	userimg: {
 		borderRadius: '10px',
 		height: '10rem',
-		width: '10rem',
-		marginLeft: '30%'
+		width: '50%',
+		margin: '0 25%'
 	}
 }));
 
@@ -54,6 +55,7 @@ const Products = () => {
 	const classes = useStyles();
 	const [ open, setOpen ] = React.useState(false);
 	const [ Useropen, setUser ] = React.useState(false);
+	const [ Productopen, setProduct ] = React.useState(false);
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -69,6 +71,13 @@ const Products = () => {
 
 	const handleCloseUser = () => {
 		setUser(false);
+	};
+	const handleClickProduct = () => {
+		setProduct(true);
+	};
+
+	const handleCloseProduct = () => {
+		setProduct(false);
 	};
 
 	const showComment = () => {
@@ -86,7 +95,7 @@ const Products = () => {
 			productImage: 'https://lorempixel.com/100/190/nature/6',
 			productDesc: 'This product is great',
 			productRating: '3',
-			productLink: 'https://www.marketgad.com/'
+			productLink: '!#'
 		}
 	];
 
@@ -140,7 +149,7 @@ const Products = () => {
 					<ul className='collection'>
 						<li className='collection-item avatar'>
 							<img src={product.productImage} alt='' className='circle' />
-							<a className='title' onClick={handleClickUser}>
+							<a className='title' onClick={handleClickProduct}>
 								<b>{product.productName}</b>
 							</a>
 							<p>
@@ -170,6 +179,75 @@ const Products = () => {
 								</button>
 							</form>
 						</li>
+						<Dialog
+							open={Productopen}
+							TransitionComponent={Transition}
+							keepMounted
+							onClose={handleCloseProduct}
+							aria-labelledby='alert-dialog-slide-title'
+							aria-describedby='alert-dialog-slide-description'
+						>
+							<div>
+								<Container component='main' maxWidth='sm'>
+									<CssBaseline />
+									<div className={classes.userdisp} style={{ paddingTop: '2%', paddingBottom: '2%' }}>
+										<img
+											className={classes.userimg}
+											src={product.productImage}
+											alt={product.productName}
+										/>
+										<div
+											className='article-subhead'
+											style={{ color: '#0153a5', fontFamily: 'GlacialIndifferenceBold' }}
+										>
+											{product.productName}
+										</div>
+										<br />
+										<div className='article-content'>
+											<b>Description :</b>
+											<br /> {product.productDesc}
+										</div>
+										<br />
+										<div
+											className='secondary-content'
+											style={{
+												marginTop: '-2%',
+												backgroundColor: '#ff9529',
+												padding: '0 5px',
+												borderRadius: '10px',
+												color: '#fff',
+												width: 'fit-content'
+											}}
+										>
+											<span style={{ fontSize: '16px', display: 'inline' }}>
+												{product.productRating}
+											</span>
+											<span
+												style={{
+													position: 'relative',
+													top: '2px',
+													padding: '2px',
+													fontSize: '16px'
+												}}
+												className='material-icons'
+											>
+												grade
+											</span>
+										</div>
+										<Button
+											onClick={handleCloseProduct}
+											fullWidth
+											variant='contained'
+											color='primary'
+											className={classes.submit}
+											style={{ fontFamily: 'GlacialIndifferenceBold' }}
+										>
+											Close
+										</Button>
+									</div>
+								</Container>
+							</div>
+						</Dialog>
 					</ul>
 				</div>
 			);
@@ -276,12 +354,17 @@ const Products = () => {
 												padding: '0 5px',
 												borderRadius: '10px',
 												color: '#fff',
-												width:'10%'
+												width: '10%'
 											}}
 										>
 											<span style={{ fontSize: '16px' }}>{user.userGrade}</span>
 											<span
-												style={{ position: 'relative', top: '2px', padding: '2px', fontSize: '16px' }}
+												style={{
+													position: 'relative',
+													top: '2px',
+													padding: '2px',
+													fontSize: '16px'
+												}}
 												className='material-icons'
 											>
 												grade
@@ -316,7 +399,7 @@ const Products = () => {
 						<h4 className='center' style={{ fontFamily: 'GlacialIndifferenceBold' }}>
 							Hot Products
 						</h4>
-						<ListProduct/>
+						<ListProduct />
 						{showProducts}
 					</div>
 					<div className='col s12 l4'>
@@ -329,10 +412,10 @@ const Products = () => {
 						>
 							Skill Wise Filter
 						</a>*/}
-						<Register/>
+						<Register />
 						{showPeople}
 					</div>
-					</div>
+				</div>
 			</div>
 		</div>
 	);
