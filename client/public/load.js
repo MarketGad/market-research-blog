@@ -38,4 +38,10 @@ $(document).ready(function () {
 		shift: 55,
 		padding: 10
 	});
+	$( document ).ready(function(){
+		$(".dropdown-trigger").dropdown({hover:true});
+	});
+	$( document ).ready(function(){
+		$(".dropdown-trigger1").dropdown();
+	});
 });

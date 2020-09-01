@@ -9,6 +9,7 @@ import Slide from '@material-ui/core/Slide';
 import GoogleLogin from 'react-google-login';
 import { Redirect } from 'react-router-dom';
 
+
 const Transition = React.forwardRef(function Transition (props, ref) {
 	return <Slide direction='up' ref={ref} {...props} />;
 });
@@ -66,52 +67,54 @@ const Navbar = () => {
 	} else {
 		return (
 			<div>
-				<div className='navbar-fixed'>
-					<nav className='nav-center' role='navigation'>
-						<div className='nav-wrapper'>
-							<a href='/' data-target='mobile-demo' className='sidenav-trigger'>
-								<i className='material-icons'>menu</i>
-							</a>
-							<a href='/' className='brand-logo logo sidenav-trigger'>
-								<img
-									height='55px'
-									width='60px'
-									style={{ position: 'relative' }}
-									src={logo}
-									alt='logo-mob'
-								/>
-							</a>
 							{/* <a href="#a" className="login-mob right sidenav-trigger" onClick={handleClickOpen}><i className="material-icons">person_add_alt_1</i></a> */}
-							<ul
-								id='nav-mobilecomp-menu '
-								style={{ backgroundColor: 'black' }}
-								className='hide-on-med-and-down'
-							>
-								<li>
-									<a className='logo' href='/'>
-										<img style={{ position: 'relative' }} src={logo} alt='logo' />
-									</a>
-								</li>
-								<li>
-									<a href='/industry'>Industry</a>
-								</li>
-								<li>
-									<a href='/startup'>Start-ups</a>
-								</li>
-								<li>
-									<a href='/venturehack'>Venture Hacks</a>
-								</li>
-								<li>
-									<a href='/products'>Products</a>
-								</li>
-								<li>
-									<a href='/about'>About Us</a>
-								</li>
+								<div className='navbar-fixed'>
+								<nav className='nav-center' role='navigation'>
+									<div class="nav-wrapper">
+										<a href='/' data-target='mobile-demo' className='sidenav-trigger'>
+											<i className='material-icons'>menu</i>
+										</a>
+										<a href='/' className='brand-logo logo sidenav-trigger'>
+											<img
+												height='55px'
+												width='60px'
+												style={{ position: 'relative' }}
+												src={logo}
+												alt='logo-mob'
+											/>
+										</a>
+										<ul id="dropdown1" class="dropdown-content" style={{ backgroundColor: 'black'}}>
+											<li><a href="/industry" style={{'color':'white'}}>Industry</a></li>
+											<li><a href="/startup" style={{'color':'white'}}>Start-ups</a></li>
+											<li><a href='/venturehack' style={{'color':'white'}}>Venture Hacks</a></li>
+										</ul>
+										<ul id='nav-mobilecomp-menu '
+											style={{ backgroundColor: 'black' }}
+											className='hide-on-med-and-down'
+										>
+											<li>
+												<a className='logo' href='/'>
+													<img style={{ position: 'relative' }} src={logo} alt='logo' />
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-trigger" data-target="dropdown1">Market Research<i class="material-icons right">arrow_drop_down</i></a>
+											</li>
+											<li>
+												<a href='/products'>Products</a>
+											</li>
+											<li>
+												<a href='/about'>About Us</a>
+											</li>
 								{/* {show()} */}
-								<li>
-									<a onClick={handleClickOpen}>Dashboard</a>
-								</li>
-							</ul>
+											<li>
+												<a onClick={handleClickOpen}>Dashboard</a>
+											</li>
+										</ul>
+									</div>
+								</nav>
+
+						
 							{/* <ul>
                                 <a href="#a" className="search" id="search-icon"><i className="material-icons">search</i></a>
                             </ul> */}
@@ -128,9 +131,13 @@ const Navbar = () => {
 									</div>
 								</form>
 							</div>
-						</div>
-					</nav>
+						
 				</div>
+				<ul id="dropdown2" class="dropdown-content" style={{ backgroundColor: 'black'}}>
+					<li><a href="/industry" style={{'color':'white'}}>Industry</a></li>
+					<li><a href="/startup" style={{'color':'white'}}>Start-ups</a></li>
+					<li><a href='/venturehack' style={{'color':'white'}}>Venture Hacks</a></li>
+				</ul>
 				<ul className='sidenav' id='mobile-demo'>
 					<nav>
 						<div className='nav-wrapper'>
@@ -149,13 +156,7 @@ const Navbar = () => {
 						<a href='/'>Home</a>
 					</li>
 					<li>
-						<a href='/industry'>Industry</a>
-					</li>
-					<li>
-						<a href='/startup'>Start-ups</a>
-					</li>
-					<li>
-						<a href='/venturehack'>Venture Hacks</a>
+						<a class="dropdown-trigger1" data-target="dropdown2">Market Research<i class="material-icons right">arrow_drop_side</i></a>
 					</li>
 					<li>
 						<a href='/products'>Products</a>
