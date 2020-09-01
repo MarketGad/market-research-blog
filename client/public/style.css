@@ -57,6 +57,9 @@ nav ul a {
 .nav-wrapper ul li:nth-child(n + 2):hover {
 	background: rgba(38, 39, 37, 0.6);
 }
+.nav-wrapper ul li:hover{
+	background: rgba(38, 39, 37, 0.6);
+}
 
 li a img {
 	height: 55px;
