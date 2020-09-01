@@ -38,10 +38,10 @@ import v3004 from './Articles/venturehacks/v3004';
 import RegisterForProduct from './Screens/RegisterForProduct';
 
 function App () {
-	useEffect(() => {
-		ReactGa.initialize('UA-176059135-1');
-		ReactGa.pageview(window.location.pathname + window.location.search);
-	}, []);
+	// useEffect(() => {
+	// 	ReactGa.initialize('UA-176059135-1');
+	// 	ReactGa.pageview(window.location.pathname + window.location.search);
+	// }, []);
 	return (
 		<BrowserRouter>
 			<div className='App'>
@@ -57,11 +57,11 @@ function App () {
 					<Route exact path='/privacy' component={Privacy} />
 					<Route exact path='/startup' component={Startup} />
 					<Route exact path='/venturehack' component={Venturehack} />
-					<Route exact path='/signup' component = {SignUp}/>
-					<Route exact path='/signin' component = {SignIn}/>
-					<Route exact path='/products' component={Products}/>
-					<Route exact path='/registerforjobs' component={RegisterForJobs}/>
-					<Route exact path='/registerforproduct' component={RegisterForProduct}/>
+					<Route exact path='/signup' component={SignUp} />
+					<Route exact path='/signin' component={SignIn} />
+					<Route exact path='/products' component={Products} />
+					<Route exact path='/registerforjobs' component={RegisterForJobs} />
+					<Route exact path='/registerforproduct' component={RegisterForProduct} />
 					<Route exact path='/i1001' component={I1001} />
 					<Route exact path='/i1002' component={I1002} />
 					<Route exact path='/i1003' component={I1003} />
