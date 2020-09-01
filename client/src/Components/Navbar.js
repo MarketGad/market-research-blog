@@ -9,7 +9,6 @@ import Slide from '@material-ui/core/Slide';
 import GoogleLogin from 'react-google-login';
 import { Redirect } from 'react-router-dom';
 
-
 const Transition = React.forwardRef(function Transition (props, ref) {
 	return <Slide direction='up' ref={ref} {...props} />;
 });
@@ -67,76 +66,112 @@ const Navbar = () => {
 	} else {
 		return (
 			<div>
-							{/* <a href="#a" className="login-mob right sidenav-trigger" onClick={handleClickOpen}><i className="material-icons">person_add_alt_1</i></a> */}
-								<div className='navbar-fixed'>
-								<nav className='nav-center' role='navigation'>
-									<div class="nav-wrapper">
-										<a href='/' data-target='mobile-demo' className='sidenav-trigger'>
-											<i className='material-icons'>menu</i>
+				{/* <a href="#a" className="login-mob right sidenav-trigger" onClick={handleClickOpen}><i className="material-icons">person_add_alt_1</i></a> */}
+				<div className='navbar-fixed'>
+					<nav className='nav-center' role='navigation'>
+						<div class='nav-wrapper'>
+							<a href='/' data-target='mobile-demo' className='sidenav-trigger'>
+								<i className='material-icons'>menu</i>
+							</a>
+							<a href='/' className='brand-logo logo sidenav-trigger'>
+								<img
+									height='55px'
+									width='60px'
+									style={{ position: 'relative' }}
+									src={logo}
+									alt='logo-mob'
+								/>
+							</a>
+							<ul id='dropdown1' class='dropdown-content' style={{ backgroundColor: 'black' }}>
+								<li>
+									<a
+										href='/industry'
+										style={{ color: 'white', fontSize: '1.25em', paddingLeft: '25px' }}
+									>
+										Industry
+									</a>
+								</li>
+								<li>
+									<a
+										href='/startup'
+										style={{ color: 'white', fontSize: '1.25em', paddingLeft: '25px' }}
+									>
+										Start-ups
+									</a>
+								</li>
+								<li>
+									<a
+										href='/venturehack'
+										style={{ color: 'white', fontSize: '1.25em', paddingLeft: '25px' }}
+									>
+										Venture Hacks
+									</a>
+								</li>
+							</ul>
+							<div className='navmenu'>
+								<ul
+									id='nav-mobilecomp-menu'
+									style={{ backgroundColor: 'black' }}
+									className='hide-on-med-and-down'
+								>
+									<li>
+										<a className='logo' href='/'>
+											<img style={{ position: 'relative' }} src={logo} alt='logo' />
 										</a>
-										<a href='/' className='brand-logo logo sidenav-trigger'>
-											<img
-												height='55px'
-												width='60px'
-												style={{ position: 'relative' }}
-												src={logo}
-												alt='logo-mob'
-											/>
+									</li>
+									<li>
+										<a href='/products'>Products</a>
+									</li>
+									<li>
+										<a class='dropdown-trigger' data-target='dropdown1'>
+											Market Research
 										</a>
-										<ul id="dropdown1" class="dropdown-content" style={{ backgroundColor: 'black'}}>
-											<li><a href="/industry" style={{'color':'white'}}>Industry</a></li>
-											<li><a href="/startup" style={{'color':'white'}}>Start-ups</a></li>
-											<li><a href='/venturehack' style={{'color':'white'}}>Venture Hacks</a></li>
-										</ul>
-										<ul id='nav-mobilecomp-menu '
-											style={{ backgroundColor: 'black' }}
-											className='hide-on-med-and-down'
-										>
-											<li>
-												<a className='logo' href='/'>
-													<img style={{ position: 'relative' }} src={logo} alt='logo' />
-												</a>
-											</li>
-											<li>
-												<a class="dropdown-trigger" data-target="dropdown1">Market Research<i class="material-icons right">arrow_drop_down</i></a>
-											</li>
-											<li>
-												<a href='/products'>Products</a>
-											</li>
-											<li>
-												<a href='/about'>About Us</a>
-											</li>
-								{/* {show()} */}
-											<li>
-												<a onClick={handleClickOpen}>Dashboard</a>
-											</li>
-										</ul>
-									</div>
-								</nav>
+									</li>
+									<li>
+										<a href='/about'>About Us</a>
+									</li>
+									{/* {show()} */}
+									<li>
+										<a onClick={handleClickOpen}>Dashboard</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
 
-						
-							{/* <ul>
+					{/* <ul>
                                 <a href="#a" className="search" id="search-icon"><i className="material-icons">search</i></a>
                             </ul> */}
-							<div>
-								<form>
-									<div className='input-field' style={{ display: 'none' }} id='search-div'>
-										<input id='search-txt' type='search' />
-										<label className='label-icon' htmlFor='search-txt'>
-											<i className='material-icons'>search</i>
-										</label>
-										<i className='material-icons' id='close-icon'>
-											close
-										</i>
-									</div>
-								</form>
+					<div>
+						<form>
+							<div className='input-field' style={{ display: 'none' }} id='search-div'>
+								<input id='search-txt' type='search' />
+								<label className='label-icon' htmlFor='search-txt'>
+									<i className='material-icons'>search</i>
+								</label>
+								<i className='material-icons' id='close-icon'>
+									close
+								</i>
 							</div>
-						
+						</form>
+					</div>
 				</div>
-				<ul id="dropdown2" class="dropdown-content" style={{ backgroundColor: 'black'}}>
-					<li><a href="/industry" style={{'color':'white'}}>Industry</a></li>
-					<li><a href="/startup" style={{'color':'white'}}>Start-ups</a></li>
-					<li><a href='/venturehack' style={{'color':'white'}}>Venture Hacks</a></li>
+				<ul id='dropdown2' class='dropdown-content' style={{ backgroundColor: 'black' }}>
+					<li>
+						<a href='/industry' style={{ color: 'white' }}>
+							Industry
+						</a>
+					</li>
+					<li>
+						<a href='/startup' style={{ color: 'white' }}>
+							Start-ups
+						</a>
+					</li>
+					<li>
+						<a href='/venturehack' style={{ color: 'white' }}>
+							Venture Hacks
+						</a>
+					</li>
 				</ul>
 				<ul className='sidenav' id='mobile-demo'>
 					<nav>
@@ -156,7 +191,9 @@ const Navbar = () => {
 						<a href='/'>Home</a>
 					</li>
 					<li>
-						<a class="dropdown-trigger1" data-target="dropdown2">Market Research<i class="material-icons right">arrow_drop_side</i></a>
+						<a class='dropdown-trigger1' data-target='dropdown2'>
+							Market Research<i class='material-icons right'>arrow_drop_side</i>
+						</a>
 					</li>
 					<li>
 						<a href='/products'>Products</a>

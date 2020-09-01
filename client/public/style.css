@@ -43,7 +43,7 @@ label + .MuiInput-formControl {
 	width: 50px;
 	height: 55px;
 	margin-right: 50px;
-	top: 5px;
+	top: 3px;
 }
 
 nav ul a {
@@ -54,13 +54,14 @@ nav ul a {
 	padding: 0 25px;
 }
 
-.nav-wrapper ul li:nth-child(n + 2):hover {
-	background: rgba(38, 39, 37, 0.6);
-}
-.nav-wrapper ul li:hover{
+.navmenu ul li:nth-child(n + 2):hover {
 	background: rgba(38, 39, 37, 0.6);
 }
 
+.dropdown-content li:hover,
+.dropdown-content li:active {
+	background-color: rgba(38, 39, 37, 0.6);
+}
 li a img {
 	height: 55px;
 }
@@ -551,7 +552,7 @@ nav {
 
 /* ------------------------People-------------------------*/
 /* ------------------------People-------------------------*/
-.hire-btn{
+.hire-btn {
 	font-family: 'GlacialIndifferenceBold';
 	border-radius: 4px;
 	font-weight: 300;
@@ -560,7 +561,7 @@ nav {
 	width: 10em;
 	padding: 0.1%;
 }
-.hire-btn1{
+.hire-btn1 {
 	font-family: 'GlacialIndifferenceBold';
 	border-radius: 4px;
 	font-weight: 300;
@@ -569,22 +570,22 @@ nav {
 	width: 7em;
 	padding-top: 0%;
 }
-.hire-btn1:hover{
+.hire-btn1:hover {
 	background-color: #080808;
 }
 
-.card-image{
+.card-image {
 	padding: 0.6rem;
 }
-.card1{
+.card1 {
 	height: 7rem;
 }
-.userimg{
+.userimg {
 	height: 10rem;
 	width: 10rem;
 }
 /*-------------------Products--------------------------*/
-.pro-btn1{
+.pro-btn1 {
 	font-family: 'GlacialIndifferenceBold';
 	border-radius: 4px;
 	font-weight: 300;
@@ -593,17 +594,17 @@ nav {
 	width: 12em;
 	padding: 0%;
 }
-.pro-btn1:hover{
+.pro-btn1:hover {
 	background-color: #080808;
 }
 
-.download-icon{
-	font-size:30px;
-	color:rgb(0, 0, 0);
+.download-icon {
+	font-size: 30px;
+	color: rgb(0, 0, 0);
 }
 
 /*---------------------comment------------------*/
-.comment-btn1{
+.comment-btn1 {
 	font-family: 'GlacialIndifferenceBold';
 	border-radius: 4px;
 	border: 1.5px solid #fff;
@@ -613,7 +614,7 @@ nav {
 	width: 3.5em;
 	padding: 0%;
 }
-.comment-btn1:hover{
+.comment-btn1:hover {
 	background-color: #080808;
 }
 
