@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Footer from '../Components/Footer2';
+import { Redirect } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -36,76 +38,106 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn () {
 	const classes = useStyles();
+	const [ email, setEmail ] = React.useState('');
+	const [ loginsuccess, setLoginsuccess ] = React.useState(false);
+	const [ password, setPassword ] = React.useState('');
 
-	return (
-		<div>
+	const submitHandler = (e) => {
+		e.preventDefault();
+		axios
+			.post('http://localhost:5000/api/user/loginUser', {
+				email: email,
+				password: password
+			})
+			.then(
+				(response) => {
+					console.log(response.data);
+					if (response.data.success) {
+						setLoginsuccess(true);
+						window.location.reload(false);
+					}
+				},
+				(error) => {
+					console.log(error);
+				}
+			);
+	};
+	if (loginsuccess) {
+		return <Redirect to='/' />;
+	} else {
+		return (
 			<div>
-				<Container component='main' maxWidth='xs'>
-					<CssBaseline />
-					<div className={classes.paper}>
-						<Avatar className={classes.avatar}>
-							<PersonIcon />
-						</Avatar>
-						<Typography component='h1' variant='h5' style={{ marginBottom: '30px' }}>
-							Sign In
-						</Typography>
-						<form className={classes.form}>
-							<Grid container spacing={2}>
-								<Grid spacing={2} item xs={12}>
-									<TextField
-										type='email'
-										variant='outlined'
-										required
-										fullWidth
-										id='email'
-										label='Email Address'
-										name='email'
-									/>
-								</Grid>
-								<Grid spacing={2} item xs={12}>
-									<TextField
-										variant='outlined'
-										margin='normal'
-										required
-										fullWidth
-										name='password'
-										label='Password'
-										type='password'
-										id='password'
-										autoComplete='current-password'
-									/>
-								</Grid>
-							</Grid>
-							<FormControlLabel
-								control={<Checkbox value='remember' color='primary' />}
-								label='Remember me'
-							/>
-							<Button
-								type='submit'
-								fullWidth
-								variant='contained'
-								color='primary'
-								className={classes.submit}
-							>
+				<div>
+					<Container component='main' maxWidth='xs'>
+						<CssBaseline />
+						<div className={classes.paper}>
+							<Avatar className={classes.avatar}>
+								<PersonIcon />
+							</Avatar>
+							<Typography component='h1' variant='h5' style={{ marginBottom: '30px' }}>
 								Sign In
-							</Button>
-							<Grid container>
-								<Grid item xs>
-									<Link href='#' variant='body2'>
-										Forgot password?
-									</Link>
+							</Typography>
+							<form className={classes.form} onSubmit={submitHandler}>
+								<Grid container spacing={2}>
+									<Grid spacing={2} item xs={12}>
+										<TextField
+											type='email'
+											variant='outlined'
+											required
+											fullWidth
+											id='email'
+											label='Email Address'
+											name='email'
+											value={email}
+											onChange={(e) => setEmail(e.target.value)}
+										/>
+									</Grid>
+									<Grid spacing={2} item xs={12}>
+										<TextField
+											variant='outlined'
+											margin='normal'
+											required
+											fullWidth
+											name='password'
+											label='Password'
+											type='password'
+											id='password'
+											value={password}
+											onChange={(e) => setPassword(e.target.value)}
+										/>
+									</Grid>
 								</Grid>
-								<Grid item>
-									<Link href='/signup' variant='body2'>
-										{"Don't have an account? Sign Up"}
-									</Link>
+								<FormControlLabel
+									control={<Checkbox value='remember' color='primary' />}
+									label='Remember me'
+								/>
+								<Button
+									type='submit'
+									fullWidth
+									variant='contained'
+									color='primary'
+									className={classes.submit}
+								>
+									Sign In
+								</Button>
+								<Grid container>
+									<Grid item xs>
+										<Link href='#' variant='body2'>
+											Forgot password?
+										</Link>
+									</Grid>
+									<Grid item>
+										<Link href='/signup' variant='body2'>
+											{"Don't have an account? Sign Up"}
+										</Link>
+									</Grid>
 								</Grid>
-							</Grid>
-						</form>
-					</div>
-				</Container>
+							</form>
+						</div>
+					</Container>
+				</div>
+				<Footer />
 			</div>
-			<Footer />
-		</div>
-	);
+		);
+	}
 }

@@ -1,17 +1,10 @@
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles, withTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Chip from '@material-ui/core/Chip';
-import StarIcon from '@material-ui/icons/Star';
 import Register from '../Components/Register';
 import ListProduct from '../Components/ListProduct';
 
@@ -53,17 +46,8 @@ const Transition = React.forwardRef(function Transition (props, ref) {
 
 const Products = () => {
 	const classes = useStyles();
-	const [ open, setOpen ] = React.useState(false);
 	const [ Useropen, setUser ] = React.useState(false);
 	const [ Productopen, setProduct ] = React.useState(false);
-
-	const handleClickOpen = () => {
-		setOpen(true);
-	};
-
-	const handleClose = () => {
-		setOpen(false);
-	};
 
 	const handleClickUser = () => {
 		setUser(true);

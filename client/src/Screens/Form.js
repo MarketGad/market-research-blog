@@ -84,6 +84,9 @@ export default function SignUp () {
 	const submitHandler = (event) => {
 		event.preventDefault();
 		axios({
+			headers: {
+				'content-type': 'text/json'
+			},
 			method: 'PUT',
 			url: 'https://serieux-saucisson-31787.herokuapp.com/api/ideasubmit',
 			// url: "http://localhost:5000/api/ideasubmit",
