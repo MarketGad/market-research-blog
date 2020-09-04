@@ -601,23 +601,22 @@ nav {
 .download-icon {
 	font-size: 4rem;
 	color: rgb(0, 0, 0);
-	padding:0%;
+	padding: 0%;
 }
 
 .pro-img {
-	
 	border-radius: 10%;
 }
 
 /*---------------------comment------------------*/
 .comment-btn1 {
+	margin: 10px 0;
 	font-family: 'GlacialIndifferenceBold';
 	border-radius: 4px;
+	text-align: center;
 	font-weight: 300;
-	background-color: #0f0f0f;
+	background-color: #080808d9;
 	color: #ffffff;
-	width: 3.1em;
-	padding: 0%;
 }
 .comment-btn1:hover {
 	background-color: #080808;

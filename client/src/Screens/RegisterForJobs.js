@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(1)
 	},
 	submit: {
-		margin: theme.spacing(1, 0, 2)
+		margin: theme.spacing(3, 0, 2)
 	}
 }));
 
@@ -44,7 +44,7 @@ export default function RegisterForJobs () {
 							<PersonAddIcon />
 						</Avatar>
 						<Typography component='h1' variant='h5' style={{ marginBottom: '20px' }}>
-							Register Yourself
+							Register Yourself For Jobs
 						</Typography>
 						<form className={classes.form}>
 							<Grid container spacing={2}>

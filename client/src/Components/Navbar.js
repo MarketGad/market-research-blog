@@ -69,7 +69,7 @@ const Navbar = () => {
 				{/* <a href="#a" className="login-mob right sidenav-trigger" onClick={handleClickOpen}><i className="material-icons">person_add_alt_1</i></a> */}
 				<div className='navbar-fixed'>
 					<nav className='nav-center' role='navigation'>
-						<div class='nav-wrapper'>
+						<div className='nav-wrapper'>
 							<a href='/' data-target='mobile-demo' className='sidenav-trigger'>
 								<i className='material-icons'>menu</i>
 							</a>
@@ -82,7 +82,7 @@ const Navbar = () => {
 									alt='logo-mob'
 								/>
 							</a>
-							<ul id='dropdown1' class='dropdown-content' style={{ backgroundColor: 'black' }}>
+							<ul id='dropdown1' className='dropdown-content' style={{ backgroundColor: 'black' }}>
 								<li>
 									<a
 										href='/industry'
@@ -123,7 +123,7 @@ const Navbar = () => {
 										<a href='/products'>Products</a>
 									</li>
 									<li>
-										<a class='dropdown-trigger' data-target='dropdown1'>
+										<a className='dropdown-trigger' data-target='dropdown1'>
 											Market Research
 										</a>
 									</li>
@@ -156,7 +156,7 @@ const Navbar = () => {
 						</form>
 					</div>
 				</div>
-				<ul id='dropdown2' class='dropdown-content' style={{ backgroundColor: 'black' }}>
+				<ul id='dropdown2' className='dropdown-content' style={{ backgroundColor: 'black' }}>
 					<li>
 						<a href='/industry' style={{ color: 'white' }}>
 							Industry
@@ -191,8 +191,8 @@ const Navbar = () => {
 						<a href='/'>Home</a>
 					</li>
 					<li>
-						<a class='dropdown-trigger1' data-target='dropdown2'>
-							Market Research<i class='material-icons right'>arrow_drop_side</i>
+						<a className='dropdown-trigger1' data-target='dropdown2'>
+							Market Research<i className='material-icons right'>arrow_drop_side</i>
 						</a>
 					</li>
 					<li>

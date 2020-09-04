@@ -132,7 +132,12 @@ const Products = () => {
 				<div>
 					<ul className='collection'>
 						<li className='collection-item avatar'>
-							<img src={product.productImage} alt='' className='circle pro-img' style={{height:'50px' , width:'50px'}}/>
+							<img
+								src={product.productImage}
+								alt=''
+								className='circle pro-img'
+								style={{ height: '50px', width: '50px' }}
+							/>
 							<a className='title' onClick={handleClickProduct}>
 								<b>{product.productName}</b>
 							</a>
@@ -140,23 +145,28 @@ const Products = () => {
 								{product.productDesc}
 								<br />
 							</p>
+
 							<a href={product.productLink} className='secondary-content'>
 								<i className='medium material-icons download-icon'>arrow_drop_up</i>
 							</a>
-							<button className='waves-effect waves-light btn-small comment-btn1'>
-								<i className='material-icons' onClick={showComment}>
-									chat	
-								</i>
-							</button>
-							<form id='comment-form' style={{ display: 'none' }}>
-								<input type='text' style={{ width: '60%' }} placeholder='Enter Comment' />
-								<button
-									className='waves-effect waves-light btn-small pro-btn1'
+							<div />
+							<div className='waves-effect waves-light btn-small comment-btn1' onClick={showComment}>
+								Comments
+								<span
+									className='material-icons'
 									style={{
-										float: 'right'
+										position: 'relative',
+										top: '4px',
+										padding: '5px',
+										fontSize: '16px'
 									}}
-									type='submit'
 								>
+									chat
+								</span>
+							</div>
+							<form id='comment-form' style={{ display: 'none' }}>
+								<input type='text' style={{ width: '75%' }} placeholder='Enter Comment' />
+								<button className='waves-effect waves-light btn-small pro-btn1' type='submit'>
 									Add Comment
 								</button>
 							</form>
@@ -259,18 +269,23 @@ const Products = () => {
 									className='secondary-content'
 									style={{
 										marginTop: '-2%',
-										backgroundColor: '#ff9529',
 										padding: '0 5px',
-										borderRadius: '10px',
-										color: '#fff'
+										borderRadius: '10px'
 									}}
 								>
-									<span style={{ fontSize: '16px' }}>{user.userGrade}</span>
 									<span
-										style={{ position: 'relative', top: '2px', padding: '2px', fontSize: '16px' }}
+										style={{
+											position: 'relative',
+											padding: '2px',
+											fontSize: '12px',
+											color: '#ff9529'
+										}}
 										className='material-icons'
 									>
-										grade
+										fiber_manual_record
+									</span>
+									<span style={{ fontSize: '16px', padding: '1px', fontWeight: '600' }}>
+										{user.userGrade}
 									</span>
 								</div>
 							</p>
@@ -307,6 +322,29 @@ const Products = () => {
 											style={{ color: '#0153a5', fontFamily: 'GlacialIndifferenceBold' }}
 										>
 											{user.userName}
+											<div
+												className='secondary-content'
+												style={{
+													marginTop: '-1%',
+													padding: '0 5px',
+													borderRadius: '10px'
+												}}
+											>
+												<span
+													style={{
+														position: 'relative',
+														padding: '2px',
+														fontSize: '12px',
+														color: '#ff9529'
+													}}
+													className='material-icons'
+												>
+													fiber_manual_record
+												</span>
+												<span style={{ fontSize: '16px', padding: '1px', fontWeight: '600' }}>
+													{user.userGrade}
+												</span>
+											</div>
 										</div>
 										<div className='article-content'>
 											<b>Expertise Skills :</b>
@@ -328,30 +366,7 @@ const Products = () => {
 											<br /> {user.userExperience}
 										</div>
 										<br />
-										<div
-											className='secondary-content'
-											style={{
-												marginTop: '-2%',
-												backgroundColor: '#ff9529',
-												padding: '0 5px',
-												borderRadius: '10px',
-												color: '#fff',
-												width: '10%'
-											}}
-										>
-											<span style={{ fontSize: '16px' }}>{user.userGrade}</span>
-											<span
-												style={{
-													position: 'relative',
-													top: '2px',
-													padding: '2px',
-													fontSize: '16px'
-												}}
-												className='material-icons'
-											>
-												grade
-											</span>
-										</div>
+
 										<Button
 											onClick={handleCloseUser}
 											fullWidth
