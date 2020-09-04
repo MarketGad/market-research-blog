@@ -9,6 +9,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Footer from '../Components/Footer2';
 import PersonAddIcon from '@material-ui/icons/Person';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -27,12 +29,28 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(1)
 	},
 	submit: {
-		margin: theme.spacing(3, 0, 2)
+		margin: theme.spacing(2, 0, 2)
 	}
 }));
 
 export default function RegisterForJobs () {
 	const classes = useStyles();
+	const [fileInputState, setFileInputState] = React.useState('');
+	const [selectedFile, setSelectedFile] = React.useState('');
+	const [previewSource , setPreviewSource] = React.useState('');
+
+	const handleFileInputChange = (e) => {
+		const file = e.target.files[0];
+		previewFile(file);
+	};
+
+	const previewFile = (file) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onloadend = () => {
+			setPreviewSource(reader.result);
+		}
+	};
 
 	return (
 		<div>
@@ -126,17 +144,28 @@ export default function RegisterForJobs () {
 										autoComplete='location'
 									/>
 								</Grid>
-								<Grid item xs={12} sm={12} className='center'>
-									<TextField
-										variant='outlined'
+								{previewSource && (
+									<p style={{color:'green', marginLeft:'32%'}}>*Successfully uploaded</p>
+									)}
+									<Button
+										variant='contained'
+										component='label'
+										size = 'small'
+										style = {{marginLeft: '31%'}}
 										required
-										fullWidth
-										id='profilepic'
-										label='Link Of Profile Picture'
-										name='profilepic'
-										autoComplete='profilepic'
-									/>
-								</Grid>
+										color = 'primary'
+										startIcon={<CloudUploadIcon />}
+										
+									>
+										Upload Picture
+										<input
+											type='file'
+											style={{ display: "none" }}
+											onChange = {handleFileInputChange}
+											value = {fileInputState}
+											name = 'image'
+										/>
+									</Button>
 							</Grid>
 							<Button
 								type='submit'
@@ -151,7 +180,7 @@ export default function RegisterForJobs () {
 					</div>
 				</Container>
 			</div>
-			<Footer />
+			
 		</div>
 	);
 }
