@@ -77,7 +77,7 @@ const Products = () => {
 		{
 			productName: 'Anonymous Product',
 			productImage: 'https://lorempixel.com/100/190/nature/6',
-			productDesc: 'This product is great',
+			productDesc: 'This product is great.This product is great.',
 			productRating: '3',
 			productLink: '!#'
 		}
@@ -132,22 +132,20 @@ const Products = () => {
 				<div>
 					<ul className='collection'>
 						<li className='collection-item avatar'>
-							<img src={product.productImage} alt='' className='circle' />
+							<img src={product.productImage} alt='' className='circle pro-img' style={{height:'50px' , width:'50px'}}/>
 							<a className='title' onClick={handleClickProduct}>
 								<b>{product.productName}</b>
 							</a>
 							<p>
 								{product.productDesc}
 								<br />
-								<b>Rate:</b>
-								{product.productRating}/5 <br />
 							</p>
 							<a href={product.productLink} className='secondary-content'>
-								<i className='material-icons download-icon'>file_download</i>
+								<i className='medium material-icons download-icon'>arrow_drop_up</i>
 							</a>
 							<button className='waves-effect waves-light btn-small comment-btn1'>
 								<i className='material-icons' onClick={showComment}>
-									comment
+									chat	
 								</i>
 							</button>
 							<form id='comment-form' style={{ display: 'none' }}>
