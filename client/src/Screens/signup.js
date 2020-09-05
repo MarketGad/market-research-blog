@@ -154,7 +154,6 @@ export default function SignUp () {
 									</Grid>
 									<Grid item xs={12} sm={6}>
 										<TextField
-											type='email'
 											variant='outlined'
 											required
 											fullWidth
@@ -167,6 +166,7 @@ export default function SignUp () {
 									</Grid>
 									<Grid item xs={12}>
 										<TextField
+											type='email'
 											variant='outlined'
 											required
 											fullWidth
