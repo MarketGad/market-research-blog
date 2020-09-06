@@ -7,10 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Footer from '../Components/Footer2';
 import PersonAddIcon from '@material-ui/icons/Person';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -35,9 +33,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RegisterForJobs () {
 	const classes = useStyles();
-	const [fileInputState, setFileInputState] = React.useState('');
-	const [selectedFile, setSelectedFile] = React.useState('');
-	const [previewSource , setPreviewSource] = React.useState('');
+	const [ fileInputState, setFileInputState ] = React.useState('');
+	const [ selectedFile, setSelectedFile ] = React.useState('');
+	const [ previewSource, setPreviewSource ] = React.useState('');
 
 	const handleFileInputChange = (e) => {
 		const file = e.target.files[0];
@@ -49,7 +47,7 @@ export default function RegisterForJobs () {
 		reader.readAsDataURL(file);
 		reader.onloadend = () => {
 			setPreviewSource(reader.result);
-		}
+		};
 	};
 
 	return (
@@ -66,28 +64,25 @@ export default function RegisterForJobs () {
 						</Typography>
 						<form className={classes.form}>
 							<Grid container spacing={2}>
-								<Grid spacing={2} item sm={6}>
-									<TextField
-										autoComplete='fname'
-										name='firstName'
-										variant='outlined'
+								<Grid item xs={12} sm={12}>
+									<Button
+										variant='contained'
+										component='label'
+										size='small'
+										style={{ marginLeft: '31%' }}
 										required
-										fullWidth
-										id='firstName'
-										label='First Name'
-										autoFocus
-									/>
-								</Grid>
-								<Grid spacing={2} item sm={6}>
-									<TextField
-										variant='outlined'
-										required
-										fullWidth
-										id='lastName'
-										label='Last Name'
-										name='lastName'
-										autoComplete='lname'
-									/>
+										color='primary'
+										startIcon={<CloudUploadIcon />}
+									>
+										Upload Picture
+										<input
+											type='file'
+											style={{ display: 'none' }}
+											onChange={handleFileInputChange}
+											value={fileInputState}
+											name='image'
+										/>
+									</Button>
 								</Grid>
 								<Grid item xs={12} sm={12}>
 									<TextField
@@ -145,27 +140,8 @@ export default function RegisterForJobs () {
 									/>
 								</Grid>
 								{previewSource && (
-									<p style={{color:'green', marginLeft:'32%'}}>*Successfully uploaded</p>
-									)}
-									<Button
-										variant='contained'
-										component='label'
-										size = 'small'
-										style = {{marginLeft: '31%'}}
-										required
-										color = 'primary'
-										startIcon={<CloudUploadIcon />}
-										
-									>
-										Upload Picture
-										<input
-											type='file'
-											style={{ display: "none" }}
-											onChange = {handleFileInputChange}
-											value = {fileInputState}
-											name = 'image'
-										/>
-									</Button>
+									<p style={{ color: 'green', marginLeft: '32%' }}>*Successfully uploaded</p>
+								)}
 							</Grid>
 							<Button
 								type='submit'
@@ -180,7 +156,6 @@ export default function RegisterForJobs () {
 					</div>
 				</Container>
 			</div>
-			
 		</div>
 	);
 }

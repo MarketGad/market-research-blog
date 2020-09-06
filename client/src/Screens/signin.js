@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Footer from '../Components/Footer2';
 import { Redirect } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -51,10 +52,13 @@ export default function SignIn () {
 			})
 			.then(
 				(response) => {
-					console.log(response.data);
+					console.log(response);
 					if (response.data.success) {
 						setLoginsuccess(true);
+						Cookies.set('session-id', response.data['token']);
 						window.location.reload(false);
+						const cookie = Cookies.get('session-id');
+						console.log(cookie);
 					}
 				},
 				(error) => {
