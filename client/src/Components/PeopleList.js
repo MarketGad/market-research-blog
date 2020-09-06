@@ -99,7 +99,7 @@ const PeopleList = () => {
 	];
 
 	const showPeople = people.length ? (
-		people.map((user) => {
+		people.map((user, index) => {
 			const cookie = Cookies.get('session-id');
 			console.log(cookie);
 			return (
@@ -107,7 +107,7 @@ const PeopleList = () => {
 					<ul className='collection'>
 						<li className='collection-item avatar'>
 							<img src={user.userImage} alt='' className='circle' />
-							<a className='title' onClick={handleClickUser}>
+							<a className='title' href={'/' + index}>
 								<b>{user.userName}</b>
 							</a>
 							<p>
@@ -159,80 +159,7 @@ const PeopleList = () => {
 							onClose={handleCloseUser}
 							aria-labelledby='alert-dialog-slide-title'
 							aria-describedby='alert-dialog-slide-description'
-						>
-							<div>
-								<Container
-									component='main'
-									maxWidth='xs'
-									style={{ backgroundColor: 'white', color: 'black' }}
-								>
-									<CssBaseline />
-									<div className={classes.userdisp} style={{ paddingTop: '2%', paddingBottom: '2%' }}>
-										<img className={classes.userimg} src={user.userImage} alt={user.userName} />
-										<div
-											className='article-subhead'
-											style={{ color: '#0153a5', fontFamily: 'GlacialIndifferenceBold' }}
-										>
-											{user.userName}
-											<div
-												className='secondary-content'
-												style={{
-													marginTop: '-1%',
-													padding: '0 5px',
-													borderRadius: '10px'
-												}}
-											>
-												<span
-													style={{
-														position: 'relative',
-														padding: '2px',
-														fontSize: '12px',
-														color: '#ff9529'
-													}}
-													className='material-icons'
-												>
-													fiber_manual_record
-												</span>
-												<span style={{ fontSize: '16px', padding: '1px', fontWeight: '600' }}>
-													{user.userGrade}
-												</span>
-											</div>
-										</div>
-										<div className='article-content'>
-											<b>Expertise Skills :</b>
-											<br /> {user.userSkills}
-										</div>
-										<br />
-										<div className='article-content'>
-											<b>Description :</b>
-											<br /> {user.userDesc}
-										</div>
-										<br />
-										<div className='article-content'>
-											<b>Location :</b>
-											<br /> {user.userLocation}
-										</div>
-										<br />
-										<div className='article-content'>
-											<b>Experiences :</b>
-											<br /> {user.userExperience}
-										</div>
-										<br />
-
-										<Button
-											onClick={handleCloseUser}
-											fullWidth
-											variant='contained'
-											color='primary'
-											className={classes.submit}
-											style={{ fontFamily: 'GlacialIndifferenceBold' }}
-										>
-											Close
-										</Button>
-									</div>
-								</Container>
-							</div>
-						</Dialog>
+						/>
 					</ul>
 				</div>
 			);
