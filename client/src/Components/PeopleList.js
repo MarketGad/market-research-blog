@@ -147,7 +147,7 @@ const PeopleList = () => {
 							<a
 								className='waves-effect waves-light btn hire-btn1'
 								style={{ float: 'right', marginTop: '2%' }}
-								onClick={handleClickUser}
+								href = {'/' + index}
 							>
 								Connect
 							</a>

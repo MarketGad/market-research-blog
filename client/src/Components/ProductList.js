@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Cookies from 'js-cookie';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -70,11 +71,27 @@ const ProductList = () => {
 			productDesc: 'This product is great.This product is great.',
 			productRating: '3',
 			productLink: '!#'
+		},
+		{
+			productName: 'Anonymous Product',
+			productImage: 'https://lorempixel.com/100/190/nature/6',
+			productDesc: 'This product is great.This product is great.',
+			productRating: '4',
+			productLink: '!#'
+		},
+		{
+			productName: 'Anonymous Product',
+			productImage: 'https://lorempixel.com/100/190/nature/6',
+			productDesc: 'This product is great.This product is great.',
+			productRating: '5',
+			productLink: '!#'
 		}
 	];
 
 	const showProducts = products.length ? (
-		products.map((product) => {
+		products.map((product, index) => {
+			const cookie = Cookies.get('session-id');
+			console.log(cookie);
 			return (
 				<div>
 					<ul className='collection'>
@@ -85,7 +102,7 @@ const ProductList = () => {
 								className='circle pro-img'
 								style={{ height: '50px', width: '50px' }}
 							/>
-							<a className='title' onClick={handleClickProduct}>
+							<a className='title' href= {'/p' + index }>
 								<b>{product.productName}</b>
 							</a>
 							<p>
