@@ -40,6 +40,8 @@ export default function RegisterForJobs () {
 	const handleFileInputChange = (e) => {
 		const file = e.target.files[0];
 		previewFile(file);
+		setSelectedFile(file);
+		setFileInputState(e.target.value);
 	};
 
 	const previewFile = (file) => {
@@ -47,6 +49,7 @@ export default function RegisterForJobs () {
 		reader.readAsDataURL(file);
 		reader.onloadend = () => {
 			setPreviewSource(reader.result);
+			console.log(reader.result);
 		};
 	};
 
@@ -64,26 +67,60 @@ export default function RegisterForJobs () {
 						</Typography>
 						<form className={classes.form}>
 							<Grid container spacing={2}>
-								<Grid item xs={12} sm={12}>
+								{previewSource && (
+									<img
+										src={previewSource}
+										alt='chosen'
+										style={{ width: '40%', textAlign: 'center', margin: '0 30%' }}
+									/>
+								)}
+								<Grid item xs={12} sm={6}>
 									<Button
 										variant='contained'
 										component='label'
 										size='small'
-										style={{ marginLeft: '31%' }}
+										style={{ display: 'inlineBlock' }}
 										required
 										color='primary'
 										startIcon={<CloudUploadIcon />}
 									>
-										Upload Picture
-										<input
-											type='file'
-											style={{ display: 'none' }}
-											onChange={handleFileInputChange}
-											value={fileInputState}
-											name='image'
-										/>
+										Profile Picture
 									</Button>
 								</Grid>
+								<Grid item xs={12} sm={6}>
+									<input
+										style={{ padding: '3px 0' }}
+										id='fileInput'
+										type='file'
+										name='image'
+										onChange={handleFileInputChange}
+										value={fileInputState}
+										className='form-input'
+									/>
+								</Grid>
+								<Grid item xs={12} sm={12}>
+									<TextField
+										variant='outlined'
+										required
+										fullWidth
+										id='passionate'
+										label='Passionate About'
+										name='passionate'
+									/>
+								</Grid>
+
+								<Grid item xs={12} sm={12}>
+									<TextField
+										variant='outlined'
+										required
+										fullWidth
+										id='name'
+										label='Name'
+										name='name'
+										autoComplete='name'
+									/>
+								</Grid>
+
 								<Grid item xs={12} sm={12}>
 									<TextField
 										variant='outlined'
@@ -100,6 +137,28 @@ export default function RegisterForJobs () {
 										variant='outlined'
 										required
 										fullWidth
+										id='Qualification'
+										label='Qualification'
+										name='Qualification'
+										autoComplete='Qualification'
+									/>
+								</Grid>
+								<Grid item xs={12} sm={12} className='center'>
+									<TextField
+										variant='outlined'
+										required
+										fullWidth
+										id='linkedIn'
+										label='LinkedIn'
+										name='linkedIn'
+										autoComplete='linkedIn'
+									/>
+								</Grid>
+								<Grid item xs={12} sm={12} className='center'>
+									<TextField
+										variant='outlined'
+										required
+										fullWidth
 										id='skills'
 										label='Skills'
 										name='lastName'
@@ -109,18 +168,16 @@ export default function RegisterForJobs () {
 								<Grid item xs={12} sm={12} className='center'>
 									<TextField
 										variant='outlined'
-										required
 										fullWidth
-										id='desc'
-										label='Description'
+										id='portfolio'
+										label='Portfolio Link (if any)'
 										name='desc'
-										autoComplete='description'
+										autoComplete='portfolio'
 									/>
 								</Grid>
 								<Grid item xs={12} sm={12} className='center'>
 									<TextField
 										variant='outlined'
-										required
 										fullWidth
 										id='experience'
 										label='Experience'
@@ -139,9 +196,6 @@ export default function RegisterForJobs () {
 										autoComplete='location'
 									/>
 								</Grid>
-								{previewSource && (
-									<p style={{ color: 'green', marginLeft: '32%' }}>*Successfully uploaded</p>
-								)}
 							</Grid>
 							<Button
 								type='submit'

@@ -607,7 +607,19 @@ nav {
 .pro-img {
 	border-radius: 10%;
 }
-
+.product-head {
+	font-size: 2.4em;
+	font-weight: 600;
+	line-height: .5em;
+}
+.product-subhead {
+	font-size: 1.7em;
+	line-height: 0.3em;
+	font-weight: 500;
+}
+.product-content {
+	font-size: 1.3em;
+}
 /*---------------------comment------------------*/
 .comment-btn1 {
 	margin: 10px 0;
