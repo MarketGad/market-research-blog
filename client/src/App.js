@@ -36,7 +36,9 @@ import v3002 from './Articles/venturehacks/v3002';
 import v3003 from './Articles/venturehacks/v3003';
 import v3004 from './Articles/venturehacks/v3004';
 import RegisterForProduct from './Screens/RegisterForProduct';
+import ProductProfile from './Screens/ProductProfile';
 import JobProfile from './Screens/JobProfile';
+
 
 function App () {
 	// useEffect(() => {
@@ -82,6 +84,7 @@ function App () {
 					<Route exact path='/v3002' component={v3002} />
 					<Route exact path='/v3003' component={v3003} />
 					<Route exact path='/v3004' component={v3004} />
+					<Route path='/p:product_id' component={ProductProfile} />
 					<Route path='/:job_id' component={JobProfile} />
 				</Switch>
 			</div>
