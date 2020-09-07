@@ -73,7 +73,6 @@ const ProductProfile = (props) => {
 						{product.productName}
 					</div>
 				</div>
-
 				<div
 					style={{
 						// textAlign: 'center',
@@ -151,15 +150,12 @@ const ProductProfile = (props) => {
 						quibusdam! Dicta vel officia esse assumenda pariatur quibusdam dolorem saepe atque voluptate.
 						Officiis quae repellat placeat. Aperiam quos, perferendis nobis laborum corrupti voluptatibus
 						voluptate suscipit consequatur natus pariatur, ipsum eaque nulla dolor deleniti adipisci, rerum
-						ducimus dolore aut. Magni, incidunt doloribus. Quis, tempore impedit iusto accusamus quia
-						obcaecati, veritatis sapiente ducimus maxime, sunt consequuntur nesciunt minus ut repellat a ea
-						commodi quidem praesentium? Quia ea exercitationem, veniam nesciunt quasi dolorem illum magni
-						odio laborum excepturi assumenda ullam cupiditate sunt deleniti reiciendis provident iusto
-						doloremque nisi repellat. Error itaque delectus optio non dolorum, a ratione. Earum tempore eius
-						esse adipisci possimus nam voluptates temporibus aspernatur provident nulla molestiae repellat
-						libero repellendus obcaecati quis, quo quod vero perferendis! Sunt a rerum facere velit sequi
-						alias in iure libero, culpa ipsum modi aspernatur, aliquam quasi inventore deleniti
-						consequuntur? Aliquid sunt exercitationem officia.
+						ducimus dolore aut. Maiam nesciunt quasi dolorem illum magni odio laborum excepturi assumenda
+						ullam cupiditate sunt deleniti reiciendis provident iusto doloremque nisi repellat. Error itaque
+						delectus optio non dolorum, a ratione. Earum tempore eius esse adipisci possimus nam voluptates
+						temporibus aspernatur provident nulla molestiae repellat libero repellendus obcaecati quis, quo
+						quod vero perferendis! Sunt a rerum facere velit sequi alias in iure libero, culpa ipsum modi
+						aspernatur, aliquam quasi inventore deleniti consequuntur? Aliquid sunt exercitationem officia.
 					</p>
 				</div>
 				<div style={{ marginTop: '5%' }}>

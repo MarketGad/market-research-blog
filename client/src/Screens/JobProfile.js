@@ -155,23 +155,23 @@ const JobProfile = (props) => {
 				</div>
 			</Grid>
 			<Grid item xs={12} sm={12} md={9} elevation={6} square>
-				<div style={{ margin: '7%' }}>
-					<p className='article-subhead'>
-						<b>Skills</b>
-					</p>
-					<p className='article-content'>{user.userSkills}</p>
-					<p className='article-subhead'>
-						<b>Experience</b>
-					</p>
-					<p className='article-content'>{user.userExperience}</p>
-					<p className='article-subhead'>
-						<b>Qualifications</b>
-					</p>
-					<p className='article-content'>{user.userQualification}</p>
-					<p className='article-subhead'>
-						<b>Passionate About</b>
-					</p>
-					<p className='article-content'>{user.userDesc}</p>
+				<div style={{ margin: '5% 7%' }}>
+					<div style={{ padding: '3px 0' }}>
+						<p className='product-subhead'>Skills</p>
+						<p className='product-content'>{user.userSkills}</p>
+					</div>
+					<div style={{ padding: '3px 0' }}>
+						<p className='product-subhead'>Experience</p>
+						<p className='product-content'>{user.userExperience}</p>
+					</div>
+					<div style={{ padding: '3px 0' }}>
+						<p className='product-subhead'>Qualifications</p>
+						<p className='product-content'>{user.userQualification}</p>
+					</div>
+					<div style={{ padding: '3px 0' }}>
+						<p className='product-subhead'>Passionate About</p>
+						<p className='product-content'>{user.userDesc}</p>
+					</div>
 				</div>
 			</Grid>
 		</Grid>

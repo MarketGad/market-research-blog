@@ -608,17 +608,20 @@ nav {
 	border-radius: 10%;
 }
 .product-head {
+	font-family: 'GlacialIndifferenceBold';
 	font-size: 2.4em;
 	font-weight: 600;
 	line-height: .5em;
 }
 .product-subhead {
-	font-size: 1.7em;
+	font-family: 'GlacialIndifferenceBold';
+	font-size: 1.9em;
 	line-height: 0.3em;
 	font-weight: 500;
 }
 .product-content {
-	font-size: 1.3em;
+	font-family: 'GlacialIndifferenceMedium';
+	font-size: 1.5em;
 }
 /*---------------------comment------------------*/
 .comment-btn1 {
