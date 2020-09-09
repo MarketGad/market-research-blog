@@ -57,7 +57,7 @@ const PeopleList = () => {
 
 	const people = [
 		{
-			userName: 'Anonymous User',
+			userName: 'Saidatta',
 			userImage: 'https://lorempixel.com/100/190/nature/6',
 			userSkills: 'Lorem, Lorem, Lorem, Lorem',
 			userEmail: 'abc@gmail.com',
@@ -67,7 +67,7 @@ const PeopleList = () => {
 			userGrade: '5'
 		},
 		{
-			userName: 'Anonymous User',
+			userName: 'Mryutunjay',
 			userImage: 'https://lorempixel.com/100/190/nature/6',
 			userSkills: 'Lorem, Lorem, Lorem, Lorem',
 			userEmail: 'abc@gmail.com',
@@ -77,7 +77,7 @@ const PeopleList = () => {
 			userGrade: '6'
 		},
 		{
-			userName: 'Anonymous User',
+			userName: 'Rashmi',
 			userImage: 'https://lorempixel.com/100/190/nature/6',
 			userSkills: 'Lorem, Lorem, Lorem, Lorem',
 			userEmail: 'abc@gmail.com',
@@ -87,7 +87,7 @@ const PeopleList = () => {
 			userGrade: '7'
 		},
 		{
-			userName: 'Anonymous User',
+			userName: 'Saidatta2',
 			userImage: 'https://lorempixel.com/100/190/nature/6',
 			userSkills: 'Lorem, Lorem, Lorem, Lorem',
 			userEmail: 'abc@gmail.com',

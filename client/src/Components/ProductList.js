@@ -66,21 +66,21 @@ const ProductList = () => {
 
 	const products = [
 		{
-			productName: 'Anonymous Product',
+			productName: 'MarketGad',
 			productImage: 'https://lorempixel.com/100/190/nature/6',
 			productDesc: 'This product is great.This product is great.',
 			productRating: '3',
 			productLink: '!#'
 		},
 		{
-			productName: 'Anonymous Product',
+			productName: 'InsaanCorp',
 			productImage: 'https://lorempixel.com/100/190/nature/6',
 			productDesc: 'This product is great.This product is great.',
 			productRating: '4',
 			productLink: '!#'
 		},
 		{
-			productName: 'Anonymous Product',
+			productName: 'GeeksforGeeks',
 			productImage: 'https://lorempixel.com/100/190/nature/6',
 			productDesc: 'This product is great.This product is great.',
 			productRating: '5',
