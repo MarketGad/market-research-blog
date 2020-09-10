@@ -1,14 +1,33 @@
 import React from 'react';
+import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
+import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Chip from '@material-ui/core/Chip';
 import PersonAddIcon from '@material-ui/icons/Person';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import { Redirect } from 'react-router-dom';
+import Cookies from 'js-cookie';
+
+function Copyright () {
+	return (
+		<Typography variant='body2' color='textSecondary' align='center'>
+			{'Copyright © '}
+			<Link color='inherit' href='https://material-ui.com/'>
+				marketgad.com
+			</Link>{' '}
+			{new Date().getFullYear()}
+			{'.'}
+		</Typography>
+	);
+}
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -27,7 +46,19 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(1)
 	},
 	submit: {
-		margin: theme.spacing(2, 0, 2)
+		margin: theme.spacing(4, 0, 2),
+		padding: '5px',
+		fontFamily: 'GlacialIndifferenceBold',
+		fontWeight: '800',
+		fontSize: '1.4em',
+		letterSpacing: '0.1em'
+	},
+	chip: {
+		padding: '10px',
+		borderRadius: '5px',
+		fontWeight: '900',
+		fontSize: '1.2em',
+		letterSpacing: '.07em'
 	}
 }));
 
@@ -36,6 +67,18 @@ export default function RegisterForJobs () {
 	const [ fileInputState, setFileInputState ] = React.useState('');
 	const [ selectedFile, setSelectedFile ] = React.useState('');
 	const [ previewSource, setPreviewSource ] = React.useState('');
+	const [ RegisterJobSuccess, setRegisterJobSuccess ] = React.useState(false);
+	const [ email, setEmail ] = React.useState('');
+	const [ passionate, setPassionate ] = React.useState('');
+	const [ name, setName ] = React.useState('');
+	const [ qualification, setQualification ] = React.useState('');
+	const [ linkedIn, setlinkedin ] = React.useState('');
+	const [ skills, setSkills ] = React.useState('');
+	const [ portfolio, setPortfolio ] = React.useState('');
+	const [ experience, setExperience ] = React.useState('');
+	const [ location, setLocation ] = React.useState('');
+	const [ service, setService ] = React.useState('');
+	const [ price, setPrice ] = React.useState('');
 
 	const handleFileInputChange = (e) => {
 		const file = e.target.files[0];
@@ -49,167 +92,262 @@ export default function RegisterForJobs () {
 		reader.readAsDataURL(file);
 		reader.onloadend = () => {
 			setPreviewSource(reader.result);
-			console.log(reader.result);
 		};
 	};
+	const submitHandler = (e) => {
+		e.preventDefault();
+		const token = Cookies.get('session-id');
+		const config = {
+			headers: {
+				Authorization: `Bearer  ${token}`
+			}
+		};
+		axios
+			.post(
+				'http://localhost:5000/api/jobprofiles',
+				{
+					skills: skills,
+					location: location,
+					experience: experience,
+					qualification: qualification,
+					passionateAbout: passionate,
+					portfolioLink: portfolio,
+					linkedIn: linkedIn,
+					serviceName: service,
+					offeringPrice: price,
+					profilePic: previewSource
+				},
+				config
+			)
+			.then(
+				(response) => {
+					if (response.status === 200) {
+						setRegisterJobSuccess(true);
+					} else {
+						alert(response.err);
+					}
+				},
+				(error) => {
+					console.log(error);
+				}
+			);
+	};
 
-	return (
-		<div>
+	if (RegisterJobSuccess) {
+		return <Redirect to='/products' />;
+	} else {
+		return (
 			<div>
-				<Container component='main' maxWidth='xs'>
-					<CssBaseline />
-					<div className={classes.paper}>
-						<Avatar className={classes.avatar}>
-							<PersonAddIcon />
-						</Avatar>
-						<Typography component='h1' variant='h5' style={{ marginBottom: '20px' }}>
-							Register Yourself For Jobs
-						</Typography>
-						<form className={classes.form}>
-							<Grid container spacing={2}>
-								{previewSource && (
-									<img
-										src={previewSource}
-										alt='chosen'
-										style={{ width: '40%', textAlign: 'center', margin: '0 30%' }}
-									/>
-								)}
-								<Grid item xs={12} sm={6}>
-									<Button
-										variant='contained'
-										component='label'
-										size='small'
-										style={{ display: 'inlineBlock' }}
-										required
-										color='primary'
-										startIcon={<CloudUploadIcon />}
-									>
-										Profile Picture
-									</Button>
-								</Grid>
-								<Grid item xs={12} sm={6}>
-									<input
-										style={{ padding: '3px 0' }}
-										id='fileInput'
-										type='file'
-										name='image'
-										onChange={handleFileInputChange}
-										value={fileInputState}
-										className='form-input'
-									/>
-								</Grid>
-								<Grid item xs={12} sm={12}>
-									<TextField
-										variant='outlined'
-										required
-										fullWidth
-										id='passionate'
-										label='Passionate About'
-										name='passionate'
-									/>
-								</Grid>
-
-								<Grid item xs={12} sm={12}>
-									<TextField
-										variant='outlined'
-										required
-										fullWidth
-										id='name'
-										label='Name'
-										name='name'
-										autoComplete='name'
-									/>
-								</Grid>
-
-								<Grid item xs={12} sm={12}>
-									<TextField
-										variant='outlined'
-										required
-										fullWidth
-										id='email'
-										label='Email'
-										name='email'
-										autoComplete='email'
-									/>
-								</Grid>
-								<Grid item xs={12} sm={12} className='center'>
-									<TextField
-										variant='outlined'
-										required
-										fullWidth
-										id='Qualification'
-										label='Qualification'
-										name='Qualification'
-										autoComplete='Qualification'
-									/>
-								</Grid>
-								<Grid item xs={12} sm={12} className='center'>
-									<TextField
-										variant='outlined'
-										required
-										fullWidth
-										id='linkedIn'
-										label='LinkedIn'
-										name='linkedIn'
-										autoComplete='linkedIn'
-									/>
-								</Grid>
-								<Grid item xs={12} sm={12} className='center'>
-									<TextField
-										variant='outlined'
-										required
-										fullWidth
-										id='skills'
-										label='Skills'
-										name='lastName'
-										autoComplete='skills'
-									/>
-								</Grid>
-								<Grid item xs={12} sm={12} className='center'>
-									<TextField
-										variant='outlined'
-										fullWidth
-										id='portfolio'
-										label='Portfolio Link (if any)'
-										name='desc'
-										autoComplete='portfolio'
-									/>
-								</Grid>
-								<Grid item xs={12} sm={12} className='center'>
-									<TextField
-										variant='outlined'
-										fullWidth
-										id='experience'
-										label='Experience'
-										name='experience'
-										autoComplete='experience'
-									/>
-								</Grid>
-								<Grid item xs={12} sm={12} className='center'>
-									<TextField
-										variant='outlined'
-										required
-										fullWidth
-										id='location'
-										label='Location'
-										name='location'
-										autoComplete='location'
-									/>
-								</Grid>
-							</Grid>
-							<Button
-								type='submit'
-								fullWidth
-								variant='contained'
-								color='primary'
-								className={classes.submit}
+				<div>
+					<Container component='main' maxWidth='sm'>
+						<CssBaseline />
+						<div className={classes.paper}>
+							<Avatar className={classes.avatar}>
+								<PersonAddIcon />
+							</Avatar>
+							<Typography
+								component='h1'
+								variant='h5'
+								style={{
+									marginBottom: '20px',
+									fontFamily: 'GlacialIndifferenceMedium'
+								}}
 							>
-								Register
-							</Button>
-						</form>
-					</div>
-				</Container>
+								Register Yourself For Jobs
+							</Typography>
+							<form className={classes.form} onSubmit={submitHandler}>
+								<Grid container spacing={2}>
+									{previewSource && (
+										<img
+											src={previewSource}
+											alt='chosen'
+											style={{ width: '40%', textAlign: 'center', margin: '0 30%' }}
+										/>
+									)}
+									<Grid item xs={12} sm={6}>
+										<Chip
+											className={classes.chip}
+											label='Upload Profile Picture'
+											color='primary'
+											icon={<CloudUploadIcon />}
+										/>
+									</Grid>
+									<Grid item xs={12} sm={6}>
+										<input
+											style={{ padding: '3px 0' }}
+											id='fileInput'
+											type='file'
+											name='image'
+											onChange={handleFileInputChange}
+											value={fileInputState}
+											className='form-input'
+										/>
+									</Grid>
+									<Grid item xs={12} sm={12}>
+										<TextField
+											variant='outlined'
+											required
+											fullWidth
+											id='passionate'
+											label='Passionate About'
+											name='passionate'
+											value={passionate}
+											onChange={(e) => setPassionate(e.target.value)}
+										/>
+									</Grid>
+
+									<Grid item xs={12} sm={12}>
+										<TextField
+											variant='outlined'
+											required
+											fullWidth
+											id='name'
+											label='Name'
+											name='name'
+											autoComplete='name'
+											value={name}
+											onChange={(e) => setName(e.target.value)}
+										/>
+									</Grid>
+
+									<Grid item xs={12} sm={12}>
+										<TextField
+											variant='outlined'
+											required
+											fullWidth
+											id='email'
+											label='Email'
+											name='email'
+											autoComplete='email'
+											value={email}
+											onChange={(e) => setEmail(e.target.value)}
+										/>
+									</Grid>
+									<Grid item xs={12} sm={12} className='center'>
+										<TextField
+											variant='outlined'
+											required
+											fullWidth
+											id='Qualification'
+											label='Qualification'
+											name='Qualification'
+											value={qualification}
+											onChange={(e) => setQualification(e.target.value)}
+										/>
+									</Grid>
+									<Grid item xs={12} sm={12} className='center'>
+										<TextField
+											variant='outlined'
+											required
+											fullWidth
+											id='linkedIn'
+											label='LinkedIn'
+											name='linkedIn'
+											value={linkedIn}
+											onChange={(e) => setlinkedin(e.target.value)}
+										/>
+									</Grid>
+									<Grid item xs={12} sm={12} className='center'>
+										<TextField
+											variant='outlined'
+											required
+											fullWidth
+											id='skills'
+											label='Skills'
+											name='lastName'
+											autoComplete='skills'
+											value={skills}
+											onChange={(e) => setSkills(e.target.value)}
+										/>
+									</Grid>
+									<Grid item xs={12} sm={12} className='center'>
+										<TextField
+											variant='outlined'
+											fullWidth
+											id='portfolio'
+											label='Portfolio Link (if any)'
+											name='portfolio'
+											value={portfolio}
+											onChange={(e) => setPortfolio(e.target.value)}
+										/>
+									</Grid>
+									<Grid item xs={12} sm={12} className='center'>
+										<TextField
+											variant='outlined'
+											fullWidth
+											id='experience'
+											label='Experience'
+											name='experience'
+											value={experience}
+											onChange={(e) => setExperience(e.target.value)}
+										/>
+									</Grid>
+									<Grid item xs={12} sm={12} className='center'>
+										<TextField
+											variant='outlined'
+											required
+											fullWidth
+											id='location'
+											label='Location'
+											name='location'
+											value={location}
+											onChange={(e) => setLocation(e.target.value)}
+										/>
+									</Grid>
+									<Grid item xs={12} sm={12} className='center'>
+										<Typography
+											component='h1'
+											variant='h5'
+											style={{
+												margin: '15px',
+												textAlign: 'center',
+												fontFamily: 'GlacialIndifferenceMedium'
+											}}
+										>
+											Premium Offerings (If any)
+										</Typography>
+									</Grid>
+
+									<Grid item xs={12} sm={12} className='center'>
+										<TextField
+											variant='outlined'
+											fullWidth
+											id='service'
+											label='Service Name'
+											name='service'
+											value={service}
+											onChange={(e) => setService(e.target.value)}
+										/>
+									</Grid>
+									<Grid item xs={12} sm={12} className='center'>
+										<TextField
+											variant='outlined'
+											fullWidth
+											id='price'
+											label='Price'
+											name='price'
+											value={price}
+											onChange={(e) => setPrice(e.target.value)}
+										/>
+									</Grid>
+								</Grid>
+								<Button
+									type='submit'
+									fullWidth
+									variant='contained'
+									color='primary'
+									className={classes.submit}
+								>
+									Register
+								</Button>
+							</form>
+						</div>
+						<Box m={2}>
+							<Copyright />
+						</Box>
+					</Container>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 }

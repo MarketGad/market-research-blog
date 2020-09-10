@@ -67,7 +67,7 @@ const PeopleList = () => {
 			userGrade: '5'
 		},
 		{
-			userName: 'Mryutunjay',
+			userName: 'ajitesh',
 			userImage: 'https://lorempixel.com/100/190/nature/6',
 			userSkills: 'Lorem, Lorem, Lorem, Lorem',
 			userEmail: 'abc@gmail.com',
@@ -77,7 +77,7 @@ const PeopleList = () => {
 			userGrade: '6'
 		},
 		{
-			userName: 'Rashmi',
+			userName: 'Sidhartha',
 			userImage: 'https://lorempixel.com/100/190/nature/6',
 			userSkills: 'Lorem, Lorem, Lorem, Lorem',
 			userEmail: 'abc@gmail.com',
@@ -87,7 +87,7 @@ const PeopleList = () => {
 			userGrade: '7'
 		},
 		{
-			userName: 'Saidatta2',
+			userName: 'Rashmi',
 			userImage: 'https://lorempixel.com/100/190/nature/6',
 			userSkills: 'Lorem, Lorem, Lorem, Lorem',
 			userEmail: 'abc@gmail.com',
@@ -95,6 +95,16 @@ const PeopleList = () => {
 			userLocation: 'Mumbai, Maharashtra, India',
 			userExperience: '2+ years of experience in lore, lorem, lorem, lorem ',
 			userGrade: '9'
+		},
+		{
+			userName: 'Mrutyunjay',
+			userImage: 'https://lorempixel.com/100/190/nature/6',
+			userSkills: 'Lorem, Lorem, Lorem, Lorem',
+			userEmail: 'abc@gmail.com',
+			userDesc: 'I am skilled in lorem,lore,lorem,lorem....',
+			userLocation: 'Mumbai, Maharashtra, India',
+			userExperience: '2+ years of experience in lore, lorem, lorem, lorem ',
+			userGrade: '8'
 		}
 	];
 
@@ -147,7 +157,7 @@ const PeopleList = () => {
 							<a
 								className='waves-effect waves-light btn hire-btn1'
 								style={{ float: 'right', marginTop: '2%' }}
-								href = {'/' + index}
+								href={'/' + index}
 							>
 								Connect
 							</a>
