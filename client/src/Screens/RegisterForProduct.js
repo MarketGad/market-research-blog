@@ -92,7 +92,7 @@ export default function RegisterForProduct () {
 					name: name,
 					websiteLink: weblink,
 					playStoreLink: playlink,
-					appstoreLink: applelink,
+					appStoreLink: applelink,
 					briefDescription: briefdesc,
 					detailedDescription: detaildesc,
 					pointOfContact: contact,

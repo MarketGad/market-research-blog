@@ -1,51 +1,58 @@
-import React from 'react';
-import Cookies from 'js-cookie';
+import React, { useEffect } from 'react';
 
 const ProductList = () => {
-	const products = [
-		{
-			productName: 'MarketGad',
-			productImage: 'https://lorempixel.com/100/190/nature/6',
-			productDesc: 'This product is great.This product is great.',
-			productRating: '3',
-			productLink: '!#'
-		},
-		{
-			productName: 'Inshaan',
-			productImage: 'https://lorempixel.com/100/190/nature/6',
-			productDesc: 'This product is great.This product is great.',
-			productRating: '4',
-			productLink: '!#'
-		},
-		{
-			productName: 'Geeksforgeeks',
-			productImage: 'https://lorempixel.com/100/190/nature/6',
-			productDesc: 'This product is great.This product is great.',
-			productRating: '5',
-			productLink: '!#'
+	const [ products, setProducts ] = React.useState('');
+
+	const loadProducts = async () => {
+		try {
+			const res = await fetch('http://localhost:5000/api/productdetails');
+			const data = await res.json();
+			setProducts(data);
+		} catch (err) {
+			console.error(err);
 		}
-	];
+	};
+	useEffect(() => {
+		loadProducts();
+	}, []);
 
 	const showProducts = products.length ? (
 		products.map((product, index) => {
-			const cookie = Cookies.get('session-id');
-			console.log(cookie);
 			return (
 				<div>
-					<ul className='collection' style={{ borderRadius: '5px' }}>
+					<ul className='collection' style={{ borderRadius: '5px', height: '130px', padding: '5px' }}>
 						<li className='collection-item avatar'>
 							<img
-								src={product.productImage}
-								alt={product.productName}
+								src={product.logo}
+								alt={product.name}
 								className='circle pro-img'
 								style={{ width: '100px', height: '100px' }}
 							/>
-							<div style={{ paddingLeft: '8%' }}>
-								<a className='title' href={'/p' + index}>
-									<b>{product.productName}</b>
+							<div style={{ paddingLeft: '8%', paddingTop: '5px', width: '90%' }}>
+								<a className='product-content' style={{ color: 'black' }} href={'/p' + product._id}>
+									{product.name}
 								</a>
-								<p>{product.productDesc}</p>
-
+								<p className='product-desc'>{product.briefDescription}</p>
+								<p className='product-link'>
+									<span
+										style={{
+											position: 'relative',
+											paddingRight: '5px',
+											top: '4px'
+										}}
+										className='material-icons'
+									>
+										link
+									</span>
+									<a
+										style={{
+											color: '#0153a5'
+										}}
+										href={product.websiteLink || product.playStoreLink}
+									>
+										{product.websiteLink || product.playStoreLink}
+									</a>
+								</p>
 								<a
 									className='secondary-content'
 									style={{
@@ -64,10 +71,10 @@ const ProductList = () => {
 											top: '-1em'
 										}}
 									>
-										20
+										{product.upvotes}
 									</span>
 								</a>
-								<div className='waves-effect waves-light btn-small comment-btn1'>
+								{/* <div className='waves-effect waves-light btn-small comment-btn1'>
 									Comments
 									<span
 										className='material-icons'
@@ -86,7 +93,7 @@ const ProductList = () => {
 									<button className='waves-effect waves-light btn-small pro-btn1' type='submit'>
 										Add Comment
 									</button>
-								</form>
+								</form> */}
 							</div>
 						</li>
 					</ul>
@@ -94,7 +101,7 @@ const ProductList = () => {
 			);
 		})
 	) : (
-		<div className='center'> No Products to show: ( </div>
+		<div className='center'> Loading... </div>
 	);
 
 	return <div>{showProducts}</div>;

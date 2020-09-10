@@ -1,112 +1,21 @@
-import React from 'react';
-import Dialog from '@material-ui/core/Dialog';
-import Slide from '@material-ui/core/Slide';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React, { useEffect } from 'react';
 import Cookies from 'js-cookie';
 
-const useStyles = makeStyles((theme) => ({
-	paper: {
-		marginTop: theme.spacing(1),
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center'
-	},
-	avatar: {
-		color: '#080808d9',
-		backgroundColor: 'transparent'
-	},
-	form: {
-		width: '95%', // Fix IE 11 issue.
-		marginTop: theme.spacing(1)
-	},
-	submit: {
-		margin: theme.spacing(1, 0, 1, 0)
-	},
-	userdisp: {
-		marginTop: theme.spacing(3),
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'center'
-	},
-	userimg: {
-		borderRadius: '10px',
-		height: '10rem',
-		width: '50%',
-		margin: '0 25%'
-	}
-}));
-
-const Transition = React.forwardRef(function Transition (props, ref) {
-	return <Slide direction='up' ref={ref} {...props} />;
-});
-
 const PeopleList = () => {
-	const classes = useStyles();
-	const [ Useropen, setUser ] = React.useState(false);
+	const [ people, setPeople ] = React.useState('');
 
-	const handleClickUser = () => {
-		setUser(true);
-	};
-
-	const handleCloseUser = () => {
-		setUser(false);
-	};
-
-	const people = [
-		{
-			userName: 'Saidatta',
-			userImage: 'https://lorempixel.com/100/190/nature/6',
-			userSkills: 'Lorem, Lorem, Lorem, Lorem',
-			userEmail: 'abc@gmail.com',
-			userDesc: 'I am skilled in lorem,lore,lorem,lorem....',
-			userLocation: 'Mumbai, Maharashtra, India',
-			userExperience: '2+ years of experience in lore, lorem, lorem, lorem. 1+ years of exeperience in so and so',
-			userGrade: '5'
-		},
-		{
-			userName: 'ajitesh',
-			userImage: 'https://lorempixel.com/100/190/nature/6',
-			userSkills: 'Lorem, Lorem, Lorem, Lorem',
-			userEmail: 'abc@gmail.com',
-			userDesc: 'I am skilled in lorem,lore,lorem,lorem....',
-			userLocation: 'Mumbai, Maharashtra, India',
-			userExperience: '2+ years of experience in lore, lorem, lorem, lorem',
-			userGrade: '6'
-		},
-		{
-			userName: 'Sidhartha',
-			userImage: 'https://lorempixel.com/100/190/nature/6',
-			userSkills: 'Lorem, Lorem, Lorem, Lorem',
-			userEmail: 'abc@gmail.com',
-			userDesc: 'I am skilled in lorem,lore,lorem,lorem',
-			userLocation: 'Mumbai, Maharashtra, India',
-			userExperience: '2+ years of experience in lore, lorem, lorem, lorem ',
-			userGrade: '7'
-		},
-		{
-			userName: 'Rashmi',
-			userImage: 'https://lorempixel.com/100/190/nature/6',
-			userSkills: 'Lorem, Lorem, Lorem, Lorem',
-			userEmail: 'abc@gmail.com',
-			userDesc: 'I am skilled in lorem,lore,lorem,lorem....',
-			userLocation: 'Mumbai, Maharashtra, India',
-			userExperience: '2+ years of experience in lore, lorem, lorem, lorem ',
-			userGrade: '9'
-		},
-		{
-			userName: 'Mrutyunjay',
-			userImage: 'https://lorempixel.com/100/190/nature/6',
-			userSkills: 'Lorem, Lorem, Lorem, Lorem',
-			userEmail: 'abc@gmail.com',
-			userDesc: 'I am skilled in lorem,lore,lorem,lorem....',
-			userLocation: 'Mumbai, Maharashtra, India',
-			userExperience: '2+ years of experience in lore, lorem, lorem, lorem ',
-			userGrade: '8'
+	const loadProducts = async () => {
+		try {
+			const res = await fetch('http://localhost:5000/api/jobprofiles');
+			const data = await res.json();
+			setPeople(data);
+		} catch (err) {
+			console.error(err);
 		}
-	];
+	};
+	useEffect(() => {
+		loadProducts();
+	}, []);
 
 	const showPeople = people.length ? (
 		people.map((user, index) => {
@@ -116,16 +25,18 @@ const PeopleList = () => {
 				<div>
 					<ul className='collection'>
 						<li className='collection-item avatar'>
-							<img src={user.userImage} alt='' className='circle' />
-							<a className='title' href={'/' + index}>
-								<b>{user.userName}</b>
+							<img src={user.profilePic} alt='' className='circle' />
+							<a className='title' href={'/' + user._id}>
+								<b>
+									{user.user.firstname} {user.user.lastname}
+								</b>
 							</a>
 							<p>
 								<b>Skills: </b>
-								{user.userSkills}
+								{user.skills}
 								<br />
 								<b>Experience: </b>
-								{user.userExperience}
+								{user.experience}
 								<br />
 								<div
 									className='secondary-content'
@@ -147,7 +58,7 @@ const PeopleList = () => {
 										fiber_manual_record
 									</span>
 									<span style={{ fontSize: '16px', padding: '1px', fontWeight: '600' }}>
-										{user.userGrade}
+										{user.rating}
 									</span>
 								</div>
 							</p>
@@ -157,25 +68,17 @@ const PeopleList = () => {
 							<a
 								className='waves-effect waves-light btn hire-btn1'
 								style={{ float: 'right', marginTop: '2%' }}
-								href={'/' + index}
+								href={'/' + user._id}
 							>
 								Connect
 							</a>
 						</li>
-						<Dialog
-							open={Useropen}
-							TransitionComponent={Transition}
-							keepMounted
-							onClose={handleCloseUser}
-							aria-labelledby='alert-dialog-slide-title'
-							aria-describedby='alert-dialog-slide-description'
-						/>
 					</ul>
 				</div>
 			);
 		})
 	) : (
-		<div className='center'> No People to show: ( </div>
+		<div className='center'>Loading... </div>
 	);
 	return <div>{showPeople}</div>;
 };

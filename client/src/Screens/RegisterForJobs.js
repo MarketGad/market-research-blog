@@ -113,6 +113,7 @@ export default function RegisterForJobs () {
 					passionateAbout: passionate,
 					portfolioLink: portfolio,
 					linkedIn: linkedIn,
+					rating: '1',
 					serviceName: service,
 					offeringPrice: price,
 					profilePic: previewSource

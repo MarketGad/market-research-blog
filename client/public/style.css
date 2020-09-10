@@ -628,6 +628,20 @@ nav {
 	font-family: 'GlacialIndifferenceMedium';
 	font-size: 1.5em;
 }
+.product-desc {
+	font-size: 1.23em;
+	padding: 2px 0;
+	height: 2.5em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.product-link {
+	font-size: 1.25em;
+	padding: 2px 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: #0153a5;
+}
 /*---------------------comment------------------*/
 .comment-btn1 {
 	margin: 10px 0;
