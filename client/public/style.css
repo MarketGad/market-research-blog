@@ -643,11 +643,15 @@ nav {
 	color: #0153a5;
 }
 .links {
-	width: 100%;
-	display: block;
+	color: #080808d9;
+	max-width: 80%;
+	display: inline-block;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	overflow: hidden;
+	overflow-x: hidden;
+}
+.links:hover {
+	text-decoration: underline;
 }
 /*---------------------comment------------------*/
 .comment-btn1 {

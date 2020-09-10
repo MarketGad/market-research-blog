@@ -62,8 +62,8 @@ const JobProfile = (props) => {
 					<div
 						style={{
 							fontSize: '1.5em',
-							margin: '15%',
-							width: '350px'
+							marginLeft: '15%',
+							marginTop: '15%'
 						}}
 					>
 						<div style={{ padding: '3px' }}>
@@ -72,14 +72,14 @@ const JobProfile = (props) => {
 									style={{
 										position: 'relative',
 										padding: '0 10px',
-										top: '3px'
+										top: '-4px'
 									}}
 									className='material-icons'
 								>
 									mail
 								</span>
 								<span>
-									<a className='links' style={{ color: 'black' }} href='#'>
+									<a className='links' href='#'>
 										{UserProfile.user.email}
 									</a>
 								</span>
@@ -91,14 +91,14 @@ const JobProfile = (props) => {
 									style={{
 										position: 'relative',
 										padding: '0 10px',
-										top: '4px'
+										top: '-3px'
 									}}
 									className='material-icons'
 								>
 									<LinkIcon />
 								</span>
 								<span>
-									<a className='links' style={{ color: 'black' }} href={UserProfile.portfolioLink}>
+									<a className='links' href={UserProfile.portfolioLink}>
 										{UserProfile.portfolioLink}
 									</a>
 								</span>
@@ -112,7 +112,7 @@ const JobProfile = (props) => {
 							<span
 								style={{
 									position: 'relative',
-									top: '3px',
+									top: '-4px',
 									padding: '0 10px'
 								}}
 								className='material-icons'
@@ -120,7 +120,7 @@ const JobProfile = (props) => {
 								<LinkedInIcon />
 							</span>
 							<span>
-								<a className='links' style={{ color: 'black' }} href={UserProfile.linkedIn}>
+								<a className='links' href={UserProfile.linkedIn}>
 									<span>{UserProfile.linkedIn}</span>
 								</a>
 							</span>

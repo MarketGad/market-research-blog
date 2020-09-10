@@ -40,7 +40,8 @@ const ProductProfile = (props) => {
 					<div
 						style={{
 							fontSize: '1.5em',
-							margin: '15%'
+							marginLeft: '15%',
+							marginTop: '15%'
 						}}
 					>
 						<div>
@@ -49,7 +50,7 @@ const ProductProfile = (props) => {
 									style={{
 										position: 'relative',
 										padding: '0 5px',
-										top: '4px'
+										top: '-5px'
 									}}
 									className='material-icons'
 								>
@@ -66,7 +67,7 @@ const ProductProfile = (props) => {
 							<span
 								style={{
 									position: 'relative',
-									top: '2px',
+									top: '-5px',
 									padding: '0 5px'
 								}}
 								className='material-icons'
@@ -85,7 +86,7 @@ const ProductProfile = (props) => {
 									style={{
 										position: 'relative',
 										padding: '0 5px',
-										top: '2px'
+										top: '-4px'
 									}}
 									className='material-icons'
 								>
