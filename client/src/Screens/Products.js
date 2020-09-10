@@ -5,7 +5,7 @@ import ProductList from '../Components/ProductList';
 const Products = () => {
 	return (
 		<div>
-			<div className='container'>
+			<div style={{ margin: '0 12%' }}>
 				<div className='row'>
 					<div className='col s12 l8'>
 						<h4 className='center' style={{ fontFamily: 'GlacialIndifferenceBold' }}>
