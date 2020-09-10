@@ -642,6 +642,13 @@ nav {
 	overflow: hidden;
 	color: #0153a5;
 }
+.links {
+	width: 100%;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
 /*---------------------comment------------------*/
 .comment-btn1 {
 	margin: 10px 0;

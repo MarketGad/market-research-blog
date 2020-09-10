@@ -13,7 +13,7 @@ const JobProfile = (props) => {
 			const res = await fetch('http://localhost:5000/api/jobprofiles/' + id);
 			const data = await res.json();
 			setUser(data);
-			console.log(data.user.email)
+			console.log(data.user.email);
 		} catch (err) {
 			console.error(err);
 		}
@@ -21,7 +21,7 @@ const JobProfile = (props) => {
 	useEffect(() => {
 		loadProducts();
 	}, []);
-	if(UserProfile)
+	if (UserProfile)
 		return (
 			<Grid container component='main'>
 				<CssBaseline />
@@ -29,12 +29,15 @@ const JobProfile = (props) => {
 					<div style={{ textAlign: 'center' }}>
 						<img
 							src={UserProfile.profilePic}
-							// alt={User.firstname}
+							alt={UserProfile.user.firstname}
 							style={{ width: '200px', height: '200px', borderRadius: '7px', marginTop: '17%' }}
 						/>
 					</div>
-					<div className='article-subhead' style={{ fontFamily: 'GlacialIndifferenceBold', textAlign: 'center' }}>
-						{/* {user.firstname} */}
+					<div
+						className='article-subhead'
+						style={{ fontFamily: 'GlacialIndifferenceBold', textAlign: 'center' }}
+					>
+						{UserProfile.user.firstname} {UserProfile.user.lastname}
 						<span style={{ textAlign: 'center' }}>
 							<span
 								style={{
@@ -59,8 +62,8 @@ const JobProfile = (props) => {
 					<div
 						style={{
 							fontSize: '1.5em',
-							fontFamily: 'GlacialIndifferenceMedium',
-							margin: '15%'
+							margin: '15%',
+							width: '350px'
 						}}
 					>
 						<div style={{ padding: '3px' }}>
@@ -76,7 +79,7 @@ const JobProfile = (props) => {
 									mail
 								</span>
 								<span>
-									<a style={{ color: 'black' }} href='#'>
+									<a className='links' style={{ color: 'black' }} href='#'>
 										{UserProfile.user.email}
 									</a>
 								</span>
@@ -95,13 +98,17 @@ const JobProfile = (props) => {
 									<LinkIcon />
 								</span>
 								<span>
-									<a style={{ color: 'black' }} href={UserProfile.portfolioLink}>
+									<a className='links' style={{ color: 'black' }} href={UserProfile.portfolioLink}>
 										{UserProfile.portfolioLink}
 									</a>
 								</span>
 							</span>
 						</div>
-						<div style={{ padding: '3px' }}>
+						<div
+							style={{
+								padding: '3px'
+							}}
+						>
 							<span
 								style={{
 									position: 'relative',
@@ -113,7 +120,7 @@ const JobProfile = (props) => {
 								<LinkedInIcon />
 							</span>
 							<span>
-								<a style={{ color: 'black' }} href={UserProfile.linkedIn}>
+								<a className='links' style={{ color: 'black' }} href={UserProfile.linkedIn}>
 									<span>{UserProfile.linkedIn}</span>
 								</a>
 							</span>
@@ -142,12 +149,7 @@ const JobProfile = (props) => {
 				</Grid>
 			</Grid>
 		);
-	else 
-	return (
-		<div>
-			
-		</div>
-	)
+	else return <div />;
 };
 
 export default JobProfile;

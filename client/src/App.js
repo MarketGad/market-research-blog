@@ -39,7 +39,6 @@ import RegisterForProduct from './Screens/RegisterForProduct';
 import ProductProfile from './Screens/ProductProfile';
 import JobProfile from './Screens/JobProfile';
 
-
 function App () {
 	// useEffect(() => {
 	// 	ReactGa.initialize('UA-176059135-1');
