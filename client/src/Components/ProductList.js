@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import Cookies from 'js-cookie';
+import axios from 'axios';
 
 const ProductList = () => {
 	const [ products, setProducts ] = React.useState('');
@@ -15,7 +17,25 @@ const ProductList = () => {
 	useEffect(() => {
 		loadProducts();
 	}, []);
-
+	const addUpvote = (product_id) => {
+		console.log(product_id);
+		const token = Cookies.get('session-id');
+		console.log(token);
+		const config = {
+			headers: {
+				Authorization: `Bearer ${token}`
+			}
+		};
+		axios.post('http://localhost:5000/api/productdetails/' + product_id + '/upvotes/add', {}, config).then(
+			(response) => {
+				console.log(response);
+				alert('upvote added');
+			},
+			(error) => {
+				console.log(error);
+			}
+		);
+	};
 	const showProducts = products.length ? (
 		products.map((product, index) => {
 			return (
@@ -60,7 +80,11 @@ const ProductList = () => {
 										color: '#080808d9'
 									}}
 								>
-									<i className='medium material-icons' style={{ margin: '0 1%' }}>
+									<i
+										className='medium material-icons'
+										onClick={() => addUpvote(product._id)}
+										style={{ margin: '0 1%' }}
+									>
 										arrow_drop_up
 									</i>
 									<span
