@@ -8,6 +8,7 @@ import logo from './Favicon.jpg';
 import Slide from '@material-ui/core/Slide';
 import GoogleLogin from 'react-google-login';
 import { Redirect } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const Transition = React.forwardRef(function Transition (props, ref) {
 	return <Slide direction='up' ref={ref} {...props} />;
@@ -46,18 +47,29 @@ const Navbar = () => {
 		console.log(response);
 	};
 	/*----------------------------conditional rendering of user name-----------------------------------*/
-
-	// const show = () => {
-	// if (name === "") {
-	// return (<li><a onClick={handleClickOpen}>Login</a></li>)
-	// }
-	// else {
-	//     return (
-	//         <React.Fragment>
-	//             <li><a>{name}</a></li>
-	//         </React.Fragment>)
-	// }
-	// }
+	const removecookie = () => {
+		Cookies.remove('session-id');
+	};
+	const show = () => {
+		const cookie = Cookies.get('session-id');
+		if (!cookie) {
+			return (
+				<li>
+					<a href='/signin'>Login</a>
+				</li>
+			);
+		} else {
+			return (
+				<React.Fragment>
+					<li>
+						<a onClick={removecookie} href='/'>
+							Logout
+						</a>
+					</li>
+				</React.Fragment>
+			);
+		}
+	};
 
 	/*---------------------------------------------------------------------------------------------------*/
 
@@ -130,10 +142,10 @@ const Navbar = () => {
 									<li>
 										<a href='/about'>About Us</a>
 									</li>
-									{/* {show()} */}
 									<li>
 										<a onClick={handleClickOpen}>Dashboard</a>
 									</li>
+									{show()}
 								</ul>
 							</div>
 						</div>
