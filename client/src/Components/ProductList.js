@@ -29,6 +29,7 @@ const ProductList = () => {
 		axios.post('http://localhost:5000/api/productdetails/' + product_id + '/upvotes/add', {}, config).then(
 			(response) => {
 				console.log(response);
+				alert('upvote added');
 			},
 			(error) => {
 				console.log(error);
