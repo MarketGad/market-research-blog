@@ -36,13 +36,22 @@ const FeaturedResearch = () => {
 			postLink: 'https://drive.google.com/file/d/1jGBTzrtWh8Bv6sVXHG_yMk0RJtn9Pzry/view?usp=sharing'
 		},
 		{
-			postName: 'Part II: Impact Of Covid-19 On Logistics Sector In India',
+			postName: 'Impact Of Covid-19 On Logistics Sector In India',
 			postImage:
 				'https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1597767818/Articles%20Photos/Industry/Logistics%20Sector%20Of%20India%20Part%20II/2_2_mys3kv.jpg',
 			key: '4',
 			postBrief:
-				'Since   the   3rd   quarter   of   2019,   the   Indian   economy   is   facing   turbulences   due   to   fallingmanufacturing/industrial   production,   especially   in   auto   and   ancillary   sector,   rising   non-performing assets (NPAs) among banks and rising unemployment',
+				'Since   the   3rd   quarter   of   2019,   the   Indian   economy   is   facing   turbulences   due   to   falling manufacturing/industrial   production,   especially   in   auto   and   ancillary   sector,   rising   non-performing assets (NPAs) among banks and rising unemployment',
 			postLink: '/i1007'
+		},
+		{
+			postName: 'Opportunities In Warehousing Technologies In India',
+			postImage:
+				'https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1599417289/Articles%20Photos/Industry/Warehousing%20Technologies/1_xob8wh.jpg',
+			key: '5',
+			postBrief:
+				'Earlier the Indian warehousing industry, which was dominated by unorganised players,is slowly see increased participation from organised players.',
+			postLink: '/i1008'
 		}
 	];
 
@@ -70,7 +79,7 @@ const FeaturedResearch = () => {
 											top: '4px',
 											position: 'relative'
 										}}
-										className='material-icons'
+										class='material-icons'
 									>
 										keyboard_arrow_right
 									</i>
@@ -101,7 +110,7 @@ const FeaturedResearch = () => {
 											top: '4px',
 											position: 'relative'
 										}}
-										className='material-icons'
+										class='material-icons'
 									>
 										keyboard_arrow_right
 									</i>
