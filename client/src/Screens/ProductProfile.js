@@ -21,106 +21,115 @@ const ProductProfile = (props) => {
 	useEffect(() => {
 		loadProduct();
 	}, []);
-	if (product) {
+	if (product.err) {
 		return (
 			<div>
-			<Grid container component='main'>
-				<Grid item xs={12} md={3} style={{ marginTop: '5%' }}>
-					<div style={{ textAlign: 'center' }}>
-						<img
-							src={product.logo}
-							alt={product.name}
-							style={{ width: '200px', height: '200px', borderRadius: '7px' }}
-						/>
-						<div
-							className='article-subhead'
-							style={{ fontFamily: 'GlacialIndifferenceBold', textAlign: 'center' }}
-						>
-							{product.name}
-						</div>
-					</div>
-					<div
-						style={{
-							fontSize: '1.5em',
-							marginLeft: '15%',
-							marginTop: '15%'
-						}}
-					>
-						<div>
-							<span>
-								<span
-									style={{
-										position: 'relative',
-										padding: '0 5px',
-										top: '-5px'
-									}}
-									className='material-icons'
-								>
-									<LinkIcon />
-								</span>
-								<span>
-									<a className='links' href={product.websiteLink}>
-										{product.websiteLink}
-									</a>
-								</span>
-							</span>
-						</div>
-						<div>
-							<span
-								style={{
-									position: 'relative',
-									top: '-5px',
-									padding: '0 5px'
-								}}
-								className='material-icons'
-							>
-								<ShopIcon />
-							</span>
-							<span>
-								<a className='links' href={product.playStoreLink}>
-									{product.playStoreLink}
-								</a>
-							</span>
-						</div>
-						<div>
-							<span>
-								<span
-									style={{
-										position: 'relative',
-										padding: '0 5px',
-										top: '-4px'
-									}}
-									className='material-icons'
-								>
-									<AppleIcon />
-								</span>
-								<span>
-									<a className='links' href={product.appStoreLink}>
-										{product.appStoreLink}
-									</a>
-								</span>
-							</span>
-						</div>
-					</div>
-				</Grid>
-				<Grid item xs={12} sm={12} md={9} style={{ marginTop: '3%', paddingLeft: '2%' }}>
-					<div style={{ width: '90%' }}>
-						<p className='product-head'>About</p>
-						<p className='product-content'>{product.detailedDescription}</p>
-					</div>
-					<div style={{ marginTop: '5%' }}>
-						<p className='product-subhead'>Contact</p>
-						<p className='product-content'>{product.pointOfContact}</p>
-
-						<p className='product-subhead'>Email</p>
-						<p className='product-content'>{product.emailId}</p>
-					</div>
-				</Grid>
-			</Grid>
-			<Footer2 />
+				<h1 style={{ marginTop: '20vh' }} className='center'>
+					Error 404
+				</h1>
+				<h3 className='center'>Product not found !!!</h3>
 			</div>
 		);
-	} else return <div />;
+	} else if (product.name) {
+		return (
+			<div>
+				<Grid container component='main'>
+					<Grid item xs={12} md={3} style={{ marginTop: '5%' }}>
+						<div style={{ textAlign: 'center' }}>
+							<img
+								src={product.logo}
+								alt={product.name}
+								style={{ width: '200px', height: '200px', borderRadius: '7px' }}
+							/>
+							<div
+								className='article-subhead'
+								style={{ fontFamily: 'GlacialIndifferenceBold', textAlign: 'center' }}
+							>
+								{product.name}
+							</div>
+						</div>
+						<div
+							style={{
+								fontSize: '1.5em',
+								marginLeft: '15%',
+								marginTop: '15%'
+							}}
+						>
+							<div>
+								<span>
+									<span
+										style={{
+											position: 'relative',
+											padding: '0 5px',
+											top: '-5px'
+										}}
+										className='material-icons'
+									>
+										<LinkIcon />
+									</span>
+									<span>
+										<a className='links' href={product.websiteLink}>
+											{product.websiteLink}
+										</a>
+									</span>
+								</span>
+							</div>
+							<div>
+								<span
+									style={{
+										position: 'relative',
+										top: '-5px',
+										padding: '0 5px'
+									}}
+									className='material-icons'
+								>
+									<ShopIcon />
+								</span>
+								<span>
+									<a className='links' href={product.playStoreLink}>
+										{product.playStoreLink}
+									</a>
+								</span>
+							</div>
+							<div>
+								<span>
+									<span
+										style={{
+											position: 'relative',
+											padding: '0 5px',
+											top: '-4px'
+										}}
+										className='material-icons'
+									>
+										<AppleIcon />
+									</span>
+									<span>
+										<a className='links' href={product.appStoreLink}>
+											{product.appStoreLink}
+										</a>
+									</span>
+								</span>
+							</div>
+						</div>
+					</Grid>
+					<Grid item xs={12} sm={12} md={9} style={{ marginTop: '3%', paddingLeft: '2%' }}>
+						<div style={{ width: '90%' }}>
+							<p className='product-head'>About</p>
+							<p className='product-content'>{product.detailedDescription}</p>
+						</div>
+						<div style={{ marginTop: '5%' }}>
+							<p className='product-subhead'>Contact</p>
+							<p className='product-content'>{product.pointOfContact}</p>
+
+							<p className='product-subhead'>Email</p>
+							<p className='product-content'>{product.emailId}</p>
+						</div>
+					</Grid>
+				</Grid>
+				<Footer2 />
+			</div>
+		);
+	} else return <div className='center'>Loading...</div>;
 };
 
 export default ProductProfile;

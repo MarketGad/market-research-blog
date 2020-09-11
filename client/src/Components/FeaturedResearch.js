@@ -79,7 +79,7 @@ const FeaturedResearch = () => {
 											top: '4px',
 											position: 'relative'
 										}}
-										class='material-icons'
+										className='material-icons'
 									>
 										keyboard_arrow_right
 									</i>
@@ -110,7 +110,7 @@ const FeaturedResearch = () => {
 											top: '4px',
 											position: 'relative'
 										}}
-										class='material-icons'
+										className='material-icons'
 									>
 										keyboard_arrow_right
 									</i>

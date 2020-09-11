@@ -1,7 +1,7 @@
 import React from 'react';
 import PeopleList from '../Components/PeopleList';
 import ProductList from '../Components/ProductList';
-import Footer2 from '../Components/Footer2';
+// import Footer2 from '../Components/Footer2';
 
 const Products = () => {
 	return (
@@ -40,7 +40,7 @@ const Products = () => {
 					</div>
 				</div>
 			</div>
-			<Footer2 />
+			{/* <Footer2 /> */}
 		</div>
 	);
 };

@@ -18,10 +18,10 @@ const PeopleList = () => {
 	}, []);
 
 	const showPeople = people.length ? (
-		people.map((user, index) => {
+		people.map((user) => {
 			const cookie = Cookies.get('session-id');
 			console.log(cookie);
-			if (user) {
+			if (user.user) {
 				return (
 					<div>
 						<ul className='collection'>

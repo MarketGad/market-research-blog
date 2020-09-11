@@ -47,7 +47,7 @@ const ProductList = () => {
 								src={product.logo}
 								alt={product.name}
 								className='circle pro-img'
-								style={{ width: '13.5%', height: '80%', borderRadius: '5px' }}
+								style={{ width: '100px', height: '100px', borderRadius: '5px' }}
 							/>
 							<div style={{ paddingLeft: '8%', paddingTop: '5px', width: '90%' }}>
 								<a className='product-content' style={{ color: 'black' }} href={'/p' + product._id}>
