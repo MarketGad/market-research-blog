@@ -58,13 +58,22 @@ const Industry = () => {
 			postLink: '/i1006'
 		},
 		{
-			postName: 'Part II: Impact Of Covid-19 On Logistics Sector In India',
+			postName: 'Impact Of Covid-19 On Logistics Sector In India',
 			postImage:
 				'https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1597767828/Articles%20Photos/Industry/Logistics%20Sector%20Of%20India%20Part%20II/1_1_nybaqx.jpg',
 			key: '7',
 			postBrief:
-				'Since   the   3rd   quarter   of   2019,   the   Indian   economy   is   facing   turbulences   due   to   fallingmanufacturing/industrial   production,   especially   in   auto   and   ancillary   sector,   rising   non-performing assets (NPAs) among banks and rising unemployment',
+				'Since   the   3rd   quarter   of   2019,   the   Indian   economy   is   facing   turbulences   due   to   falling manufacturing/industrial   production,   especially   in   auto   and   ancillary   sector,   rising   non-performing assets (NPAs) among banks and rising unemployment',
 			postLink: '/i1007'
+		},
+		{
+			postName: 'Opportunities In Warehousing Technologies In India',
+			postImage:
+				'https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1599417289/Articles%20Photos/Industry/Warehousing%20Technologies/1_xob8wh.jpg',
+			key: '8',
+			postBrief:
+				'Earlier the Indian warehousing industry, which was dominated by unorganised players,is slowly see increased participation from organised players.',
+			postLink: '/i1008'
 		}
 	];
 	const showArticles = articles.length ? (
