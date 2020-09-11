@@ -12,10 +12,14 @@ const JobProfile = (props) => {
 	const loadProducts = async () => {
 		try {
 			const res = await fetch('http://localhost:5000/api/jobprofiles/' + id);
-			console.log(res);
 			const data = await res.json();
-			setUser(data);
-			console.log(data.user.email);
+			if (typeof data.firstname === "undefined"){
+				window.location.replace('/products');
+			}
+			else{
+				setUser(data);
+				console.log(data.user.email);
+			}
 		} catch (err) {
 			console.error(err);
 		}
