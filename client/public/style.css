@@ -1,6 +1,14 @@
+:root {
+	--alert-success-bg-color: #d4edda;
+	--alert-success-text-color: #155724;
+	--alert-danger-bg-color: #f5c6cb;
+	--alert-danger-text-color: #721c24;
+}
+
 * {
 	font-family: 'GlacialIndifferenceRegular';
 }
+
 /* ------------input---------------- */
 
 input {
@@ -665,6 +673,29 @@ nav {
 }
 .comment-btn1:hover {
 	background-color: #080808;
+}
+/* ----------------alert-------------- */
+.alert {
+	margin-top: 40px;
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+	position: fixed;
+	top: 1.5em;
+	margin-right: 40%;
+	margin-left: 40%;
+	width: 20%;
+	font-size: 2em;
+}
+
+.alert-success {
+	background-color: var(--alert-success-bg-color);
+	color: var(--alert-success-text-color);
+}
+
+.alert-danger {
+	background-color: var(--alert-danger-bg-color);
+	color: var(--alert-danger-text-color);
 }
 
 /* ------------------mobile----------------------------------- 

@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import PersonIcon from '@material-ui/icons/Person';
@@ -15,10 +13,11 @@ import Container from '@material-ui/core/Container';
 import Footer from '../Components/Footer2';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import Alert from '../Components/Alert';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
-		marginTop: theme.spacing(3),
+		marginTop: theme.spacing(8),
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center'
@@ -42,12 +41,14 @@ export default function SignIn () {
 	const [ email, setEmail ] = React.useState('');
 	const [ loginsuccess, setLoginsuccess ] = React.useState(false);
 	const [ password, setPassword ] = React.useState('');
+	const [ successMsg, setSuccessMsg ] = useState('');
+	const [ errMsg, setErrMsg ] = useState('');
 
 	const submitHandler = (e) => {
 		e.preventDefault();
 		axios
 			.post('http://localhost:5000/api/user/loginUser', {
-				email: email,
+				email: email.toLowerCase(),
 				password: password
 			})
 			.then(
@@ -57,12 +58,11 @@ export default function SignIn () {
 						setLoginsuccess(true);
 						Cookies.set('session-id', response.data['token']);
 						window.location.reload(false);
-						const cookie = Cookies.get('session-id');
-						console.log(cookie);
 					}
 				},
 				(error) => {
 					console.log(error);
+					setErrMsg('Invalid email or password');
 				}
 			);
 	};
@@ -72,6 +72,8 @@ export default function SignIn () {
 		return (
 			<div>
 				<div>
+					<Alert msg={errMsg} type='danger' />
+					<Alert msg={successMsg} type='success' />
 					<Container component='main' maxWidth='xs'>
 						<CssBaseline />
 						<div className={classes.paper}>
@@ -111,10 +113,7 @@ export default function SignIn () {
 										/>
 									</Grid>
 								</Grid>
-								<FormControlLabel
-									control={<Checkbox value='remember' color='primary' />}
-									label='Remember me'
-								/>
+
 								<Button
 									type='submit'
 									fullWidth

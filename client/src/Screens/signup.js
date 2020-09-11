@@ -46,13 +46,12 @@ export default function SignUp () {
 	const [ signupsuccess, setSignupsuccess ] = React.useState(false);
 	const [ otpsuccess, setOtpsuccess ] = React.useState(false);
 	const [ otp, setOtp ] = React.useState('');
-
 	const submitHandler = (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
 			axios
 				.post('http://localhost:5000/api/user/signupUser', {
-					email: email,
+					email: email.toLowerCase(),
 					password: password,
 					phone: phoneno,
 					firstname: first_name,
@@ -77,7 +76,7 @@ export default function SignUp () {
 		e.preventDefault();
 		axios
 			.post('http://localhost:5000/api/user/otpverify', {
-				email: email,
+				email: email.toLowerCase(),
 				otp: otp
 			})
 			.then(

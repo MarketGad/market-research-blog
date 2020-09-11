@@ -21,61 +21,63 @@ const PeopleList = () => {
 		people.map((user, index) => {
 			const cookie = Cookies.get('session-id');
 			console.log(cookie);
-			return (
-				<div>
-					<ul className='collection'>
-						<li className='collection-item avatar'>
-							<img src={user.profilePic} alt='' className='circle' />
-							<a className='title' href={'/' + user._id}>
-								<b>
-									{user.user.firstname} {user.user.lastname}
-								</b>
-							</a>
-							<p>
-								<b>Skills: </b>
-								{user.skills}
-								<br />
-								<b>Experience: </b>
-								{user.experience}
-								<br />
-								<div
-									className='secondary-content'
-									style={{
-										marginTop: '-2%',
-										padding: '0 5px',
-										borderRadius: '10px'
-									}}
-								>
-									<span
+			if (user) {
+				return (
+					<div>
+						<ul className='collection'>
+							<li className='collection-item avatar'>
+								<img src={user.profilePic} alt='' className='circle' />
+								<a className='title' href={'/' + user._id}>
+									<b>
+										{user.user.firstname} {user.user.lastname}
+									</b>
+								</a>
+								<p>
+									<b>Skills: </b>
+									{user.skills}
+									<br />
+									<b>Experience: </b>
+									{user.experience}
+									<br />
+									<div
+										className='secondary-content'
 										style={{
-											position: 'relative',
-											padding: '2px',
-											fontSize: '12px',
-											color: '#ff9529'
+											marginTop: '-2%',
+											padding: '0 5px',
+											borderRadius: '10px'
 										}}
-										className='material-icons'
 									>
-										fiber_manual_record
-									</span>
-									<span style={{ fontSize: '16px', padding: '1px', fontWeight: '600' }}>
-										{user.rating}
-									</span>
-								</div>
-							</p>
-							<a className='waves-effect waves-light btn hire-btn1' style={{ marginTop: '2%' }}>
-								Hire
-							</a>
-							<a
-								className='waves-effect waves-light btn hire-btn1'
-								style={{ float: 'right', marginTop: '2%' }}
-								href={'/' + user._id}
-							>
-								Connect
-							</a>
-						</li>
-					</ul>
-				</div>
-			);
+										<span
+											style={{
+												position: 'relative',
+												padding: '2px',
+												fontSize: '12px',
+												color: '#ff9529'
+											}}
+											className='material-icons'
+										>
+											fiber_manual_record
+										</span>
+										<span style={{ fontSize: '16px', padding: '1px', fontWeight: '600' }}>
+											{user.rating}
+										</span>
+									</div>
+								</p>
+								<a className='waves-effect waves-light btn hire-btn1' style={{ marginTop: '2%' }}>
+									Hire
+								</a>
+								<a
+									className='waves-effect waves-light btn hire-btn1'
+									style={{ float: 'right', marginTop: '2%' }}
+									href={'/' + user._id}
+								>
+									Connect
+								</a>
+							</li>
+						</ul>
+					</div>
+				);
+			}
 		})
 	) : (
 		<div className='center'>Loading... </div>
