@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ShopIcon from '@material-ui/icons/Shop';
 import AppleIcon from '@material-ui/icons/Apple';
 import LinkIcon from '@material-ui/icons/Link';
+import Footer2 from '../Components/Footer2';
 
 const ProductProfile = (props) => {
 	const [ product, setProduct ] = React.useState('');
@@ -22,6 +23,7 @@ const ProductProfile = (props) => {
 	}, []);
 	if (product) {
 		return (
+			<div>
 			<Grid container component='main'>
 				<Grid item xs={12} md={3} style={{ marginTop: '5%' }}>
 					<div style={{ textAlign: 'center' }}>
@@ -115,6 +117,8 @@ const ProductProfile = (props) => {
 					</div>
 				</Grid>
 			</Grid>
+			<Footer2 />
+			</div>
 		);
 	} else return <div />;
 };

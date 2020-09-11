@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import LinkIcon from '@material-ui/icons/Link';
+import Footer2 from '../Components/Footer2';
 
 const JobProfile = (props) => {
 	let id = props.match.params.job_id;
@@ -11,6 +12,7 @@ const JobProfile = (props) => {
 	const loadProducts = async () => {
 		try {
 			const res = await fetch('http://localhost:5000/api/jobprofiles/' + id);
+			console.log(res);
 			const data = await res.json();
 			setUser(data);
 			console.log(data.user.email);
@@ -23,6 +25,7 @@ const JobProfile = (props) => {
 	}, []);
 	if (UserProfile)
 		return (
+			<div>
 			<Grid container component='main'>
 				<CssBaseline />
 				<Grid item xs={false} xs={12} md={3}>
@@ -148,6 +151,8 @@ const JobProfile = (props) => {
 					</div>
 				</Grid>
 			</Grid>
+			<Footer2 />
+			</div>
 		);
 	else return <div />;
 };
