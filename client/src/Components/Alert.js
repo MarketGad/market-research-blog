@@ -8,7 +8,7 @@ export default function Alert ({ msg, type }) {
 				setShow(true);
 				setInterval(() => {
 					setShow(false);
-				}, 2000);
+				}, 5000);
 			}
 		},
 		[ msg ]
