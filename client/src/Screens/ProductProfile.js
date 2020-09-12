@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: '10px 5px'
 	},
 	submit: {
-		margin: theme.spacing(1, 2, 0)
+		margin: theme.spacing(1, -0.5, 0)
 	}
 }));
 
@@ -124,7 +124,7 @@ const ProductProfile = (props) => {
 		);
 	} else if (product.name) {
 		return (
-			<div>
+			<div style={{margin: '2%'}}>
 				<Grid container component='main'>
 					<Grid item xs={12} md={3} style={{ marginTop: '5%' }}>
 						<div style={{ textAlign: 'center' }}>
