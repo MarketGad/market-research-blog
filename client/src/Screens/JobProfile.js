@@ -152,8 +152,8 @@ const JobProfile = (props) => {
 							</div>
 						</div>
 					</Grid>
-					<Grid item xs={12} sm={12} md={5} elevation={6} square>
-						<div style={{ margin: '5%' }}>
+					<Grid item xs={12} sm={12} md={6} elevation={6} square>
+						<div style={{ margin: '10% ' }}>
 							<div style={{ padding: '3px 0' }}>
 								<p className='product-subhead'>Skills</p>
 								<p className='product-content'>{UserProfile.skills}</p>
@@ -172,22 +172,27 @@ const JobProfile = (props) => {
 							</div>
 						</div>
 					</Grid>
-					<Grid item xs={12} sm={12} md={4} elevation={6} square>
-						<div style={{ margin: '5%' }}>
-							<div style={{ padding: '3px 0', textAlign: 'center' }}>
-								<h3 className="article-subhead"><strong>Premium Offerings</strong></h3>
+					<Grid item xs={12} sm={12} md={3} elevation={6} square>
+						<div style={{ padding: '5%' }}>
+							<div style={{ marginTop: '20%' }}>
+								<h3 className='product-head center'>Premium Offerings</h3>
 							</div>
-							<div style={{ padding: '3px 0' }}>
-								<p className='product-subhead'>Services</p>
-								<p className='product-content'>{UserProfile.serviceName}</p>
+							<div style={{ textAlign: 'center', marginTop: '10%' }}>
+								<div style={{ padding: '5px' }}>
+									<p className='product-subhead'>Services</p>
+									<p className='product-content'>{UserProfile.serviceName}</p>
+								</div>
+								<div style={{ padding: '5px' }}>
+									<p className='product-subhead'>Pricing</p>
+									<p className='product-content'>{UserProfile.offeringPrice}</p>
+								</div>
+								<a
+									className='waves-effect waves-light btn-small hirenow-btn'
+									style={{ marginTop: '2%' }}
+								>
+									Hire Now
+								</a>
 							</div>
-							<div style={{ padding: '3px 0' }}>
-								<p className='product-subhead'>Pricing</p>
-								<p className='product-content'>{UserProfile.offeringPrice}</p>
-							</div>
-							<a className='waves-effect waves-light btn hire-btn1' style={{ marginTop: '2%' }}>
-									Hire
-							</a>
 						</div>
 					</Grid>
 				</Grid>

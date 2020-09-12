@@ -63,7 +63,11 @@ const PeopleList = () => {
 										</span>
 									</div>
 								</p>
-								<a className='waves-effect waves-light btn hire-btn1' style={{ marginTop: '2%' }}>
+								<a
+									href={'/' + user._id}
+									className='waves-effect waves-light btn hire-btn1'
+									style={{ marginTop: '2%' }}
+								>
 									Hire
 								</a>
 								<a

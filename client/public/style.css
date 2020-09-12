@@ -563,14 +563,15 @@ nav {
 
 /* ------------------------People-------------------------*/
 /* ------------------------People-------------------------*/
-.hire-btn {
+.hirenow-btn {
 	font-family: 'GlacialIndifferenceBold';
 	border-radius: 4px;
 	font-weight: 300;
 	background-color: #0f0f0f;
 	color: #ffffff;
-	width: 10em;
-	padding: 0.1%;
+}
+.hirenow-btn:hover {
+	background-color: #080808d9;
 }
 .hire-btn1 {
 	font-family: 'GlacialIndifferenceBold';
