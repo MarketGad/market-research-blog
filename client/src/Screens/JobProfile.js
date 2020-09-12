@@ -152,7 +152,7 @@ const JobProfile = (props) => {
 							</div>
 						</div>
 					</Grid>
-					<Grid item xs={12} sm={12} md={9} elevation={6} square>
+					<Grid item xs={12} sm={12} md={5} elevation={6} square>
 						<div style={{ margin: '5%' }}>
 							<div style={{ padding: '3px 0' }}>
 								<p className='product-subhead'>Skills</p>
@@ -170,6 +170,24 @@ const JobProfile = (props) => {
 								<p className='product-subhead'>Passionate About</p>
 								<p className='product-content'>{UserProfile.passionateAbout}</p>
 							</div>
+						</div>
+					</Grid>
+					<Grid item xs={12} sm={12} md={4} elevation={6} square>
+						<div style={{ margin: '5%' }}>
+							<div style={{ padding: '3px 0', textAlign: 'center' }}>
+								<h3 className="article-subhead"><strong>Premium Offerings</strong></h3>
+							</div>
+							<div style={{ padding: '3px 0' }}>
+								<p className='product-subhead'>Services</p>
+								<p className='product-content'>{UserProfile.serviceName}</p>
+							</div>
+							<div style={{ padding: '3px 0' }}>
+								<p className='product-subhead'>Pricing</p>
+								<p className='product-content'>{UserProfile.offeringPrice}</p>
+							</div>
+							<a className='waves-effect waves-light btn hire-btn1' style={{ marginTop: '2%' }}>
+									Hire
+							</a>
 						</div>
 					</Grid>
 				</Grid>
