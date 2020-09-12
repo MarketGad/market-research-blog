@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Footer from '../Components/Footer2';
 import { Redirect } from 'react-router-dom';
+import Alert from '../Components/Alert';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -46,6 +47,9 @@ export default function SignUp () {
 	const [ signupsuccess, setSignupsuccess ] = React.useState(false);
 	const [ otpsuccess, setOtpsuccess ] = React.useState(false);
 	const [ otp, setOtp ] = React.useState('');
+	const [ successMsg, setSuccessMsg ] = useState('');
+	const [ errMsg, setErrMsg ] = useState('');
+
 	const submitHandler = (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
@@ -69,7 +73,7 @@ export default function SignUp () {
 					}
 				);
 		} else {
-			alert('passsword mismatch');
+			setErrMsg('Password Mismatch');
 		}
 	};
 	const otpsubmitHandler = (e) => {
@@ -127,6 +131,8 @@ export default function SignUp () {
 		return (
 			<div>
 				<div>
+					<Alert msg={errMsg} type='danger' />
+					<Alert msg={successMsg} type='success' />
 					<Container component='main' maxWidth='xs'>
 						<CssBaseline />
 						<div className={classes.paper}>
