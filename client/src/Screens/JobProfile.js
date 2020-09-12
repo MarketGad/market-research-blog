@@ -196,7 +196,6 @@ const JobProfile = (props) => {
 						</div>
 					</Grid>
 				</Grid>
-				<Footer2 />
 			</div>
 		);
 	else return <div className='center'>Loading... </div>;
