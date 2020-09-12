@@ -84,7 +84,6 @@ export default function SignUp () {
 			})
 			.then(
 				(response) => {
-					console.log(response);
 					if (response.data.success === true) {
 						setOtpsuccess(true);
 					}
@@ -134,7 +133,6 @@ export default function SignUp () {
 			<div>
 				<div>
 					<Alert msg={errMsg} type='danger' />
-					<Alert msg={successMsg} type='success' />
 					<Container component='main' maxWidth='xs'>
 						<CssBaseline />
 						<div className={classes.paper}>

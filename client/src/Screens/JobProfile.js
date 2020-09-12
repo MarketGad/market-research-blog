@@ -38,7 +38,7 @@ const JobProfile = (props) => {
 				{' '}
 				<Grid container component='main'>
 					<CssBaseline />
-					<Grid item xs={false} xs={12} md={3}>
+					<Grid item xs={12} md={3}>
 						<div style={{ textAlign: 'center' }}>
 							<img
 								src={UserProfile.profilePic}

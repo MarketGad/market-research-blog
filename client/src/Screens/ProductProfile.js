@@ -6,9 +6,8 @@ import ShopIcon from '@material-ui/icons/Shop';
 import AppleIcon from '@material-ui/icons/Apple';
 import LinkIcon from '@material-ui/icons/Link';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Footer2 from '../Components/Footer2';
+// import Footer2 from '../Components/Footer2';
 import Cookies from 'js-cookie';
 
 const useStyles = makeStyles((theme) => ({

@@ -77,7 +77,7 @@ const PeopleList = () => {
 						</ul>
 					</div>
 				);
-			}
+			} else return <div className='center'>Something went wrong... </div>;
 		})
 	) : (
 		<div className='center'>Loading... </div>

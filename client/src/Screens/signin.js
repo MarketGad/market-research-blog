@@ -41,7 +41,6 @@ export default function SignIn () {
 	const [ email, setEmail ] = React.useState('');
 	const [ loginsuccess, setLoginsuccess ] = React.useState(false);
 	const [ password, setPassword ] = React.useState('');
-	const [ successMsg, setSuccessMsg ] = useState('');
 	const [ errMsg, setErrMsg ] = useState('');
 
 	const submitHandler = (e) => {
@@ -73,7 +72,6 @@ export default function SignIn () {
 			<div>
 				<div>
 					<Alert msg={errMsg} type='danger' />
-					<Alert msg={successMsg} type='success' />
 					<Container component='main' maxWidth='xs'>
 						<CssBaseline />
 						<div className={classes.paper}>
