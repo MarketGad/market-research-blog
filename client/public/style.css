@@ -650,6 +650,10 @@ nav {
 	overflow: hidden;
 	color: #0153a5;
 }
+.product-comment {
+	font-weight: 800 !important;
+	letter-spacing: 0.03em;
+}
 .links {
 	color: #080808d9;
 	max-width: 80%;
@@ -663,9 +667,9 @@ nav {
 }
 /*---------------------comment------------------*/
 .comment-btn1 {
-	margin: 10px 0;
-	font-family: 'GlacialIndifferenceBold';
-	border-radius: 4px;
+	display: inline-block;
+	border-radius: 30px;
+	padding: 4px 10px;
 	text-align: center;
 	font-weight: 300;
 	background-color: #080808d9;
@@ -673,6 +677,14 @@ nav {
 }
 .comment-btn1:hover {
 	background-color: #080808;
+}
+.comment {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.comment-body {
+	min-height: 2px !important;
+	padding-left: 50px;
 }
 /* ----------------alert-------------- */
 .alert {

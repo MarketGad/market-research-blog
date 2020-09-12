@@ -38,10 +38,10 @@ const ProductList = () => {
 		);
 	};
 	const showProducts = products.length ? (
-		products.map((product, index) => {
+		products.slice(0).reverse().map((product, index) => {
 			return (
 				<div>
-					<ul className='collection' style={{ borderRadius: '5px', height: '130px', padding: '5px' }}>
+					<ul className='collection' style={{ borderRadius: '5px', height: '150px', padding: '10px 5px' }}>
 						<li className='collection-item avatar'>
 							<img
 								src={product.logo}
@@ -49,31 +49,63 @@ const ProductList = () => {
 								className='circle pro-img'
 								style={{ width: '100px', height: '100px', borderRadius: '5px' }}
 							/>
-							<div style={{ paddingLeft: '8%', paddingTop: '5px', width: '90%' }}>
+							<div style={{ paddingLeft: '8%', width: '90%' }}>
 								<a className='product-content' style={{ color: 'black' }} href={'/p' + product._id}>
 									{product.name}
 								</a>
 								<p className='product-desc'>{product.briefDescription}</p>
-								<p className='product-link'>
-									<span
-										style={{
-											position: 'relative',
-											paddingRight: '5px',
-											top: '4px'
-										}}
-										className='material-icons'
-									>
-										link
-									</span>
-									<a
-										style={{
-											color: '#0153a5'
-										}}
-										href={product.websiteLink || product.playStoreLink}
-									>
-										{product.websiteLink || product.playStoreLink}
-									</a>
-								</p>
+								<div className='row' style={{ padding: '5px 0' }}>
+									<div className='col l10'>
+										<p className='product-link'>
+											<span
+												style={{
+													position: 'relative',
+													paddingRight: '5px',
+													top: '4px'
+												}}
+												className='material-icons'
+											>
+												link
+											</span>
+											<a
+												style={{
+													color: '#0153a5'
+												}}
+												href={product.websiteLink || product.playStoreLink}
+											>
+												{product.websiteLink || product.playStoreLink}
+											</a>
+										</p>
+									</div>
+									<div className='col l2' style={{ marginTop: '8px' }}>
+										<a
+											href={'/p' + product._id}
+											className='waves-effect waves-light btn-small comment-btn1'
+										>
+											<span
+												style={{
+													position: 'relative',
+													top: '-3px',
+													fontSize: '16px',
+													fontWeight: '600'
+												}}
+											>
+												{product.comments.length}
+											</span>
+											<span
+												className='material-icons'
+												style={{
+													position: 'relative',
+													padding: '0 5px',
+													fontSize: '16px'
+												}}
+											>
+												chat
+											</span>
+										</a>
+									</div>
+								</div>
+
 								<a
 									className='secondary-content'
 									style={{
@@ -99,21 +131,8 @@ const ProductList = () => {
 										{product.upvotes}
 									</span>
 								</a>
-								{/* <div className='waves-effect waves-light btn-small comment-btn1'>
-									Comments
-									<span
-										className='material-icons'
-										style={{
-											position: 'relative',
-											top: '4px',
-											padding: '5px',
-											fontSize: '16px'
-										}}
-									>
-										chat
-									</span>
-								</div>
-								<form id='comment-form' style={{ display: 'none' }}>
+
+								{/* <form id='comment-form'>
 									<input type='text' style={{ width: '70%' }} placeholder='Enter Comment' />
 									<button className='waves-effect waves-light btn-small pro-btn1' type='submit'>
 										Add Comment
