@@ -6,7 +6,9 @@ export default function Alert ({ msg, type }) {
 		() => {
 			if (msg) {
 				setShow(true);
-				window.location.reload(false);
+				if (msg !== 'Please Check Your OTP again!') {
+					window.location.reload(false);
+				}
 				setInterval(() => {
 					setShow(false);
 				}, 3000);

@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -18,7 +18,7 @@ import Alert from '../Components/Alert';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
-		marginTop: theme.spacing(3),
+		marginTop: theme.spacing(8),
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center'
@@ -63,13 +63,12 @@ export default function SignUp () {
 				})
 				.then(
 					(response) => {
-						console.log(response.data.success);
 						if (response.data.success === true) {
 							setSignupsuccess(true);
 						}
 					},
 					(error) => {
-						console.log(error);
+						setErrMsg('Something went Wrong');
 					}
 				);
 		} else {
