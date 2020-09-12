@@ -41,19 +41,21 @@ const ProductList = () => {
 		products.slice(0).reverse().map((product, index) => {
 			return (
 				<div>
-					<ul className='collection' style={{ borderRadius: '5px', height: '150px', padding: '10px 5px' }}>
+					<ul className='collection' style={{ borderRadius: '5px', height: '170px', padding: '10px 5px' }}>
 						<li className='collection-item avatar'>
 							<img
 								src={product.logo}
 								alt={product.name}
 								className='circle pro-img'
-								style={{ width: '100px', height: '100px', borderRadius: '5px' }}
+								style={{ width: '5.5rem', height: '6rem', borderRadius: '5px' }}
 							/>
 							<div style={{ paddingLeft: '8%', width: '90%' }}>
 								<a className='product-content' style={{ color: 'black' }} href={'/p' + product._id}>
 									{product.name}
 								</a>
-								<p className='product-desc'>{product.briefDescription}</p>
+								<div style={{width: '99%'}}>
+									<p className='product-desc'>{product.briefDescription}</p>
+								</div>
 								<div className='row' style={{ padding: '5px 0' }}>
 									<div className='col l10'>
 										<p className='product-link'>
@@ -77,7 +79,7 @@ const ProductList = () => {
 											</a>
 										</p>
 									</div>
-									<div className='col l2' style={{ marginTop: '8px' }}>
+									<div className='col l2' style={{ marginTop: '8px', float: 'right' }}>
 										<a
 											href={'/p' + product._id}
 											className='waves-effect waves-light btn-small comment-btn1'
