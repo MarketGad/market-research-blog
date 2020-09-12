@@ -92,6 +92,7 @@ export default function SignUp () {
 				},
 				(error) => {
 					console.log(error);
+					setErrMsg('Please Check Your OTP again!');
 				}
 			);
 	};
@@ -100,6 +101,8 @@ export default function SignUp () {
 	} else if (signupsuccess === true) {
 		return (
 			<div>
+				<Alert msg={errMsg} type='danger' />
+				<Alert msg={successMsg} type='success' />
 				<h4 className='center'>Verify Your email</h4>
 				<form className={classes.form} onSubmit={otpsubmitHandler}>
 					<div className='center' style={{ width: '6%', margin: '0 47%' }}>
