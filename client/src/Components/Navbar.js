@@ -132,7 +132,7 @@ const Navbar = () => {
 										</a>
 									</li>
 									<li>
-										<a href='/products'>Products</a>
+										<a href='/funding'>Funding</a>
 									</li>
 									<li>
 										<a className='dropdown-trigger' data-target='dropdown1'>
@@ -142,9 +142,9 @@ const Navbar = () => {
 									<li>
 										<a href='/about'>About Us</a>
 									</li>
-									<li>
+									{/* <li>
 										<a onClick={handleClickOpen}>Dashboard</a>
-									</li>
+									</li> */}
 									{show()}
 								</ul>
 							</div>
@@ -208,12 +208,12 @@ const Navbar = () => {
 						</a>
 					</li>
 					<li>
-						<a href='/products'>Products</a>
+						<a href='/funding'>Funding</a>
 					</li>
 					{/* {show()} */}
-					<li>
+					{/* <li>
 						<a onClick={handleClickOpen}>Dashboard</a>
-					</li>
+					</li> */}
 					<li>
 						<a href='/about'>About Us</a>
 					</li>

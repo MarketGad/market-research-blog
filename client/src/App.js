@@ -50,7 +50,7 @@ function App () {
 			<div className='App'>
 				<Navbar />
 				<Switch>
-					<Route exact path='/' component={Home} />
+					<Route exact path='/' component={Products} />
 					<Route exact path='/form' component={Form} />
 					<Route exact path='/whatwedo' component={Whatwedo} />
 					<Route exact path='/industry' component={Industry} />
@@ -62,7 +62,7 @@ function App () {
 					<Route exact path='/venturehack' component={Venturehack} />
 					<Route exact path='/signup' component={SignUp} />
 					<Route exact path='/signin' component={SignIn} />
-					<Route exact path='/products' component={Products} />
+					<Route exact path='/funding' component={Home} />
 					<Route exact path='/registerforjobs' component={RegisterForJobs} />
 					<Route exact path='/registerforproduct' component={RegisterForProduct} />
 					<Route exact path='/i1001' component={I1001} />
