@@ -69,7 +69,7 @@ const PeopleList = () => {
 								<a
 									className='waves-effect waves-light btn hire-btn1'
 									style={{ float: 'right', marginTop: '2%' }}
-									href={'/' + user._id}
+									href={user.linkedIn}
 								>
 									Connect
 								</a>
