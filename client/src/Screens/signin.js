@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(1)
 	},
 	submit: {
-		margin: theme.spacing(1, 0, 2)
+		margin: theme.spacing(2, 0, 2)
 	}
 }));
 
@@ -125,9 +125,7 @@ export default function SignIn () {
 								</Button>
 								<Grid container>
 									<Grid item xs>
-										<Link href='#' variant='body2'>
-											Forgot password?
-										</Link>
+										<Link href='#' variant='body2' />
 									</Grid>
 									<Grid item>
 										<Link href='/signup' variant='body2'>

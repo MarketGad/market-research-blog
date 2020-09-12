@@ -6,9 +6,10 @@ export default function Alert ({ msg, type }) {
 		() => {
 			if (msg) {
 				setShow(true);
+				window.location.reload(false);
 				setInterval(() => {
 					setShow(false);
-				}, 5000);
+				}, 3000);
 			}
 		},
 		[ msg ]
