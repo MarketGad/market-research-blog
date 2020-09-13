@@ -144,17 +144,18 @@ export default function RegisterForJobs () {
 						<CssBaseline />
 						<div className={classes.paper}>
 							<Avatar className={classes.avatar}>
-								<PersonAddIcon />
+								<span style={{ fontSize: '26px' }} class='material-icons'>
+									work
+								</span>
 							</Avatar>
 							<Typography
-								component='h1'
+								component='h2'
 								variant='h5'
 								style={{
-									marginBottom: '20px',
-									fontFamily: 'GlacialIndifferenceMedium'
+									marginBottom: '20px'
 								}}
 							>
-								Register Yourself For Jobs
+								<div className='product-content'>Register Yourself For Jobs</div>
 							</Typography>
 							<form className={classes.form} onSubmit={submitHandler}>
 								<Grid container spacing={2}>
@@ -168,7 +169,7 @@ export default function RegisterForJobs () {
 									<Grid item xs={12} sm={6}>
 										<Chip
 											className={classes.chip}
-											label='Upload Profile Picture'
+											label='Upload Picture'
 											color='primary'
 											icon={<CloudUploadIcon />}
 										/>

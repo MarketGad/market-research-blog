@@ -9,14 +9,13 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Chip from '@material-ui/core/Chip';
-import PersonAddIcon from '@material-ui/icons/Person';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
-		marginTop: theme.spacing(2),
+		marginTop: theme.spacing(7),
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center'
@@ -78,40 +77,44 @@ export default function RegisterForProduct () {
 	};
 	const submitHandler = (e) => {
 		e.preventDefault();
-		const token = Cookies.get('session-id');
-		const config = {
-			headers: {
-				Authorization: `Bearer  ${token}`
-			}
-		};
-		axios
-			.post(
-				'http://localhost:5000/api/productdetails',
-				{
-					logo: previewSource,
-					name: name,
-					websiteLink: weblink,
-					playStoreLink: playlink,
-					appStoreLink: applelink,
-					briefDescription: briefdesc,
-					detailedDescription: detaildesc,
-					pointOfContact: contact,
-					emailId: email
-				},
-				config
-			)
-			.then(
-				(response) => {
-					if (response.status === 200) {
-						setRegisterProductSuccess(true);
-					} else {
-						alert(response.err);
-					}
-				},
-				(error) => {
-					console.log(error);
+		if (weblink || playlink) {
+			const token = Cookies.get('session-id');
+			const config = {
+				headers: {
+					Authorization: `Bearer  ${token}`
 				}
-			);
+			};
+			axios
+				.post(
+					'http://localhost:5000/api/productdetails',
+					{
+						logo: previewSource,
+						name: name,
+						websiteLink: weblink,
+						playStoreLink: playlink,
+						appStoreLink: applelink,
+						briefDescription: briefdesc,
+						detailedDescription: detaildesc,
+						pointOfContact: contact,
+						emailId: email
+					},
+					config
+				)
+				.then(
+					(response) => {
+						if (response.status === 200) {
+							setRegisterProductSuccess(true);
+						} else {
+							alert(response.err);
+						}
+					},
+					(error) => {
+						console.log(error);
+					}
+				);
+		} else {
+			alert('Please mention your website or playstore link to continue');
+		}
 	};
 
 	if (RegisterProductSuccess) {
@@ -120,14 +123,16 @@ export default function RegisterForProduct () {
 		return (
 			<div>
 				<div>
-					<Container component='main' style={{ width: '550px' }}>
+					<Container component='main' maxWidth='sm'>
 						<CssBaseline />
 						<div className={classes.paper}>
 							<Avatar className={classes.avatar}>
-								<PersonAddIcon />
+								<span style={{ fontSize: '32px' }} class='material-icons'>
+									add_business
+								</span>
 							</Avatar>
 							<Typography component='h1' variant='h5' style={{ marginBottom: '20px' }}>
-								Add Your Product
+								<div className='product-content'>Add Your Product</div>
 							</Typography>
 							<form className={classes.form} onSubmit={submitHandler}>
 								<Grid container spacing={2}>
@@ -220,6 +225,7 @@ export default function RegisterForProduct () {
 											variant='outlined'
 											required
 											fullWidth
+											multiline
 											id='detaildesc'
 											label='Detailed Description'
 											name='detaildesc'
