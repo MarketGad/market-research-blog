@@ -172,6 +172,7 @@ const JobProfile = (props) => {
 							</div>
 						</div>
 					</Grid>
+
 					<Grid item xs={12} sm={12} md={3} elevation={6} square>
 						<div style={{ padding: '5%' }}>
 							<div style={{ marginTop: '20%' }}>
@@ -180,11 +181,11 @@ const JobProfile = (props) => {
 							<div style={{ textAlign: 'center', marginTop: '10%' }}>
 								<div style={{ padding: '5px' }}>
 									<p className='product-subhead'>Services</p>
-									<p className='product-content'>{UserProfile.serviceName}</p>
+									<p className='product-content'>{UserProfile.serviceName || null}</p>
 								</div>
 								<div style={{ padding: '5px' }}>
 									<p className='product-subhead'>Pricing</p>
-									<p className='product-content'>{UserProfile.offeringPrice}</p>
+									<p className='product-content'>Rs.{UserProfile.offeringPrice || null}</p>
 								</div>
 								<a
 									className='waves-effect waves-light btn-small hirenow-btn'
