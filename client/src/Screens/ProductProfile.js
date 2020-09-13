@@ -148,59 +148,19 @@ const ProductProfile = (props) => {
 							}}
 						>
 							<div>
-								<span>
-									<span
-										style={{
-											position: 'relative',
-											padding: '0 5px',
-											top: '-5px'
-										}}
-										className='material-icons'
-									>
-										<LinkIcon />
-									</span>
-									<span>
-										<a className='links' href={product.websiteLink}>
-											{product.websiteLink}
-										</a>
-									</span>
-								</span>
+								<a className='links' href={product.websiteLink}>
+								<LinkIcon style={{verticalAlign: 'middle' }} fontSize="large" /><span style={{fontWeight: 900}}> Website</span>
+								</a>
 							</div>
 							<div>
-								<span
-									style={{
-										position: 'relative',
-										top: '-5px',
-										padding: '0 5px'
-									}}
-									className='material-icons'
-								>
-									<ShopIcon />
-								</span>
-								<span>
-									<a className='links' href={product.playStoreLink}>
-										{product.playStoreLink}
-									</a>
-								</span>
+								<a className='links' href={product.playStoreLink}>
+								<ShopIcon style={{verticalAlign: 'middle' }} fontSize="large" /><span style={{fontWeight: 900}}> Play Store</span>
+								</a>
 							</div>
 							<div>
-								<span>
-									<span
-										style={{
-											position: 'relative',
-											padding: '0 5px',
-											top: '-4px'
-										}}
-										className='material-icons'
-									>
-										<AppleIcon />
-									</span>
-									<span>
-										<a className='links' href={product.appStoreLink}>
-											{product.appStoreLink}
-										</a>
-									</span>
-								</span>
+								<a className='links' href={product.appStoreLink}>
+								<AppleIcon style={{verticalAlign: 'middle' }} fontSize="large" /> <span style={{fontWeight: 900}}> App Store</span>
+								</a>
 							</div>
 						</div>
 					</Grid>
