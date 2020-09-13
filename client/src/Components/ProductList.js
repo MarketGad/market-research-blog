@@ -100,7 +100,8 @@ const ProductList = () => {
 												style={{
 													position: 'relative',
 													paddingRight: '5px',
-													top: '-1px'
+													top: '-1px',
+													verticalAlign: 'middle'
 												}}
 												className='material-icons'
 											>
