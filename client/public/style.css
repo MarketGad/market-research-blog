@@ -573,6 +573,18 @@ nav {
 .hirenow-btn:hover {
 	background-color: #080808d9;
 }
+
+.register-job {
+	font-family: 'GlacialIndifferenceBold';
+	border-radius: 4px;
+	background-color: #0f0f0f;
+	color: #ffffff;
+	position: relative;
+	top: 2.5em;
+}
+.register-job:hover {
+	background-color: #61383b;
+}
 .hire-btn1 {
 	font-family: 'GlacialIndifferenceBold';
 	border-radius: 4px;
@@ -608,21 +620,22 @@ nav {
 	color: #ffffff;
 	width: 12em;
 	padding: 0%;
+	position: relative;
+	top: 4.5em;
 }
 .pro-btn1:hover {
 	background-color: #080808;
 }
 
-.download-icon {
-	font-size: 4rem;
-	color: rgb(0, 0, 0);
-	padding: 0%;
-}
 .product-container {
 	border-radius: '5px';
-	height: 150px;
+	height: auto;
 	padding: 10px 5px;
 }
+.comment-container {
+	height: 5em;
+}
+
 .pro-img {
 	height: 100px !important;
 	width: 100px !important;
@@ -650,6 +663,9 @@ nav {
 	height: 2.5em;
 	text-overflow: ellipsis;
 	overflow: hidden;
+}
+.product-link-container {
+	margin-bottom: 0 !important;
 }
 .comment-box {
 	margin-top: 8px;
@@ -686,7 +702,6 @@ nav {
 	padding: 2px 0;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	color: #0153a5;
 }
 .product-comment {
 	font-weight: 800 !important;
@@ -703,6 +718,20 @@ nav {
 .links:hover {
 	text-decoration: underline;
 }
+.hire-connect-btn {
+	margin-top: 10px;
+	font-family: 'GlacialIndifferenceBold';
+	width: 8em;
+	padding-top: 2px;
+	display: inline-block;
+	border-radius: 30px;
+	text-align: center;
+	background-color: white;
+	color: black;
+}
+.hire-connect-btn:hover {
+	background-color: #c1c1c1;
+}
 /*---------------------comment------------------*/
 .comment-btn1 {
 	display: inline-block;
@@ -710,11 +739,17 @@ nav {
 	padding: 4px 10px;
 	text-align: center;
 	font-weight: 300;
-	background-color: #080808d9;
-	color: #ffffff;
+	background-color: white;
+	color: black;
 }
 .comment-btn1:hover {
-	background-color: #080808;
+	background-color: #c1c1c1;
+}
+.comment-head {
+	color: #080808d9;
+}
+.comment-head:hover {
+	text-decoration: underline;
 }
 .comment {
 	margin: 0 !important;

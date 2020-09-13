@@ -42,6 +42,41 @@ const ProductList = () => {
 			}
 		);
 	};
+	const showComment = (product) =>
+		product.comments ? (
+			product.comments.map((comment) => {
+				if (comment.comment) {
+					return (
+						<div>
+							<ul className='collection comment' style={{ border: 'none' }}>
+								<li
+									className='collection-item avatar'
+									style={{
+										minHeight: '0',
+										paddingLeft: '60px'
+									}}
+								>
+									<img
+										src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQiUY7RQ-eUe_fmk6--gEvDXvallGC7ZA7suQ&usqp=CAU'
+										alt=''
+										className='circle'
+										style={{ left: '5px' }}
+									/>
+									<div className='title'>
+										<b>
+											{comment.author.firstname} {comment.author.lastname}
+										</b>
+									</div>
+									<p>{comment.comment}</p>
+								</li>
+							</ul>
+						</div>
+					);
+				}
+			})
+		) : (
+			<div className='center'> No Comments to show :( </div>
+		);
 	const showProducts = products.length ? (
 		products.slice(0).reverse().map((product, index) => {
 			return (
@@ -58,7 +93,7 @@ const ProductList = () => {
 									{product.name}
 								</a>
 								<div className='product-desc'>{product.briefDescription}</div>
-								<div className='row'>
+								<div className='row product-link-container'>
 									<div className='col l10 s12'>
 										<p className='product-link'>
 											<span
@@ -104,6 +139,12 @@ const ProductList = () => {
 									</i>
 									<br />
 									<span className='upvote-count'>{product.upvotes}</span>
+								</div>
+								<div className='comment-container'>
+									<a className='comment-head product-content' href={'/p' + product._id}>
+										Comments ({product.comments.length})
+									</a>
+									{showComment(product)}
 								</div>
 							</div>
 						</li>

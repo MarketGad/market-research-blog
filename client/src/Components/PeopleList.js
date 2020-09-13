@@ -63,16 +63,16 @@ const PeopleList = () => {
 										</span>
 									</div>
 								</p>
+
 								<a
 									href={'/' + user._id}
-									className='waves-effect waves-light btn hire-btn1'
-									style={{ marginTop: '2%' }}
+									className='waves-effect waves-light btn-small hire-connect-btn'
 								>
 									Hire
 								</a>
 								<a
-									className='waves-effect waves-light btn hire-btn1'
-									style={{ float: 'right', marginTop: '2%' }}
+									className='waves-effect waves-light btn-small hire-connect-btn'
+									style={{ float: 'right' }}
 									href={user.linkedIn}
 								>
 									Connect

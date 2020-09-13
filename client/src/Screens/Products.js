@@ -9,25 +9,27 @@ const Products = () => {
 			<div className='product-job-page-container'>
 				<div className='row'>
 					<div className='col s12 l8'>
-						<h4 className='center' style={{ fontFamily: 'GlacialIndifferenceBold' }}>
-							Hot Products
-						</h4>
-						<div className='right-align'>
+						<div className='left-align' style={{ padding: '0' }}>
 							<a className='waves-effect waves-light btn-small pro-btn1' href='/registerforproduct'>
 								Add Product
 							</a>
 						</div>
+						<h4 className='center' style={{ fontFamily: 'GlacialIndifferenceBold' }}>
+							Hot Products
+						</h4>
+
 						<ProductList />
 					</div>
 					<div className='col s12 l4'>
 						<h4 className='center' style={{ fontFamily: 'GlacialIndifferenceBold' }}>
+							<div className='right-align'>
+								<a className='waves-effect waves-light btn-small register-job' href='/registerforjobs'>
+									Register
+								</a>
+							</div>
 							Job profiles
 						</h4>
-						<div className='right-align'>
-							<a className='waves-effect waves-light btn-small hire-btn1' href='/registerforjobs'>
-								Register
-							</a>
-						</div>
+
 						<PeopleList />
 					</div>
 				</div>
