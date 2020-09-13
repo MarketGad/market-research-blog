@@ -68,9 +68,7 @@ export default function RegisterForJobs () {
 	const [ selectedFile, setSelectedFile ] = React.useState('');
 	const [ previewSource, setPreviewSource ] = React.useState('');
 	const [ RegisterJobSuccess, setRegisterJobSuccess ] = React.useState(false);
-	const [ email, setEmail ] = React.useState('');
 	const [ passionate, setPassionate ] = React.useState('');
-	const [ name, setName ] = React.useState('');
 	const [ qualification, setQualification ] = React.useState('');
 	const [ linkedIn, setlinkedin ] = React.useState('');
 	const [ skills, setSkills ] = React.useState('');
@@ -198,33 +196,6 @@ export default function RegisterForJobs () {
 										/>
 									</Grid>
 
-									<Grid item xs={12} sm={12}>
-										<TextField
-											variant='outlined'
-											required
-											fullWidth
-											id='name'
-											label='Name'
-											name='name'
-											autoComplete='name'
-											value={name}
-											onChange={(e) => setName(e.target.value)}
-										/>
-									</Grid>
-
-									<Grid item xs={12} sm={12}>
-										<TextField
-											variant='outlined'
-											required
-											fullWidth
-											id='email'
-											label='Email'
-											name='email'
-											autoComplete='email'
-											value={email}
-											onChange={(e) => setEmail(e.target.value)}
-										/>
-									</Grid>
 									<Grid item xs={12} sm={12} className='center'>
 										<TextField
 											variant='outlined'
