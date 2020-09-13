@@ -133,7 +133,7 @@ export default function RegisterForJobs () {
 	};
 
 	if (RegisterJobSuccess) {
-		return <Redirect to='/products' />;
+		return <Redirect to='/' />;
 	} else {
 		return (
 			<div>
