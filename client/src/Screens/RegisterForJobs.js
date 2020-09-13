@@ -294,6 +294,7 @@ export default function RegisterForJobs () {
 									</Grid>
 									<Grid item xs={12} sm={12} className='center'>
 										<TextField
+											type="numeric"
 											variant='outlined'
 											fullWidth
 											id='price'

@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import LinkIcon from '@material-ui/icons/Link';
 import Footer2 from '../Components/Footer2';
+import MailIcon from '@material-ui/icons/Mail';
 
 const JobProfile = (props) => {
 	let id = props.match.params.job_id;
@@ -100,10 +101,11 @@ const JobProfile = (props) => {
 											padding: '0 10px',
 											// top: '-4px',
 											verticalAlign: 'middle',
+											fontSize: 'large'
 										}}
 										className='material-icons'
 									>
-										mail
+										<MailIcon fontSize="large"/>
 									</span>
 									<span>
 										<a className='links' href='#'>
@@ -123,7 +125,7 @@ const JobProfile = (props) => {
 										}}
 										className='material-icons'
 									>
-										<LinkIcon />
+										<LinkIcon  fontSize="large"/>
 									</span>
 									<span>
 										<a className='links' href={UserProfile.portfolioLink}>
@@ -146,7 +148,7 @@ const JobProfile = (props) => {
 									}}
 									className='material-icons'
 								>
-									<LinkedInIcon />
+									<LinkedInIcon fontSize="large"/>
 								</span>
 								<span>
 									<a className='links' href={UserProfile.linkedIn}>
