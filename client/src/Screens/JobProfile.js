@@ -75,7 +75,8 @@ const JobProfile = (props) => {
 									style={{
 										position: 'relative',
 										padding: '0 5px',
-										top: '2px'
+										// top: '2px',
+										verticalAlign: 'middle',
 									}}
 									className='material-icons'
 								>
@@ -97,7 +98,8 @@ const JobProfile = (props) => {
 										style={{
 											position: 'relative',
 											padding: '0 10px',
-											top: '-4px'
+											// top: '-4px',
+											verticalAlign: 'middle',
 										}}
 										className='material-icons'
 									>
@@ -116,7 +118,8 @@ const JobProfile = (props) => {
 										style={{
 											position: 'relative',
 											padding: '0 10px',
-											top: '-3px'
+											// top: '-3px',
+											verticalAlign: 'middle',
 										}}
 										className='material-icons'
 									>
@@ -124,7 +127,7 @@ const JobProfile = (props) => {
 									</span>
 									<span>
 										<a className='links' href={UserProfile.portfolioLink}>
-											{UserProfile.portfolioLink}
+											Portfolio
 										</a>
 									</span>
 								</span>
@@ -138,7 +141,8 @@ const JobProfile = (props) => {
 									style={{
 										position: 'relative',
 										top: '-4px',
-										padding: '0 10px'
+										padding: '0 10px',
+										verticalAlign: 'middle',
 									}}
 									className='material-icons'
 								>
@@ -146,7 +150,7 @@ const JobProfile = (props) => {
 								</span>
 								<span>
 									<a className='links' href={UserProfile.linkedIn}>
-										<span>{UserProfile.linkedIn}</span>
+										<span>LinkedIn</span>
 									</a>
 								</span>
 							</div>
