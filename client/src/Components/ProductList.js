@@ -34,6 +34,11 @@ const ProductList = () => {
 			},
 			(error) => {
 				console.log(error);
+				if (token) {
+					alert('upvote already added');
+				} else {
+					alert('please login in to upvote');
+				}
 			}
 		);
 	};
@@ -41,61 +46,44 @@ const ProductList = () => {
 		products.slice(0).reverse().map((product, index) => {
 			return (
 				<div>
-					<ul className='collection' style={{ borderRadius: '5px', height: '170px', padding: '10px 5px' }}>
+					<ul className='collection product-container'>
 						<li className='collection-item avatar'>
-							<img
-								src={product.logo}
-								alt={product.name}
-								className='circle pro-img'
-								style={{ width: '5.5rem', height: '6rem', borderRadius: '5px' }}
-							/>
-							<div style={{ paddingLeft: '8%', width: '90%' }}>
-								<a className='product-content' style={{ color: 'black' }} href={'/p' + product._id}>
+							<img className='circle pro-img' src={product.logo} alt={product.name} />
+							<div className='product-right-container'>
+								<a
+									className='product-content product-name'
+									style={{ color: 'black' }}
+									href={'/p' + product._id}
+								>
 									{product.name}
 								</a>
-								<div style={{width: '99%'}}>
-									<p className='product-desc'>{product.briefDescription}</p>
-								</div>
-								<div className='row' style={{ padding: '5px 0' }}>
-									<div className='col l10'>
+								<div className='product-desc'>{product.briefDescription}</div>
+								<div className='row'>
+									<div className='col l10 s12'>
 										<p className='product-link'>
 											<span
 												style={{
 													position: 'relative',
 													paddingRight: '5px',
-													top: '4px'
+													top: '-1px'
 												}}
 												className='material-icons'
 											>
 												link
 											</span>
-											<a
-												style={{
-													color: '#0153a5'
-												}}
-												href={product.websiteLink || product.playStoreLink}
-											>
+											<a className='links' href={product.websiteLink || product.playStoreLink}>
 												{product.websiteLink || product.playStoreLink}
 											</a>
 										</p>
 									</div>
-									<div className='col l2' style={{ marginTop: '8px', float: 'right' }}>
+									<div className='col l2 s12 comment-box'>
 										<a
 											href={'/p' + product._id}
 											className='waves-effect waves-light btn-small comment-btn1'
 										>
+											<span className='comment-count'>{product.comments.length}</span>
 											<span
-												style={{
-													position: 'relative',
-													top: '-3px',
-													fontSize: '16px',
-													fontWeight: '600'
-												}}
-											>
-												{product.comments.length}
-											</span>
-											<span
-												className='material-icons'
+												className='material-icons chat-icon'
 												style={{
 													position: 'relative',
 													padding: '0 5px',
@@ -107,39 +95,16 @@ const ProductList = () => {
 										</a>
 									</div>
 								</div>
-
-								<a
-									className='secondary-content'
-									style={{
-										textAlign: 'center',
-										color: '#080808d9'
-									}}
-								>
+								<div className='secondary-content upvote-container'>
 									<i
-										className='medium material-icons'
+										className='medium upvote-icon material-icons'
 										onClick={() => addUpvote(product._id)}
-										style={{ margin: '0 1%' }}
 									>
 										arrow_drop_up
 									</i>
-									<span
-										style={{
-											fontSize: '1.5em',
-											textAlign: 'center',
-											position: 'relative',
-											top: '-1em'
-										}}
-									>
-										{product.upvotes}
-									</span>
-								</a>
-
-								{/* <form id='comment-form'>
-									<input type='text' style={{ width: '70%' }} placeholder='Enter Comment' />
-									<button className='waves-effect waves-light btn-small pro-btn1' type='submit'>
-										Add Comment
-									</button>
-								</form> */}
+									<br />
+									<span className='upvote-count'>{product.upvotes}</span>
+								</div>
 							</div>
 						</li>
 					</ul>
