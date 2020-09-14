@@ -33,8 +33,13 @@ const JobProfile = (props) => {
 		try {
 			const res = await fetch('http://localhost:5000/api/jobprofiles/' + id);
 			// console.log(res);
-			const data = await res.json();
-			setUser(data);
+			const data = []
+			if(res.statusCode == 200) {
+				data = await res.json();
+				setUser(data);
+			} else {
+				setUser({err : 1});
+			}
 			// console.log(data.user.email);
 		} catch (err) {
 			console.error(err);
