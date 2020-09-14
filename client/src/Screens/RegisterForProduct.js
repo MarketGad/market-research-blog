@@ -109,7 +109,11 @@ export default function RegisterForProduct () {
 						}
 					},
 					(error) => {
-						console.log(error);
+						if (error.message === 'Request failed with status code 413') {
+							alert('upload photo size should be less than 75kb');
+						} else {
+							alert('something went wrong');
+						}
 					}
 				);
 		} else {
@@ -118,7 +122,7 @@ export default function RegisterForProduct () {
 	};
 
 	if (RegisterProductSuccess) {
-		return <Redirect to='/products' />;
+		return <Redirect to='/' />;
 	} else {
 		return (
 			<div>
@@ -140,7 +144,12 @@ export default function RegisterForProduct () {
 										<img
 											src={previewSource}
 											alt='chosen'
-											style={{ width: '40%', textAlign: 'center', margin: '0 30%' }}
+											style={{
+												width: '40%',
+												height: '150px',
+												textAlign: 'center',
+												margin: '0 30%'
+											}}
 										/>
 									)}
 									<Grid item xs={12} sm={6}>

@@ -127,7 +127,11 @@ export default function RegisterForJobs () {
 					}
 				},
 				(error) => {
-					console.log(error);
+					if (error.message === 'Request failed with status code 413') {
+						alert('upload photo size should be less than 75kb');
+					} else {
+						alert('One user can register once');
+					}
 				}
 			);
 	};
@@ -161,7 +165,12 @@ export default function RegisterForJobs () {
 										<img
 											src={previewSource}
 											alt='chosen'
-											style={{ width: '40%', textAlign: 'center', margin: '0 30%' }}
+											style={{
+												width: '40%',
+												height: '150px',
+												textAlign: 'center',
+												margin: '0 30%'
+											}}
 										/>
 									)}
 									<Grid item xs={12} sm={6}>
@@ -294,7 +303,7 @@ export default function RegisterForJobs () {
 									</Grid>
 									<Grid item xs={12} sm={12} className='center'>
 										<TextField
-											type="numeric"
+											type='numeric'
 											variant='outlined'
 											fullWidth
 											id='price'
