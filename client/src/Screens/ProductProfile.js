@@ -124,9 +124,9 @@ const ProductProfile = (props) => {
 		);
 	} else if (product.name) {
 		return (
-			<div style={{margin: '2%'}}>
+			<div className='productdetails-container'>
 				<Grid container component='main'>
-					<Grid item xs={12} md={3} style={{ marginTop: '5%' }}>
+					<Grid item xs={12} md={3}>
 						<div style={{ textAlign: 'center' }}>
 							<img
 								src={product.logo}
@@ -140,33 +140,48 @@ const ProductProfile = (props) => {
 								{product.name}
 							</div>
 						</div>
-						<div
-							style={{
-								fontSize: '1.5em',
-								marginLeft: '15%',
-								marginTop: '15%'
-							}}
-						>
+						<div className='link-container'>
 							<div>
-								<a className='links' href={product.websiteLink}>
-								<LinkIcon style={{verticalAlign: 'middle' }} fontSize="large" /><span style={{fontWeight: 900}}> Website</span>
-								</a>
+								<span>
+									<span className='material-icons job-link-icons'>
+										<LinkIcon />
+									</span>
+									<span>
+										<a className='links' href={product.websiteLink}>
+											{product.websiteLink}
+										</a>
+									</span>
+								</span>
 							</div>
 							<div>
-								<a className='links' href={product.playStoreLink}>
-								<ShopIcon style={{verticalAlign: 'middle' }} fontSize="large" /><span style={{fontWeight: 900}}> Play Store</span>
-								</a>
+								<span>
+									<span className=' material-icons job-link-icons'>
+										<ShopIcon />
+									</span>
+									<span>
+										<a className='links' href={product.playStoreLink}>
+											{product.name}
+										</a>
+									</span>
+								</span>
 							</div>
 							<div>
-								<a className='links' href={product.appStoreLink}>
-								<AppleIcon style={{verticalAlign: 'middle' }} fontSize="large" /> <span style={{fontWeight: 900}}> App Store</span>
-								</a>
+								<span>
+									<span className='material-icons job-link-icons'>
+										<AppleIcon />
+									</span>
+									<span>
+										<a className='links' href={product.appStoreLink}>
+											{product.name}
+										</a>
+									</span>
+								</span>
 							</div>
 						</div>
 					</Grid>
-					<Grid item xs={12} sm={12} md={9} style={{ marginTop: '3%', paddingLeft: '2%' }}>
+					<Grid item xs={12} sm={12} md={9} style={{ paddingLeft: '2%' }}>
 						<div style={{ width: '90%' }}>
-							<p className='product-head'>About</p>
+							<div className='product-head'>About</div>
 							<p className='product-content'>{product.detailedDescription}</p>
 						</div>
 						<div style={{ marginTop: '5%' }}>

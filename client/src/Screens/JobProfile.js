@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import Location from '@material-ui/icons/LocationOn';
 import LinkIcon from '@material-ui/icons/Link';
 import Footer2 from '../Components/Footer2';
 import MailIcon from '@material-ui/icons/Mail';
@@ -10,21 +11,19 @@ const DisplayArray = (props) => {
 	// console.log("inside display array")
 	// console.log(props.data);
 
-	if(props.data){
+	if (props.data) {
 		const showdata = props.data.map((data) => {
-			if(data){
-				return <div>{data}</div>
-			}else {
-				return <div></div>
+			if (data) {
+				return <div>{data}</div>;
+			} else {
+				return <div />;
 			}
-		})
-		return <div>{showdata}</div>
-
+		});
+		return <div>{showdata}</div>;
 	} else {
-		return <div className='center'> No relevent data  :( </div>
-		
+		return <div className='center'> No relevent data :( </div>;
 	}
-}
+};
 
 const JobProfile = (props) => {
 	let id = props.match.params.job_id;
@@ -55,8 +54,7 @@ const JobProfile = (props) => {
 		);
 	} else if (UserProfile.user)
 		return (
-			<div>
-				{' '}
+			<div className='profile-container'>
 				<Grid container component='main'>
 					<CssBaseline />
 					<Grid item xs={12} md={3}>
@@ -64,7 +62,7 @@ const JobProfile = (props) => {
 							<img
 								src={UserProfile.profilePic}
 								alt={UserProfile.user.firstname}
-								style={{ width: '200px', height: '200px', borderRadius: '7px', marginTop: '17%' }}
+								style={{ width: '200px', height: '200px', borderRadius: '7px' }}
 							/>
 						</div>
 						<div
@@ -92,40 +90,17 @@ const JobProfile = (props) => {
 						</div>
 						<div style={{ textAlign: 'center', fontFamily: 'GlacialIndifferenceBold' }}>
 							<h6>
-								<span
-									style={{
-										position: 'relative',
-										padding: '0 5px',
-										// top: '2px',
-										verticalAlign: 'middle',
-									}}
-									className='material-icons'
-								>
-									location_on
+								<span className='material-icons job-link-icons'>
+									<Location />
 								</span>
-								{UserProfile.location}
+								<span style={{ verticalAlign: 'middle' }}>{UserProfile.location}</span>
 							</h6>
 						</div>
-						<div
-							style={{
-								fontSize: '1.5em',
-								marginLeft: '15%',
-								marginTop: '15%'
-							}}
-						>
+						<div className='link-container'>
 							<div style={{ padding: '3px' }}>
 								<span>
-									<span
-										style={{
-											position: 'relative',
-											padding: '0 10px',
-											// top: '-4px',
-											verticalAlign: 'middle',
-											fontSize: 'large'
-										}}
-										className='material-icons'
-									>
-										<MailIcon fontSize="large"/>
+									<span className='material-icons job-link-icons'>
+										<MailIcon />
 									</span>
 									<span>
 										<a className='links' href='#'>
@@ -136,20 +111,12 @@ const JobProfile = (props) => {
 							</div>
 							<div style={{ padding: '3px' }}>
 								<span>
-									<span
-										style={{
-											position: 'relative',
-											padding: '0 10px',
-											// top: '-3px',
-											verticalAlign: 'middle',
-										}}
-										className='material-icons'
-									>
-										<LinkIcon  fontSize="large"/>
+									<span className='material-icons job-link-icons'>
+										<LinkIcon />
 									</span>
 									<span>
 										<a className='links' href={UserProfile.portfolioLink}>
-											Portfolio
+											{UserProfile.portfolioLink}
 										</a>
 									</span>
 								</span>
@@ -159,16 +126,8 @@ const JobProfile = (props) => {
 									padding: '3px'
 								}}
 							>
-								<span
-									style={{
-										position: 'relative',
-										top: '-4px',
-										padding: '0 10px',
-										verticalAlign: 'middle',
-									}}
-									className='material-icons'
-								>
-									<LinkedInIcon fontSize="large"/>
+								<span className='material-icons job-link-icons'>
+									<LinkedInIcon />
 								</span>
 								<span>
 									<a className='links' href={UserProfile.linkedIn}>
@@ -179,29 +138,29 @@ const JobProfile = (props) => {
 						</div>
 					</Grid>
 					<Grid item xs={12} sm={12} md={6} elevation={6} square>
-						<div style={{ margin: '10% ' }}>
-							<div style={{ padding: '3px 0' }}>
+						<div>
+							<div className='profile-section'>
 								<p className='product-subhead'>Skills</p>
 								<p className='product-content'>
 									<DisplayArray data={UserProfile.skills} />
 								</p>
 							</div>
-							<div style={{ padding: '3px 0' }}>
+							<div className='profile-section'>
 								<p className='product-subhead'>Experience</p>
 								<p className='product-content'>
 									<DisplayArray data={UserProfile.experience} />
 								</p>
 							</div>
-							<div style={{ padding: '3px 0' }}>
+							<div className='profile-section'>
 								<p className='product-subhead'>Qualifications</p>
 								<p className='product-content'>
 									<DisplayArray data={UserProfile.qualification} />
 								</p>
 							</div>
-							<div style={{ padding: '3px 0' }}>
+							<div className='profile-section'>
 								<p className='product-subhead'>Passionate About</p>
 								<p className='product-content'>
-								<DisplayArray data={UserProfile.passionateAbout} />
+									<DisplayArray data={UserProfile.passionateAbout} />
 								</p>
 							</div>
 						</div>
@@ -209,7 +168,7 @@ const JobProfile = (props) => {
 
 					<Grid item xs={12} sm={12} md={3} elevation={6} square>
 						<div style={{ padding: '5%' }}>
-							<div style={{ marginTop: '20%' }}>
+							<div style={{ marginTop: '5%' }}>
 								<h3 className='product-head center'>Premium Offerings</h3>
 							</div>
 							<div style={{ textAlign: 'center', marginTop: '10%' }}>
