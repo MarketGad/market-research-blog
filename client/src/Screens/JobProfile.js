@@ -6,6 +6,26 @@ import LinkIcon from '@material-ui/icons/Link';
 import Footer2 from '../Components/Footer2';
 import MailIcon from '@material-ui/icons/Mail';
 
+const DisplayArray = (props) => {
+	// console.log("inside display array")
+	// console.log(props.data);
+
+	if(props.data){
+		const showdata = props.data.map((data) => {
+			if(data){
+				return <div>{data}</div>
+			}else {
+				return <div></div>
+			}
+		})
+		return <div>{showdata}</div>
+
+	} else {
+		return <div className='center'> No relevent data  :( </div>
+		
+	}
+}
+
 const JobProfile = (props) => {
 	let id = props.match.params.job_id;
 	const [ UserProfile, setUser ] = React.useState('');
@@ -13,10 +33,10 @@ const JobProfile = (props) => {
 	const loadProducts = async () => {
 		try {
 			const res = await fetch('http://localhost:5000/api/jobprofiles/' + id);
-			console.log(res);
+			// console.log(res);
 			const data = await res.json();
 			setUser(data);
-			console.log(data.user.email);
+			// console.log(data.user.email);
 		} catch (err) {
 			console.error(err);
 		}
@@ -162,19 +182,27 @@ const JobProfile = (props) => {
 						<div style={{ margin: '10% ' }}>
 							<div style={{ padding: '3px 0' }}>
 								<p className='product-subhead'>Skills</p>
-								<p className='product-content'>{UserProfile.skills}</p>
+								<p className='product-content'>
+									<DisplayArray data={UserProfile.skills} />
+								</p>
 							</div>
 							<div style={{ padding: '3px 0' }}>
 								<p className='product-subhead'>Experience</p>
-								<p className='product-content'>{UserProfile.experience}</p>
+								<p className='product-content'>
+									<DisplayArray data={UserProfile.experience} />
+								</p>
 							</div>
 							<div style={{ padding: '3px 0' }}>
 								<p className='product-subhead'>Qualifications</p>
-								<p className='product-content'>{UserProfile.qualification}</p>
+								<p className='product-content'>
+									<DisplayArray data={UserProfile.qualification} />
+								</p>
 							</div>
 							<div style={{ padding: '3px 0' }}>
 								<p className='product-subhead'>Passionate About</p>
-								<p className='product-content'>{UserProfile.passionateAbout}</p>
+								<p className='product-content'>
+								<DisplayArray data={UserProfile.passionateAbout} />
+								</p>
 							</div>
 						</div>
 					</Grid>
