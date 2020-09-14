@@ -59,7 +59,7 @@ const PeopleList = () => {
 											fiber_manual_record
 										</span>
 										<span style={{ fontSize: '16px', padding: '1px', fontWeight: '600' }}>
-											{user.rating}
+											{user.user.reputation}
 										</span>
 									</div>
 								</p>
