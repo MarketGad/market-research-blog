@@ -17,9 +17,19 @@ const Slider = () => {
 								alt=' one'
 								className='mobile'
 							/>
+							<div className="container">
+								<div class="text-block">
+									<p>Apply By 18th September</p>
+								</div>
+							</div>
+							<div className="container">
+								<div class="text-block1">
+									<p>Apply By 18th September</p>
+								</div>
+							</div>
 							<div className='caption slide-box center-align'>
 								<a href='/whatwedo' className='btn-large waves-effect waves-light join-btn'>
-									Get Started
+									APPLY NOW
 								</a>
 							</div>
 						</li>
