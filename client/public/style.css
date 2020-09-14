@@ -608,6 +608,24 @@ nav {
 	height: 10rem;
 	width: 10rem;
 }
+/* jpbprofile screen */
+.job-link-icons {
+	position: relative;
+	padding: 0 10px;
+	vertical-align: middle;
+	font-size: large;
+}
+.profile-container {
+	margin-top: 2%;
+}
+.profile-section {
+	padding: 3px 0;
+}
+.link-container {
+	font-size: 1.5em;
+	margin-left: 15%;
+	margin-top: 15%;
+}
 /*-------------------Products--------------------------*/
 .product-job-page-container {
 	margin: 0 12%;
@@ -626,6 +644,9 @@ nav {
 .pro-btn1:hover {
 	background-color: #080808;
 }
+.productdetails-container {
+	margin-top: 3%;
+}
 
 .product-container {
 	border-radius: '5px';
@@ -643,6 +664,7 @@ nav {
 }
 .product-head {
 	font-family: 'GlacialIndifferenceBold';
+	padding: 10px 0;
 	font-size: 2.4em;
 	font-weight: 600;
 	line-height: .5em;
@@ -714,6 +736,7 @@ nav {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow-x: hidden;
+	vertical-align: middle;
 }
 .links:hover {
 	text-decoration: underline;
