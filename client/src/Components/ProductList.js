@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
+import ShowComment from './ShowComment';
+import { Link } from 'react-router-dom';
 
 const ProductList = () => {
 	const [ products, setProducts ] = React.useState('');
@@ -42,41 +44,7 @@ const ProductList = () => {
 			}
 		);
 	};
-	const showComment = (product) =>
-		product.comments ? (
-			product.comments.map((comment) => {
-				if (comment.comment) {
-					return (
-						<div>
-							<ul className='collection comment' style={{ border: 'none' }}>
-								<li
-									className='collection-item avatar'
-									style={{
-										minHeight: '0',
-										paddingLeft: '60px'
-									}}
-								>
-									<img
-										src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQiUY7RQ-eUe_fmk6--gEvDXvallGC7ZA7suQ&usqp=CAU'
-										alt=''
-										className='circle'
-										style={{ left: '5px' }}
-									/>
-									<div className='title'>
-										<b>
-											{comment.author.firstname} {comment.author.lastname}
-										</b>
-									</div>
-									<p>{comment.comment}</p>
-								</li>
-							</ul>
-						</div>
-					);
-				}
-			})
-		) : (
-			<div className='center'> No Comments to show :( </div>
-		);
+
 	const showProducts = products.length ? (
 		products.slice(0).reverse().map((product, index) => {
 			return (
@@ -85,13 +53,16 @@ const ProductList = () => {
 						<li className='collection-item avatar'>
 							<img className='circle pro-img' src={product.logo} alt={product.name} />
 							<div className='product-right-container'>
-								<a
-									className='product-content product-name'
+								<Link
 									style={{ color: 'black' }}
-									href={'/p' + product._id}
+									className='product-content product-name'
+									to={{
+										pathname: `/p${product._id}`,
+										state: { product: product }
+									}}
 								>
 									{product.name}
-								</a>
+								</Link>
 								<div className='product-desc'>{product.briefDescription}</div>
 								<div className='row product-link-container'>
 									<div className='col l10 s12'>
@@ -113,8 +84,11 @@ const ProductList = () => {
 										</p>
 									</div>
 									<div className='col l2 s12 comment-box'>
-										<a
-											href={'/p' + product._id}
+										<Link
+											to={{
+												pathname: `/p${product._id}`,
+												state: { product: product }
+											}}
 											className='waves-effect waves-light btn-small comment-btn1'
 										>
 											<span className='comment-count'>{product.comments.length}</span>
@@ -128,7 +102,7 @@ const ProductList = () => {
 											>
 												chat
 											</span>
-										</a>
+										</Link>
 									</div>
 								</div>
 								<div className='secondary-content upvote-container'>
@@ -142,10 +116,16 @@ const ProductList = () => {
 									<span className='upvote-count'>{product.upvotes}</span>
 								</div>
 								<div className='comment-container'>
-									<a className='comment-head product-content' href={'/p' + product._id}>
+									<Link
+										to={{
+											pathname: `/p${product._id}`,
+											state: { product: product }
+										}}
+										className='comment-head product-content'
+									>
 										Comments ({product.comments.length})
-									</a>
-									{showComment(product)}
+									</Link>
+									<ShowComment product={product} />
 								</div>
 							</div>
 						</li>

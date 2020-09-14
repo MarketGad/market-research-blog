@@ -183,12 +183,12 @@ nav {
 	font-size: 1.2rem;
 	font-weight: 900;
 	border-radius: 45%;
-  }
-  .text-block p{
-	  font-size: 1.5rem;
-  }
+}
+.text-block p {
+	font-size: 1.5rem;
+}
 
-  .text-block1 {
+.text-block1 {
 	margin-top: 1rem;
 	bottom: 24%;
 	color: white;
@@ -206,11 +206,10 @@ nav {
 	font-weight: 900;
 	border-radius: 45%;
 	display: none;
-  }
-  .text-block1 p{
-	  font-size: 1.5rem;
-  }
-
+}
+.text-block1 p {
+	font-size: 1.5rem;
+}
 
 /* ----------seo---------- */
 
@@ -672,6 +671,9 @@ nav {
 	margin-left: 15%;
 	margin-top: 15%;
 }
+.job-userdetails-container {
+	margin-left: 20%;
+}
 /*-------------------Products--------------------------*/
 .product-job-page-container {
 	margin: 0 12%;
@@ -801,7 +803,14 @@ nav {
 .hire-connect-btn:hover {
 	background-color: #c1c1c1;
 }
+.contact-container {
+	margin-top: 15%;
+	margin-left: 17%;
+}
 /*---------------------comment------------------*/
+.addComment {
+	background-color: #080808d9;
+}
 .comment-btn1 {
 	display: inline-block;
 	border-radius: 30px;
@@ -891,7 +900,7 @@ nav {
 }
 
 @media only screen and (max-width: 500px) {
-	.text-block{
+	.text-block {
 		display: none;
 	}
 	.text-block1 {
@@ -912,11 +921,11 @@ nav {
 		font-weight: 900;
 		border-radius: 45%;
 		display: block;
-	  }
+	}
 
-	  .text-block1 p{
-		  font-size: 1.5rem;
-	  }
+	.text-block1 p {
+		font-size: 1.5rem;
+	}
 
 	.nav-center {
 		display: inline;
@@ -1163,6 +1172,7 @@ nav {
 		padding-top: 0;
 		margin-top: 0;
 		padding-bottom: 0;
+		display: none;
 	}
 	.comment-count {
 		font-size: 14px;

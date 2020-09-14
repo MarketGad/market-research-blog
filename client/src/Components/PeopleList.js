@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
 const PeopleList = () => {
 	const [ people, setPeople ] = React.useState('');
@@ -27,11 +28,19 @@ const PeopleList = () => {
 						<ul className='collection'>
 							<li className='collection-item avatar'>
 								<img src={user.profilePic} alt='' className='circle' />
-								<a className='title' href={'/' + user._id}>
+								<Link
+									style={{ color: 'black' }}
+									className='title'
+									to={{
+										pathname: `/${user._id}`,
+										state: { UserProfile: user }
+									}}
+								>
 									<b>
 										{user.user.firstname} {user.user.lastname}
 									</b>
-								</a>
+								</Link>
+
 								<p>
 									<b>Skills: </b>
 									{user.skills[0]}
@@ -63,13 +72,16 @@ const PeopleList = () => {
 										</span>
 									</div>
 								</p>
-
-								<a
-									href={'/' + user._id}
+								<Link
 									className='waves-effect waves-light btn-small hire-connect-btn'
+									to={{
+										pathname: `/${user._id}`,
+										state: { UserProfile: user }
+									}}
 								>
 									Hire
-								</a>
+								</Link>
+
 								<a
 									className='waves-effect waves-light btn-small hire-connect-btn'
 									style={{ float: 'right' }}

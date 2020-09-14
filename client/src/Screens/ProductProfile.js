@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 // import Footer2 from '../Components/Footer2';
 import Cookies from 'js-cookie';
+import ShowComment from '../Components/ShowComment';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -28,57 +29,22 @@ const useStyles = makeStyles((theme) => ({
 		padding: '10px 5px'
 	},
 	submit: {
-		margin: theme.spacing(1, -0.5, 0)
+		margin: theme.spacing(1, 1, 0),
+		fontWeight: '800'
 	}
 }));
 
 const ProductProfile = (props) => {
 	const classes = useStyles();
-	const [ product, setProduct ] = React.useState('');
 	const [ comment, setComment ] = React.useState('');
 	const id = props.match.params.product_id;
-	const loadProduct = async () => {
-		try {
-			const res = await fetch('http://localhost:5000/api/productdetails/' + id);
-			const data = await res.json();
-			setProduct(data);
-		} catch (err) {
-			console.error(err);
-		}
-	};
-	useEffect(() => {
-		loadProduct();
-	}, []);
+	const product = props.location.state.product;
+	console.log(product);
+
 	const showComment = product.comments ? (
 		product.comments.map((comment) => {
-			console.log(product.comments);
 			if (comment.comment) {
-				return (
-					<div>
-						<ul className='collection comment' style={{ border: 'none' }}>
-							<li
-								className='collection-item avatar'
-								style={{
-									minHeight: '0',
-									paddingLeft: '60px'
-								}}
-							>
-								<img
-									src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQiUY7RQ-eUe_fmk6--gEvDXvallGC7ZA7suQ&usqp=CAU'
-									alt=''
-									className='circle'
-									style={{ left: '5px' }}
-								/>
-								<div className='title'>
-									<b>
-										{comment.author.firstname} {comment.author.lastname}
-									</b>
-								</div>
-								<p>{comment.comment}</p>
-							</li>
-						</ul>
-					</div>
-				);
+				return <ShowComment product={product} />;
 			}
 		})
 	) : (
@@ -108,21 +74,11 @@ const ProductProfile = (props) => {
 					}
 				},
 				(error) => {
-					console.log(error);
-					// setErrMsg('Invalid email or password');
+					alert('please login to continue');
 				}
 			);
 	};
-	if (product.err) {
-		return (
-			<div>
-				<h1 style={{ marginTop: '20vh' }} className='center'>
-					Error 404
-				</h1>
-				<h3 className='center'>Product not found !!!</h3>
-			</div>
-		);
-	} else if (product.name) {
+	if (product.name) {
 		return (
 			<div className='productdetails-container'>
 				<Grid container component='main'>
@@ -178,19 +134,20 @@ const ProductProfile = (props) => {
 								</span>
 							</div>
 						</div>
-					</Grid>
-					<Grid item xs={12} sm={12} md={9} style={{ paddingLeft: '2%' }}>
-						<div style={{ width: '90%' }}>
-							<div className='product-head'>About</div>
-							<p className='product-content'>{product.detailedDescription}</p>
-						</div>
-						<div style={{ marginTop: '5%' }}>
+						<div className='contact-container'>
 							<p className='product-subhead'>Contact</p>
 							<p className='product-content'>{product.pointOfContact}</p>
 
 							<p className='product-subhead'>Email</p>
 							<p className='product-content'>{product.emailId}</p>
 						</div>
+					</Grid>
+					<Grid item xs={12} sm={12} md={9} style={{ paddingLeft: '2%' }}>
+						<div style={{ width: '90%' }}>
+							<div className='product-head'>About</div>
+							<p className='product-content'>{product.detailedDescription}</p>
+						</div>
+
 						<div>
 							<div className='row'>
 								<div className='col s12 l10' style={{ padding: '0', margin: '0' }}>
@@ -217,7 +174,6 @@ const ProductProfile = (props) => {
 														<Button
 															type='submit'
 															variant='contained'
-															color='primary'
 															className={classes.submit}
 														>
 															Add Comment

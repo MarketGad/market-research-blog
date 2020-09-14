@@ -8,9 +8,6 @@ import Footer2 from '../Components/Footer2';
 import MailIcon from '@material-ui/icons/Mail';
 
 const DisplayArray = (props) => {
-	// console.log("inside display array")
-	// console.log(props.data);
-
 	if (props.data) {
 		const showdata = props.data.map((data) => {
 			if (data) {
@@ -27,22 +24,7 @@ const DisplayArray = (props) => {
 
 const JobProfile = (props) => {
 	let id = props.match.params.job_id;
-	const [ UserProfile, setUser ] = React.useState('');
-
-	const loadProducts = async () => {
-		try {
-			const res = await fetch('http://localhost:5000/api/jobprofiles/' + id);
-			// console.log(res);
-			const data = await res.json();
-			setUser(data);
-			// console.log(data.user.email);
-		} catch (err) {
-			console.error(err);
-		}
-	};
-	useEffect(() => {
-		loadProducts();
-	}, []);
+	const UserProfile = props.location.state.UserProfile;
 	if (UserProfile.err) {
 		return (
 			<div>
@@ -70,23 +52,6 @@ const JobProfile = (props) => {
 							style={{ fontFamily: 'GlacialIndifferenceBold', textAlign: 'center' }}
 						>
 							{UserProfile.user.firstname} {UserProfile.user.lastname}
-							<span style={{ textAlign: 'center' }}>
-								<span
-									style={{
-										marginLeft: '20px',
-										position: 'relative',
-										padding: '5px',
-										fontSize: '16px',
-										color: '#ff9529'
-									}}
-									className='material-icons'
-								>
-									fiber_manual_record
-								</span>
-								<span style={{ fontFamily: 'GlacialIndifferenceBold', fontSize: '25px' }}>
-									{UserProfile.rating}
-								</span>
-							</span>
 						</div>
 						<div style={{ textAlign: 'center', fontFamily: 'GlacialIndifferenceBold' }}>
 							<h6>
@@ -95,6 +60,31 @@ const JobProfile = (props) => {
 								</span>
 								<span style={{ verticalAlign: 'middle' }}>{UserProfile.location}</span>
 							</h6>
+						</div>
+						<div style={{ textAlign: 'center' }}>
+							<span style={{ textAlign: 'center' }}>
+								<span
+									style={{
+										position: 'relative',
+										padding: '0 5px',
+										fontSize: '1.4em',
+										verticalAlign: 'middle',
+										color: '#ff9529'
+									}}
+									className='material-icons'
+								>
+									fiber_manual_record
+								</span>
+								<span
+									style={{
+										fontFamily: 'GlacialIndifferenceBold',
+										fontSize: '1.4em',
+										verticalAlign: 'middle'
+									}}
+								>
+									{UserProfile.user.reputation}
+								</span>
+							</span>
 						</div>
 						<div className='link-container'>
 							<div style={{ padding: '3px' }}>
@@ -138,7 +128,7 @@ const JobProfile = (props) => {
 						</div>
 					</Grid>
 					<Grid item xs={12} sm={12} md={6} elevation={6} square>
-						<div>
+						<div className='job-userdetails-container'>
 							<div className='profile-section'>
 								<p className='product-subhead'>Skills</p>
 								<p className='product-content'>
@@ -171,7 +161,7 @@ const JobProfile = (props) => {
 							<div style={{ marginTop: '5%' }}>
 								<h3 className='product-head center'>Premium Offerings</h3>
 							</div>
-							<div style={{ textAlign: 'center', marginTop: '10%' }}>
+							<div style={{ textAlign: 'center', marginTop: '5%' }}>
 								<div style={{ padding: '5px' }}>
 									<p className='product-subhead'>Services</p>
 									<p className='product-content'>{UserProfile.serviceName || null}</p>

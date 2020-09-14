@@ -128,7 +128,7 @@ export default function RegisterForJobs () {
 				},
 				(error) => {
 					if (error.message === 'Request failed with status code 413') {
-						alert('upload photo size should be less than 75kb');
+						alert('upload photo size should be less than 500kb');
 					} else {
 						alert('One user can register once');
 					}
