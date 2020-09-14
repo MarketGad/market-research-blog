@@ -166,6 +166,52 @@ nav {
 	background-color: rgba(0, 0, 0, 0.6);
 }
 
+.text-block {
+	margin-top: 1rem;
+	bottom: 24%;
+	color: white;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 5.5%;
+	position: absolute;
+	height: 6%;
+	top: 76%;
+	left: 48%;
+	margin: -100px 0 0 -121px;
+	font-family: "GlacialIndifferenceBold";
+	background: #1815156b;
+	font-size: 1.2rem;
+	font-weight: 900;
+	border-radius: 45%;
+  }
+  .text-block p{
+	  font-size: 1.5rem;
+  }
+
+  .text-block1 {
+	margin-top: 1rem;
+	bottom: 24%;
+	color: white;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 5.5%;
+	position: absolute;
+	height: 6%;
+	top: 70%;
+	left: 48%;
+	margin: -100px 0 0 -121px;
+	font-family: "GlacialIndifferenceBold";
+	background: #1815156b;
+	font-size: 1.2rem;
+	font-weight: 900;
+	border-radius: 45%;
+	display: none;
+  }
+  .text-block1 p{
+	  font-size: 1.5rem;
+  }
+
+
 /* ----------seo---------- */
 
 /* .tagline {
@@ -845,6 +891,33 @@ nav {
 }
 
 @media only screen and (max-width: 500px) {
+	.text-block{
+		display: none;
+	}
+	.text-block1 {
+		margin-top: 1rem;
+		bottom: 24%;
+		color: white;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 5.5%;
+		position: absolute;
+		height: 10%;
+		top: 68%;
+		left: 48%;
+		margin: -100px 0 0 -121px;
+		font-family: "GlacialIndifferenceBold";
+		background: #1815156b;
+		font-size: 1.2rem;
+		font-weight: 900;
+		border-radius: 45%;
+		display: block;
+	  }
+
+	  .text-block1 p{
+		  font-size: 1.5rem;
+	  }
+
 	.nav-center {
 		display: inline;
 		justify-content: left;
