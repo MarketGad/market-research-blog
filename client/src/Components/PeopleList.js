@@ -34,10 +34,10 @@ const PeopleList = () => {
 								</a>
 								<p>
 									<b>Skills: </b>
-									{user.skills}
+									{user.skills[0]}
 									<br />
 									<b>Experience: </b>
-									{user.experience}
+									{user.experience[0]}
 									<br />
 									<div
 										className='secondary-content'
