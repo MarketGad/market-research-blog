@@ -11,7 +11,7 @@ const PeopleList = () => {
 			const data = await res.json();
 			setPeople(data);
 		} catch (err) {
-			console.error(err);
+			console.log(err);
 		}
 	};
 	useEffect(() => {
@@ -21,7 +21,6 @@ const PeopleList = () => {
 	const showPeople = people.length ? (
 		people.map((user) => {
 			const cookie = Cookies.get('session-id');
-			console.log(cookie);
 			if (user.user) {
 				return (
 					<div>

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import ShowComment from './ShowComment';
+import LinkIcon from '@material-ui/icons/Link';
 import { Link } from 'react-router-dom';
 
 const ProductList = () => {
@@ -66,22 +67,18 @@ const ProductList = () => {
 								<div className='product-desc'>{product.briefDescription}</div>
 								<div className='row product-link-container'>
 									<div className='col l10 s12'>
-										<p className='product-link'>
-											<span
-												style={{
-													position: 'relative',
-													paddingRight: '5px',
-													top: '-1px',
-													verticalAlign: 'middle'
-												}}
-												className='material-icons'
-											>
-												link
+										<div className='product-list-link'>
+											<span>
+												<span className='material-icons job-link-icons'>
+													<LinkIcon />
+												</span>
+												<span>
+													<a className='links' href={product.websiteLink}>
+														{product.websiteLink}
+													</a>
+												</span>
 											</span>
-											<a className='links' href={product.websiteLink || product.playStoreLink}>
-												{product.websiteLink || product.playStoreLink}
-											</a>
-										</p>
+										</div>
 									</div>
 									<div className='col l2 s12 comment-box'>
 										<Link
@@ -125,7 +122,7 @@ const ProductList = () => {
 									>
 										Comments ({product.comments.length})
 									</Link>
-									<ShowComment product={product} />
+									<ShowComment comment={product.comments[0]} />
 								</div>
 							</div>
 						</li>

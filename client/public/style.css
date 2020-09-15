@@ -656,10 +656,11 @@ nav {
 /* jpbprofile screen */
 .job-link-icons {
 	position: relative;
-	padding: 0 10px;
+	padding-right: 10px;
 	vertical-align: middle;
 	font-size: large;
 }
+
 .profile-container {
 	margin-top: 2%;
 }
@@ -677,6 +678,10 @@ nav {
 /*-------------------Products--------------------------*/
 .product-job-page-container {
 	margin: 0 12%;
+}
+.product-list-link {
+	padding-top: 2px;
+	font-size: 1.3em;
 }
 .pro-btn1 {
 	font-family: 'GlacialIndifferenceBold';

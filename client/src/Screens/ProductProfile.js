@@ -7,6 +7,7 @@ import AppleIcon from '@material-ui/icons/Apple';
 import LinkIcon from '@material-ui/icons/Link';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { useHistory } from 'react-router';
 // import Footer2 from '../Components/Footer2';
 import Cookies from 'js-cookie';
 import ShowComment from '../Components/ShowComment';
@@ -39,12 +40,13 @@ const ProductProfile = (props) => {
 	const [ comment, setComment ] = React.useState('');
 	const id = props.match.params.product_id;
 	const product = props.location.state.product;
-	console.log(product);
+	const comments = product.comments;
+	const history = useHistory();
 
-	const showComment = product.comments ? (
-		product.comments.map((comment) => {
-			if (comment.comment) {
-				return <ShowComment product={product} />;
+	const showComment = comments.length ? (
+		comments.map((comment) => {
+			if (comment) {
+				return <ShowComment comment={comment} />;
 			}
 		})
 	) : (
@@ -70,7 +72,8 @@ const ProductProfile = (props) => {
 				(response) => {
 					console.log(response);
 					if (response.data) {
-						window.location.reload(false);
+						alert('comment added');
+						history.goBack();
 					}
 				},
 				(error) => {

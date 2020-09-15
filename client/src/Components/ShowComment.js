@@ -1,8 +1,9 @@
 import React from 'react';
 
 const ShowComment = (props) => {
-	const comment = props.product.comments[0];
-	if (comment.comment) {
+	console.log(props);
+	const comment = props.comment;
+	if (comment) {
 		return (
 			<div>
 				<ul className='collection comment' style={{ border: 'none' }}>
@@ -29,6 +30,8 @@ const ShowComment = (props) => {
 				</ul>
 			</div>
 		);
+	} else {
+		return <div>no comment..</div>;
 	}
 };
 export default ShowComment;
