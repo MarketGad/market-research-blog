@@ -110,7 +110,7 @@ export default function RegisterForProduct () {
 					},
 					(error) => {
 						if (error.message === 'Request failed with status code 413') {
-							alert('upload photo size should be less than 1 MB');
+							alert('upload photo size should be less than 500kb');
 						} else {
 							alert('something went wrong');
 						}
