@@ -47,10 +47,7 @@ const JobProfile = (props) => {
 								style={{ width: '200px', height: '200px', borderRadius: '7px' }}
 							/>
 						</div>
-						<div
-							className='article-subhead'
-							style={{ fontFamily: 'GlacialIndifferenceBold', textAlign: 'center' }}
-						>
+						<div className='article-subhead center' style={{ fontFamily: 'GlacialIndifferenceBold' }}>
 							{UserProfile.user.firstname} {UserProfile.user.lastname}
 						</div>
 						<div style={{ textAlign: 'center', fontFamily: 'GlacialIndifferenceBold' }}>
@@ -157,11 +154,11 @@ const JobProfile = (props) => {
 					</Grid>
 
 					<Grid item xs={12} sm={12} md={3} elevation={6} square>
-						<div style={{ padding: '5%' }}>
-							<div style={{ marginTop: '5%' }}>
+						<div className='premium-offering-container'>
+							<div>
 								<h3 className='product-head center'>Premium Offerings</h3>
 							</div>
-							<div style={{ textAlign: 'center', marginTop: '5%' }}>
+							<div style={{ textAlign: 'center', marginTop: '3%' }}>
 								<div style={{ padding: '5px' }}>
 									<p className='product-subhead'>Services</p>
 									<p className='product-content'>{UserProfile.serviceName || null}</p>

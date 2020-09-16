@@ -668,6 +668,9 @@ nav {
 .profile-section {
 	padding: 3px 0;
 }
+.premium-offering-container {
+	margin: 3%;
+}
 .link-container {
 	font-size: 1.5em;
 	margin-left: 15%;
@@ -789,6 +792,9 @@ nav {
 	padding-left: 8%;
 	width: 90%;
 }
+.product-details-right-container {
+	padding: 0 3%;
+}
 .product-link {
 	font-size: 1.25em;
 	padding: 2px 0;
@@ -828,6 +834,11 @@ nav {
 .contact-container {
 	margin-top: 15%;
 	margin-left: 17%;
+}
+.details-page-logo {
+	width: 200px;
+	height: 200px;
+	border-radius: 7px;
 }
 /*---------------------comment------------------*/
 .addComment {
@@ -1218,7 +1229,33 @@ nav {
 		top: 5px !important;
 		right: 10px !important;
 	}
-
+	.details-page-logo {
+		height: 150px;
+		width: 150px;
+	}
+	.link-container {
+		margin-left: 10%;
+		margin-top: 2%;
+	}
+	.contact-container {
+		margin-top: 8%;
+		margin-left: 12%;
+	}
+	.profile-container {
+		margin-top: 5%;
+		margin: 5%;
+	}
+	.premium-offering-container {
+		margin: 1%;
+		text-align: left;
+	}
+	.job-userdetails-container {
+		margin-left: 10%;
+		margin-top: 5%;
+	}
+	.product-details-right-container {
+		padding: 0 5%;
+	}
 	.upvote-count {
 		font-size: 1.3em;
 		top: -0.6em;

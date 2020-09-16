@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
 		padding: '10px 5px'
 	},
 	submit: {
-		margin: theme.spacing(1, 1, 0),
+		height: '3.8em',
+		margin: theme.spacing(0, 1, 0),
 		fontWeight: '800'
 	}
 }));
@@ -90,16 +91,9 @@ const ProductProfile = (props) => {
 			<div className='productdetails-container'>
 				<Grid container component='main'>
 					<Grid item xs={12} md={3}>
-						<div style={{ textAlign: 'center' }}>
-							<img
-								src={product.logo}
-								alt={product.name}
-								style={{ width: '200px', height: '200px', borderRadius: '7px' }}
-							/>
-							<div
-								className='article-subhead'
-								style={{ fontFamily: 'GlacialIndifferenceBold', textAlign: 'center' }}
-							>
+						<div className='center'>
+							<img src={product.logo} alt={product.name} className='details-page-logo' />
+							<div className='article-subhead center' style={{ fontFamily: 'GlacialIndifferenceBold' }}>
 								{product.name}
 							</div>
 						</div>
@@ -143,29 +137,29 @@ const ProductProfile = (props) => {
 						</div>
 						<div className='contact-container'>
 							<p className='product-subhead'>Contact</p>
-							<p className='product-content'>{product.pointOfContact}</p>
-
-							<p className='product-subhead'>Email</p>
-							<p className='product-content'>{product.emailId}</p>
+							<p className='product-content'>
+								{product.pointOfContact} <br />
+								{product.emailId}
+							</p>
 						</div>
 					</Grid>
-					<Grid item xs={12} sm={12} md={9} style={{ paddingLeft: '2%' }}>
-						<div style={{ width: '90%' }}>
+					<Grid item xs={12} sm={12} md={9} className='product-details-right-container'>
+						<div>
 							<div className='product-head'>About</div>
 							<p className='product-content'>{product.detailedDescription}</p>
 						</div>
 
 						<div>
 							<div className='row'>
-								<div className='col s12 l10' style={{ padding: '0', margin: '0' }}>
+								<div className='col s12 l11' style={{ padding: '0', margin: '0' }}>
 									<div className='card'>
-										<div className='card-content' style={{ padding: '15px' }}>
+										<div className='card-content'>
 											<span className='card-title product-comment'>
 												Comments ({product.comments.length})
 											</span>
 											<form className={classes.form} onSubmit={submitHandler}>
 												<Grid container spacing={2}>
-													<Grid item sm={10} style={{ padding: '10px' }}>
+													<Grid item xs={8}>
 														<TextField
 															fullWidth
 															id='outlined-textarea'
@@ -177,7 +171,7 @@ const ProductProfile = (props) => {
 															onChange={(e) => setComment(e.target.value)}
 														/>
 													</Grid>
-													<Grid item sm={2}>
+													<Grid item xs={3}>
 														<Button
 															type='submit'
 															variant='contained'
