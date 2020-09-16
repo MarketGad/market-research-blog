@@ -625,7 +625,8 @@ nav {
 	background-color: #0f0f0f;
 	color: #ffffff;
 	position: relative;
-	top: 2.5em;
+	top: -2em;
+	margin: 0;
 }
 .register-job:hover {
 	background-color: #61383b;
@@ -667,6 +668,9 @@ nav {
 .profile-section {
 	padding: 3px 0;
 }
+.premium-offering-container {
+	margin: 3%;
+}
 .link-container {
 	font-size: 1.5em;
 	margin-left: 15%;
@@ -675,24 +679,40 @@ nav {
 .job-userdetails-container {
 	margin-left: 20%;
 }
+
 /*-------------------Products--------------------------*/
+.product-page-head {
+	font-size: 2em;
+	font-family: 'GlacialIndifferenceBold';
+	text-align: center;
+	text-transform: uppercase;
+	padding: 15px;
+}
+.add-mobile {
+	display: none;
+}
+.left-head {
+	text-align: left;
+}
 .product-job-page-container {
-	margin: 0 12%;
+	margin: 0 10%;
 }
 .product-list-link {
 	padding-top: 2px;
 	font-size: 1.3em;
 }
+.relative-add {
+	position: relative;
+	height: 5em;
+}
 .pro-btn1 {
+	top: -3.1em;
 	font-family: 'GlacialIndifferenceBold';
+	font-size: 1.2em;
 	border-radius: 4px;
-	font-weight: 300;
 	background-color: #0f0f0f;
 	color: #ffffff;
-	width: 12em;
-	padding: 0%;
-	position: relative;
-	top: 4.5em;
+	padding: 0 20px;
 }
 .pro-btn1:hover {
 	background-color: #080808;
@@ -772,6 +792,9 @@ nav {
 	padding-left: 8%;
 	width: 90%;
 }
+.product-details-right-container {
+	padding: 0 3%;
+}
 .product-link {
 	font-size: 1.25em;
 	padding: 2px 0;
@@ -811,6 +834,11 @@ nav {
 .contact-container {
 	margin-top: 15%;
 	margin-left: 17%;
+}
+.details-page-logo {
+	width: 200px;
+	height: 200px;
+	border-radius: 7px;
 }
 /*---------------------comment------------------*/
 .addComment {
@@ -1133,15 +1161,19 @@ nav {
 		margin: 0 1%;
 	}
 	.pro-btn1 {
-		font-family: 'GlacialIndifferenceBold';
-		width: auto;
-		padding: auto;
-		padding-left: 10px;
-		padding-right: 10px;
+		font-size: 1em;
+		top: -3.4em;
+		padding: 0 10px;
 	}
-	.product-container {
-		height: 140px;
+	.add-mobile-btn {
+		display: none;
 	}
+
+	.add-mobile {
+		display: block;
+		border-radius: 50% !important;
+	}
+
 	.product-right-container {
 		padding-left: 10%;
 		width: 85%;
@@ -1160,6 +1192,10 @@ nav {
 		font-size: 1.2em;
 		padding: 0;
 	}
+	.product-page-head {
+		font-size: 1.7em;
+		padding: 10px;
+	}
 	/* .product-head {
 		font-size: 2.4em;
 		line-height: .5em;
@@ -1172,7 +1208,9 @@ nav {
 	.product-content {
 		font-size: 1.5em;
 	} */
-
+	.comment-head {
+		font-size: 1.2em;
+	}
 	.comment-box {
 		padding-top: 0;
 		margin-top: 0;
@@ -1182,12 +1220,42 @@ nav {
 	.comment-count {
 		font-size: 14px;
 	}
+	.comment-container {
+		margin-top: 3px;
+		height: auto;
+	}
 	.upvote-container {
 		border-radius: 8px;
 		top: 5px !important;
 		right: 10px !important;
 	}
-
+	.details-page-logo {
+		height: 150px;
+		width: 150px;
+	}
+	.link-container {
+		margin-left: 10%;
+		margin-top: 2%;
+	}
+	.contact-container {
+		margin-top: 8%;
+		margin-left: 12%;
+	}
+	.profile-container {
+		margin-top: 5%;
+		margin: 5%;
+	}
+	.premium-offering-container {
+		margin: 1%;
+		text-align: left;
+	}
+	.job-userdetails-container {
+		margin-left: 10%;
+		margin-top: 5%;
+	}
+	.product-details-right-container {
+		padding: 0 5%;
+	}
 	.upvote-count {
 		font-size: 1.3em;
 		top: -0.6em;
