@@ -54,32 +54,36 @@ const ProductProfile = (props) => {
 	);
 	const submitHandler = (e) => {
 		e.preventDefault();
-		const token = Cookies.get('session-id');
-		const config = {
-			headers: {
-				Authorization: `Bearer  ${token}`
-			}
-		};
-		axios
-			.post(
-				'http://localhost:5000/api/productdetails/' + id + '/comments',
-				{
-					comment: comment
-				},
-				config
-			)
-			.then(
-				(response) => {
-					console.log(response);
-					if (response.data) {
-						alert('comment added');
-						history.goBack();
-					}
-				},
-				(error) => {
-					alert('please login to continue');
+		if (comment) {
+			const token = Cookies.get('session-id');
+			const config = {
+				headers: {
+					Authorization: `Bearer  ${token}`
 				}
-			);
+			};
+			axios
+				.post(
+					'http://localhost:5000/api/productdetails/' + id + '/comments',
+					{
+						comment: comment
+					},
+					config
+				)
+				.then(
+					(response) => {
+						console.log(response);
+						if (response.data) {
+							alert('comment added');
+							history.goBack();
+						}
+					},
+					(error) => {
+						alert('please login to continue');
+					}
+				);
+		} else {
+			alert('empty comment');
+		}
 	};
 	if (product.name) {
 		return (
