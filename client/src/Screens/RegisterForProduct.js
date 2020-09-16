@@ -103,19 +103,21 @@ export default function RegisterForProduct () {
 				.then(
 					(response) => {
 						if (response.status === 200) {
-							setRegisterProductSuccess(true);
+							alert("Product Profile Created Successfully")
 						} else {
 							alert(response.err);
 						}
 					},
 					(error) => {
 						if (error.message === 'Request failed with status code 413') {
-							alert('upload photo size should be less than 500kb');
+							alert('upload photo size should be less than 1 MB');
 						} else {
 							alert('something went wrong');
 						}
 					}
 				);
+				alert("Product Profile is being Cooked")
+				setRegisterProductSuccess(true);
 		} else {
 			alert('Please mention your website or playstore link to continue');
 		}
