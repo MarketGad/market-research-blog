@@ -47,7 +47,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RegisterForProduct () {
+	// const token = Cookies.get('session-id');
+
 	const classes = useStyles();
+	const [ LoginCheck, setLoginCheck ] = React.useState(Cookies.get('session-id'));
 	const [ fileInputState, setFileInputState ] = React.useState('');
 	const [ selectedFile, setSelectedFile ] = React.useState('');
 	const [ previewSource, setPreviewSource ] = React.useState('');
@@ -103,7 +106,7 @@ export default function RegisterForProduct () {
 				.then(
 					(response) => {
 						if (response.status === 200) {
-							alert("Product Profile Created Successfully")
+							setRegisterProductSuccess(true);
 						} else {
 							alert(response.err);
 						}
@@ -111,19 +114,20 @@ export default function RegisterForProduct () {
 					(error) => {
 						if (error.message === 'Request failed with status code 413') {
 							alert('upload photo size should be less than 500kb');
+						} else if (error.response.data === 'Unauthorized') {
+							alert('make sure that you are logged in');
 						} else {
-							alert('something went wrong');
+							alert('registeration failed');
 						}
 					}
 				);
-				alert("Product Profile is being Cooked")
-				setRegisterProductSuccess(true);
 		} else {
 			alert('Please mention your website or playstore link to continue');
 		}
 	};
-
-	if (RegisterProductSuccess) {
+	if (!LoginCheck) {
+		return <Redirect to='/signin' />;
+	} else if (RegisterProductSuccess) {
 		return <Redirect to='/' />;
 	} else {
 		return (
@@ -164,9 +168,11 @@ export default function RegisterForProduct () {
 									</Grid>
 									<Grid item xs={12} sm={6}>
 										<input
+											required
 											style={{ padding: '3px 0' }}
 											id='fileInput'
 											type='file'
+											accept='image/*'
 											name='image'
 											onChange={handleFileInputChange}
 											value={fileInputState}

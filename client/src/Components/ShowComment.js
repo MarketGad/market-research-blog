@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ShowComment = (props) => {
-	console.log(props);
 	const comment = props.comment;
 	if (comment) {
 		return (

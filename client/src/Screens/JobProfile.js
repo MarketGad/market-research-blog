@@ -96,18 +96,6 @@ const JobProfile = (props) => {
 									</span>
 								</span>
 							</div>
-							<div style={{ padding: '3px' }}>
-								<span>
-									<span className='material-icons job-link-icons'>
-										<LinkIcon />
-									</span>
-									<span>
-										<a className='links' href={UserProfile.portfolioLink}>
-											{UserProfile.portfolioLink}
-										</a>
-									</span>
-								</span>
-							</div>
 							<div
 								style={{
 									padding: '3px'
@@ -122,6 +110,20 @@ const JobProfile = (props) => {
 									</a>
 								</span>
 							</div>
+							{UserProfile.portfolioLink.length > 0 && (
+								<div style={{ padding: '3px' }}>
+									<span>
+										<span className='material-icons job-link-icons'>
+											<LinkIcon />
+										</span>
+										<span>
+											<a className='links' href={UserProfile.portfolioLink}>
+												{UserProfile.portfolioLink}
+											</a>
+										</span>
+									</span>
+								</div>
+							)}
 						</div>
 					</Grid>
 					<Grid item xs={12} sm={12} md={6} elevation={6} square>
@@ -152,30 +154,31 @@ const JobProfile = (props) => {
 							</div>
 						</div>
 					</Grid>
-
-					<Grid item xs={12} sm={12} md={3} elevation={6} square>
-						<div className='premium-offering-container'>
-							<div>
-								<h3 className='product-head center'>Premium Offerings</h3>
-							</div>
-							<div style={{ textAlign: 'center', marginTop: '3%' }}>
-								<div style={{ padding: '5px' }}>
-									<p className='product-subhead'>Services</p>
-									<p className='product-content'>{UserProfile.serviceName || null}</p>
+					{UserProfile.serviceName && (
+						<Grid item xs={12} sm={12} md={3} elevation={6} square>
+							<div className='premium-offering-container'>
+								<div>
+									<h3 className='product-head center'>Premium Offerings</h3>
 								</div>
-								<div style={{ padding: '5px' }}>
-									<p className='product-subhead'>Pricing</p>
-									<p className='product-content'>Rs.{UserProfile.offeringPrice || null}</p>
+								<div style={{ textAlign: 'center', marginTop: '3%' }}>
+									<div style={{ padding: '5px' }}>
+										<p className='product-subhead'>Services</p>
+										<p className='product-content'>{UserProfile.serviceName || null}</p>
+									</div>
+									<div style={{ padding: '5px' }}>
+										<p className='product-subhead'>Pricing</p>
+										<p className='product-content'>Rs.{UserProfile.offeringPrice / 100 || null}</p>
+									</div>
+									<a
+										className='waves-effect waves-light btn-small hirenow-btn'
+										style={{ marginTop: '2%' }}
+									>
+										Hire Now
+									</a>
 								</div>
-								<a
-									className='waves-effect waves-light btn-small hirenow-btn'
-									style={{ marginTop: '2%' }}
-								>
-									Hire Now
-								</a>
 							</div>
-						</div>
-					</Grid>
+						</Grid>
+					)}
 				</Grid>
 			</div>
 		);

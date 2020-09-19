@@ -41,7 +41,6 @@ export default function SignUp () {
 	const [ email, setEmail ] = React.useState('');
 	const [ first_name, setFirstName ] = React.useState('');
 	const [ last_name, setLastName ] = React.useState('');
-	const [ phoneno, setPhoneno ] = React.useState('');
 	const [ password, setPassword ] = React.useState('');
 	const [ confirmPassword, setConfirmPassword ] = React.useState('');
 	const [ signupsuccess, setSignupsuccess ] = React.useState(false);
@@ -57,7 +56,6 @@ export default function SignUp () {
 				.post('http://localhost:5000/api/user/signupUser', {
 					email: email.toLowerCase(),
 					password: password,
-					phone: phoneno,
 					firstname: first_name,
 					lastname: last_name
 				})
@@ -68,65 +66,23 @@ export default function SignUp () {
 						}
 					},
 					(error) => {
-						setErrMsg('Something went Wrong');
+						if (error.response.data.err === 'Email Already Registered and Verified') {
+							setErrMsg('Email Already Registered and Verified');
+						} else setErrMsg('Something went wrong');
 					}
 				);
 		} else {
 			setErrMsg('Password Mismatch');
 		}
 	};
-	const otpsubmitHandler = (e) => {
-		e.preventDefault();
-		axios
-			.post('http://localhost:5000/api/user/otpverify', {
-				email: email.toLowerCase(),
-				otp: otp
-			})
-			.then(
-				(response) => {
-					if (response.data.success === true) {
-						setOtpsuccess(true);
-					}
-				},
-				(error) => {
-					console.log(error);
-					setErrMsg('Please Check Your OTP again!');
-				}
-			);
-	};
-	if (otpsuccess === true) {
-		return <Redirect to='/signin' />;
-	} else if (signupsuccess === true) {
+	if (signupsuccess === true) {
 		return (
-			<div>
-				<Alert msg={errMsg} type='danger' />
-				<Alert msg={successMsg} type='success' />
-				<h4 className='center'>Verify Your email</h4>
-				<form className={classes.form} onSubmit={otpsubmitHandler}>
-					<div className='center' style={{ width: '6%', margin: '0 47%' }}>
-						<Grid spacing={2} item xs={12}>
-							<TextField
-								variant='outlined'
-								margin='normal'
-								required
-								fullWidth
-								name='otp'
-								label='Enter Otp'
-								type='password'
-								id='password'
-								value={otp}
-								onChange={(e) => setOtp(e.target.value)}
-							/>
-						</Grid>
-					</div>
-
-					<div className='center'>
-						<Button type='submit' variant='contained' color='primary' className={classes.submit}>
-							Verify
-						</Button>
-					</div>
-				</form>
-			</div>
+			<Redirect
+				to={{
+					pathname: '/verifyotp',
+					state: { email: email }
+				}}
+			/>
 		);
 	} else {
 		return (
@@ -183,18 +139,6 @@ export default function SignUp () {
 											onChange={(e) => setEmail(e.target.value)}
 										/>
 									</Grid>
-									<Grid item xs={12}>
-										<TextField
-											variant='outlined'
-											required
-											fullWidth
-											id='phone'
-											label='Phone Number'
-											name='phone'
-											value={phoneno}
-											onChange={(e) => setPhoneno(e.target.value)}
-										/>
-									</Grid>
 
 									<Grid item xs={12}>
 										<TextField
@@ -249,9 +193,9 @@ export default function SignUp () {
 						</div>
 					</Container>
 				</div>
-				<div style={{ marginTop: '8%' }}>
+				{/* <div style={{ marginTop: '8%' }}>
 					<Footer />
-				</div>
+				</div> */}
 			</div>
 		);
 	}

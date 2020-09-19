@@ -41,6 +41,7 @@ export default function SignIn () {
 	const [ email, setEmail ] = React.useState('');
 	const [ loginsuccess, setLoginsuccess ] = React.useState(false);
 	const [ password, setPassword ] = React.useState('');
+	const [ otpsuccess, setOtpsuccess ] = React.useState(true);
 	const [ errMsg, setErrMsg ] = useState('');
 
 	const submitHandler = (e) => {
@@ -52,7 +53,7 @@ export default function SignIn () {
 			})
 			.then(
 				(response) => {
-					console.log(response);
+					// console.log(response);
 					if (response.data.success) {
 						setLoginsuccess(true);
 						Cookies.set('session-id', response.data['token']);
@@ -60,12 +61,27 @@ export default function SignIn () {
 					}
 				},
 				(error) => {
-					console.log(error);
-					setErrMsg('Invalid email or password');
+					console.log(error.response.data.err);
+					if (error.response.data.err === 'User Not Found') {
+						setErrMsg('User not found');
+					} else if (error.response.data.err.message === 'Incorrect Password') {
+						setErrMsg('Incorrect password');
+					} else if (error.response.data.err === 'Email Verification Status: False') {
+						setOtpsuccess(false);
+					}
 				}
 			);
 	};
-	if (loginsuccess) {
+	if (otpsuccess === false) {
+		return (
+			<Redirect
+				to={{
+					pathname: '/verifyotp',
+					state: { email: email }
+				}}
+			/>
+		);
+	} else if (loginsuccess) {
 		return <Redirect to='/' />;
 	} else {
 		return (

@@ -64,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RegisterForJobs () {
 	const classes = useStyles();
+	const [ LoginCheck, setLoginCheck ] = React.useState(Cookies.get('session-id'));
 	const [ fileInputState, setFileInputState ] = React.useState('');
 	const [ selectedFile, setSelectedFile ] = React.useState('');
 	const [ previewSource, setPreviewSource ] = React.useState('');
@@ -135,8 +136,9 @@ export default function RegisterForJobs () {
 				}
 			);
 	};
-
-	if (RegisterJobSuccess) {
+	if (!LoginCheck) {
+		return <Redirect to='/signin' />;
+	} else if (RegisterJobSuccess) {
 		return <Redirect to='/' />;
 	} else {
 		return (
@@ -183,9 +185,11 @@ export default function RegisterForJobs () {
 									</Grid>
 									<Grid item xs={12} sm={6}>
 										<input
+											required
 											style={{ padding: '3px 0' }}
 											id='fileInput'
 											type='file'
+											accept='image/*'
 											name='image'
 											onChange={handleFileInputChange}
 											value={fileInputState}

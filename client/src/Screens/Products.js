@@ -11,22 +11,22 @@ const Products = () => {
 				<div className='row'>
 					<div className='col s12 l8'>
 						<div className='relative-add'>
-							<div className='product-page-head'>Hot Products</div>
+							<div className='product-page-head'>Hot or not ?</div>
 							<a
 								className='waves-effect waves-light btn pro-btn1 add-mobile-btn'
 								href='/registerforproduct'
 							>
 								Add Product
 							</a>
-							<div className='right-align add-mobile circle'>
+							{/* <div className='right-align add-mobile circle'>
 								<a
 									className='waves-effect waves-light btn pro-btn1'
 									style={{ borderRadius: '50%' }}
-									href='/registerforjobs'
+									href='/registerforproduct'
 								>
 									<AddIcon style={{ position: 'relative', top: '5px', fontSize: '1.8em' }} />
 								</a>
-							</div>
+							</div> */}
 						</div>
 						<ProductList />
 					</div>
@@ -34,10 +34,22 @@ const Products = () => {
 						<div className='relative-add'>
 							<div className='product-page-head left-head'>Job Profiles</div>
 							<div className='right-align'>
-								<a className='waves-effect waves-light btn pro-btn1' href='/registerforjobs'>
+								<a
+									className='waves-effect waves-light btn pro-btn1 add-mobile-btn'
+									href='/registerforjobs'
+								>
 									Register
 								</a>
 							</div>
+							{/* <div className='right-align add-mobile circle'>
+								<a
+									className='waves-effect waves-light btn pro-btn1'
+									style={{ borderRadius: '50%' }}
+									href='/registerforjobs'
+								>
+									<AddIcon style={{ position: 'relative', top: '5px', fontSize: '1.8em' }} />
+								</a>
+							</div> */}
 						</div>
 						<PeopleList />
 					</div>

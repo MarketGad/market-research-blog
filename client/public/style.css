@@ -168,13 +168,10 @@ nav {
 
 .text-block {
 	margin-top: 1rem;
-	bottom: 24%;
 	color: white;
 	padding-left: 20px;
 	padding-right: 20px;
-	padding-bottom: 5.5%;
 	position: absolute;
-	height: 6%;
 	top: 76%;
 	left: 48%;
 	margin: -100px 0 0 -121px;
@@ -727,7 +724,8 @@ nav {
 	padding: 10px 5px;
 }
 .comment-container {
-	height: 5em;
+	max-height: 5em;
+	padding: 10px 0;
 }
 
 .pro-img {
@@ -755,7 +753,7 @@ nav {
 .product-desc {
 	font-size: 1.23em;
 	padding: 2px 0;
-	height: 2.5em;
+	max-height: 2.5em;
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
@@ -856,6 +854,20 @@ nav {
 .comment-btn1:hover {
 	background-color: #c1c1c1;
 }
+.visit-btn {
+	display: inline-block;
+	border-radius: 30px;
+	vertical-align: middle;
+	padding: 4px 10px;
+	letter-spacing: .1em;
+	text-align: center;
+	text-transform: capitalize;
+	background-color: white;
+	color: black;
+}
+.visit-btn:hover {
+	background-color: #c1c1c1;
+}
 .comment-head {
 	color: #080808d9;
 }
@@ -945,7 +957,6 @@ nav {
 		padding-bottom: 5.5%;
 		position: absolute;
 		height: 10%;
-		top: 68%;
 		left: 48%;
 		margin: -100px 0 0 -121px;
 		font-family: "GlacialIndifferenceBold";
@@ -1183,10 +1194,12 @@ nav {
 		width: 75px !important;
 	}
 	.product-desc {
-		font-size: 1.25em;
+		font-size: 1.05em;
 		padding: 0;
-		height: 1.25em;
 		white-space: nowrap;
+	}
+	.product-name {
+		font-size: 1.3em;
 	}
 	.product-link {
 		font-size: 1.2em;
@@ -1194,7 +1207,8 @@ nav {
 	}
 	.product-page-head {
 		font-size: 1.7em;
-		padding: 10px;
+		padding: 20px 10px;
+		text-align: center;
 	}
 	/* .product-head {
 		font-size: 2.4em;
@@ -1213,9 +1227,13 @@ nav {
 	}
 	.comment-box {
 		padding-top: 0;
-		margin-top: 0;
+		margin-top: 5px;
 		padding-bottom: 0;
-		display: none;
+	}
+	.visit-btn {
+		font-weight: 800;
+		line-height: 2em;
+		height: 2em;
 	}
 	.comment-count {
 		font-size: 14px;
@@ -1223,6 +1241,7 @@ nav {
 	.comment-container {
 		margin-top: 3px;
 		height: auto;
+		display: none;
 	}
 	.upvote-container {
 		border-radius: 8px;

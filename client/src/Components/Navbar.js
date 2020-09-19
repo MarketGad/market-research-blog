@@ -33,7 +33,7 @@ const Navbar = () => {
 		// setPicture(response.profileObj.imageUrl);
 		axios({
 			method: 'POST',
-			url: 'https://serieux-saucisson-31787.herokuapp.com/api/googlelogin',
+			url: 'http://localhost:5000/api/googlelogin',
 			data: { tokenId: response.tokenId }
 		}).then((response) => {
 			alert(`Welcome ${response.data.user.name}! You have been Successfully Signed In!`);
@@ -135,8 +135,8 @@ const Navbar = () => {
 										<a href='/funding'>Funding</a>
 									</li>
 									<li>
-										<a className='dropdown-trigger' data-target='dropdown1'>
-											Market Research
+										<a href='/industry' className='dropdown-trigger' data-target='dropdown1'>
+											Research
 										</a>
 									</li>
 									<li>
@@ -145,7 +145,7 @@ const Navbar = () => {
 									{/* <li>
 										<a onClick={handleClickOpen}>Dashboard</a>
 									</li> */}
-									{show()}
+									{/* {show()} */}
 								</ul>
 							</div>
 						</div>
@@ -186,7 +186,7 @@ const Navbar = () => {
 					</li>
 				</ul>
 				<ul className='sidenav' id='mobile-demo'>
-					<nav>
+					{/* <nav>
 						<div className='nav-wrapper'>
 							<form>
 								<div className='input-field'>
@@ -198,25 +198,32 @@ const Navbar = () => {
 								</div>
 							</form>
 						</div>
-					</nav>
+					</nav> */}
 					<li>
 						<a href='/'>Home</a>
 					</li>
 					<li>
 						<a className='dropdown-trigger1' data-target='dropdown2'>
-							Market Research<i className='material-icons right'>arrow_drop_side</i>
+							Research<i className='material-icons right'>arrow_drop_side</i>
 						</a>
 					</li>
 					<li>
 						<a href='/funding'>Funding</a>
 					</li>
-					{/* {show()} */}
+
 					{/* <li>
 						<a onClick={handleClickOpen}>Dashboard</a>
 					</li> */}
 					<li>
 						<a href='/about'>About Us</a>
 					</li>
+					<li>
+						<a href='/registerforjob'>Register Product</a>
+					</li>
+					<li>
+						<a href='/registerforjobs'>Register for Jobs</a>
+					</li>
+					{show()}
 				</ul>
 				<div>
 					<Dialog

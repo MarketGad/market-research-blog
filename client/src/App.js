@@ -39,12 +39,13 @@ import v3004 from './Articles/venturehacks/v3004';
 import RegisterForProduct from './Screens/RegisterForProduct';
 import ProductProfile from './Screens/ProductProfile';
 import JobProfile from './Screens/JobProfile';
+import VerifyOtp from './Screens/VerifyOtp';
 
 function App () {
-	// useEffect(() => {
-	// 	ReactGa.initialize('UA-176059135-1');
-	// 	ReactGa.pageview(window.location.pathname + window.location.search);
-	// }, []);
+	useEffect(() => {
+		ReactGa.initialize('UA-176059135-1');
+		ReactGa.pageview(window.location.pathname + window.location.search);
+	}, []);
 	return (
 		<BrowserRouter>
 			<div className='App'>
@@ -85,6 +86,7 @@ function App () {
 					<Route exact path='/v3002' component={v3002} />
 					<Route exact path='/v3003' component={v3003} />
 					<Route exact path='/v3004' component={v3004} />
+					<Route exact path='/verifyotp' component={VerifyOtp} />
 					<Route path='/p:product_id' component={ProductProfile} />
 					<Route path='/:job_id' component={JobProfile} />
 				</Switch>

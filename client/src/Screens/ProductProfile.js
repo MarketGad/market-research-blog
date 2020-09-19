@@ -8,8 +8,9 @@ import LinkIcon from '@material-ui/icons/Link';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from 'react-router';
+import { Redirect } from 'react-router-dom';
 // import Footer2 from '../Components/Footer2';
-import Cookies from 'js-cookie';
+import Cookies, { set } from 'js-cookie';
 import ShowComment from '../Components/ShowComment';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,8 +40,10 @@ const useStyles = makeStyles((theme) => ({
 const ProductProfile = (props) => {
 	const classes = useStyles();
 	const [ comment, setComment ] = React.useState('');
+	const [ readytocomment, setReadytoComment ] = React.useState('');
 	const id = props.match.params.product_id;
 	const product = props.location.state.product;
+	const weblink = props.location.state.weblink;
 	const comments = product.comments;
 	const history = useHistory();
 
@@ -55,8 +58,11 @@ const ProductProfile = (props) => {
 	);
 	const submitHandler = (e) => {
 		e.preventDefault();
+		const token = Cookies.get('session-id');
+		if (!token) {
+			setReadytoComment(false);
+		}
 		if (comment) {
-			const token = Cookies.get('session-id');
 			const config = {
 				headers: {
 					Authorization: `Bearer  ${token}`
@@ -86,7 +92,9 @@ const ProductProfile = (props) => {
 			alert('empty comment');
 		}
 	};
-	if (product.name) {
+	if (readytocomment === false) {
+		return <Redirect to='/signin' />;
+	} else if (product.name) {
 		return (
 			<div className='productdetails-container'>
 				<Grid container component='main'>
@@ -98,42 +106,53 @@ const ProductProfile = (props) => {
 							</div>
 						</div>
 						<div className='link-container'>
-							<div>
-								<span>
-									<span className='material-icons job-link-icons'>
-										<LinkIcon />
-									</span>
+							{product.websiteLink.length > 0 && (
+								<div>
 									<span>
-										<a className='links' href={product.websiteLink}>
-											{product.websiteLink}
-										</a>
+										<span className='material-icons job-link-icons'>
+											<LinkIcon />
+										</span>
+										<span>
+											<a
+												className='links'
+												target='_blank'
+												rel='noopener noreferrer'
+												href={weblink}
+											>
+												{product.websiteLink}
+											</a>
+										</span>
 									</span>
-								</span>
-							</div>
-							<div>
-								<span>
-									<span className=' material-icons job-link-icons'>
-										<ShopIcon />
-									</span>
+								</div>
+							)}
+							{product.playStoreLink.length > 0 && (
+								<div>
 									<span>
-										<a className='links' href={product.playStoreLink}>
-											{product.name}
-										</a>
+										<span className=' material-icons job-link-icons'>
+											<ShopIcon />
+										</span>
+										<span>
+											<a className='links' href={product.playStoreLink}>
+												{product.name}
+											</a>
+										</span>
 									</span>
-								</span>
-							</div>
-							<div>
-								<span>
-									<span className='material-icons job-link-icons'>
-										<AppleIcon />
-									</span>
+								</div>
+							)}
+							{product.appStoreLink.length > 0 && (
+								<div>
 									<span>
-										<a className='links' href={product.appStoreLink}>
-											{product.name}
-										</a>
+										<span className='material-icons job-link-icons'>
+											<AppleIcon />
+										</span>
+										<span>
+											<a className='links' href={product.appStoreLink}>
+												{product.name}
+											</a>
+										</span>
 									</span>
-								</span>
-							</div>
+								</div>
+							)}
 						</div>
 						<div className='contact-container'>
 							<p className='product-subhead'>Contact</p>
@@ -146,9 +165,10 @@ const ProductProfile = (props) => {
 					<Grid item xs={12} sm={12} md={9} className='product-details-right-container'>
 						<div>
 							<div className='product-head'>About</div>
-							<p className='product-content'>{product.detailedDescription}</p>
+							<div style={{ padding: '10px 0' }} className='article-content'>
+								{product.detailedDescription}
+							</div>
 						</div>
-
 						<div>
 							<div className='row'>
 								<div className='col s12 l11' style={{ padding: '0', margin: '0' }}>

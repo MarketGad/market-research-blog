@@ -11,7 +11,7 @@ export default function Alert ({ msg, type }) {
 				}
 				setInterval(() => {
 					setShow(false);
-				}, 3000);
+				}, 5000);
 			}
 		},
 		[ msg ]
