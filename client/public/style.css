@@ -383,8 +383,21 @@ nav {
 }
 /* ---about */
 .aboutus {
-	font-size: 1.5em;
+	font-size: 1.8em;
+	padding: 5px;
 }
+.aboutus-bold {
+	font-size: 1.8em;
+	font-weight: 600;
+	padding: 5px;
+}
+.about-subhead {
+	font-size: 2.5em;
+	color: #0153a5;
+	font-weight: 500;
+	padding: 10px 5px;
+}
+
 /* ----------Footer------------- */
 #footer2 {
 	position: absolute;
@@ -1116,6 +1129,20 @@ nav {
 	.article-img-desc {
 		font-size: 1em;
 	}
+	/* ------About us--------- */
+	.aboutus {
+		font-size: 1.5em;
+		padding: 3px;
+	}
+	.aboutus-bold {
+		font-size: 1.5em;
+		padding: 3px;
+	}
+	.about-subhead {
+		font-size: 2em;
+		padding: 5px 3px;
+	}
+
 	/* -----featured------- */
 	.card-h {
 		height: fit-content;
