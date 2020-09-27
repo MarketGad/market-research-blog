@@ -12,7 +12,6 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Footer from '../Components/Footer2';
 import { Redirect } from 'react-router-dom';
 import Alert from '../Components/Alert';
 
@@ -44,9 +43,6 @@ export default function SignUp () {
 	const [ password, setPassword ] = React.useState('');
 	const [ confirmPassword, setConfirmPassword ] = React.useState('');
 	const [ signupsuccess, setSignupsuccess ] = React.useState(false);
-	const [ otpsuccess, setOtpsuccess ] = React.useState(false);
-	const [ otp, setOtp ] = React.useState('');
-	const [ successMsg, setSuccessMsg ] = useState('');
 	const [ errMsg, setErrMsg ] = useState('');
 
 	const submitHandler = (e) => {

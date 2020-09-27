@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,10 +7,9 @@ import AppleIcon from '@material-ui/icons/Apple';
 import LinkIcon from '@material-ui/icons/Link';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { useHistory } from 'react-router';
 import { Redirect } from 'react-router-dom';
 // import Footer2 from '../Components/Footer2';
-import Cookies, { set } from 'js-cookie';
+import Cookies from 'js-cookie';
 import ShowComment from '../Components/ShowComment';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,28 +38,29 @@ const useStyles = makeStyles((theme) => ({
 
 const ProductProfile = (props) => {
 	const classes = useStyles();
-	const [ comment, setComment ] = React.useState('');
-	const [ readytocomment, setReadytoComment ] = React.useState('');
 	const id = props.match.params.product_id;
 	const product = props.location.state.product;
 	const weblink = props.location.state.weblink;
-	const comments = product.comments;
-	const history = useHistory();
+	const [ comment, setComment ] = React.useState('');
+	const [ readytocomment, setReadytoComment ] = React.useState('');
+	const [ comments, setComments ] = React.useState(product.comments);
 
-	const showComment = comments.length ? (
-		comments.map((comment) => {
-			if (comment) {
-				return <ShowComment comment={comment} />;
-			}
-		})
-	) : (
-		<div className='center'> No Comments to show :( </div>
-	);
+	const showComments = (comments) =>
+		comments.length ? (
+			comments.map((comment) => {
+				if (comment) {
+					return <ShowComment comment={comment} />;
+				}
+			})
+		) : (
+			<div className='center'> No Comments to show :( </div>
+		);
 	const submitHandler = (e) => {
 		e.preventDefault();
 		const token = Cookies.get('session-id');
 		if (!token) {
 			setReadytoComment(false);
+			return;
 		}
 		if (comment) {
 			const config = {
@@ -78,18 +78,15 @@ const ProductProfile = (props) => {
 				)
 				.then(
 					(response) => {
-						console.log(response);
 						if (response.data) {
-							alert('comment added');
-							history.goBack();
+							setComments(response.data);
+							setComment('');
 						}
 					},
 					(error) => {
-						alert('please login to continue');
+						alert('something went wrong');
 					}
 				);
-		} else {
-			alert('empty comment');
 		}
 	};
 	if (readytocomment === false) {
@@ -184,7 +181,7 @@ const ProductProfile = (props) => {
 															fullWidth
 															id='outlined-textarea'
 															label='Comment'
-															placeholder='Write your comment'
+															placeholder='What’s cool about this?'
 															multiline
 															variant='outlined'
 															value={comment}
@@ -202,7 +199,7 @@ const ProductProfile = (props) => {
 													</Grid>
 												</Grid>
 											</form>
-											{showComment}
+											{showComments(comments)}
 										</div>
 									</div>
 								</div>

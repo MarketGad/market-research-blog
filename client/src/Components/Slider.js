@@ -19,12 +19,12 @@ const Slider = () => {
 							/>
 							<div className="container">
 								<div class="text-block">
-									<p>Apply By 18th September</p>
+									<p>Apply By 23th September</p>
 								</div>
 							</div>
 							<div className="container">
 								<div class="text-block1">
-									<p>Apply By 18th September</p>
+									<p>Apply By 23th September</p>
 								</div>
 							</div>
 							<div className='caption slide-box center-align'>

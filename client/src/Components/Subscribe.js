@@ -9,7 +9,7 @@ const Subscribe = () => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
-			url: 'https://serieux-saucisson-31787.herokuapp.com/api/subscribe',
+			url: 'http://localhost:5000/api/subscribe',
 			// url: "http://localhost:5000/api/subscribe",
 			data: { email }
 		})
@@ -26,24 +26,22 @@ const Subscribe = () => {
 		<section className='subscribe'>
 			<form className='signup-form' onSubmit={submitHandler}>
 				<div className='row' style={{ margin: 0 }}>
-					<div className='col s12 l4 container ml-3 mobile-hide' style={{ paddingLeft: '6.5%' }}>
-						<h5 style={{ paddingTop: '10px', fontWeight: '600', color: 'white' }}>Contact Us</h5>
+					<div className='col s12 l5 container ml-3 mobile-hide' style={{ paddingLeft: '6.5%' }}>
+						<h6 style={{ paddingTop: '10px', fontWeight: '600', color: 'white' }}>Contact us</h6>
 						<div>
-							<p className='grey-text'>marketgad20@gmail.com</p>
-							<p className='grey-text'>+91 7652064835</p>
+							<p className='grey-text'>marketgad.service@gmail.com</p>
 						</div>
 					</div>
-					<div className='col s12 l4 container ml-3 center desktop-hide'>
-						<h5 style={{ paddingTop: '10px', fontWeight: '600', color: 'white' }}>Contact Us</h5>
+					<div className='col s12 l5 container ml-3 center desktop-hide'>
+						<h6 style={{ paddingTop: '10px', fontWeight: '600', color: 'white' }}>Contact us</h6>
 						<div>
-							<p className='grey-text'>marketgad20@gmail.com</p>
-							<p className='grey-text'>+91 7652064835</p>
+							<p className='grey-text'>marketgad.service@gmail.com</p>
 						</div>
 					</div>
-					<div className='col s12 l3 container'>
-						<h5 style={{ paddingTop: '10px', fontWeight: '600', color: 'white' }} className='center'>
+					<div className='col s12 l2 container'>
+						<h6 style={{ paddingTop: '10px', fontWeight: '600', color: 'white' }} className='center'>
 							Follow us
-						</h5>
+						</h6>
 						<div className='center' style={{ paddingBottom: '15px' }}>
 							<a href='https://www.linkedin.com/company/marketgad'>
 								<img
@@ -53,7 +51,6 @@ const Subscribe = () => {
 								/>
 							</a>
 							<a href='https://www.instagram.com/marketgad'>
-								{' '}
 								<img
 									className='social'
 									alt='tw'
@@ -61,7 +58,6 @@ const Subscribe = () => {
 								/>
 							</a>
 							<a href='https://www.facebook.com/MarketGad-104038534696800/'>
-								{' '}
 								<img
 									className='social'
 									alt='lo'
@@ -72,9 +68,9 @@ const Subscribe = () => {
 					</div>
 
 					<div className='col s12 l5 container'>
-						<h5 style={{ paddingTop: '10px', fontWeight: '600', color: 'white' }} className='center'>
-							Subscribe for latest stuff from MG
-						</h5>
+						<h6 style={{ paddingTop: '10px', fontWeight: '600', color: 'white' }} className='center'>
+							Subscribe latest products from MG
+						</h6>
 						<div className='row subscribe-area'>
 							<div className='col l9 s12'>
 								<Grid item xs={12}>
@@ -85,7 +81,7 @@ const Subscribe = () => {
 											required
 											fullWidth
 											id='email'
-											label='Email Address'
+											label='Email address'
 											name='email'
 											value={email}
 											onChange={(e) => setEmail(e.target.value)}

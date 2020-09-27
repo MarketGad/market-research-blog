@@ -1,8 +1,10 @@
 import React from 'react';
+import Footer from '../Components/Footer';
 import PeopleList from '../Components/PeopleList';
 import ProductList from '../Components/ProductList';
-import AddIcon from '@material-ui/icons/Add';
-// import Footer2 from '../Components/Footer2';
+import Subscribe from '../Components/Subscribe';
+import TodayLaunch from '../Components/TodayLaunch';
+import TrendingProduct from '../Components/TrendingProduct';
 
 const Products = () => {
 	return (
@@ -10,52 +12,42 @@ const Products = () => {
 			<div className='product-job-page-container'>
 				<div className='row'>
 					<div className='col s12 l8'>
-						<div className='relative-add'>
-							<div className='product-page-head'>Hot or not ?</div>
-							<a
-								className='waves-effect waves-light btn pro-btn1 add-mobile-btn'
-								href='/registerforproduct'
-							>
-								Add Product
-							</a>
-							{/* <div className='right-align add-mobile circle'>
-								<a
-									className='waves-effect waves-light btn pro-btn1'
-									style={{ borderRadius: '50%' }}
-									href='/registerforproduct'
-								>
-									<AddIcon style={{ position: 'relative', top: '5px', fontSize: '1.8em' }} />
-								</a>
-							</div> */}
-						</div>
+						<div className='product-page-head'>What's hot today?</div>
+						<TodayLaunch />
+						<div className='product-page-head'>What's hot ?</div>
+						<h6 className='product-quote'>Latest cool stuffs to fix your pain points.Vote the best one.</h6>
 						<ProductList />
 					</div>
 					<div className='col s12 l4'>
-						<div className='relative-add'>
-							<div className='product-page-head left-head'>Job Profiles</div>
-							<div className='right-align'>
-								<a
-									className='waves-effect waves-light btn pro-btn1 add-mobile-btn'
-									href='/registerforjobs'
-								>
-									Register
-								</a>
-							</div>
-							{/* <div className='right-align add-mobile circle'>
-								<a
-									className='waves-effect waves-light btn pro-btn1'
-									style={{ borderRadius: '50%' }}
-									href='/registerforjobs'
-								>
-									<AddIcon style={{ position: 'relative', top: '5px', fontSize: '1.8em' }} />
-								</a>
-							</div> */}
+						<div className='add-mobile-btn'>
+							<div className='product-page-head'>Trending products</div>
+							<TrendingProduct />
 						</div>
+
+						{/* <div className='joblist'> */}
+
+						<div className='row' style={{ margin: '0', padding: '0' }}>
+							<div className='col s8'>
+								<div className='product-page-head left-head'>Trending talents</div>
+							</div>
+							<div className='col s4'>
+								<div className='right-align'>
+									<a
+										className='waves-effect waves-light btn-small pro-btn1 add-mobile-btn'
+										href='/registerforjobs'
+									>
+										Add profile
+									</a>
+								</div>
+							</div>
+						</div>
+						{/* </div> */}
 						<PeopleList />
 					</div>
 				</div>
 			</div>
-			{/* <Footer2 /> */}
+			<Subscribe />
+			<Footer />
 		</div>
 	);
 };

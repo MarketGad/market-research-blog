@@ -16,6 +16,7 @@
 		"materialize-css": "^1.0.0-rc.2",
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
+		"react-content-loader": "^5.1.2",
 		"react-dom": "^16.13.1",
 		"react-editor-js": "^1.6.2",
 		"react-ga": "^3.1.2",
@@ -37,8 +38,16 @@
 		"extends": "react-app"
 	},
 	"browserslist": {
-		"production": [ ">0.2%", "not dead", "not op_mini all" ],
-		"development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
 	},
-	"proxy": "http://localhost:5000"
+	"proxy": "https://serieux-saucisson-31787.herokuapp.com"
 }

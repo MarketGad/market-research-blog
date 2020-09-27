@@ -126,7 +126,7 @@ export default function RegisterForProduct () {
 		}
 	};
 	if (!LoginCheck) {
-		return <Redirect to='/signin' />;
+		return <Redirect to='/signup' />;
 	} else if (RegisterProductSuccess) {
 		return <Redirect to='/' />;
 	} else {

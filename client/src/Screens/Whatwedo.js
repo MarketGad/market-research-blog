@@ -1,11 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import GoogleLogin from 'react-google-login';
 import { Redirect } from 'react-router-dom';
 import Footer from '../Components/Footer';
 
@@ -20,6 +15,7 @@ const Whatwedo = () => {
 	// const [picture, setPicture] = React.useState("");
 
 	const handleClickOpen = () => {
+		alert('Signup and Register your Product !!');
 		setOpen(true);
 	};
 
@@ -32,7 +28,7 @@ const Whatwedo = () => {
 		// setPicture(response.profileObj.imageUrl);
 		axios({
 			method: 'POST',
-			url: 'https://serieux-saucisson-31787.herokuapp.com/api/googlelogin',
+			url: 'http://localhost:5000/api/googlelogin',
 			data: { tokenId: response.tokenId }
 		}).then((response) => {
 			alert(`Welcome ${response.data.user.name}! You have been Successfully Signed In!`);
@@ -45,30 +41,34 @@ const Whatwedo = () => {
 	const responseErrorGoogle = (response) => {
 		console.log(response);
 	};
-	if (redirect) {
-		return <Redirect to='/dashboard' />;
+	if (open) {
+		return <Redirect to='/signup' />;
 	} else {
 		return (
-			<div>
+			<div style={{ fontSize: '12px', fontWeight: '400' }}>
 				<div className='container' style={{ fontFamily: 'GlacialIndifferenceMedium' }}>
 					<h2 className='center privacy-top' style={{ fontWeight: '600', letterSpacing: '0.02em' }}>
 						What do we offer?
 					</h2>
-					<h4 className='privacy-head' style={{ fontWeight: '600' }}>
+					<h4 className='privacy-head' style={{ fontWeight: '800' }}>
 						1.IDEATORS AND ENTREPRENEURS
 					</h4>
-					<p style={{ fontSize: '1.5em' }}>
+					<p style={{ fontSize: '22px', textAlign: 'justify' }}>
 						<i>
 							“Some of the world’s most ground breaking businesses came from ordinary people who had
 							courage to believe in their crazy ideas.”
 						</i>
 					</p>
-					<p className='flow-text'>
+					<p className='flow-text' style={{ fontSize: '22px', fontWeight: '400', textAlign: 'justify' }}>
 						If you have an idea which you think can become the next Indian unicorn, why don’t you test its
 						feasibility with us? We provide end-to-end market research, idea validation strategy design and
 						assistance in investments, free of cost for a limited time.
 					</p>
-					<ol className='flow-text' type='1'>
+					<ol
+						className='flow-text'
+						type='1'
+						style={{ fontSize: '22px', fontWeight: '400', textAlign: 'justify' }}
+					>
 						<li>
 							We analyse your idea and research about the market you’re interested in with a
 							non-disclosure agreement
@@ -85,11 +85,15 @@ const Whatwedo = () => {
 					<h4 className='privacy-head' style={{ fontWeight: '600' }}>
 						2. STARTUPS
 					</h4>
-					<p className='flow-text'>
+					<p className='flow-text' style={{ fontSize: '22px', fontWeight: '400', textAlign: 'justify' }}>
 						We provide with market research and help start-ups in data driven decision making.
 					</p>
 
-					<ol className='flow-text' type='1'>
+					<ol
+						className='flow-text'
+						type='1'
+						style={{ fontSize: '22px', fontWeight: '400', textAlign: 'justify' }}
+					>
 						<li>
 							Industry trend analysis and competitor landscaping for organizations to predict how products
 							and services will fare in the market place
@@ -113,7 +117,7 @@ const Whatwedo = () => {
 							Get Started!
 						</button>
 					</div>
-					<div>
+					{/* <div>
 						<Dialog
 							open={open}
 							TransitionComponent={Transition}
@@ -141,7 +145,7 @@ const Whatwedo = () => {
 								</DialogActions>
 							</div>
 						</Dialog>
-					</div>
+					</div> */}
 				</div>
 				<Footer />
 			</div>

@@ -5,9 +5,12 @@ const Aboutus = () => {
 	return (
 		<div>
 			<div>
-				<div className='container' style={{ fontFamily: 'GlacialIndifferenceMedium' }}>
+				<div
+					className='container'
+					style={{ fontFamily: 'GlacialIndifferenceMedium', fontSize: '12px', textAlign: 'justify' }}
+				>
 					<h3 className='article-head center' style={{ fontWeight: '600', letterSpacing: '0.04em' }}>
-						About Us
+						ABOUT US
 					</h3>
 					<div className='about-subhead'>India’s First Product Launch Platform</div>
 					<div className='aboutus-bold'>
@@ -25,7 +28,7 @@ const Aboutus = () => {
 					</div>
 					<div className='aboutus-bold'>
 						At MarketGad, all you have to do is just sign up with your email and a whole new world of
-						opportunities awaits for you!
+						opportunities awaits you!
 					</div>
 					<div className='aboutus'>
 						We have exclusive product launches on our platform for you where you can openly review the

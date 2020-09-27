@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import Location from '@material-ui/icons/LocationOn';
 import LinkIcon from '@material-ui/icons/Link';
-import Footer2 from '../Components/Footer2';
 import MailIcon from '@material-ui/icons/Mail';
+import HireNow from '../Components/HireNow';
 
 const DisplayArray = (props) => {
 	if (props.data) {
@@ -23,8 +23,8 @@ const DisplayArray = (props) => {
 };
 
 const JobProfile = (props) => {
-	let id = props.match.params.job_id;
 	const UserProfile = props.location.state.UserProfile;
+	const linkedIn = props.location.state.linkedIn;
 	if (UserProfile.err) {
 		return (
 			<div>
@@ -105,7 +105,7 @@ const JobProfile = (props) => {
 									<LinkedInIcon />
 								</span>
 								<span>
-									<a className='links' href={UserProfile.linkedIn}>
+									<a target='_blank' rel='noopener noreferrer' className='links' href={linkedIn}>
 										<span>LinkedIn</span>
 									</a>
 								</span>
@@ -117,7 +117,12 @@ const JobProfile = (props) => {
 											<LinkIcon />
 										</span>
 										<span>
-											<a className='links' href={UserProfile.portfolioLink}>
+											<a
+												target='_blank'
+												rel='noopener noreferrer'
+												className='links'
+												href={UserProfile.portfolioLink}
+											>
 												{UserProfile.portfolioLink}
 											</a>
 										</span>
@@ -169,12 +174,7 @@ const JobProfile = (props) => {
 										<p className='product-subhead'>Pricing</p>
 										<p className='product-content'>Rs.{UserProfile.offeringPrice / 100 || null}</p>
 									</div>
-									<a
-										className='waves-effect waves-light btn-small hirenow-btn'
-										style={{ marginTop: '2%' }}
-									>
-										Hire Now
-									</a>
+									<HireNow profile={UserProfile} />
 								</div>
 							</div>
 						</Grid>

@@ -76,6 +76,9 @@ nav ul a {
 li a img {
 	height: 55px;
 }
+.dropdown-content {
+	width: fit-content;
+}
 
 .fnavbar {
 	background-color: black;
@@ -83,13 +86,14 @@ li a img {
 
 nav {
 	background-color: black;
+	padding: 0 9.2%;
 }
 
-.nav-center {
+/* .nav-center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
+} */
 
 .break {
 	margin-right: 50px;
@@ -114,6 +118,7 @@ nav {
 
 .sidenav {
 	width: 55%;
+	padding-top: 10%;
 }
 
 /* ----------------------------------slider------------------------ */
@@ -565,7 +570,7 @@ nav {
 }
 
 .article-content {
-	font-size: 1.3em;
+	font-size: 1.5em;
 	letter-spacing: 0.02em;
 }
 
@@ -675,6 +680,9 @@ nav {
 .profile-container {
 	margin-top: 2%;
 }
+.joblist {
+	margin-top: 1.6em !important;
+}
 .profile-section {
 	padding: 3px 0;
 }
@@ -693,17 +701,19 @@ nav {
 /*-------------------Products--------------------------*/
 .product-page-head {
 	font-size: 2em;
-	font-family: 'GlacialIndifferenceBold';
-	text-align: center;
-	text-transform: uppercase;
-	padding: 15px;
+	letter-spacing: 0.05em;
+	font-weight: 600;
+	padding-top: 15px;
+}
+.product-quote {
+	padding-top: 0;
+	font-size: 1.05em;
+	margin-bottom: 15px;
 }
 .add-mobile {
 	display: none;
 }
-.left-head {
-	text-align: left;
-}
+
 .product-job-page-container {
 	margin: 0 10%;
 }
@@ -716,13 +726,13 @@ nav {
 	height: 5em;
 }
 .pro-btn1 {
-	top: -3.1em;
+	margin-top: 20px;
 	font-family: 'GlacialIndifferenceBold';
-	font-size: 1.2em;
+	font-size: 1em;
 	border-radius: 4px;
 	background-color: #0f0f0f;
 	color: #ffffff;
-	padding: 0 20px;
+	padding: 0 12px;
 }
 .pro-btn1:hover {
 	background-color: #080808;
@@ -732,9 +742,9 @@ nav {
 }
 
 .product-container {
-	border-radius: '5px';
+	border-radius: 3px;
 	height: auto;
-	padding: 10px 5px;
+	padding: 5px;
 }
 .comment-container {
 	max-height: 5em;
@@ -742,8 +752,8 @@ nav {
 }
 
 .pro-img {
-	height: 100px !important;
-	width: 100px !important;
+	height: 90px !important;
+	width: 90px !important;
 	border-radius: 5px;
 }
 .product-head {
@@ -776,6 +786,7 @@ nav {
 .comment-box {
 	margin-top: 8px;
 	float: right;
+	margin-right: 2%;
 }
 .comment-count {
 	position: relative;
@@ -783,22 +794,34 @@ nav {
 	font-size: 16px;
 	font-weight: 600;
 }
+.upvote-container-active {
+	border: 1.5px solid #e0e0e0;
+	border-radius: 3px;
+	cursor: pointer;
+	text-align: center;
+	top: 5px !important;
+	background-color: #fdfafa;
+	color: #ff9529;
+}
 .upvote-container {
-	border: .2em solid black;
-	border-radius: 8px;
+	border: 1.5px solid #e0e0e0;
+	border-radius: 3px;
 	cursor: pointer;
 	text-align: center;
 	color: #080808d9;
+	top: 5px !important;
 }
 .upvote-container:hover {
 	background-color: #f3efef;
 }
+
 .upvote-count {
 	font-size: 1.5em;
 	text-align: center;
 	position: relative;
 	top: -1em;
 }
+
 .product-right-container {
 	padding-left: 8%;
 	width: 90%;
@@ -851,6 +874,20 @@ nav {
 	height: 200px;
 	border-radius: 7px;
 }
+/* -----trending ----------- */
+.trend-img {
+	right: 10px !important;
+	left: auto !important;
+	width: 90px !important;
+	height: 90px !important;
+}
+.trending-product-container {
+	padding-left: 4% !important;
+	padding: 3%;
+}
+.trending-product-left-container {
+	width: 84%;
+}
 /*---------------------comment------------------*/
 .addComment {
 	background-color: #080808d9;
@@ -871,7 +908,7 @@ nav {
 	display: inline-block;
 	border-radius: 30px;
 	vertical-align: middle;
-	padding: 4px 10px;
+	padding: 4px 13px;
 	letter-spacing: .1em;
 	text-align: center;
 	text-transform: capitalize;
@@ -938,6 +975,9 @@ nav {
 	#search-icon {
 		display: none;
 	}
+	.add-mobile-btn {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 768px) {
@@ -958,6 +998,12 @@ nav {
 }
 
 @media only screen and (max-width: 500px) {
+	/* ----nav -------- */
+
+	nav {
+		padding: 0;
+	}
+	/* ---------- */
 	.text-block {
 		display: none;
 	}
@@ -1213,15 +1259,15 @@ nav {
 	}
 
 	.product-right-container {
-		padding-left: 10%;
+		padding-left: 5%;
 		width: 85%;
 	}
 	.pro-img {
-		height: 75px !important;
-		width: 75px !important;
+		height: 60px !important;
+		width: 60px !important;
 	}
 	.product-desc {
-		font-size: 1.05em;
+		font-size: 0.7em;
 		padding: 0;
 		white-space: nowrap;
 	}
@@ -1234,7 +1280,7 @@ nav {
 	}
 	.product-page-head {
 		font-size: 1.7em;
-		padding: 20px 10px;
+		padding-top: 20px;
 		text-align: center;
 	}
 	/* .product-head {
@@ -1258,6 +1304,7 @@ nav {
 		padding-bottom: 0;
 	}
 	.visit-btn {
+		padding: 4px 10px;
 		font-weight: 800;
 		line-height: 2em;
 		height: 2em;
@@ -1271,9 +1318,12 @@ nav {
 		display: none;
 	}
 	.upvote-container {
-		border-radius: 8px;
 		top: 5px !important;
-		right: 10px !important;
+		right: 5px !important;
+	}
+	.upvote-container-active {
+		top: 5px !important;
+		right: 5px !important;
 	}
 	.details-page-logo {
 		height: 150px;
@@ -1298,6 +1348,9 @@ nav {
 	.job-userdetails-container {
 		margin-left: 10%;
 		margin-top: 5%;
+	}
+	.joblist {
+		margin-top: 0 !important;
 	}
 	.product-details-right-container {
 		padding: 0 5%;
