@@ -120,6 +120,21 @@ nav {
 	width: 55%;
 	padding-top: 10%;
 }
+/* =---------------------divider signin---------- */
+
+.signin-divider {
+	width: 100%;
+	text-align: center;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.23);
+	line-height: 0.1em;
+	margin: 25px;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.signin-divider span {
+	background: #fafafa;
+	padding: 5px;
+}
 
 /* ----------------------------------slider------------------------ */
 
