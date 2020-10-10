@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import ShowComment from './ShowComment';
 import FadingLoader from './FadingLoader';
 
 import { Link, Redirect } from 'react-router-dom';
 
-const ProductList = () => {
+const ProductList = (props) => {
 	const token = Cookies.get('session-id');
-	const [ products, setProducts ] = React.useState('');
+	// const [ products, setProducts ] = React.useState('');
 	const [ readytoupvote, setReadytoupvote ] = React.useState('');
 	if (token) {
 		const token_id = JSON.parse(atob(token.split('.')[1]));
@@ -36,15 +35,21 @@ const ProductList = () => {
 			} else {
 				setUpvote(product.upvotes + 1);
 				setactiveupvote(true);
-				axios.post('http://localhost:5000/api/productdetails/' + product_id + '/upvotes/add', {}, config).then(
-					(response) => {
-						console.log('added');
-					},
-					(error) => {
-						console.log(error);
-						// alert(error);
-					}
-				);
+				axios
+					.post(
+						process.env.REACT_APP_BASEURL + '/api/productdetails/' + product_id + '/upvotes/add',
+						{},
+						config
+					)
+					.then(
+						(response) => {
+							console.log('added');
+						},
+						(error) => {
+							console.log(error);
+							// alert(error);
+						}
+					);
 			}
 		};
 
@@ -153,37 +158,25 @@ const ProductList = () => {
 			</div>
 		);
 	};
-	const loadProducts = async () => {
-		try {
-			const res = await fetch('http://localhost:5000/api/productdetails');
-			const data = await res.json();
-			setProducts(data);
-		} catch (err) {
-			console.error(err);
-		}
-	};
-	useEffect(() => {
-		loadProducts();
-	}, []);
 
-	const showProducts = products.length ? (
-		products.map((product, index) => {
+	const showProducts = props.products.length ? (
+		props.products.map((product, index) => {
 			if (!/^https?:\/\//.test(product.websiteLink)) {
 				let weblink = 'https://' + product.websiteLink;
 				return <ProductCard key={index} product={product} weblink={weblink} />;
 			} else return <ProductCard key={index} product={product} weblink={product.websiteLink} />;
 		})
 	) : (
-		<div className='center'> Loading... </div>
+		<div className='center' />
 	);
 	if (readytoupvote === false) return <Redirect to='/signin' />;
 	else
 		return (
-			<div>
-				{products && <div>{showProducts}</div>}
-				{!products && (
+			<div style={{ backgroundColor: 'white', borderRadius: '10px' }}>
+				{props.products && <div>{showProducts}</div>}
+				{props.products.length === 0 && (
 					<div>
-						<FadingLoader />
+						<FadingLoader loadno={5} />
 					</div>
 				)}
 			</div>

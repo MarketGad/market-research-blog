@@ -6,9 +6,10 @@ import Location from '@material-ui/icons/LocationOn';
 import LinkIcon from '@material-ui/icons/Link';
 import MailIcon from '@material-ui/icons/Mail';
 import HireNow from '../Components/HireNow';
+import ReputationPoint from '../Components/ReputaionPoints';
 
 const DisplayArray = (props) => {
-	if (props.data) {
+	if (props.data.length !== 0) {
 		const showdata = props.data.map((data) => {
 			if (data) {
 				return <div>{data}</div>;
@@ -47,10 +48,10 @@ const JobProfile = (props) => {
 								style={{ width: '200px', height: '200px', borderRadius: '7px' }}
 							/>
 						</div>
-						<div className='article-subhead center' style={{ fontFamily: 'GlacialIndifferenceBold' }}>
+						<div className='article-subhead center' style={{ fontWeight: '800' }}>
 							{UserProfile.user.firstname} {UserProfile.user.lastname}
 						</div>
-						<div style={{ textAlign: 'center', fontFamily: 'GlacialIndifferenceBold' }}>
+						<div style={{ textAlign: 'center', fontWeight: '800' }}>
 							<h6>
 								<span className='material-icons job-link-icons'>
 									<Location />
@@ -60,27 +61,7 @@ const JobProfile = (props) => {
 						</div>
 						<div style={{ textAlign: 'center' }}>
 							<span style={{ textAlign: 'center' }}>
-								<span
-									style={{
-										position: 'relative',
-										padding: '0 5px',
-										fontSize: '1.4em',
-										verticalAlign: 'middle',
-										color: '#ff9529'
-									}}
-									className='material-icons'
-								>
-									fiber_manual_record
-								</span>
-								<span
-									style={{
-										fontFamily: 'GlacialIndifferenceBold',
-										fontSize: '1.4em',
-										verticalAlign: 'middle'
-									}}
-								>
-									{UserProfile.user.reputation}
-								</span>
+								<ReputationPoint ReputationPoint={UserProfile.user.reputation} />
 							</span>
 						</div>
 						<div className='link-container'>
@@ -90,7 +71,7 @@ const JobProfile = (props) => {
 										<MailIcon />
 									</span>
 									<span>
-										<a className='links' href='#'>
+										<a className='links' MAILTO={UserProfile.user.email}>
 											{UserProfile.user.email}
 										</a>
 									</span>
@@ -142,7 +123,7 @@ const JobProfile = (props) => {
 							<div className='profile-section'>
 								<p className='product-subhead'>Experience</p>
 								<p className='product-content'>
-									<DisplayArray data={UserProfile.experience} />
+									<DisplayArray data={UserProfile.experience[0] === '' ? ["Fresher", "0 - 2 yrs"] : UserProfile.experience} />
 								</p>
 							</div>
 							<div className='profile-section'>

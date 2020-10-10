@@ -50,6 +50,8 @@ const ProductProfile = (props) => {
 			comments.map((comment) => {
 				if (comment) {
 					return <ShowComment comment={comment} />;
+				} else {
+					return <div />;
 				}
 			})
 		) : (
@@ -70,7 +72,7 @@ const ProductProfile = (props) => {
 			};
 			axios
 				.post(
-					'http://localhost:5000/api/productdetails/' + id + '/comments',
+					process.env.REACT_APP_BASEURL + '/api/productdetails/' + id + '/comments',
 					{
 						comment: comment
 					},
@@ -98,7 +100,7 @@ const ProductProfile = (props) => {
 					<Grid item xs={12} md={3}>
 						<div className='center'>
 							<img src={product.logo} alt={product.name} className='details-page-logo' />
-							<div className='article-subhead center' style={{ fontFamily: 'GlacialIndifferenceBold' }}>
+							<div className='article-subhead center' style={{ fontWeight: 800 }}>
 								{product.name}
 							</div>
 						</div>
@@ -162,11 +164,11 @@ const ProductProfile = (props) => {
 					<Grid item xs={12} sm={12} md={9} className='product-details-right-container'>
 						<div>
 							<div className='product-head'>About</div>
-							<div style={{ padding: '10px 0' }} className='article-content'>
+							<div style={{ padding: '10px 0' }} className='product-content'>
 								{product.detailedDescription}
 							</div>
 						</div>
-						<div>
+						<div id='comments'>
 							<div className='row'>
 								<div className='col s12 l11' style={{ padding: '0', margin: '0' }}>
 									<div className='card'>

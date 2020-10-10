@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react';
-import Cookies from 'js-cookie';
-import axios from 'axios';
-import ShowComment from './ShowComment';
+import React from 'react';
+// import Cookies from 'js-cookie';
 import FadingLoader from './FadingLoader';
 
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const TrendingProduct = () => {
-	const token = Cookies.get('session-id');
-	const [ products, setProducts ] = React.useState('');
+const TrendingProduct = (props) => {
+	// const [ products, setProducts ] = React.useState('');
 
 	const ProductCard = (props) => {
 		const product = props.product;
@@ -93,36 +90,24 @@ const TrendingProduct = () => {
 			</div>
 		);
 	};
-	const loadProducts = async () => {
-		try {
-			const res = await fetch('http://localhost:5000/api/hotproducts');
-			const data = await res.json();
-			setProducts(data);
-		} catch (err) {
-			console.error(err);
-		}
-	};
-	useEffect(() => {
-		loadProducts();
-	}, []);
 
-	const showProducts = products.length ? (
-		products.slice(0).reverse().map((product, index) => {
+	const showProducts = props.trending.length ? (
+		props.trending.slice(0).reverse().map((product, index) => {
 			if (!/^https?:\/\//.test(product.websiteLink)) {
 				let weblink = 'https://' + product.websiteLink;
 				return <ProductCard key={index} product={product} weblink={weblink} />;
 			} else return <ProductCard key={index} product={product} weblink={product.websiteLink} />;
 		})
 	) : (
-		<div className='center'> Loading... </div>
+		<div className='center' />
 	);
 
 	return (
-		<div>
-			{products && <div>{showProducts}</div>}
-			{!products && (
+		<div style={{ backgroundColor: 'white', borderRadius: '10px' }}>
+			{props.trending && <div>{showProducts}</div>}
+			{props.trending.length === 0 && (
 				<div>
-					<FadingLoader imagetype='circle' />
+					<FadingLoader imagetype='circle' loadno={3} />
 				</div>
 			)}
 		</div>

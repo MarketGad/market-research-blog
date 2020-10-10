@@ -104,7 +104,7 @@ const Startup = () => {
 	return (
 		<div>
 			<div className='container'>
-				<h4 className='center landing-head'>Startup</h4>
+				<h4 className='center landing-head'>Start-ups</h4>
 			</div>
 			<div className='row post-container'>
 				<div className='col s12'>{showArticles}</div>

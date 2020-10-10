@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ShowComment = (props) => {
 	const comment = props.comment;
+	const author = props.comment.author;
+	console.log(author);
 	if (comment) {
 		return (
 			<div>
@@ -20,9 +23,17 @@ const ShowComment = (props) => {
 							style={{ left: '5px' }}
 						/>
 						<div className='title'>
-							<b>
-								{comment.author.firstname} {comment.author.lastname}
-							</b>
+							<Link
+								style={{ color: 'black' }}
+								to={{
+									pathname: '/profile',
+									state: { user: author }
+								}}
+							>
+								<b>
+									{comment.author.firstname} {comment.author.lastname}
+								</b>
+							</Link>
 						</div>
 						<p>{comment.comment}</p>
 					</li>

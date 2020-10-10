@@ -14,6 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router-dom';
 import Alert from '../Components/Alert';
+import Cookies from 'js-cookie';
+import GoogleLogin from 'react-google-login';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -43,13 +45,34 @@ export default function SignUp () {
 	const [ password, setPassword ] = React.useState('');
 	const [ confirmPassword, setConfirmPassword ] = React.useState('');
 	const [ signupsuccess, setSignupsuccess ] = React.useState(false);
+	const [ loginsuccess, setLoginsuccess ] = React.useState(false);
 	const [ errMsg, setErrMsg ] = useState('');
+	const responseSuccessGoogle = (response) => {
+		console.log(response);
+		console.log(response.tokenId);
+		axios({
+			method: 'POST',
+			url: process.env.REACT_APP_BASEURL + '/api/user/googlelogin',
+			data: { tokenId: response.tokenId }
+		}).then((response) => {
+			console.log(response);
+			if (response.data.success) {
+				Cookies.set('session-id', response.data['token']);
+				setLoginsuccess(true);
+			}
+			// alert(`Welcome ${response.data.user.name}! You have been Successfully Signed In!`);
+		});
+	};
+
+	const responseErrorGoogle = (response) => {
+		console.log(response);
+	};
 
 	const submitHandler = (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
 			axios
-				.post('http://localhost:5000/api/user/signupUser', {
+				.post(process.env.REACT_APP_BASEURL + '/api/user/signupUser', {
 					email: email.toLowerCase(),
 					password: password,
 					firstname: first_name,
@@ -80,6 +103,8 @@ export default function SignUp () {
 				}}
 			/>
 		);
+	} else if (loginsuccess) {
+		return <Redirect to='/' />;
 	} else {
 		return (
 			<div>
@@ -91,9 +116,23 @@ export default function SignUp () {
 							<Avatar className={classes.avatar}>
 								<PersonAddIcon />
 							</Avatar>
-							<Typography component='h1' variant='h5'>
+							<Typography component='h1' variant='h5' style={{ marginBottom: '25px' }}>
 								Sign Up
 							</Typography>
+							<div className='center'>
+								<GoogleLogin
+									className='black-text'
+									buttonText='Sign up with Google'
+									clientId='798827553844-i0rjoguupm9jucbohldlp16kthi5boif.apps.googleusercontent.com'
+									onSuccess={responseSuccessGoogle}
+									onFailure={responseErrorGoogle}
+									cookiePolicy={'single_host_origin'}
+									redirectUri={'/'}
+								/>
+							</div>
+							<h6 className='signin-divider'>
+								<span>or</span>
+							</h6>
 							<form className={classes.form} onSubmit={submitHandler}>
 								<Grid container spacing={2}>
 									<Grid item xs={12} sm={6}>
@@ -180,7 +219,7 @@ export default function SignUp () {
 								</Button>
 								<Grid container justify='flex-end'>
 									<Grid item>
-										<Link href='/signin' variant='body2'>
+										<Link to='/signin' variant='body2'>
 											Already have an account? Sign in
 										</Link>
 									</Grid>

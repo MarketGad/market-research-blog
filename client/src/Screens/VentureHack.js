@@ -38,6 +38,15 @@ const VentureHack = () => {
 			postBrief:
 				' Bypassing some steps or thinking that one or more of the 12 steps below might not apply to your startup is how many companies failed or invested resources they didn’t need to move forward.Identify in which step you are and continue down the path without overlooking any of the steps.',
 			postLink: '/v3004'
+		},
+		{
+			postName: 'DESIGNING A BUSINESS MODEL CANVAS',
+			postImage:
+				'https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1601711487/Articles%20Photos/VentureHack/1_gr9tkq.jpg',
+			key: '5',
+			postBrief:
+				'The Business Model Canvas is a project strategy framework for the implementation of new business models or for documenting the existing ones. It is a visual chart with elements which represent the clients, value proposition, finances and infrastructure of a business or product.',
+			postLink: '/v3005'
 		}
 	];
 	const showArticles = articles.length ? (

@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
 		margin: theme.spacing(4, 0, 2),
 		padding: '5px',
 		fontWeight: '800',
-		fontFamily: 'GlacialIndifferenceBold',
 		fontSize: '1.4em',
 		letterSpacing: '0.05em'
 	},
@@ -50,9 +49,8 @@ export default function RegisterForProduct () {
 	// const token = Cookies.get('session-id');
 
 	const classes = useStyles();
-	const [ LoginCheck, setLoginCheck ] = React.useState(Cookies.get('session-id'));
+	const LoginCheck = Cookies.get('session-id');
 	const [ fileInputState, setFileInputState ] = React.useState('');
-	const [ selectedFile, setSelectedFile ] = React.useState('');
 	const [ previewSource, setPreviewSource ] = React.useState('');
 	const [ RegisterProductSuccess, setRegisterProductSuccess ] = React.useState(false);
 	const [ name, setName ] = React.useState('');
@@ -67,7 +65,6 @@ export default function RegisterForProduct () {
 	const handleFileInputChange = (e) => {
 		const file = e.target.files[0];
 		previewFile(file);
-		setSelectedFile(file);
 		setFileInputState(e.target.value);
 	};
 
@@ -89,7 +86,7 @@ export default function RegisterForProduct () {
 			};
 			axios
 				.post(
-					'http://localhost:5000/api/productdetails',
+					process.env.REACT_APP_BASEURL + '/api/productdetails',
 					{
 						logo: previewSource,
 						name: name,
@@ -146,18 +143,7 @@ export default function RegisterForProduct () {
 							</Typography>
 							<form className={classes.form} onSubmit={submitHandler}>
 								<Grid container spacing={2}>
-									{previewSource && (
-										<img
-											src={previewSource}
-											alt='chosen'
-											style={{
-												width: '40%',
-												height: '150px',
-												textAlign: 'center',
-												margin: '0 30%'
-											}}
-										/>
-									)}
+									{previewSource && <img src={previewSource} alt='chosen' className='showpic' />}
 									<Grid item xs={12} sm={6}>
 										<Chip
 											className={classes.chip}

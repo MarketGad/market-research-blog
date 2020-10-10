@@ -12,9 +12,7 @@ const BriefDetails = () => {
 								fontSize: '2.6em',
 								color: '#0153a5',
 								textAlign: 'right',
-								fontFamily: 'GlacialIndifferenceBold',
-								fontWeight: 'normal',
-								fontStyle: 'normal'
+								fontWeight: 800
 							}}
 						>
 							ABOUT US
@@ -22,10 +20,9 @@ const BriefDetails = () => {
 						<p
 							className='post-brief'
 							style={{
-								fontFamily: 'GlacialIndifferenceMedium',
 								marginLeft: '20%',
 								textAlign: 'right',
-								fontSize: '1.8rem',
+								fontSize: '1.7em',
 								height: '35vh'
 							}}
 						>
@@ -57,7 +54,8 @@ const BriefDetails = () => {
 								fontSize: '2.6em',
 								color: '#0153a5',
 								textAlign: 'left',
-								fontFamily: 'GlacialIndifferenceBold',
+								fontWeight: 800,
+
 								fontStyle: 'normal'
 							}}
 						>
@@ -66,10 +64,9 @@ const BriefDetails = () => {
 						<p
 							className='post-brief'
 							style={{
-								fontFamily: 'GlacialIndifferenceMedium',
 								marginRight: '20%',
 								textAlign: 'left',
-								fontSize: '1.8rem',
+								fontSize: '1.7rem',
 								height: '35vh'
 							}}
 						>
@@ -88,9 +85,7 @@ const BriefDetails = () => {
 							style={{
 								color: '#0153a5',
 								fontSize: '2.3em',
-								fontFamily: 'GlacialIndifferenceBold',
-								fontWeight: 'normal',
-								fontStyle: 'normal'
+								fontWeight: 800
 							}}
 						>
 							ABOUT US
@@ -102,9 +97,8 @@ const BriefDetails = () => {
 						/>
 						<p
 							style={{
-								fontFamily: 'GlacialIndifferenceMedium',
 								textAlign: 'center',
-								fontSize: '1.5em'
+								fontSize: '1.3em'
 							}}
 						>
 							MarketGad believes in executing billion-dollar ideas. Tinkering is the earliest stage for a
@@ -120,8 +114,7 @@ const BriefDetails = () => {
 							style={{
 								fontSize: '2.3em',
 								color: '#0153a5',
-								fontFamily: 'GlacialIndifferenceBold',
-								fontStyle: 'normal'
+								fontWeight: 800
 							}}
 						>
 							WHAT WE DO
@@ -133,9 +126,8 @@ const BriefDetails = () => {
 						/>
 						<p
 							style={{
-								fontFamily: 'GlacialIndifferenceMedium',
 								textAlign: 'center',
-								fontSize: '1.5em'
+								fontSize: '1.3em'
 							}}
 						>
 							If you have an idea which you think can become the next Indian unicorn, why don’t you test

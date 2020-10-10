@@ -88,7 +88,7 @@ export default function SignUp () {
 				'content-type': 'text/json'
 			},
 			method: 'PUT',
-			url: 'https://serieux-saucisson-31787.herokuapp.com/api/ideasubmit',
+			url: process.env.REACT_APP_BASEURL + '/api/ideasubmit',
 			// url: "http://localhost:5000/api/ideasubmit",
 			data: { sector, topic, briefIdea, phone, f1email, f2email, email }
 		})
@@ -117,7 +117,7 @@ export default function SignUp () {
 	const responseSuccessGoogle = (response) => {
 		axios({
 			method: 'POST',
-			url: 'https://serieux-saucisson-31787.herokuapp.com/api/googlelogin',
+			url: process.env.REACT_APP_BASEURL + '/api/googlelogin',
 			// url: "http://localhost:5000/api/googlelogin",
 			data: { tokenId: response.tokenId }
 		}).then((response) => {

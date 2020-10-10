@@ -5,11 +5,8 @@ const Aboutus = () => {
 	return (
 		<div>
 			<div>
-				<div
-					className='container'
-					style={{ fontFamily: 'GlacialIndifferenceMedium', fontSize: '12px', textAlign: 'justify' }}
-				>
-					<h3 className='article-head center' style={{ fontWeight: '600', letterSpacing: '0.04em' }}>
+				<div className='container' style={{ fontSize: '12px', textAlign: 'justify' }}>
+					<h3 className='article-head center' style={{ fontWeight: '800' }}>
 						ABOUT US
 					</h3>
 					<div className='about-subhead'>India’s First Product Launch Platform</div>
@@ -111,8 +108,8 @@ const Aboutus = () => {
 				<div className='center'>
 					<a
 						href='/signin'
-						style={{ background: '#080808d9', margin: '1.5em', fontSize: '1.4em', fontWeight: '500' }}
-						className='btn waves-effect waves-light'
+						style={{ background: '#080808d9', margin: '1.5em', fontSize: '1.4em', fontWeight: '800' }}
+						className='btn-small waves-effect waves-light'
 					>
 						Join us
 					</a>

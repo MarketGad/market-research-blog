@@ -86,8 +86,8 @@ const Industry = () => {
 								<img pos className='post-image' src={article.postImage} alt='1st' />
 							</div>
 							<div className='col s12 l3'>
-								<h5 className='landing-post-head'> {article.postName} </h5> {' '}
-								<p className='post-brief'> {article.postBrief} </p> {' '}
+								<h5 className='landing-post-head'> {article.postName} </h5>
+								<p className='post-brief'> {article.postBrief} </p>
 								<div className='center'>
 									<a href={article.postLink} className='btn waves-effect waves-light read-more'>
 										Read More

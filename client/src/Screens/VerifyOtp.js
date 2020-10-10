@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 const VerifyOtp = (props) => {
 	const classes = useStyles();
-	const [ email, setEmail ] = React.useState(props.location.state.email);
+	const email = props.location.state.email;
 	const [ otpsuccess, setOtpsuccess ] = React.useState(false);
 	const [ otp, setOtp ] = React.useState('');
 	const [ successMsg, setSuccessMsg ] = useState('');
@@ -28,7 +28,7 @@ const VerifyOtp = (props) => {
 	const otpsubmitHandler = (e) => {
 		e.preventDefault();
 		axios
-			.post('http://localhost:5000/api/user/otpverify', {
+			.post(process.env.REACT_APP_BASEURL + '/api/user/otpverify', {
 				email: email.toLowerCase(),
 				otp: otp
 			})
