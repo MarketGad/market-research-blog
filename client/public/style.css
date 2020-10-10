@@ -532,11 +532,6 @@ nav {
 	justify-content: center !important;
 }
 
-.MuiPaper-root {
-	background-color: black !important;
-	color: white !important;
-}
-
 .MuiPaper-rounded {
 	border-radius: 8px !important;
 }
@@ -781,7 +776,7 @@ nav {
 .product-desc {
 	font-size: 1.05em;
 	padding: 4px 0;
-	max-height: 3em;
+	max-height: 3.1em;
 	text-overflow: ellipsis;
 	overflow: hidden;
 }

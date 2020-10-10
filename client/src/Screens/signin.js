@@ -18,7 +18,7 @@ import GoogleLogin from 'react-google-login';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
-		marginTop: theme.spacing(8),
+		marginTop: theme.spacing(0),
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center'
@@ -30,14 +30,15 @@ const useStyles = makeStyles((theme) => ({
 	},
 	form: {
 		width: '100%', // Fix IE 11 issue.
-		marginTop: theme.spacing(1)
+		marginTop: theme.spacing(0)
 	},
 	submit: {
 		margin: theme.spacing(2, 0, 2)
 	}
 }));
 
-export default function SignIn () {
+export default function SignIn (props) {
+	const { openPopup, setOpenPopup } = props;
 	const classes = useStyles();
 	const [ email, setEmail ] = React.useState('');
 	const [ loginsuccess, setLoginsuccess ] = React.useState(false);
@@ -55,6 +56,7 @@ export default function SignIn () {
 			console.log(response);
 			if (response.data.success) {
 				Cookies.set('session-id', response.data['token']);
+				setOpenPopup(false);
 				setLoginsuccess(true);
 			}
 			// alert(`Welcome ${response.data.user.name}! You have been Successfully Signed In!`);
@@ -77,6 +79,7 @@ export default function SignIn () {
 					// console.log(response);
 					if (response.data.success) {
 						Cookies.set('session-id', response.data['token']);
+						setOpenPopup(false);
 						setLoginsuccess(true);
 					}
 				},
@@ -106,87 +109,88 @@ export default function SignIn () {
 	} else {
 		return (
 			<div>
-				<div>
-					<Alert msg={errMsg} type='danger' />
-					<Container component='main' maxWidth='xs'>
-						<CssBaseline />
-						<div className={classes.paper}>
-							<Avatar className={classes.avatar}>
-								<PersonIcon />
-							</Avatar>
-							<Typography component='h1' variant='h5' style={{ marginBottom: '25px' }}>
-								Sign In
-							</Typography>
+				<Alert msg={errMsg} type='danger' />
+				<div className='row'>
+					<div className='col l5 s12 center' style={{ marginTop: '5%' }}>
+						<img
+							src='https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1602349054/Theme/2_f5ppw2.png'
+							alt='login'
+							width='130%'
+						/>
+					</div>
+					<div className='col l7 s12 center' style={{ paddingLeft: '15%' }}>
+						<Container component='main' maxWidth='md'>
+							<CssBaseline />
+							<div className={classes.paper}>
+								<div className='center'>
+									<GoogleLogin
+										className='black-text'
+										clientId='798827553844-i0rjoguupm9jucbohldlp16kthi5boif.apps.googleusercontent.com'
+										onSuccess={responseSuccessGoogle}
+										onFailure={responseErrorGoogle}
+										cookiePolicy={'single_host_origin'}
+										redirectUri={'/'}
+									/>
+								</div>
+								<h6 className='signin-divider'>
+									<span>or</span>
+								</h6>
+								<form className={classes.form} onSubmit={submitHandler}>
+									<Grid container spacing={2}>
+										<Grid spacing={2} item xs={12}>
+											<TextField
+												type='email'
+												variant='outlined'
+												required
+												fullWidth
+												id='email'
+												label='Email Address'
+												name='email'
+												value={email}
+												onChange={(e) => setEmail(e.target.value)}
+											/>
+										</Grid>
+										<Grid spacing={2} item xs={12}>
+											<TextField
+												variant='outlined'
+												margin='normal'
+												required
+												fullWidth
+												name='password'
+												label='Password'
+												type='password'
+												id='password'
+												value={password}
+												onChange={(e) => setPassword(e.target.value)}
+											/>
+										</Grid>
+									</Grid>
 
-							<div className='center'>
-								<GoogleLogin
-									className='black-text'
-									clientId='798827553844-i0rjoguupm9jucbohldlp16kthi5boif.apps.googleusercontent.com'
-									onSuccess={responseSuccessGoogle}
-									onFailure={responseErrorGoogle}
-									cookiePolicy={'single_host_origin'}
-									redirectUri={'/'}
-								/>
+									<Button
+										type='submit'
+										fullWidth
+										variant='contained'
+										color='primary'
+										className={classes.submit}
+									>
+										Sign In
+									</Button>
+
+									<Grid container>
+										<Grid item xs>
+											<Link href='#' variant='body2' />
+										</Grid>
+										<Grid item>
+											<Link href='/signup' variant='body2'>
+												{"Don't have an account? Sign Up"}
+											</Link>
+										</Grid>
+									</Grid>
+								</form>
 							</div>
-							<h6 className='signin-divider'>
-								<span>or</span>
-							</h6>
-							<form className={classes.form} onSubmit={submitHandler}>
-								<Grid container spacing={2}>
-									<Grid spacing={2} item xs={12}>
-										<TextField
-											type='email'
-											variant='outlined'
-											required
-											fullWidth
-											id='email'
-											label='Email Address'
-											name='email'
-											value={email}
-											onChange={(e) => setEmail(e.target.value)}
-										/>
-									</Grid>
-									<Grid spacing={2} item xs={12}>
-										<TextField
-											variant='outlined'
-											margin='normal'
-											required
-											fullWidth
-											name='password'
-											label='Password'
-											type='password'
-											id='password'
-											value={password}
-											onChange={(e) => setPassword(e.target.value)}
-										/>
-									</Grid>
-								</Grid>
-
-								<Button
-									type='submit'
-									fullWidth
-									variant='contained'
-									color='primary'
-									className={classes.submit}
-								>
-									Sign In
-								</Button>
-
-								<Grid container>
-									<Grid item xs>
-										<Link href='#' variant='body2' />
-									</Grid>
-									<Grid item>
-										<Link href='/signup' variant='body2'>
-											{"Don't have an account? Sign Up"}
-										</Link>
-									</Grid>
-								</Grid>
-							</form>
-						</div>
-					</Container>
+						</Container>
+					</div>
 				</div>
-				<Footer />
 			</div>
 		);
 	}

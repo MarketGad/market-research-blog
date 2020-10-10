@@ -5,11 +5,14 @@ import logo from './Favicon.jpg';
 import { Redirect, Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import ReputationPoint from './ReputaionPoints';
+import SignIn from '../Screens/signin';
+import Popup from '../Components/Popup';
 
 const Navbar = () => {
 	const [ redirect, setRedirect ] = React.useState(false);
 	const [ reputation, setReputation ] = React.useState('');
 	const [ user, setUser ] = React.useState('');
+	const [ openPopup, setOpenPopup ] = React.useState(false);
 
 	/*----------------------------conditional rendering of user name-----------------------------------*/
 	const removecookie = () => {
@@ -40,7 +43,12 @@ const Navbar = () => {
 		if (!cookie) {
 			return (
 				<li>
-					<Link to='/signin' style={{ color: 'white', fontSize: '1em' }}>
+					<Link
+						style={{ color: 'white', fontSize: '1em' }}
+						onClick={() => {
+							setOpenPopup(true);
+						}}
+					>
 						Login
 					</Link>
 				</li>
@@ -73,7 +81,13 @@ const Navbar = () => {
 		if (!cookie) {
 			return (
 				<li>
-					<Link to='/signin'>Login</Link>
+					<Link
+						onClick={() => {
+							setOpenPopup(true);
+						}}
+					>
+						Login
+					</Link>
 				</li>
 			);
 		} else {
@@ -277,6 +291,9 @@ const Navbar = () => {
 					</li>
 					{showmobile()}
 				</ul>
+				<Popup title='Signin' openPopup={openPopup} setOpenPopup={setOpenPopup}>
+					<SignIn openPopup={openPopup} setOpenPopup={setOpenPopup} />
+				</Popup>
 			</div>
 		);
 	}
