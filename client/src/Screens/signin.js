@@ -65,6 +65,28 @@ export default function SignIn () {
 		console.log(response);
 	};
 
+	const responseSuccessGoogle = (response) => {
+		console.log(response);
+		console.log(response.tokenId);
+		axios({
+			method: 'POST',
+			url: 'http://localhost:5000/api/user/googlelogin',
+			data: { tokenId: response.tokenId }
+		}).then((response) => {
+			console.log(response);
+			if (response.data.success) {
+				setLoginsuccess(true);
+				Cookies.set('session-id', response.data['token']);
+				window.location.reload(false);
+			}
+			// alert(`Welcome ${response.data.user.name}! You have been Successfully Signed In!`);
+		});
+	};
+
+	const responseErrorGoogle = (response) => {
+		console.log(response);
+	};
+
 	const submitHandler = (e) => {
 		e.preventDefault();
 		axios
