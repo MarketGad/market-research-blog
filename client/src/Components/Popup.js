@@ -7,7 +7,8 @@ const useStyles = makeStyles((theme) => ({
 	dialogWrapper: {
 		padding: theme.spacing(0),
 		position: 'absolute',
-		top: '20vh'
+		display:'flex',
+		alignSelf:'center'
 	}
 }));
 

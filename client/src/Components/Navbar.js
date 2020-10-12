@@ -7,6 +7,11 @@ import Cookies from 'js-cookie';
 import ReputationPoint from './ReputaionPoints';
 import SignIn from '../Screens/signin';
 import Popup from '../Components/Popup';
+import Layout from '../Screens/Layout';
+import layt from '../Screens/Layt';
+import Layt from '../Screens/Layt';
+import LaytFive from '../Screens/LaytFive';
+import LaytFour from '../Screens/LaytFour';
 
 const Navbar = () => {
 	const [ redirect, setRedirect ] = React.useState(false);
