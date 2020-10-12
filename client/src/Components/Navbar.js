@@ -12,6 +12,8 @@ import layt from '../Screens/Layt';
 import Layt from '../Screens/Layt';
 import LaytFive from '../Screens/LaytFive';
 import LaytFour from '../Screens/LaytFour';
+import LaytNine from '../Screens/LaytNine';
+import LaytTen from '../Screens/LaytTen';
 
 const Navbar = () => {
 	const [ redirect, setRedirect ] = React.useState(false);
