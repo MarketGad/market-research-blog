@@ -111,15 +111,15 @@ export default function SignIn (props) {
 			<div>
 				<Alert msg={errMsg} type='danger' />
 				<div className='row'>
-					<div className='col l5 s12 center' style={{ marginTop: '5%' }}>
+					<div className='col l5 s12 center'>
 						<img
-							src='https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1602349054/Theme/2_f5ppw2.png'
+							src='https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1602391920/Theme/2_f5ppw2.png'
 							alt='login'
-							width='130%'
+							className='popup-signin-image'
 						/>
 					</div>
-					<div className='col l7 s12 center' style={{ paddingLeft: '15%' }}>
-						<Container component='main' maxWidth='md'>
+					<div className='col l7 s12 center'>
+						<Container component='main' className='signinform-container' maxWidth='md'>
 							<CssBaseline />
 							<div className={classes.paper}>
 								<div className='center'>
