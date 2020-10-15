@@ -14,6 +14,7 @@ import LaytFive from '../Screens/LaytFive';
 import LaytFour from '../Screens/LaytFour';
 import LaytNine from '../Screens/LaytNine';
 import LaytTen from '../Screens/LaytTen';
+import FormLayt from '../Screens/FormLayt';
 
 const Navbar = () => {
 	const [ redirect, setRedirect ] = React.useState(false);
@@ -299,7 +300,7 @@ const Navbar = () => {
 					{showmobile()}
 				</ul>
 				<Popup title='Signin' openPopup={openPopup} setOpenPopup={setOpenPopup}>
-					<SignIn openPopup={openPopup} setOpenPopup={setOpenPopup} />
+					<FormLayt openPopup={openPopup} setOpenPopup={setOpenPopup} />
 				</Popup>
 			</div>
 		);

@@ -16,6 +16,7 @@ import SignIn from './Screens/signin';
 import MyProfile from './Screens/MyProfile';
 import Layout from './Screens/Layout';
 import Layt from './Screens/Layt';
+import FormLayt from './Screens/FormLayt';
 import LaytFive from './Screens/LaytFive';
 import LaytFour from './Screens/LaytFour';
 import LaytNine from './Screens/LaytNine';
@@ -153,6 +154,7 @@ class MainApp extends React.Component {
 					<Route exact path='/profile' component={MyProfile} />
 					<Route exact path='/Layout' component={Layout} />
 					<Route exact path='/Layt' component={Layt} />
+					<Route exact path='/FormLayt' component={FormLayt} />
                     <Route exact path='/LaytFive' component={LaytFive} />
 					<Route exact path='/LaytFour' component={LaytFour} />
 					<Route exact path='/LaytNine' component={LaytNine} />
