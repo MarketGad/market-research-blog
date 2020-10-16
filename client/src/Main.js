@@ -16,10 +16,15 @@ import SignIn from './Screens/signin';
 import MyProfile from './Screens/MyProfile';
 import Layout from './Screens/Layout';
 import Layt from './Screens/Layt';
+import FormLayt from './Screens/FormLayt';
 import LaytFive from './Screens/LaytFive';
 import LaytFour from './Screens/LaytFour';
+import FormExperience from './Screens/FormExperience';
+import FormPassion from './Screens/FormPassion';
 import LaytNine from './Screens/LaytNine';
 import LaytTen from './Screens/LaytTen';
+import GetOtp from './Screens/GetOtp';
+
 import Products from './Screens/Products';
 import Jobs from './Screens/Jobs';
 import CommunityForm from './Screens/CommunityForm';
@@ -153,10 +158,14 @@ class MainApp extends React.Component {
 					<Route exact path='/profile' component={MyProfile} />
 					<Route exact path='/Layout' component={Layout} />
 					<Route exact path='/Layt' component={Layt} />
+					<Route exact path='/FormLayt' component={FormLayt} />
+					<Route exact path='/FormExperience' component={FormExperience} />
+					<Route exact path='/FormPassion' component={FormPassion} />
                     <Route exact path='/LaytFive' component={LaytFive} />
 					<Route exact path='/LaytFour' component={LaytFour} />
 					<Route exact path='/LaytNine' component={LaytNine} />
 					<Route exact path='/LaytTen' component={LaytTen} />
+					<Route exact path='/GetOtp' component={GetOtp} />
 					<Route exact path='/addjobs' component={JobForm} />
 					<Route exact path='/addtrend' component={CommunityForm} />
 					<Route exact path='/discounts' component={Discounts} />
