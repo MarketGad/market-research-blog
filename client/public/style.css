@@ -10,13 +10,13 @@
 }
 /* ------------input---------------- */
 
-input {
+.MuiInputBase-input {
 	border-bottom: none !important;
 	padding-left: 14px !important;
 	margin: 0 !important;
 }
 
-input:focus {
+.MuiInputBase-input:focus {
 	border-bottom: none !important;
 	box-shadow: none !important;
 }
@@ -970,11 +970,11 @@ nav {
 	width: 200px;
 	margin: 0 33%;
 }
-.popup-signin-image{
+.popup-signin-image {
 	width: 120%;
 }
-.signinform-container{
-	padding-left:20%!important;
+.signinform-container {
+	padding-left: 20% !important;
 }
 
 /* ------------------mobile----------------------------------- 
@@ -983,7 +983,6 @@ nav {
 
 @media only screen and (max-width: 1024px) {
 	.product-job-page-container {
-
 		margin: 0 1%;
 	}
 
@@ -1456,12 +1455,12 @@ nav {
 		padding-left: 50px;
 	}
 	/* Pop Up */
-	.popup-signin-image{
+	.popup-signin-image {
 		width: 100%;
 	}
-	
-	.signinform-container{
-		padding-left: 0!important;
+
+	.signinform-container {
+		padding-left: 0 !important;
 		padding: 10px;
 	}
 }
