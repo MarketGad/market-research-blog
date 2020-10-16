@@ -356,7 +356,7 @@ const Navbar = () => {
           {showmobile()}
         </ul>
         <Popup title="Signin" openPopup={openPopup} setOpenPopup={setOpenPopup}>
-          <Layt openPopup={openPopup} setOpenPopup={setOpenPopup} />
+          <GetOtp openPopup={openPopup} setOpenPopup={setOpenPopup} />
         </Popup>
       </div>
     );
