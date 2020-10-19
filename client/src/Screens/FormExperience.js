@@ -106,7 +106,7 @@ export default function FormExperience() {
               <TextField
                 id="experienceyears"
                 label="Experience years"
-                type="text"
+                type="number"
                 variant="outlined"
               />
               <TextField
