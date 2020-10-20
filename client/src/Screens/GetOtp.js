@@ -88,6 +88,24 @@ export default function GetOtp() {
         >
           Can't find your code? Check your spam folder.
         </div>
+        <div
+          className="center"
+          style={{ padding: "3% 0 0 2%", textAlign: "center" }}
+        >
+          <div
+            class="btn-small"
+            style={{
+              backgroundColor: "#1e4a72",
+              color: "white",
+              border: "none",
+              borderRadius: "15px",
+              paddingLeft: "7%",
+              paddingRight: "7%",
+            }}
+          >
+            Submit
+          </div>
+        </div>
       </div>
     </div>
   );
