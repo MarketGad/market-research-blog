@@ -58,12 +58,7 @@ const TodayLaunch = (props) => {
 			<div>
 				<ul className='collection product-container'>
 					<li className='collection-item avatar'>
-						<Link
-							to={{
-								pathname: `/p${product._id}`,
-								state: { product: product, weblink: weblink }
-							}}
-						>
+						<Link to={`products/${product._id}`}>
 							<img className='circle pro-img' src={product.logo} alt={product.name} />
 						</Link>
 
@@ -71,10 +66,7 @@ const TodayLaunch = (props) => {
 							<Link
 								style={{ color: 'black' }}
 								className='product-content product-name'
-								to={{
-									pathname: `/p${product._id}`,
-									state: { product: product, weblink: weblink }
-								}}
+								to={`products/${product._id}`}
 							>
 								{product.name}
 							</Link>
@@ -102,10 +94,7 @@ const TodayLaunch = (props) => {
 								</div>
 								<div className='col l2 s4 comment-box'>
 									<Link
-										to={{
-											pathname: `/p${product._id}`,
-											state: { product: product, weblink: weblink }
-										}}
+										to={`products/${product._id}`}
 										className='waves-effect waves-light btn-small visit-btn'
 									>
 										<span className='comment-count'>{product.comments.length}</span>

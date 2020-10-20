@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import PersonIcon from '@material-ui/icons/Person';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Footer from '../Components/Footer2';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Alert from '../Components/Alert';
 import GoogleLogin from 'react-google-login';
+import Popup from '../Components/Popup';
+import SignUp from './signup';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -38,13 +36,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn (props) {
-	const { openPopup, setOpenPopup } = props;
+	const { openSignin, setOpenSignin } = props;
 	const classes = useStyles();
 	const [ email, setEmail ] = React.useState('');
 	const [ loginsuccess, setLoginsuccess ] = React.useState(false);
 	const [ password, setPassword ] = React.useState('');
 	const [ otpsuccess, setOtpsuccess ] = React.useState(true);
 	const [ errMsg, setErrMsg ] = useState('');
+	const [ openSignup, setOpenSignup ] = useState(false);
+
 	const responseSuccessGoogle = (response) => {
 		console.log(response);
 		console.log(response.tokenId);
@@ -56,7 +56,7 @@ export default function SignIn (props) {
 			console.log(response);
 			if (response.data.success) {
 				Cookies.set('session-id', response.data['token']);
-				setOpenPopup(false);
+				setOpenSignin(false);
 				setLoginsuccess(true);
 			}
 			// alert(`Welcome ${response.data.user.name}! You have been Successfully Signed In!`);
@@ -79,7 +79,7 @@ export default function SignIn (props) {
 					// console.log(response);
 					if (response.data.success) {
 						Cookies.set('session-id', response.data['token']);
-						setOpenPopup(false);
+						setOpenSignin(false);
 						setLoginsuccess(true);
 					}
 				},
@@ -181,7 +181,12 @@ export default function SignIn (props) {
 											<Link href='#' variant='body2' />
 										</Grid>
 										<Grid item>
-											<Link href='/signup' variant='body2'>
+											<Link
+												onClick={() => {
+													setOpenSignup(true);
+												}}
+												variant='body2'
+											>
 												{"Don't have an account? Sign Up"}
 											</Link>
 										</Grid>
@@ -190,6 +195,9 @@ export default function SignIn (props) {
 							</div>
 						</Container>
 					</div>
+					<Popup title='Signup' openPopup={openSignup} setOpenPopup={setOpenSignup}>
+						<SignUp {...props} openSignup={openSignup} setOpenSignup={setOpenSignup} />
+					</Popup>
 				</div>
 			</div>
 		);

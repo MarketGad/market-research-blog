@@ -7,6 +7,8 @@ import LinkIcon from '@material-ui/icons/Link';
 import MailIcon from '@material-ui/icons/Mail';
 import HireNow from '../Components/HireNow';
 import ReputationPoint from '../Components/ReputaionPoints';
+import ThreeDotLoad from '../Components/ThreeDotLoad';
+import { Link } from 'react-router-dom';
 
 const DisplayArray = (props) => {
 	if (props.data.length !== 0) {
@@ -24,18 +26,33 @@ const DisplayArray = (props) => {
 };
 
 const JobProfile = (props) => {
-	const UserProfile = props.location.state.UserProfile;
-	const linkedIn = props.location.state.linkedIn;
-	if (UserProfile.err) {
-		return (
-			<div>
-				<h1 style={{ marginTop: '20vh' }} className='center'>
-					Error 404
-				</h1>
-				<h3 className='center'>Job profile not found !!!</h3>
-			</div>
-		);
-	} else if (UserProfile.user)
+	const id = props.match.params.job_id;
+	const UserProfile = props.jobProfiles.find((item) => item._id === id);
+	let linkedin = '';
+	let portfolioLink = '';
+	if (UserProfile) {
+		linkedin = /^https?:\/\//.test(UserProfile.linkedIn) ? UserProfile.linkedIn : 'https://' + UserProfile.linkedIn;
+		portfolioLink = /^https?:\/\//.test(UserProfile.portfolioLink)
+			? UserProfile.portfolioLink
+			: 'https://' + UserProfile.portfolioLink;
+	}
+
+	// 	if (!) {
+	// let linkedin = 'https://' + UserProfile.linkedIn;
+	// 	}
+
+	// 	else{
+	// 		let linkedin= UserProfile.linkedIn;
+	// 	}
+
+	// 	if (!/^https?:\/\//.test(UserProfile.portfolioLink)) {
+	// let portfolio = 'https://' + UserProfile.portfolioLink;
+	// 	}
+
+	// 	else
+	// 		let portfolio= UserProfile.portfolioLink;
+
+	if (UserProfile)
 		return (
 			<div className='profile-container'>
 				<Grid container component='main'>
@@ -86,7 +103,7 @@ const JobProfile = (props) => {
 									<LinkedInIcon />
 								</span>
 								<span>
-									<a target='_blank' rel='noopener noreferrer' className='links' href={linkedIn}>
+									<a target='_blank' rel='noopener noreferrer' className='links' href={linkedin}>
 										<span>LinkedIn</span>
 									</a>
 								</span>
@@ -102,9 +119,9 @@ const JobProfile = (props) => {
 												target='_blank'
 												rel='noopener noreferrer'
 												className='links'
-												href={UserProfile.portfolioLink}
+												href={portfolioLink}
 											>
-												{UserProfile.portfolioLink}
+												<span>{UserProfile.portfolioLink}</span>
 											</a>
 										</span>
 									</span>
@@ -123,7 +140,15 @@ const JobProfile = (props) => {
 							<div className='profile-section'>
 								<p className='product-subhead'>Experience</p>
 								<p className='product-content'>
-									<DisplayArray data={UserProfile.experience[0] === '' ? ["Fresher", "0 - 2 yrs"] : UserProfile.experience} />
+									<DisplayArray
+										data={
+											UserProfile.experience[0] === '' ? (
+												[ 'Fresher', '0 - 2 yrs' ]
+											) : (
+												UserProfile.experience
+											)
+										}
+									/>
 								</p>
 							</div>
 							<div className='profile-section'>
@@ -163,7 +188,12 @@ const JobProfile = (props) => {
 				</Grid>
 			</div>
 		);
-	else return <div className='center'>Loading... </div>;
+	else
+		return (
+			<div className='center'>
+				<ThreeDotLoad />
+			</div>
+		);
 };
 
 export default JobProfile;

@@ -1,9 +1,10 @@
 import * as ActionTypes from './ActionTypes';
+const BaseURL = process.env.REACT_APP_BASEURL;
 
 export const fetchProducts = () => (dispatch) => {
 	dispatch(productsLoading(true));
 
-	return fetch(process.env.REACT_APP_BASEURL + '/api/productdetails')
+	return fetch(BaseURL + '/api/productdetails')
 		.then(
 			(response) => {
 				if (response.ok) {
@@ -41,7 +42,7 @@ export const addProducts = (products) => ({
 export const fetchJobProfiles = () => (dispatch) => {
 	dispatch(jobProfilesLoading(true));
 
-	return fetch(process.env.REACT_APP_BASEURL + '/api/jobprofiles')
+	return fetch(BaseURL + '/api/jobprofiles')
 		.then(
 			(response) => {
 				if (response.ok) {
@@ -79,7 +80,7 @@ export const addJobProfiles = (jobProfiles) => ({
 export const fetchTodayLaunch = () => (dispatch) => {
 	dispatch(todayLaunchLoading(true));
 
-	return fetch(process.env.REACT_APP_BASEURL + '/api/hotproducts/recent')
+	return fetch(BaseURL + '/api/hotproducts/recent')
 		.then(
 			(response) => {
 				if (response.ok) {
@@ -117,7 +118,7 @@ export const addTodayLaunch = (todayLaunch) => ({
 export const fetchTrendingProducts = () => (dispatch) => {
 	dispatch(trendingProductsLoading(true));
 
-	return fetch(process.env.REACT_APP_BASEURL + '/api/hotproducts/')
+	return fetch(BaseURL + '/api/hotproducts/')
 		.then(
 			(response) => {
 				if (response.ok) {
@@ -155,7 +156,7 @@ export const addTrendingProducts = (trendingProducts) => ({
 export const fetchJobs = () => (dispatch) => {
 	dispatch(jobsLoading(true));
 
-	return fetch(process.env.REACT_APP_BASEURL + '/api/jobs/full-time')
+	return fetch(BaseURL + '/api/jobs/full-time')
 		.then(
 			(response) => {
 				if (response.ok) {
@@ -193,7 +194,7 @@ export const addJobs = (jobs) => ({
 export const fetchInternships = () => (dispatch) => {
 	dispatch(jobsLoading(true));
 
-	return fetch(process.env.REACT_APP_BASEURL + '/api/jobs/internship')
+	return fetch(BaseURL + '/api/jobs/internship')
 		.then(
 			(response) => {
 				if (response.ok) {
@@ -215,52 +216,52 @@ export const fetchInternships = () => (dispatch) => {
 };
 
 export const internshipsLoading = () => ({
-	type: ActionTypes.GET_JOBS_LOADING
+  type: ActionTypes.GET_INTERNSHIPS_LOADING
 });
 
 export const internshipsFailed = (errmess) => ({
-	type: ActionTypes.GET_JOBS_FAILED,
-	payload: errmess
+  type: ActionTypes.GET_INTERNSHIPS_FAILED,
+  payload: errmess
 });
 
 export const addInternships = (jobs) => ({
-	type: ActionTypes.GET_JOBS,
-	payload: jobs
+  type: ActionTypes.GET_INTERNSHIPS,
+  payload: jobs
 });
 
-// export const fetchCommunityPosts = () => (dispatch) => {
+export const fetchCommunityPosts = () => (dispatch) => {
 
-//     dispatch(productsLoading(true));
+    dispatch(postsLoading(true));
 
-//     return fetch(process.env.REACT_APP_BASEURL +'/api/community')
-//     .then(response => {
-//         if (response.ok) {
-//           return response;
-//         } else {
-//           var error = new Error('Error ' + response.status + ': ' + response.statusText);
-//           error.response = response;
-//           throw error;
-//         }
-//       },
-//       error => {
-//             var errmess = new Error(error.message);
-//             throw errmess;
-//       })
-//     .then(response => response.json())
-//     .then(posts => dispatch(addPosts(posts)))
-//     .catch(error => dispatch(productsFailed(error.message)));
-// }
+    return fetch(BaseURL +'/api/disrupterclub/posts')
+    .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          var error = new Error('Error ' + response.status + ': ' + response.statusText);
+          error.response = response;
+          throw error;
+        }
+      },
+      error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+      })
+    .then(response => response.json())
+    .then(posts => dispatch(addPosts(posts)))
+    .catch(error => dispatch(postsFailed(error.message)));
+}
 
-// export const postsLoading = () => ({
-//     type: ActionTypes.GET_COMMUNITY_POSTS
-// });
+export const postsLoading = () => ({
+    type: ActionTypes.GET_COMMUNITY_POSTS_LOADING
+});
 
-// export const postsFailed = (errmess) => ({
-//     type: ActionTypes.GET_COMMUNITY_POSTS_LOADING,
-//     payload: errmess
-// });
+export const postsFailed = (errmess) => ({
+    type: ActionTypes.GET_COMMUNITY_POSTS_FAILED,
+    payload: errmess
+});
 
-// export const addPosts = (posts) => ({
-//     type: ActionTypes.GET_COMMUNITY_POSTS_FAILED,
-//     payload: posts
-// });
+export const addPosts = (posts) => ({
+    type: ActionTypes.GET_COMMUNITY_POSTS,
+    payload: posts.posts
+});

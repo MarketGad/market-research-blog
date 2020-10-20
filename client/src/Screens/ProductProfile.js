@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -35,15 +35,24 @@ const useStyles = makeStyles((theme) => ({
 		fontWeight: '800'
 	}
 }));
-
-const ProductProfile = (props) => {
+const Profile = (props) => {
 	const classes = useStyles();
-	const id = props.match.params.product_id;
-	const product = props.location.state.product;
-	const weblink = props.location.state.weblink;
+	const product = props.product;
+	const id = props.id;
 	const [ comment, setComment ] = React.useState('');
+	const [ commentdone, setCommentsuccess ] = React.useState(false);
 	const [ readytocomment, setReadytoComment ] = React.useState('');
-	const [ comments, setComments ] = React.useState(product.comments);
+	const [ comments, setComments ] = React.useState([]);
+
+	let weblink = '';
+	if (product) {
+		weblink = /^https?:\/\//.test(product.websiteLink) ? product.websiteLink : 'https://' + product.websiteLink;
+	}
+	useEffect(() => {
+		if (product.comments !== undefined && commentdone === false) {
+			setComments(product.comments);
+		}
+	});
 
 	const showComments = (comments) =>
 		comments.length ? (
@@ -81,6 +90,7 @@ const ProductProfile = (props) => {
 				.then(
 					(response) => {
 						if (response.data) {
+							setCommentsuccess(true);
 							setComments(response.data);
 							setComment('');
 						}
@@ -174,7 +184,7 @@ const ProductProfile = (props) => {
 									<div className='card'>
 										<div className='card-content'>
 											<span className='card-title product-comment'>
-												Comments ({product.comments.length})
+												Comments ({comments.length})
 											</span>
 											<form className={classes.form} onSubmit={submitHandler}>
 												<Grid container spacing={2}>
@@ -213,6 +223,15 @@ const ProductProfile = (props) => {
 			</div>
 		);
 	} else return <div className='center'>Loading...</div>;
+};
+
+const ProductProfile = (props) => {
+	const classes = useStyles();
+	const id = props.match.params.product_id;
+	const product = props.products.find((item) => item._id === id);
+	console.log(product);
+
+	return <Profile product={product === undefined ? [] : product} id={id} />;
 };
 
 export default ProductProfile;

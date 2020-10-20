@@ -14,12 +14,7 @@ const TrendingProduct = (props) => {
 			<div>
 				<ul className='collection product-container'>
 					<li className='collection-item avatar trending-product-container'>
-						<Link
-							to={{
-								pathname: `/p${product._id}`,
-								state: { product: product, weblink: weblink }
-							}}
-						>
+						<Link to={`products/${product._id}`}>
 							<img
 								style={{ left: '0px !important' }}
 								className='circle trend-img'
@@ -32,10 +27,7 @@ const TrendingProduct = (props) => {
 							<Link
 								style={{ color: 'black' }}
 								className=' product-content product-name'
-								to={{
-									pathname: `/p${product._id}`,
-									state: { product: product, weblink: weblink }
-								}}
+								to={`products/${product._id}`}
 							>
 								{product.name}
 							</Link>
@@ -64,10 +56,7 @@ const TrendingProduct = (props) => {
 								</div>
 								<div className='col l3 s4 comment-box'>
 									<Link
-										to={{
-											pathname: `/p${product._id}`,
-											state: { product: product, weblink: weblink }
-										}}
+										to={`products/${product._id}`}
 										className='waves-effect waves-light btn-small visit-btn'
 									>
 										<span className='comment-count'>{product.comments.length}</span>

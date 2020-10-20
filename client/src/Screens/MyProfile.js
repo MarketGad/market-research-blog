@@ -7,7 +7,7 @@ import ReputationPoint from '../Components/ReputaionPoints';
 
 const MyProfile = (props) => {
 	const user = props.location.state.user;
-	console.log(user);
+	// console.log(user);
 	return (
 		<div className='myprofile-container'>
 			<Grid container component='main'>

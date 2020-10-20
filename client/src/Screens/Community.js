@@ -1,8 +1,9 @@
 import React from 'react';
-// import Joblist from '../Components/Joblist';
+import CommunityTrend from '../Components/CommunityTrend';
 import PeopleList from '../Components/PeopleList';
 
 const Community = (props) => {
+	console.log(props)
 	return (
 		<div style={{ backgroundColor: 'rgb(249, 249, 249)' }}>
 			<div className='product-job-page-container'>
@@ -24,7 +25,7 @@ const Community = (props) => {
 								</div>
 							</div>
 						</div>
-						{/* <Joblist /> */}
+						<CommunityTrend posts={props.posts} />
 					</div>
 					<div className='col s12 l4 joblist'>
 						<div className='product-page-head left-head' style={{ paddingTop: '5px' }}>

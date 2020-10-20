@@ -23,13 +23,13 @@ export const Internships = (state = { isLoading: true,
     errMess: null,
     internship:[]}, action) => {
     switch (action.type) {
-        case ActionTypes.GET_JOBS:
+        case ActionTypes.GET_INTERNSHIPS:
             return {...state, isLoading: false, errMess: null, internship: action.payload};
 
-        case ActionTypes.GET_JOBS_LOADING:
+        case ActionTypes.GET_INTERNSHIPS_LOADING:
             return {...state, isLoading: true, errMess: null, internship: []}
 
-        case ActionTypes.GET_JOBS_FAILED:
+        case ActionTypes.GET_INTERNSHIPS_FAILED:
             return {...state, isLoading: false, errMess: action.payload};
 
         default:

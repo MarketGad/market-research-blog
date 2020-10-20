@@ -10,25 +10,17 @@ const PeopleCard = (props) => {
 			<ul className='collection product-container'>
 				<li className='collection-item avatar'>
 					<img src={user.profilePic} alt='' className='circle' />
-					<Link
-						style={{ color: 'black' }}
-						className='title'
-						to={{
-							pathname: `/${user._id}`,
-							state: { UserProfile: user, linkedIn: linkedIn }
-						}}
-					>
+					<Link style={{ color: 'black' }} className='title' to={`jobprofile/${user._id}`}>
 						<b>
 							{user.user.firstname} {user.user.lastname}
 						</b>
 					</Link>
-
 					<div>
 						<b>Skills: </b>
 						{user.skills[0]}
 						<br />
 						<b>Experience: </b>
-						{user.experience[0] == '' ? "0 - 2 yrs" : user.experience[0]}
+						{user.experience[0] == '' ? '0 - 2 yrs' : user.experience[0]}
 						<br />
 						<div
 							className='secondary-content'

@@ -4,7 +4,7 @@ import Home from './Screens/Home';
 import Startup from './Screens/Startup';
 import Venturehack from './Screens/VentureHack';
 import Industry from './Screens/Industry';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import Form from './Screens/Form';
 import AboutUs from './Screens/Aboutus';
 import Dashboard from './Screens/dashboard';
@@ -14,17 +14,6 @@ import Privacy from './Screens/Privacy';
 import SignUp from './Screens/signup';
 import SignIn from './Screens/signin';
 import MyProfile from './Screens/MyProfile';
-import Layout from './Screens/Layout';
-import Layt from './Screens/Layt';
-import FormLayt from './Screens/FormLayt';
-import LaytFive from './Screens/LaytFive';
-import LaytFour from './Screens/LaytFour';
-import FormExperience from './Screens/FormExperience';
-import FormPassion from './Screens/FormPassion';
-import LaytNine from './Screens/LaytNine';
-import LaytTen from './Screens/LaytTen';
-import GetOtp from './Screens/GetOtp';
-
 import Products from './Screens/Products';
 import Jobs from './Screens/Jobs';
 import CommunityForm from './Screens/CommunityForm';
@@ -65,7 +54,8 @@ import {
 	fetchTodayLaunch,
 	fetchTrendingProducts,
 	fetchJobs,
-	fetchInternships
+	fetchInternships,
+	fetchCommunityPosts
 } from './redux/ActionCreator';
 
 const mapStateToProps = (state) => {
@@ -75,7 +65,8 @@ const mapStateToProps = (state) => {
 		todayLaunch: state.todayLaunch,
 		trending: state.trending,
 		jobs: state.jobs,
-		internship: state.internship
+		internship: state.internship,
+		posts: state.posts
 	};
 };
 
@@ -97,6 +88,9 @@ const mapDispatchToProps = (dispatch) => ({
 	},
 	fetchInternships: () => {
 		dispatch(fetchInternships());
+	},
+	fetchCommunityPosts: () => {
+		dispatch(fetchCommunityPosts());
 	}
 });
 
@@ -109,6 +103,7 @@ class MainApp extends React.Component {
 		await this.props.fetchTrendingProducts();
 		await this.props.fetchJobs();
 		await this.props.fetchInternships();
+		await this.props.fetchCommunityPosts();
 	};
 	render () {
 		return (
@@ -153,19 +148,14 @@ class MainApp extends React.Component {
 					<Route
 						exact
 						path='/community'
-						component={() => <Community jobProfiles={this.props.jobProfiles.jobProfiles} />}
+						component={() => (
+							<Community
+								jobProfiles={this.props.jobProfiles.jobProfiles}
+								posts={this.props.posts.posts}
+							/>
+						)}
 					/>
 					<Route exact path='/profile' component={MyProfile} />
-					<Route exact path='/Layout' component={Layout} />
-					<Route exact path='/Layt' component={Layt} />
-					<Route exact path='/FormLayt' component={FormLayt} />
-					<Route exact path='/FormExperience' component={FormExperience} />
-					<Route exact path='/FormPassion' component={FormPassion} />
-                    <Route exact path='/LaytFive' component={LaytFive} />
-					<Route exact path='/LaytFour' component={LaytFour} />
-					<Route exact path='/LaytNine' component={LaytNine} />
-					<Route exact path='/LaytTen' component={LaytTen} />
-					<Route exact path='/GetOtp' component={GetOtp} />
 					<Route exact path='/addjobs' component={JobForm} />
 					<Route exact path='/addtrend' component={CommunityForm} />
 					<Route exact path='/discounts' component={Discounts} />
@@ -193,8 +183,17 @@ class MainApp extends React.Component {
 					<Route exact path='/v3004' component={v3004} />
 					<Route exact path='/v3005' component={v3005} />
 					<Route exact path='/verifyotp' component={VerifyOtp} />
-					<Route path='/p:product_id' component={ProductProfile} />
-					<Route path='/:job_id' component={JobProfile} />
+					<Route
+						exact
+						path='/products/:product_id'
+						render={(props) => <ProductProfile {...props} products={this.props.products.products} />}
+					/>
+					<Route
+						exact
+						path='/jobprofile/:job_id'
+						render={(props) => <JobProfile {...props} jobProfiles={this.props.jobProfiles.jobProfiles} />}
+					/>
+					<Redirect to='/' />
 				</Switch>
 			</div>
 		);
