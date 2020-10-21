@@ -1,50 +1,10 @@
 import React from 'react';
-// import axios from 'axios';
-// import Slide from '@material-ui/core/Slide';
-// import { Redirect } from 'react-router-dom';
 import Footer from '../Components/Footer';
-
-// const Transition = React.forwardRef(function Transition (props, ref) {
-// 	return <Slide direction='up' ref={ref} {...props} />;
-// });
+import SignIn from '../Screens/signin';
+import Popup from '../Components/Popup';
 
 const Whatwedo = () => {
-	// const [ open, setOpen ] = React.useState(false);
-	// const [ redirect, setRedirect ] = React.useState(false);
-	// const [name, setName] = React.useState("");
-	// const [picture, setPicture] = React.useState("");
-
-	// const handleClickOpen = () => {
-	// 	alert('Signup and Register your Product !!');
-	// 	setOpen(true);
-	// };
-
-	// const handleClose = () => {
-	// 	setOpen(false);
-	// };
-
-	// const responseSuccessGoogle = (response) => {
-	// 	console.log(response);
-	// 	// setPicture(response.profileObj.imageUrl);
-	// 	axios({
-	// 		method: 'POST',
-	// 		url: process.env.REACT_APP_BASEURL +'/api/googlelogin',
-	// 		data: { tokenId: response.tokenId }
-	// 	}).then((response) => {
-	// 		alert(`Welcome ${response.data.user.name}! You have been Successfully Signed In!`);
-	// 		console.log('Google login success ', response);
-	// 		setRedirect(true);
-	// 		window.location.reload(false);
-	// 	});
-	// };
-
-	// const responseErrorGoogle = (response) => {
-	// 	console.log(response);
-	// };
-
-	// if (open) {
-	// 	return <Redirect to='/signup' />;
-	// } else {
+	const [ openSignin, setOpenSignin ] = React.useState(false);
 	return (
 		<div style={{ fontSize: '12px', fontWeight: '400' }}>
 			<div className='container'>
@@ -109,42 +69,16 @@ const Whatwedo = () => {
 				</ol>
 				<div className='center'>
 					<button
-						// onClick={handleClickOpen}
+						// onClick={() => setOpenSignin(true)}
 						style={{ background: '#080808d9', margin: '1.5em', fontSize: '1.3em', fontWeight: '450' }}
 						className='btn waves-effect waves-light'
 					>
 						Get Started!
 					</button>
 				</div>
-				{/* <div>
-					<Dialog
-						open={open}
-						TransitionComponent={Transition}
-						keepMounted
-						onClose={handleClose}
-						aria-labelledby='alert-dialog-slide-title'
-						aria-describedby='alert-dialog-slide-description'
-					>
-						<div className='center' style={{ padding: '10px', fontSize: '20px' }}>
-							<DialogTitle id='alert-dialog-slide-title'>
-								Login to Get 10 Days of Free Subscription and use the exclusive Dashboard Feature
-							</DialogTitle>
-						</div>
-						<div className='center' style={{ padding: '10px' }}>
-							<DialogActions>
-								<Button onClick={handleClose} href='/dashboard'>
-									<GoogleLogin
-										clientId='798827553844-i0rjoguupm9jucbohldlp16kthi5boif.apps.googleusercontent.com'
-										onSuccess={responseSuccessGoogle}
-										onFailure={responseErrorGoogle}
-										cookiePolicy={'single_host_origin'}
-										redirectUri={'https://markeetgad.com/dashboard'}
-									/>
-								</Button>
-							</DialogActions>
-						</div>
-					</Dialog>
-				</div> */}
+				<Popup title='Signin' openPopup={openSignin} setOpenPopup={setOpenSignin}>
+					<SignIn openSignin={openSignin} setOpenSignin={setOpenSignin} />
+				</Popup>
 			</div>
 			<Footer />
 		</div>

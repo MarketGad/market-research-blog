@@ -11,8 +11,8 @@ import Dashboard from './Screens/dashboard';
 import submitidea from './Components/submitidea';
 import Whatwedo from './Screens/Whatwedo';
 import Privacy from './Screens/Privacy';
-import SignUp from './Screens/signup';
-import SignIn from './Screens/signin';
+// import SignUp from './Screens/signup';
+// import SignIn from './Screens/signin';
 import MyProfile from './Screens/MyProfile';
 import Products from './Screens/Products';
 import Jobs from './Screens/Jobs';
@@ -43,7 +43,7 @@ import v3005 from './Articles/venturehacks/v3005';
 import RegisterForProduct from './Screens/RegisterForProduct';
 import ProductProfile from './Screens/ProductProfile';
 import JobProfile from './Screens/JobProfile';
-import VerifyOtp from './Screens/VerifyOtp';
+// import VerifyOtp from './Screens/VerifyOtp';
 import Discounts from './Screens/Discounts';
 import Community from './Screens/Community';
 
@@ -131,8 +131,8 @@ class MainApp extends React.Component {
 					<Route exact path='/privacy' component={Privacy} />
 					<Route exact path='/startup' component={Startup} />
 					<Route exact path='/venturehack' component={Venturehack} />
-					<Route exact path='/signup' component={SignUp} />
-					<Route exact path='/signin' component={SignIn} />
+					{/* <Route exact path='/signup' component={SignUp} />
+					<Route exact path='/signin' component={SignIn} /> */}
 					<Route exact path='/funding' component={Home} />
 					<Route
 						exact
@@ -182,7 +182,7 @@ class MainApp extends React.Component {
 					<Route exact path='/v3003' component={v3003} />
 					<Route exact path='/v3004' component={v3004} />
 					<Route exact path='/v3005' component={v3005} />
-					<Route exact path='/verifyotp' component={VerifyOtp} />
+					{/* <Route exact path='/verifyotp' component={VerifyOtp} /> */}
 					<Route
 						exact
 						path='/products/:product_id'

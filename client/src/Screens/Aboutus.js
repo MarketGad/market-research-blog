@@ -1,7 +1,13 @@
 import React from 'react';
 import Footer from '../Components/Footer';
+import SignIn from '../Screens/signin';
+import Popup from '../Components/Popup';
+import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const Aboutus = () => {
+	const token = Cookies.get('session-id');
+	const [ openSignin, setOpenSignin ] = React.useState(false);
 	return (
 		<div>
 			<div>
@@ -105,17 +111,27 @@ const Aboutus = () => {
 						billion-dollar business. Forget the money, it adds values to a million lives.{' '}
 					</div>
 				</div>
-				<div className='center'>
-					<a
-						href='/signin'
-						style={{ background: '#080808d9', margin: '1.5em', fontSize: '1.4em', fontWeight: '800' }}
-						className='btn-small waves-effect waves-light'
-					>
-						Join us
-					</a>
-				</div>
+				{token === undefined && (
+					<div className='center'>
+						<Link
+							onClick={() => setOpenSignin(true)}
+							style={{
+								background: '#080808d9',
+								margin: '1.5em',
+								fontSize: '1.4em',
+								fontWeight: '800'
+							}}
+							className='btn-small waves-effect waves-light'
+						>
+							Join us
+						</Link>
+					</div>
+				)}
 			</div>
 			<Footer />
+			<Popup title='Signin' openPopup={openSignin} setOpenPopup={setOpenSignin}>
+				<SignIn openSignin={openSignin} setOpenSignin={setOpenSignin} />
+			</Popup>
 		</div>
 	);
 };

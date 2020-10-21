@@ -12,6 +12,8 @@ import Chip from '@material-ui/core/Chip';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import SignIn from '../Screens/signin';
+import Popup from '../Components/Popup';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -50,6 +52,7 @@ export default function RegisterForProduct () {
 
 	const classes = useStyles();
 	const LoginCheck = Cookies.get('session-id');
+	const [ openSignin, setOpenSignin ] = React.useState(false);
 	const [ fileInputState, setFileInputState ] = React.useState('');
 	const [ previewSource, setPreviewSource ] = React.useState('');
 	const [ RegisterProductSuccess, setRegisterProductSuccess ] = React.useState(false);
@@ -79,6 +82,10 @@ export default function RegisterForProduct () {
 		e.preventDefault();
 		if (weblink || playlink) {
 			const token = Cookies.get('session-id');
+			if (!token) {
+				setOpenSignin(true);
+				return;
+			}
 			const config = {
 				headers: {
 					Authorization: `Bearer  ${token}`
@@ -122,9 +129,7 @@ export default function RegisterForProduct () {
 			alert('Please mention your website or playstore link to continue');
 		}
 	};
-	if (!LoginCheck) {
-		return <Redirect to='/signup' />;
-	} else if (RegisterProductSuccess) {
+	if (RegisterProductSuccess) {
 		return <Redirect to='/' />;
 	} else {
 		return (
@@ -275,6 +280,9 @@ export default function RegisterForProduct () {
 						</div>
 					</Container>
 				</div>
+				<Popup title='Signin' openPopup={openSignin} setOpenPopup={setOpenSignin}>
+					<SignIn openSignin={openSignin} setOpenSignin={setOpenSignin} />
+				</Popup>
 				{/* <Footer /> */}
 			</div>
 		);

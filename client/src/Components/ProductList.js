@@ -2,6 +2,8 @@ import React from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import FadingLoader from './FadingLoader';
+import SignIn from '../Screens/signin';
+import Popup from '../Components/Popup';
 
 import { Link, Redirect } from 'react-router-dom';
 
@@ -9,6 +11,7 @@ const ProductList = (props) => {
 	const token = Cookies.get('session-id');
 	// const [ products, setProducts ] = React.useState('');
 	const [ readytoupvote, setReadytoupvote ] = React.useState('');
+	const [ openSignin, setOpenSignin ] = React.useState(false);
 	if (token) {
 		const token_id = JSON.parse(atob(token.split('.')[1]));
 		var user_id = token_id._id;
@@ -21,7 +24,7 @@ const ProductList = (props) => {
 
 		const addUpvote = (product_id, product) => {
 			if (!token) {
-				setReadytoupvote(false);
+				setOpenSignin(true);
 				return;
 			}
 			const config = {
@@ -158,9 +161,9 @@ const ProductList = (props) => {
 	) : (
 		<div className='center' />
 	);
-	if (readytoupvote === false) return <Redirect to='/signin' />;
-	else
-		return (
+
+	return (
+		<div>
 			<div style={{ backgroundColor: 'white', borderRadius: '10px' }}>
 				{props.products && <div>{showProducts}</div>}
 				{props.products.length === 0 && (
@@ -169,7 +172,11 @@ const ProductList = (props) => {
 					</div>
 				)}
 			</div>
-		);
+			<Popup title='Signin' openPopup={openSignin} setOpenPopup={setOpenSignin}>
+				<SignIn openSignin={openSignin} setOpenSignin={setOpenSignin} />
+			</Popup>
+		</div>
+	);
 };
 
 export default ProductList;

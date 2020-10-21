@@ -10,6 +10,8 @@ import Container from '@material-ui/core/Container';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import SignIn from '../Screens/signin';
+import Popup from '../Components/Popup';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -57,6 +59,7 @@ export default function CommunityForm () {
 	const classes = useStyles();
 	const LoginCheck = Cookies.get('session-id');
 	const [ RegistertrendSuccess, setRegistertrendSuccess ] = React.useState(false);
+	const [ openSignin, setOpenSignin ] = React.useState(false);
 	const [ about, setAbout ] = React.useState('');
 	const [ weblink, setWeblink ] = React.useState('');
 	const [ title, settitle ] = React.useState('');
@@ -65,6 +68,10 @@ export default function CommunityForm () {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		const token = Cookies.get('session-id');
+		if (!token) {
+			setOpenSignin(true);
+			return;
+		}
 		const config = {
 			headers: {
 				Authorization: `Bearer  ${token}`
@@ -100,9 +107,7 @@ export default function CommunityForm () {
 				}
 			);
 	};
-	if (!LoginCheck) {
-		return <Redirect to='/signup' />;
-	} else if (RegistertrendSuccess) {
+	if (RegistertrendSuccess) {
 		return <Redirect to='/community' />;
 	} else {
 		return (
@@ -191,6 +196,9 @@ export default function CommunityForm () {
 						</div>
 					</Container>
 				</div>
+				<Popup title='Signin' openPopup={openSignin} setOpenPopup={setOpenSignin}>
+					<SignIn openSignin={openSignin} setOpenSignin={setOpenSignin} />
+				</Popup>
 			</div>
 		);
 	}

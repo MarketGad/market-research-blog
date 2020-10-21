@@ -11,6 +11,8 @@ import { Redirect } from 'react-router-dom';
 // import Footer2 from '../Components/Footer2';
 import Cookies from 'js-cookie';
 import ShowComment from '../Components/ShowComment';
+import SignIn from '../Screens/signin';
+import Popup from '../Components/Popup';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -42,6 +44,7 @@ const Profile = (props) => {
 	const [ comment, setComment ] = React.useState('');
 	const [ commentdone, setCommentsuccess ] = React.useState(false);
 	const [ readytocomment, setReadytoComment ] = React.useState('');
+	const [ openSignin, setOpenSignin ] = React.useState(false);
 	const [ comments, setComments ] = React.useState([]);
 
 	let weblink = '';
@@ -70,7 +73,7 @@ const Profile = (props) => {
 		e.preventDefault();
 		const token = Cookies.get('session-id');
 		if (!token) {
-			setReadytoComment(false);
+			setOpenSignin(true);
 			return;
 		}
 		if (comment) {
@@ -101,9 +104,7 @@ const Profile = (props) => {
 				);
 		}
 	};
-	if (readytocomment === false) {
-		return <Redirect to='/signin' />;
-	} else if (product.name) {
+	if (product.name) {
 		return (
 			<div className='productdetails-container'>
 				<Grid container component='main'>
@@ -219,6 +220,9 @@ const Profile = (props) => {
 						</div>
 					</Grid>
 				</Grid>
+				<Popup title='Signin' openPopup={openSignin} setOpenPopup={setOpenSignin}>
+					<SignIn openSignin={openSignin} setOpenSignin={setOpenSignin} />
+				</Popup>
 				{/* <Footer2 /> */}
 			</div>
 		);

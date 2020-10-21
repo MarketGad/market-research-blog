@@ -104,8 +104,6 @@ export default function SignIn (props) {
 				}}
 			/>
 		);
-	} else if (loginsuccess) {
-		return <Redirect to='/' />;
 	} else {
 		return (
 			<div>

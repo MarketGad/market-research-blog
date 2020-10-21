@@ -81,7 +81,13 @@ const Navbar = () => {
 		if (!cookie) {
 			return (
 				<li>
-					<Link to='/signin'>Login</Link>
+					<Link
+						onClick={() => {
+							setOpenSignin(true);
+						}}
+					>
+						Login
+					</Link>
 				</li>
 			);
 		} else {
@@ -286,7 +292,7 @@ const Navbar = () => {
 					{showmobile()}
 				</ul>
 				<Popup title='Signin' openPopup={openSignin} setOpenPopup={setOpenSignin}>
-					<VerifyOtp openSignin={openSignin} setOpenSignin={setOpenSignin} />
+					<SignIn openSignin={openSignin} setOpenSignin={setOpenSignin} />
 				</Popup>
 			</div>
 		);

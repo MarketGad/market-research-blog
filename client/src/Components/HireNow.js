@@ -1,6 +1,8 @@
 import React from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
+import SignIn from '../Screens/signin';
+import Popup from '../Components/Popup';
 import { Redirect } from 'react-router-dom';
 
 function loadScript (src) {
@@ -18,7 +20,7 @@ function loadScript (src) {
 }
 const __DEV__ = document.domain === 'localhost';
 const HireNow = (props) => {
-	const [ readytohire, setReadytohire ] = React.useState('');
+	const [ openSignin, setOpenSignin ] = React.useState(false);
 	// const [ paymentsuccess, setpaymentsuccess ] = React.useState('');
 	const token = Cookies.get('session-id');
 	const hiresuccess = (id) => {
@@ -42,7 +44,7 @@ const HireNow = (props) => {
 	};
 	async function displayRazorpay () {
 		if (!token) {
-			setReadytohire(false);
+			setOpenSignin(true);
 			return;
 		}
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
@@ -78,21 +80,23 @@ const HireNow = (props) => {
 		const paymentObject = new window.Razorpay(options);
 		paymentObject.open();
 	}
-	if (readytohire === false) return <Redirect to='/signin' />;
-	else
-		return (
-			<div>
-				<a
-					onClick={displayRazorpay}
-					target='_blank'
-					rel='noopener noreferrer'
-					className='waves-effect waves-light btn-small hirenow-btn'
-					style={{ marginTop: '2%' }}
-				>
-					Hire Now
-				</a>
-			</div>
-		);
+
+	return (
+		<div>
+			<a
+				onClick={displayRazorpay}
+				target='_blank'
+				rel='noopener noreferrer'
+				className='waves-effect waves-light btn-small hirenow-btn'
+				style={{ marginTop: '2%' }}
+			>
+				Hire Now
+			</a>
+			<Popup title='Signin' openPopup={openSignin} setOpenPopup={setOpenSignin}>
+				<SignIn openSignin={openSignin} setOpenSignin={setOpenSignin} />
+			</Popup>
+		</div>
+	);
 };
 
 export default HireNow;

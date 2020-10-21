@@ -13,6 +13,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { Redirect } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import SignIn from '../Screens/signin';
+import Popup from '../Components/Popup';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -59,6 +61,7 @@ const categories = [
 export default function JobForm () {
 	const classes = useStyles();
 	const LoginCheck = Cookies.get('session-id');
+	const [ openSignin, setOpenSignin ] = React.useState(false);
 	const [ fileInputState, setFileInputState ] = React.useState('');
 	const [ previewSource, setPreviewSource ] = React.useState('');
 	const [ RegisterJobSuccess, setRegisterJobSuccess ] = React.useState(false);
@@ -83,6 +86,10 @@ export default function JobForm () {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		const token = Cookies.get('session-id');
+		if (!token) {
+			setOpenSignin(true);
+			return;
+		}
 		const config = {
 			headers: {
 				Authorization: `Bearer  ${token}`
@@ -119,9 +126,7 @@ export default function JobForm () {
 				}
 			);
 	};
-	if (!LoginCheck) {
-		return <Redirect to='/signup' />;
-	} else if (RegisterJobSuccess) {
+	if (RegisterJobSuccess) {
 		return <Redirect to='/jobs' />;
 	} else {
 		return (
@@ -242,6 +247,9 @@ export default function JobForm () {
 						</div>
 					</Container>
 				</div>
+				<Popup title='Signin' openPopup={openSignin} setOpenPopup={setOpenSignin}>
+					<SignIn openSignin={openSignin} setOpenSignin={setOpenSignin} />
+				</Popup>
 			</div>
 		);
 	}
