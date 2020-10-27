@@ -46,8 +46,6 @@ export default function SignIn (props) {
 	const [ openSignup, setOpenSignup ] = useState(false);
 
 	const responseSuccessGoogle = (response) => {
-		console.log(response);
-		console.log(response.tokenId);
 		axios({
 			method: 'POST',
 			url: process.env.REACT_APP_BASEURL + '/api/user/googlelogin',
@@ -56,10 +54,10 @@ export default function SignIn (props) {
 			console.log(response);
 			if (response.data.success) {
 				Cookies.set('session-id', response.data['token']);
+				window.location.reload(false);
 				setOpenSignin(false);
 				setLoginsuccess(true);
 			}
-			// alert(`Welcome ${response.data.user.name}! You have been Successfully Signed In!`);
 		});
 	};
 
@@ -76,9 +74,9 @@ export default function SignIn (props) {
 			})
 			.then(
 				(response) => {
-					// console.log(response);
 					if (response.data.success) {
 						Cookies.set('session-id', response.data['token']);
+						window.location.reload(false);
 						setOpenSignin(false);
 						setLoginsuccess(true);
 					}

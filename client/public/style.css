@@ -6,7 +6,7 @@
 }
 
 * {
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Open Sans", sans-serif;
 }
 /* ------------input---------------- */
 
@@ -346,7 +346,7 @@ nav {
 
 .card-h {
 	height: 380px;
-	margin: .5% 6%;
+	margin: 0.5% 6%;
 }
 
 .featuredimg {
@@ -379,7 +379,7 @@ nav {
 
 .featured-right {
 	margin-top: 1em;
-	padding-left: '25px';
+	padding-left: "25px";
 	height: 350px;
 }
 
@@ -743,11 +743,8 @@ nav {
 }
 
 .product-container {
-	border-radius: 3px;
-	margin: 0 2px;
-	padding: 5px 10px;
-	border: none;
-	border-bottom: 1px solid #ddd;
+	border-radius: 7px;
+	background-color: white;
 }
 .comment-container {
 	max-height: 5em;
@@ -763,7 +760,7 @@ nav {
 	padding: 10px 0;
 	font-size: 2.4em;
 	font-weight: 800;
-	line-height: .5em;
+	line-height: 0.5em;
 }
 .product-subhead {
 	font-size: 1.9em;
@@ -799,7 +796,7 @@ nav {
 	border-radius: 3px;
 	cursor: pointer;
 	text-align: center;
-	top: 5px !important;
+	top: 10px !important;
 	background-color: #fdfafa;
 	color: #ff9529;
 }
@@ -809,7 +806,7 @@ nav {
 	cursor: pointer;
 	text-align: center;
 	color: #080808d9;
-	top: 5px !important;
+	top: 10px !important;
 }
 .upvote-container:hover {
 	background-color: #f3efef;
@@ -890,6 +887,163 @@ nav {
 .trending-product-left-container {
 	width: 83%;
 }
+/*--------------Login Success popup---------------*/
+.login-success1 {
+	font-size: 1.6em;
+	font-family: Bahnschrift;
+	color: darkblue;
+	padding: 10% 7% 7% 7%;
+	text-align: center;
+}
+.login-success2 {
+	font-size: 1.2em;
+	font-family: Bahnschrift;
+	color: #87879f;
+	margin-bottom: 5%;
+	padding: 0% 15% 0% 15%;
+}
+.btn-small-burn {
+	background-color: #1e4a72;
+	color: white;
+	border: none;
+	border-radius: 9px;
+	padding: 0% 4% 0% 4%;
+	margin: 0% 33% 7% 33%;
+	font-weight: bold;
+	font-size: 19px;
+}
+.btn-small-1 {
+	background-color: white;
+	margin: 0 16%;
+	margin-bottom: 5%;
+	padding-left: 3%;
+	padding-right: 3%;
+	color: darkblue;
+	border: rgb(236, 234, 234);
+	font-weight: bold;
+	border-radius: 15px;
+	border-style: inset;
+}
+.btn-small-2 {
+	background-color: white;
+	margin-bottom: 5%;
+	margin: 0 16%;
+	border-style: inset;
+	padding-left: 2%;
+	padding-right: 2%;
+	color: darkblue;
+	border: rgb(209, 208, 208);
+	font-weight: bold;
+	border-radius: 15px;
+	border-style: inset;
+}
+
+/*----------------------Bazaar------------------------*/
+.logo-gold {
+	padding: 3% 0 2% 0;
+}
+.bazaar-bkgrd {
+	background-image: url("https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1603347962/Theme/Background_gprpm8.jpg");
+	background-size: 100%;
+}
+.baz {
+	font-size: 1.3em;
+	font-family: 'Lato', sans-serif;
+	color: white;
+	padding: 10px;
+}
+.enter-button {
+	margin: 2% 0;
+	font-size: 1em;
+	background-color: white;
+	color: rgb(1, 1, 97);
+	font-weight: 800;
+	border-radius: 5px;
+	padding: 0 20px;
+}
+.enter-button:hover {
+	background-color: rgb(236, 218, 183);
+}
+/*----------------------GetOtp---------------------------*/
+.otp-body {
+	background-color: white;
+}
+.otp-input-part {
+	margin: 0 33%;
+}
+.otp-t1 {
+	font-size: 1.6em;
+	text-align: center;
+	font-family: Bahnschrift;
+	color: darkblue;
+	padding: 0% 10% 3% 10%;
+}
+.otp-t2 {
+	font-size: 1.4em;
+	font-family: Bahnschrift;
+	text-align: center;
+	color: #87879f;
+	margin-bottom: 2%;
+	padding: 0% 17% 0% 17%;
+}
+.otp-t3 {
+	font-size: 1.4em;
+	font-family: Bahnschrift;
+	color: #87879f;
+	padding: 2% 17%;
+}
+/*-----------------form experience-------------------------------*/
+.exp-cont {
+	background-color: white;
+} /*also used in burn coins error*/
+
+.exp-p1 {
+	font-size: 1.4em;
+	font-family: Bahnschrift;
+	color: darkblue;
+	padding: 2% 0 0 0;
+	text-align: center;
+}
+.exp-p2 {
+	font-size: 1.2em;
+	font-family: Bahnschrift;
+	color: #87879f;
+	margin-bottom: 5%;
+	padding: 3% 0 0 0;
+	text-align: center;
+}
+/*---------burn coin error------------*/
+.burncoinerr1 {
+	font-size: 1.6em;
+	font-family: 'Lato', sans-serif;
+	font-weight: 600;
+	color: darkblue;
+	text-align: center;
+	margin: 6% 0;
+}
+
+.burncoinerr3 {
+	font-size: 1.3em;
+	font-weight: 600;
+	font-family: 'Lato', sans-serif;
+	color: #87879f;
+}
+.burn-err-button {
+	margin: 10% 0;
+	background-color: #1e4a72;
+	color: white;
+	font-family: 'Lato', sans-serif;
+	border-radius: 8px;
+	font-weight: 800;
+	font-size: 1.05em;
+}
+.burn-err-button:hover {
+	background-color: rgb(231, 225, 225);
+	color: #1e4a72;
+}
+.divider-popup {
+	border-right: 2px solid #ebebf7;
+}
 /* -----community----------- */
 .trend-desc {
 	font-size: 1.05em;
@@ -940,7 +1094,10 @@ nav {
 .job-page-head {
 	font-size: 1.8em;
 	font-weight: 800;
-	padding-top: 2em;
+	padding-top: 10px;
+}
+.filter-field {
+	width: 25%;
 }
 /* ----------------alert-------------- */
 .alert {
@@ -982,6 +1139,31 @@ nav {
 */
 
 @media only screen and (max-width: 1024px) {
+	.product-job-page-container {
+		margin: 0 1%;
+	}
+
+	.comment-box {
+		margin-top: 8px;
+		float: right;
+		margin-right: 7%;
+	}
+	.product-desc {
+		padding-right: 10%;
+	}
+	.post-container {
+		margin: 0 2%;
+	}
+	.container {
+		margin-right: 5%;
+		margin-left: 5%;
+		width: auto;
+	}
+	.otpComp {
+		text-align: center;
+		margin: 0 0 0 0;
+	}
+	/* .slider .slides .active .mobile1{
 	.product-job-page-container {
 		margin: 0 1%;
 	}
@@ -1048,6 +1230,9 @@ nav {
 	}
 	.post-container {
 		margin: 0 2%;
+	}
+	.otp-input-part {
+		margin: 0 10%;
 	}
 }
 
@@ -1371,11 +1556,9 @@ nav {
 		display: none;
 	}
 	.upvote-container {
-		top: 5px !important;
 		right: 5px !important;
 	}
 	.upvote-container-active {
-		top: 5px !important;
 		right: 5px !important;
 	}
 	.details-page-logo {
@@ -1462,6 +1645,25 @@ nav {
 	.signinform-container {
 		padding-left: 0 !important;
 		padding: 10px;
+	}
+	.otp-input-part {
+		margin: 0 10%;
+	}
+	.otp-t1 {
+		font-size: 1.7em;
+		padding: 0;
+	}
+	.otp-t2 {
+		font-size: 1.3em;
+		padding: 15px 0;
+	}
+	.otp-t3 {
+		font-size: 1.3em;
+		padding: 15px 0;
+	}
+	/* ---jobs---- */
+	.filter-field {
+		width: 40%;
 	}
 }
 @media only screen and (max-width: 280px) {

@@ -74,6 +74,15 @@ const Industry = () => {
 			postBrief:
 				'Earlier the Indian warehousing industry, which was dominated by unorganised players,is slowly see increased participation from organised players.',
 			postLink: '/i1008'
+		},
+		{
+			postName: 'Impact of Covid 19 on Agriculture Sector In India',
+			postImage:
+				'https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1603447653/Articles%20Photos/Industry/farmers-759_xkoi6v.jpg',
+			key: '9',
+			postBrief:
+				"Agriculture contributes over 17% of India's GDP. Agriculture is the primary source oflivelihoods in India with its allied industries. For their livelihoods, 70 percent of ruralhouseholds still rely mainly on agriculture.",
+			postLink: '/i1009'
 		}
 	];
 	const showArticles = articles.length ? (

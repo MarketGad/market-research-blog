@@ -57,6 +57,36 @@ const categories = [
 		label: 'Internship'
 	}
 ];
+const industries = [
+	{
+		value: 'Software',
+		label: 'Software'
+	},
+	{
+		value: 'Operations',
+		label: 'Operations'
+	},
+	{
+		value: 'Marketing',
+		label: 'Marketing'
+	},
+	{
+		value: 'Finance',
+		label: 'Finance'
+	},
+	{
+		value: 'Engineering',
+		label: 'Engineering'
+	},
+	{
+		value: 'Product',
+		label: 'Product'
+	},
+	{
+		value: 'Other',
+		label: 'Other'
+	}
+];
 
 export default function JobForm () {
 	const classes = useStyles();
@@ -69,6 +99,7 @@ export default function JobForm () {
 	const [ weblink, setWeblink ] = React.useState('');
 	const [ jobtitle, setJobtitle ] = React.useState('');
 	const [ category, setCategory ] = React.useState(null);
+	const [ industry, setIndustry ] = React.useState(null);
 
 	const handleFileInputChange = (e) => {
 		const file = e.target.files[0];
@@ -103,7 +134,8 @@ export default function JobForm () {
 					companyName: name,
 					jobLink: weblink,
 					title: jobtitle,
-					type: category
+					type: category,
+					industry: industry
 				},
 				config
 			)
@@ -190,6 +222,24 @@ export default function JobForm () {
 											onChange={(e) => setCategory(e.target.value)}
 										>
 											{categories.map((option) => (
+												<MenuItem key={option.value} value={option.value}>
+													{option.label}
+												</MenuItem>
+											))}
+										</TextField>
+									</Grid>
+									<Grid item xs={12}>
+										<TextField
+											id='outlined-select-sector'
+											fullWidth
+											select
+											required
+											label='Options'
+											value={industry}
+											variant='outlined'
+											onChange={(e) => setIndustry(e.target.value)}
+										>
+											{industries.map((option) => (
 												<MenuItem key={option.value} value={option.value}>
 													{option.label}
 												</MenuItem>

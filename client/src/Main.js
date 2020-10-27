@@ -18,7 +18,7 @@ import Products from './Screens/Products';
 import Jobs from './Screens/Jobs';
 import CommunityForm from './Screens/CommunityForm';
 import JobForm from './Screens/JobForm';
-import RegisterForJobs from './Screens/RegisterForJobs';
+import EditProfile from './Screens/EditProfile';
 import I1001 from './Articles/industry/1001';
 import I1002 from './Articles/industry/1002';
 import I1003 from './Articles/industry/1003';
@@ -57,6 +57,7 @@ import {
 	fetchInternships,
 	fetchCommunityPosts
 } from './redux/ActionCreator';
+import i1009 from './Articles/industry/1009';
 
 const mapStateToProps = (state) => {
 	return {
@@ -155,11 +156,10 @@ class MainApp extends React.Component {
 							/>
 						)}
 					/>
-					<Route exact path='/profile' component={MyProfile} />
 					<Route exact path='/addjobs' component={JobForm} />
 					<Route exact path='/addtrend' component={CommunityForm} />
 					<Route exact path='/discounts' component={Discounts} />
-					<Route exact path='/registerforjobs' component={RegisterForJobs} />
+					<Route exact path='/editprofile' component={EditProfile} />
 					<Route exact path='/registerforproduct' component={RegisterForProduct} />
 					<Route exact path='/i1001' component={I1001} />
 					<Route exact path='/i1002' component={I1002} />
@@ -169,6 +169,7 @@ class MainApp extends React.Component {
 					<Route exact path='/i1006' component={I1006} />
 					<Route exact path='/i1007' component={I1007} />
 					<Route exact path='/i1008' component={I1008} />
+					<Route exact path='/i1009' component={i1009} />
 					<Route exact path='/s2001' component={S2001} />
 					<Route exact path='/s2002' component={S2002} />
 					<Route exact path='/s2003' component={S2003} />
@@ -183,6 +184,7 @@ class MainApp extends React.Component {
 					<Route exact path='/v3004' component={v3004} />
 					<Route exact path='/v3005' component={v3005} />
 					{/* <Route exact path='/verifyotp' component={VerifyOtp} /> */}
+					<Route exact path='/profile/:profile_id' component={MyProfile} />
 					<Route
 						exact
 						path='/products/:product_id'

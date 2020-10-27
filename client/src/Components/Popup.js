@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Popup (props) {
-	const { children, openPopup, setOpenPopup } = props;
+	const { children, openPopup, setOpenPopup, noClose } = props;
 	const classes = useStyles();
 	return (
 		<Dialog
@@ -22,16 +22,19 @@ export default function Popup (props) {
 			maxWidth='md'
 			classes={{ paper: classes.dialogWrapper }}
 		>
-			<div style={{ textAlign: 'end' }}>
-				<Controls.ActionButton
-					onClick={() => {
-						setOpenPopup(false);
-					}}
-				>
-					<CloseIcon />
-				</Controls.ActionButton>
-			</div>
-			<DialogContent>{children}</DialogContent>
+			{!noClose && (
+				<div style={{ textAlign: 'end' }}>
+					<Controls.ActionButton
+						onClick={() => {
+							setOpenPopup(false);
+						}}
+					>
+						<CloseIcon />
+					</Controls.ActionButton>
+				</div>
+			)}
+
+			<DialogContent style={{ padding: '0' }}>{children}</DialogContent>
 		</Dialog>
 	);
 }

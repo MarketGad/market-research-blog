@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
 import AccountIcon from '@material-ui/icons/AccountCircle';
 import logo from './Favicon.jpg';
-// import axios from 'axios';
 import { Redirect, Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import ReputationPoint from './ReputaionPoints';
 import SignIn from '../Screens/signin';
 import Popup from '../Components/Popup';
-import VerifyOtp from '../Screens/VerifyOtp';
-
+import FormPassion from './FormPassion';
 const Navbar = () => {
 	const [ redirect, setRedirect ] = React.useState(false);
 	const [ reputation, setReputation ] = React.useState('');
 	const [ user, setUser ] = React.useState('');
 	const [ openSignin, setOpenSignin ] = React.useState(false);
+	const [ openJobprofile, setOpenjobprofile ] = React.useState(false);
 	/*----------------------------conditional rendering of user name-----------------------------------*/
 	const removecookie = () => {
-		Cookies.remove('session-id');
 		setReputation('');
+		setUser('');
+		Cookies.remove('session-id');
 	};
 	const loadUser = async () => {
 		const cookie = Cookies.get('session-id');
@@ -62,13 +62,7 @@ const Navbar = () => {
 						</Link>
 					</li>
 					<li>
-						<Link
-							style={{ color: 'white', fontSize: '1em' }}
-							to={{
-								pathname: 'profile',
-								state: { user: user }
-							}}
-						>
+						<Link style={{ color: 'white', fontSize: '1em' }} to={`profile/${user._id}`}>
 							My Profile
 						</Link>
 					</li>
@@ -94,14 +88,7 @@ const Navbar = () => {
 			return (
 				<div>
 					<li>
-						<Link
-							to={{
-								pathname: 'profile',
-								state: { user: user }
-							}}
-						>
-							My Profile
-						</Link>
+						<Link to={`profile/${user._id}`}>My Profile</Link>
 					</li>
 					<li>
 						<Link to='/' onClick={removecookie}>
@@ -112,7 +99,12 @@ const Navbar = () => {
 			);
 		}
 	};
-
+	const jobprofileopen = () => {
+		const cookie = Cookies.get('session-id');
+		if (cookie) {
+			setOpenjobprofile(true);
+		} else setOpenSignin(true);
+	};
 	/*---------------------------------------------------------------------------------------------------*/
 
 	if (redirect) {
@@ -135,7 +127,6 @@ const Navbar = () => {
 									alt='logo-mob'
 								/>
 							</Link>
-							{loadUser}
 							<a className='right sidenav-trigger'>
 								{reputation && <ReputationPoint ReputationPoint={reputation} />}
 							</a>
@@ -143,7 +134,11 @@ const Navbar = () => {
 								<li>
 									<Link
 										to='/industry'
-										style={{ color: 'white', fontSize: '1.1em', paddingLeft: '25px' }}
+										style={{
+											color: 'white',
+											fontSize: '1.1em',
+											paddingLeft: '25px'
+										}}
 									>
 										Industry
 									</Link>
@@ -151,7 +146,11 @@ const Navbar = () => {
 								<li>
 									<Link
 										to='/startup'
-										style={{ color: 'white', fontSize: '1.1em', paddingLeft: '25px' }}
+										style={{
+											color: 'white',
+											fontSize: '1.1em',
+											paddingLeft: '25px'
+										}}
 									>
 										Start-ups
 									</Link>
@@ -159,7 +158,11 @@ const Navbar = () => {
 								<li>
 									<Link
 										to='/venturehack'
-										style={{ color: 'white', fontSize: '1.1em', paddingLeft: '25px' }}
+										style={{
+											color: 'white',
+											fontSize: '1.1em',
+											paddingLeft: '25px'
+										}}
 									>
 										Venture Hacks
 									</Link>
@@ -204,11 +207,25 @@ const Navbar = () => {
 											data-target='account-dropdown'
 										>
 											{reputation && <ReputationPoint ReputationPoint={reputation} />}
-											<AccountIcon
-												fontSize='large'
-												className='nav-icon'
-												style={{ verticalAlign: 'middle' }}
-											/>
+											{user.profilePic && (
+												<img
+													width='30px'
+													style={{
+														margin: '0 10px',
+														position: 'relative',
+														verticalAlign: 'middle',
+														borderRadius: '50%'
+													}}
+													src={user.profilePic}
+												/>
+											)}
+											{(!user || !user.profilePic) && (
+												<AccountIcon
+													fontSize='large'
+													className='nav-icon'
+													style={{ verticalAlign: 'middle' }}
+												/>
+											)}
 										</div>
 									</li>
 								</ul>
@@ -224,7 +241,7 @@ const Navbar = () => {
 							</Link>
 						</li>
 						<li>
-							<Link to='/registerforjobs' style={{ color: 'white', fontSize: '1em' }}>
+							<Link onClick={jobprofileopen} style={{ color: 'white', fontSize: '1em' }}>
 								Add job profile
 							</Link>
 						</li>
@@ -252,7 +269,7 @@ const Navbar = () => {
 						</Link>
 					</li>
 				</ul>
-				<ul className='sidenav' id='mobile-demo'>
+				<ul className='sidenav sidenav-close' id='mobile-demo'>
 					<li>
 						<Link to='/'>Home</Link>
 					</li>
@@ -284,7 +301,7 @@ const Navbar = () => {
 						<Link to='/registerforproduct'>Add product</Link>
 					</li>
 					<li>
-						<Link to='/registerforjobs'>Add job profile</Link>
+						<Link onClick={jobprofileopen}>Add job profile</Link>
 					</li>
 					<li>
 						<Link to='/addjobs'>Add jobs/interships</Link>
@@ -293,6 +310,9 @@ const Navbar = () => {
 				</ul>
 				<Popup title='Signin' openPopup={openSignin} setOpenPopup={setOpenSignin}>
 					<SignIn openSignin={openSignin} setOpenSignin={setOpenSignin} />
+				</Popup>
+				<Popup openPopup={openJobprofile} setOpenPopup={setOpenjobprofile}>
+					<FormPassion openJobprofile={openJobprofile} setOpenjobprofile={setOpenjobprofile} />
 				</Popup>
 			</div>
 		);

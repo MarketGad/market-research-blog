@@ -57,97 +57,93 @@ const ProductList = (props) => {
 		};
 
 		return (
-			<div>
-				<ul className='collection product-container'>
-					<li className='collection-item avatar'>
-						<Link to={`products/${product._id}`}>
-							<img className='circle pro-img' src={product.logo} alt={product.name} />
-						</Link>
+			<li className='collection-item avatar'>
+				<Link to={`products/${product._id}`}>
+					<img className='circle pro-img' src={product.logo} alt={product.name} />
+				</Link>
 
-						<div className='product-right-container'>
-							<Link
-								style={{ color: 'black' }}
-								className='product-content product-name'
-								to={`products/${product._id}`}
+				<div className='product-right-container'>
+					<Link
+						style={{ color: 'black' }}
+						className='product-content product-name'
+						to={`products/${product._id}`}
+					>
+						{product.name}
+					</Link>
+					<div className='product-desc'>{product.briefDescription}</div>
+					<div className='row product-link-container'>
+						<div className='col l1 s3 comment-box'>
+							<a
+								target='_blank'
+								rel='noopener noreferrer'
+								href={weblink}
+								className='waves-effect waves-light btn-small visit-btn'
 							>
-								{product.name}
-							</Link>
-							<div className='product-desc'>{product.briefDescription}</div>
-							<div className='row product-link-container'>
-								<div className='col l1 s3 comment-box'>
-									<a
-										target='_blank'
-										rel='noopener noreferrer'
-										href={weblink}
-										className='waves-effect waves-light btn-small visit-btn'
-									>
-										{/* <span className='comment-count'>visit</span> */}
-										<span
-											className='material-icons chat-icon'
-											style={{
-												position: 'relative',
-												padding: '0 5px',
-												fontSize: '16px'
-											}}
-										>
-											near_me
-										</span>
-									</a>
-								</div>
-								<div className='col l2 s4 comment-box'>
-									<Link
-										to={`products/${product._id}`}
-										className='waves-effect waves-light btn-small visit-btn'
-									>
-										<span className='comment-count'>{product.comments.length}</span>
-										<span
-											className='material-icons chat-icon'
-											style={{
-												position: 'relative',
-												padding: '0 5px',
-												fontSize: '16px'
-											}}
-										>
-											chat
-										</span>
-									</Link>
-								</div>
-							</div>
-							{product.upvotesList.includes(user_id) && (
-								<div id='upvote-count' className='secondary-content upvote-container-active'>
-									<i className='medium upvote-icon material-icons'>arrow_drop_up</i>
-									<br />
-									<span className='upvote-count upvote-count-active'>{upvote}</span>
-								</div>
-							)}
-							{activeupvote === true && (
-								<div id='upvote-count' className='secondary-content upvote-container-active'>
-									<i className='medium upvote-icon material-icons'>arrow_drop_up</i>
-									<br />
-									<span className='upvote-count upvote-count-active'>{upvote}</span>
-								</div>
-							)}
-							{(!product.upvotesList.includes(user_id) || !token) &&
-							activeupvote === false && (
-								<div
-									onClick={() => addUpvote(product._id, product)}
-									className='secondary-content upvote-container'
+								{/* <span className='comment-count'>visit</span> */}
+								<span
+									className='material-icons chat-icon'
+									style={{
+										position: 'relative',
+										padding: '0 5px',
+										fontSize: '16px'
+									}}
 								>
-									<i className='medium upvote-icon material-icons'>arrow_drop_up</i>
-									<br />
-									<span className='upvote-count'>{upvote}</span>
-								</div>
-							)}
+									near_me
+								</span>
+							</a>
+						</div>
+						<div className='col l2 s4 comment-box'>
+							<Link
+								to={`products/${product._id}?q=comment`}
+								className='waves-effect waves-light btn-small visit-btn'
+							>
+								<span className='comment-count'>{product.comments.length}</span>
+								<span
+									className='material-icons chat-icon'
+									style={{
+										position: 'relative',
+										padding: '0 5px',
+										fontSize: '16px'
+									}}
+								>
+									chat
+								</span>
+							</Link>
+						</div>
+					</div>
+					{product.upvotesList.includes(user_id) && (
+						<div id='upvote-count' className='secondary-content upvote-container-active'>
+							<i className='medium upvote-icon material-icons'>arrow_drop_up</i>
+							<br />
+							<span className='upvote-count upvote-count-active'>{upvote}</span>
+						</div>
+					)}
+					{activeupvote === true && (
+						<div id='upvote-count' className='secondary-content upvote-container-active'>
+							<i className='medium upvote-icon material-icons'>arrow_drop_up</i>
+							<br />
+							<span className='upvote-count upvote-count-active'>{upvote}</span>
+						</div>
+					)}
+					{(!product.upvotesList.includes(user_id) || !token) &&
+					activeupvote === false && (
+						<div
+							onClick={() => addUpvote(product._id, product)}
+							className='secondary-content upvote-container'
+						>
+							<i className='medium upvote-icon material-icons'>arrow_drop_up</i>
+							<br />
+							<span className='upvote-count'>{upvote}</span>
+						</div>
+					)}
 
-							{/* {product.comments.length > 0 && (
+					{/* {product.comments.length > 0 && (
 								<div className='comment-container'>
 									<ShowComment comment={product.comments[0]} />
 								</div>
 							)} */}
-						</div>
-					</li>
-				</ul>
-			</div>
+				</div>
+			</li>
 		);
 	};
 
@@ -164,8 +160,12 @@ const ProductList = (props) => {
 
 	return (
 		<div>
-			<div style={{ backgroundColor: 'white', borderRadius: '10px' }}>
-				{props.products && <div>{showProducts}</div>}
+			<div style={{ backgroundColor: 'white' }}>
+				{props.products.length > 0 && (
+					<div>
+						<ul className='collection product-container'>{showProducts}</ul>
+					</div>
+				)}
 				{props.products.length === 0 && (
 					<div>
 						<FadingLoader loadno={5} />

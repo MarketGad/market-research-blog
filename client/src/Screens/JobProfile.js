@@ -60,7 +60,7 @@ const JobProfile = (props) => {
 					<Grid item xs={12} md={3}>
 						<div style={{ textAlign: 'center' }}>
 							<img
-								src={UserProfile.profilePic}
+								src={UserProfile.profilePic || UserProfile.user.profilePic}
 								alt={UserProfile.user.firstname}
 								style={{ width: '200px', height: '200px', borderRadius: '7px' }}
 							/>

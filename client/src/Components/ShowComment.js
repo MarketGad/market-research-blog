@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 const ShowComment = (props) => {
 	const comment = props.comment;
 	const author = props.comment.author;
-	console.log(author);
+	const profilePic = author.profilePic
+		? author.profilePic
+		: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQiUY7RQ-eUe_fmk6--gEvDXvallGC7ZA7suQ&usqp=CAU';
+
 	if (comment) {
 		return (
 			<div>
@@ -17,19 +20,13 @@ const ShowComment = (props) => {
 						}}
 					>
 						<img
-							src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQiUY7RQ-eUe_fmk6--gEvDXvallGC7ZA7suQ&usqp=CAU'
-							alt=''
+							src={profilePic}
+							alt={comment.author.firstname}
 							className='circle'
 							style={{ left: '5px' }}
 						/>
 						<div className='title'>
-							<Link
-								style={{ color: 'black' }}
-								to={{
-									pathname: '/profile',
-									state: { user: author }
-								}}
-							>
+							<Link style={{ color: 'black' }} to={`/profile/${author._id}`}>
 								<b>
 									{comment.author.firstname} {comment.author.lastname}
 								</b>

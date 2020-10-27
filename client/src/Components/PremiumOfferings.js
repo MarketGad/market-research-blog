@@ -1,12 +1,16 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core';
+import Cookies from 'js-cookie';
+import ThreeDotLoad from './ThreeDotLoad';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		'& .MuiTextField-root': {
-			margin: theme.spacing(1),
-			width: '20ch'
+			margin: theme.spacing(1)
 		},
 		paper: {
 			marginTop: theme.spacing(0),
@@ -14,103 +18,176 @@ const useStyles = makeStyles((theme) => ({
 			flexDirection: 'column',
 			alignItems: 'center'
 		},
-		avatar: {
-			color: '#080808d9',
-			backgroundColor: 'transparent',
-			fontSize: '48vw'
-		},
 		form: {
 			width: '100%', // Fix IE 11 issue.
-			marginTop: theme.spacing(0)
-		},
-		submit: {
-			margin: theme.spacing(2, 0, 2)
+			margin: theme.spacing(1)
 		}
 	}
 }));
 
-export default function PremiumOfferings () {
+export default function PremiumOfferings (props) {
 	const classes = useStyles();
-
-	return (
-		<div>
-			<div className='row'>
-				<div
-					className='col l6 s12'
-					style={{
-						backgroundColor: 'white',
-						height:
-							'300px' /*, borderRight:'2px solid #87879f' ,borderTopLeftRadius:'20px', borderBottomLeftRadius:'20px' */
-					}}
-				>
-					<p style={{ textAlign: 'center' }}>
-						<img
-							width='80%'
-							src={
-								'https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1602422660/Theme/Photo1_bhaduk.png'
-							}
-						/>
-					</p>
+	const { skills, location, experience, qualification, passionate, portfolio, linkedIn, experienceyears } = props;
+	const [ RegisterJobSuccess, setRegisterJobSuccess ] = React.useState(false);
+	const [ load, setLoad ] = React.useState('');
+	const [ service, setService ] = React.useState('');
+	const [ price, setPrice ] = React.useState('');
+	const [ deliverytime, setDeliverytime ] = React.useState('');
+	const [ OfferingDetails, setOfferingDetail ] = React.useState('');
+	const submithandler = (e) => {
+		e.preventDefault();
+		const token = Cookies.get('session-id');
+		const config = {
+			headers: {
+				Authorization: `Bearer  ${token}`
+			}
+		};
+		const data = {
+			skills: skills,
+			location: location,
+			experience: experience,
+			qualification: qualification,
+			passionateAbout: passionate,
+			portfolioLink: portfolio,
+			linkedIn: linkedIn,
+			experienceyears: experienceyears,
+			serviceName: service,
+			offeringPrice: price,
+			offeringDetails: OfferingDetails,
+			deliverytime: deliverytime
+		};
+		setLoad(true);
+		axios.post(process.env.REACT_APP_BASEURL + '/api/jobprofiles', data, config).then(
+			(response) => {
+				if (response.status === 200) {
+					setRegisterJobSuccess(true);
+					setLoad(false);
+					window.location.reload(false);
+				} else {
+					alert(response.err);
+				}
+			},
+			(error) => {
+				if (error.message === 'Request failed with status code 413') {
+					alert('upload photo size should be less than 500kb');
+				} else {
+					alert('One user can register once');
+					window.location.reload(false);
+				}
+			}
+		);
+	};
+	if (RegisterJobSuccess) {
+		return <Redirect to='/' />;
+	} else if (load === true) {
+		return (
+			<div style={{ textAlign: 'center', padding: '10%' }}>
+				<ThreeDotLoad />
+			</div>
+		);
+	} else {
+		return (
+			<div className='row' style={{ padding: '20px' }}>
+				<div className='col l6 s12 center'>
+					<img
+						width='80%'
+						src={
+							'https://res.cloudinary.com/marketgaddevcloud1/image/upload/v1602422660/Theme/Photo1_bhaduk.png'
+						}
+					/>
 				</div>
 
-				<div
-					className='col l6 s12'
-					style={{
-						backgroundColor: 'white',
-						height: '300px' /*,borderTopRightRadius:'20px',borderBottomRightRadius:'20px'*/
-					}}
-				>
+				<div className='col l6 s12'>
 					<div
 						className='center'
 						style={{
+							paddingBottom: '4%',
 							fontSize: '1.4em',
+							fontWeight: '600',
 							fontFamily: 'Bahnschrift',
-							color: 'darkblue',
-							padding: '3% 15% 3% 0%'
+							color: 'darkblue'
 						}}
 					>
 						What's your premium offering?
 					</div>
-					<form className={classes.root} noValidate autoComplete='off'>
-						<div>
-							<TextField id='service' label='Service Offered' type='text' variant='outlined' />
-							<TextField id='delivery' label='Delivery Time' type='text' variant='outlined' />
-							<TextField id='offering' label='Details of Offering' type='text' variant='outlined' />
-							<TextField id='price' label='Price' type='numeric' variant='outlined' />
+					<form className={classes.form} Validate onSubmit={submithandler}>
+						<Grid container spacing={2}>
+							<Grid item xs={12} sm={6}>
+								<TextField
+									required
+									fullWidth
+									id='service'
+									label='Service Offered'
+									type='text'
+									variant='outlined'
+									value={service}
+									onChange={(e) => setService(e.target.value)}
+								/>
+							</Grid>
+							<Grid item xs={12} sm={6}>
+								<TextField
+									fullWidth
+									id='delivery'
+									label='Delivery Time'
+									type='text'
+									variant='outlined'
+									value={deliverytime}
+									onChange={(e) => setDeliverytime(e.target.value)}
+								/>
+							</Grid>
+							<Grid item xs={12} sm={6}>
+								<TextField
+									required
+									fullWidth
+									id='offering'
+									label='Details of Offering'
+									type='text'
+									variant='outlined'
+									value={OfferingDetails}
+									onChange={(e) => setOfferingDetail(e.target.value)}
+								/>
+							</Grid>
+							<Grid item xs={12} sm={6}>
+								<TextField
+									required
+									fullWidth
+									id='price'
+									label='Price'
+									type='numeric'
+									variant='outlined'
+									value={price}
+									onChange={(e) => setPrice(e.target.value)}
+								/>
+							</Grid>
+						</Grid>
+						<div className='center' style={{ padding: '10px' }}>
+							<div>
+								<label>
+									<input required class='with-gap' name='group1' type='radio' />
+									<span>
+										I agree to all <a href='#'>Terms & Conditions </a>
+									</span>
+								</label>
+							</div>
+						</div>
+						<div className='center'>
+							<button
+								type='submit'
+								class='btn-small'
+								style={{
+									margin: '5%',
+									backgroundColor: '#1e4a72',
+									color: 'white',
+									borderRadius: '15px',
+									padding: '0 7%'
+								}}
+							>
+								Finish
+							</button>
 						</div>
 					</form>
-					<div className='center' style={{ paddingRight: '13%' }}>
-						<p>
-							<label>
-								<input
-									class='with-gap'
-									name='group1'
-									type='radio'
-									style={{ backgroundColor: 'white' }}
-								/>
-								<span>
-									I agree to all <a href='#'>Terms & Conditions </a>
-								</span>
-							</label>
-						</p>
-					</div>
-					<div className='center' style={{ paddingRight: '10%' }}>
-						<div
-							class='btn-small'
-							style={{
-								backgroundColor: '#1e4a72',
-								color: 'white',
-								border: 'none',
-								borderRadius: '15px',
-								paddingLeft: '7%',
-								paddingRight: '7%'
-							}}
-						>
-							Finish
-						</div>
-					</div>
 				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 }

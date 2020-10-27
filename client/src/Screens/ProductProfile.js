@@ -41,6 +41,7 @@ const Profile = (props) => {
 	const classes = useStyles();
 	const product = props.product;
 	const id = props.id;
+	const focusComment = props.focusComment;
 	const [ comment, setComment ] = React.useState('');
 	const [ commentdone, setCommentsuccess ] = React.useState(false);
 	const [ readytocomment, setReadytoComment ] = React.useState('');
@@ -190,16 +191,31 @@ const Profile = (props) => {
 											<form className={classes.form} onSubmit={submitHandler}>
 												<Grid container spacing={2}>
 													<Grid item xs={8}>
-														<TextField
-															fullWidth
-															id='outlined-textarea'
-															label='Comment'
-															placeholder='What’s cool about this?'
-															multiline
-															variant='outlined'
-															value={comment}
-															onChange={(e) => setComment(e.target.value)}
-														/>
+														{focusComment !== '' && (
+															<TextField
+																fullWidth
+																id='outlined-textarea'
+																label='Comment'
+																placeholder='What’s cool about this?'
+																multiline
+																autoFocus
+																variant='outlined'
+																value={comment}
+																onChange={(e) => setComment(e.target.value)}
+															/>
+														)}
+														{focusComment === '' && (
+															<TextField
+																fullWidth
+																id='outlined-textarea'
+																label='Comment'
+																placeholder='What’s cool about this?'
+																multiline
+																variant='outlined'
+																value={comment}
+																onChange={(e) => setComment(e.target.value)}
+															/>
+														)}
 													</Grid>
 													<Grid item xs={3}>
 														<Button
@@ -232,10 +248,9 @@ const Profile = (props) => {
 const ProductProfile = (props) => {
 	const classes = useStyles();
 	const id = props.match.params.product_id;
+	const focusComment = props.location.search;
 	const product = props.products.find((item) => item._id === id);
-	console.log(product);
-
-	return <Profile product={product === undefined ? [] : product} id={id} />;
+	return <Profile product={product === undefined ? [] : product} id={id} focusComment={focusComment} />;
 };
 
 export default ProductProfile;

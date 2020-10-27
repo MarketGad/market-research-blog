@@ -15,7 +15,7 @@ const CommunityTrend = (props) => {
 	const ProductCard = (props) => {
 		const product = props.product;
 		const weblink = props.weblink;
-		const [ upvote, setUpvote ] = React.useState(product.upvotes);
+		const [ upvote, setUpvote ] = React.useState(product.upvotes.length);
 		const [ activeupvote, setactiveupvote ] = React.useState(false);
 
 		const addUpvote = (product_id, product) => {
@@ -32,7 +32,7 @@ const CommunityTrend = (props) => {
 			if (product.upvotes.includes(token_info._id)) {
 				alert('already upvoted');
 			} else {
-				setUpvote(product.upvotes + 1);
+				setUpvote(product.upvotes.length + 1);
 				setactiveupvote(true);
 				axios
 					.post(
@@ -134,7 +134,7 @@ const CommunityTrend = (props) => {
 											}}
 											className='waves-effect waves-light btn-small black'
 										>
-											{product.hashtag ? product.hashtag : "#idea"}
+											{product.hashtag ? product.hashtag : '#idea'}
 										</span>
 									</div>
 								</div>
@@ -144,7 +144,9 @@ const CommunityTrend = (props) => {
 									<div id='upvote-count' className='secondary-content upvote-container-active'>
 										<i className='medium upvote-icon material-icons'>arrow_drop_up</i>
 										<br />
-										<span className='upvote-count upvote-count-active'>{product.upvotes.length}</span>
+										<span className='upvote-count upvote-count-active'>
+											{product.upvotes.length}
+										</span>
 									</div>
 								)}
 								{activeupvote === true && (
