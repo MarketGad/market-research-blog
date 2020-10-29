@@ -35,6 +35,37 @@ class Products extends React.Component {
         <h4>
           <a name="topprod"></a>
         </h4>
+        <div>
+          <div>
+            <div className="buttonContainer">
+              <button className="sidebar-button editorpick-button editorpickactive">
+                Editors's pick
+              </button>
+              <button className="sidebar-button latest-button">latest</button>
+            </div>
+            <div className="tabPanel editorpick-content">
+              <div className="row">
+                <div className="col s3">
+                  <div className="center">pic1</div>
+                </div>
+                <div className="col s9">
+                  <div>Lorem ipsum dolor sit amet sit libero.</div>
+                </div>
+              </div>
+            </div>
+            <div className="tabPanel latest-content">
+              <div className="row">
+                <div className="col s3">
+                  <div className="center">pic2</div>
+                </div>
+                <div className="col s9">
+                  <div>Lorem ipsum dolor sit amet libero.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="prod-cards">
           <div className="row" style={{ padding: "0 2%" }}>
             <div className="col s12 m6 l4 " style={{ padding: "0 1% 2% 1%" }}>
